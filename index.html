@@ -74,12 +74,10 @@
 
     .ticker-text {
       flex-shrink: 0;
-
       color: white;
       font-size: 10px;
       font-weight: bold;
       letter-spacing: 1px;
-
       padding-right: 40px;
     }
 
@@ -110,7 +108,8 @@
 
       border: 1px solid rgba(255,255,255,.15);
 
-      box-shadow: 0 8px 25px rgba(0,0,0,.7);
+      box-shadow:
+        0 8px 25px rgba(0,0,0,.7);
     }
 
     .hero-image img {
@@ -120,7 +119,7 @@
     }
 
     /* =========================
-       SÉPARATION ACCUEIL
+       SÉPARATION
     ========================= */
 
     .separator {
@@ -160,7 +159,8 @@
 
       border: 1px solid rgba(255,255,255,.18);
 
-      box-shadow: 0 8px 25px rgba(0,0,0,.65);
+      box-shadow:
+        0 8px 25px rgba(0,0,0,.65);
 
       cursor: pointer;
 
@@ -235,9 +235,7 @@
 
     .page {
       display: none;
-
       min-height: 100vh;
-
       padding: 15px 15px 100px;
     }
 
@@ -251,72 +249,28 @@
 
     .category-top {
       position: relative;
-
       min-height: 165px;
-
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     .category-page-title {
       position: absolute;
-
-      top: 52px;
+      top: 0;
       left: 5px;
 
       margin: 0;
-      padding: 8px 14px;
 
-      font-size: 20px;
+      padding: 8px 15px;
+
+      border-radius: 12px;
+
+      font-size: 22px;
       font-weight: 900;
       letter-spacing: 2px;
-
-      border-radius: 10px;
-
-      color: white;
-
-      background: rgba(10,10,10,.75);
     }
-
-    /* =========================
-       HASH 🔴
-    ========================= */
-
-    .hash-title {
-      border: 1px solid #e10606;
-
-      box-shadow:
-        0 0 10px rgba(225,6,6,.45);
-    }
-
-    /* =========================
-       WEED 🟢
-    ========================= */
-
-    .weed-title {
-      border: 1px solid #20d64a;
-
-      box-shadow:
-        0 0 10px rgba(32,214,74,.45);
-    }
-
-    /* =========================
-       C*KE 🔵
-    ========================= */
-
-    .cake-title {
-      border: 1px solid #42caff;
-
-      box-shadow:
-        0 0 10px rgba(66,202,255,.45);
-    }
-
-    /* =========================
-       LOGO CATÉGORIE
-    ========================= */
 
     .category-logo {
       position: absolute;
-
       top: 0;
       left: 50%;
 
@@ -332,24 +286,22 @@
 
       border: 1px solid rgba(255,255,255,.15);
 
-      box-shadow: 0 8px 25px rgba(0,0,0,.7);
+      box-shadow:
+        0 8px 25px rgba(0,0,0,.7);
     }
 
     .category-logo img {
       width: 100%;
       height: 100%;
-
       object-fit: contain;
     }
 
-    /* =========================
-       BOUTON RETOUR
-    ========================= */
+    /* RETOUR AU-DESSUS DE LA LIGNE */
 
-    .back-button-bottom {
-      display: block;
+    .back-button {
+      display: inline-block;
 
-      margin: 0 0 10px 0;
+      margin-top: 140px;
 
       padding: 9px 14px;
 
@@ -357,7 +309,7 @@
 
       background: rgba(10,10,10,.85);
 
-      border: 1px solid rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.18);
 
       color: white;
 
@@ -367,18 +319,24 @@
       cursor: pointer;
     }
 
-    .back-button-bottom:active {
-      transform: scale(.97);
-    }
-
-    /* =========================
-       LIGNE DE SÉPARATION
-    ========================= */
-
     .category-line {
       width: 100%;
       height: 1px;
 
+      margin-top: 12px;
+    }
+
+    /* =========================
+       COULEURS HASH
+    ========================= */
+
+    .hash-page .category-page-title {
+      color: #e10606;
+      border: 2px solid #e10606;
+      box-shadow: 0 0 12px rgba(225,6,6,.45);
+    }
+
+    .hash-page .category-line {
       background: linear-gradient(
         to right,
         transparent,
@@ -387,8 +345,72 @@
       );
 
       box-shadow: 0 0 8px rgba(225,6,6,.7);
+    }
 
-      margin-bottom: 18px;
+    .hash-page .product-price {
+      color: #e10606;
+    }
+
+    .hash-page .product-button {
+      background: #e10606;
+    }
+
+    /* =========================
+       COULEURS WEED
+    ========================= */
+
+    .weed-page .category-page-title {
+      color: #21c55d;
+      border: 2px solid #21c55d;
+      box-shadow: 0 0 12px rgba(33,197,93,.45);
+    }
+
+    .weed-page .category-line {
+      background: linear-gradient(
+        to right,
+        transparent,
+        #21c55d,
+        transparent
+      );
+
+      box-shadow: 0 0 8px rgba(33,197,93,.7);
+    }
+
+    .weed-page .product-price {
+      color: #21c55d;
+    }
+
+    .weed-page .product-button {
+      background: #21c55d;
+    }
+
+    /* =========================
+       COULEURS C*KE
+    ========================= */
+
+    .cake-page .category-page-title {
+      color: #38bdf8;
+      border: 2px solid #38bdf8;
+      box-shadow: 0 0 12px rgba(56,189,248,.45);
+    }
+
+    .cake-page .category-line {
+      background: linear-gradient(
+        to right,
+        transparent,
+        #38bdf8,
+        transparent
+      );
+
+      box-shadow: 0 0 8px rgba(56,189,248,.7);
+    }
+
+    .cake-page .product-price {
+      color: #38bdf8;
+    }
+
+    .cake-page .product-button {
+      background: #38bdf8;
     }
 
     /* =========================
@@ -397,10 +419,10 @@
 
     .products-grid {
       display: grid;
-
       grid-template-columns: repeat(2, minmax(0, 1fr));
-
       gap: 12px;
+
+      margin-top: 18px;
     }
 
     .product-card {
@@ -412,7 +434,8 @@
 
       border: 1px solid rgba(255,255,255,.16);
 
-      box-shadow: 0 8px 20px rgba(0,0,0,.6);
+      box-shadow:
+        0 8px 20px rgba(0,0,0,.6);
 
       transition: transform .2s ease;
     }
@@ -461,8 +484,6 @@
     .product-price {
       margin-bottom: 10px;
 
-      color: #e10606;
-
       font-size: 11px;
       font-weight: bold;
     }
@@ -474,8 +495,6 @@
 
       border: none;
       border-radius: 10px;
-
-      background: #e10606;
 
       color: white;
 
@@ -489,7 +508,7 @@
        AUTRES PAGES
     ========================= */
 
-    .page h1:not(.category-page-title) {
+    .page h1 {
       text-align: center;
       letter-spacing: 2px;
     }
@@ -521,7 +540,6 @@
 
     .bottom-menu {
       position: fixed;
-
       z-index: 100;
 
       bottom: 0;
@@ -569,7 +587,6 @@
   </style>
 </head>
 
-
 <body>
 
 <div class="app">
@@ -612,7 +629,6 @@
     <div class="categories">
 
       <div class="category-card" onclick="showPage('hash')">
-
         <div class="category-image">
           <span>+</span>
         </div>
@@ -620,12 +636,10 @@
         <div class="category-title">
           HASH
         </div>
-
       </div>
 
 
       <div class="category-card" onclick="showPage('weed')">
-
         <div class="category-image">
           <span>+</span>
         </div>
@@ -633,12 +647,10 @@
         <div class="category-title">
           WEED
         </div>
-
       </div>
 
 
       <div class="category-card last" onclick="showPage('cake')">
-
         <div class="category-image">
           <span>+</span>
         </div>
@@ -646,7 +658,6 @@
         <div class="category-title">
           C*KE
         </div>
-
       </div>
 
     </div>
@@ -658,25 +669,23 @@
        HASH
   ====================== -->
 
-  <div id="hash" class="page">
+  <div id="hash" class="page hash-page">
 
     <div class="category-top">
 
-      <h1 class="category-page-title hash-title">
+      <h1 class="category-page-title">
         HASH
       </h1>
 
       <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+        <img src="IMG_1527.jpeg">
       </div>
 
+      <button class="back-button" onclick="showPage('home')">
+        ← RETOUR
+      </button>
+
     </div>
-
-
-    <button class="back-button-bottom" onclick="showPage('home')">
-      ← RETOUR
-    </button>
-
 
     <div class="category-line"></div>
 
@@ -684,102 +693,46 @@
     <div class="products-grid">
 
       <div class="product-card">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
+        <div class="product-image"><span>+</span></div>
 
         <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 1
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button">
-            VOIR +
-          </button>
-
+          <div class="product-name">PRODUIT 1</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
         </div>
-
       </div>
 
 
       <div class="product-card">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
+        <div class="product-image"><span>+</span></div>
 
         <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 2
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button">
-            VOIR +
-          </button>
-
+          <div class="product-name">PRODUIT 2</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
         </div>
-
       </div>
 
 
       <div class="product-card">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
+        <div class="product-image"><span>+</span></div>
 
         <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 3
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button">
-            VOIR +
-          </button>
-
+          <div class="product-name">PRODUIT 3</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
         </div>
-
       </div>
 
 
       <div class="product-card">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
+        <div class="product-image"><span>+</span></div>
 
         <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 4
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button">
-            VOIR +
-          </button>
-
+          <div class="product-name">PRODUIT 4</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
         </div>
-
       </div>
 
     </div>
@@ -791,25 +744,23 @@
        WEED
   ====================== -->
 
-  <div id="weed" class="page">
+  <div id="weed" class="page weed-page">
 
     <div class="category-top">
 
-      <h1 class="category-page-title weed-title">
+      <h1 class="category-page-title">
         WEED
       </h1>
 
       <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+        <img src="IMG_1527.jpeg">
       </div>
 
+      <button class="back-button" onclick="showPage('home')">
+        ← RETOUR
+      </button>
+
     </div>
-
-
-    <button class="back-button-bottom" onclick="showPage('home')">
-      ← RETOUR
-    </button>
-
 
     <div class="category-line"></div>
 
@@ -817,52 +768,24 @@
     <div class="products-grid">
 
       <div class="product-card">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
+        <div class="product-image"><span>+</span></div>
 
         <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 1
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button">
-            VOIR +
-          </button>
-
+          <div class="product-name">PRODUIT 1</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
         </div>
-
       </div>
 
 
       <div class="product-card">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
+        <div class="product-image"><span>+</span></div>
 
         <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 2
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button">
-            VOIR +
-          </button>
-
+          <div class="product-name">PRODUIT 2</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
         </div>
-
       </div>
 
     </div>
@@ -874,25 +797,23 @@
        C*KE
   ====================== -->
 
-  <div id="cake" class="page">
+  <div id="cake" class="page cake-page">
 
     <div class="category-top">
 
-      <h1 class="category-page-title cake-title">
+      <h1 class="category-page-title">
         C*KE
       </h1>
 
       <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+        <img src="IMG_1527.jpeg">
       </div>
 
+      <button class="back-button" onclick="showPage('home')">
+        ← RETOUR
+      </button>
+
     </div>
-
-
-    <button class="back-button-bottom" onclick="showPage('home')">
-      ← RETOUR
-    </button>
-
 
     <div class="category-line"></div>
 
@@ -900,52 +821,24 @@
     <div class="products-grid">
 
       <div class="product-card">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
+        <div class="product-image"><span>+</span></div>
 
         <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 1
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button">
-            VOIR +
-          </button>
-
+          <div class="product-name">PRODUIT 1</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
         </div>
-
       </div>
 
 
       <div class="product-card">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
+        <div class="product-image"><span>+</span></div>
 
         <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 2
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button">
-            VOIR +
-          </button>
-
+          <div class="product-name">PRODUIT 2</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
         </div>
-
       </div>
 
     </div>
@@ -963,9 +856,7 @@
 
     <div class="page-box">
 
-      <p>
-        Ton panier est actuellement vide.
-      </p>
+      <p>Ton panier est actuellement vide.</p>
 
       <p>
         Les produits sélectionnés apparaîtront ici.
@@ -998,7 +889,7 @@
 
       <p>
         Remplissez les informations demandées avec attention
-        pour faciliter le traitement de votre commande.
+        pour faciliter le traitement.
       </p>
 
       <hr>
@@ -1044,15 +935,18 @@
       Accueil
     </button>
 
+
     <button onclick="showPage('panier')">
       <span class="icon">🛒</span>
       Panier
     </button>
 
+
     <button onclick="showPage('info')">
       <span class="icon">ℹ️</span>
       Info
     </button>
+
 
     <button onclick="showPage('liens')">
       <span class="icon">🔗</span>
@@ -1076,9 +970,11 @@
 
       });
 
+
     document
       .getElementById(pageId)
       .classList.add('active');
+
 
     window.scrollTo(0, 0);
 
