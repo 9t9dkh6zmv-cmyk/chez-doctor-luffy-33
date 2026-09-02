@@ -21,16 +21,18 @@
     .app {
       min-height: 100vh;
       padding-bottom: 85px;
+
       background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.92)),
         url("IMG_1527.jpeg");
+
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
 
     /* =========================
-       ACCUEIL — VERSION VALIDÉE
+       ACCUEIL
     ========================= */
 
     .home {
@@ -42,90 +44,134 @@
       display: block;
     }
 
-    /* BANDE DÉFILANTE */
+    /* =========================
+       BANDE DÉFILANTE
+    ========================= */
 
     .ticker {
       width: calc(100% + 30px);
       margin-left: -15px;
+
       overflow: hidden;
       white-space: nowrap;
+
       background: rgba(8,8,8,.96);
+
       border-top: 1px solid #e10606;
       border-bottom: 1px solid #e10606;
+
       padding: 4px 0;
+
       box-shadow: 0 4px 15px rgba(0,0,0,.6);
     }
 
     .ticker-track {
       display: flex;
       width: max-content;
+
       animation: tickerMove 14s linear infinite;
     }
 
     .ticker-text {
       flex-shrink: 0;
+
       color: white;
+
       font-size: 10px;
       font-weight: bold;
       letter-spacing: 1px;
+
       padding-right: 40px;
     }
 
     @keyframes tickerMove {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
     }
 
-    /* IMAGE DU HAUT */
+    /* =========================
+       LOGO
+    ========================= */
 
     .hero-image {
       width: min(140px, 45vw);
       aspect-ratio: 1 / 1;
+
       margin: 22px auto 22px;
+
       border-radius: 20px;
       overflow: hidden;
+
       background: rgba(0,0,0,.55);
+
       border: 1px solid rgba(255,255,255,.15);
-      box-shadow: 0 8px 25px rgba(0,0,0,.7);
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,.7);
     }
 
     .hero-image img {
       width: 100%;
       height: 100%;
+
       object-fit: contain;
       object-position: center;
     }
 
+    /* =========================
+       SÉPARATION
+    ========================= */
+
     .separator {
       width: 70%;
       height: 1px;
+
       margin: 0 auto 20px;
+
       background: linear-gradient(
         to right,
         transparent,
         #e10606,
         transparent
       );
+
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
-    /* CATÉGORIES */
+    /* =========================
+       CATÉGORIES
+    ========================= */
 
     .categories {
       display: grid;
+
       grid-template-columns: repeat(2, 1fr);
+
       gap: 14px;
     }
 
     .category-card {
       aspect-ratio: 1 / 1;
+
       border-radius: 20px;
+
       overflow: hidden;
       position: relative;
+
       background: rgba(15,15,18,.9);
+
       border: 1px solid rgba(255,255,255,.18);
-      box-shadow: 0 8px 25px rgba(0,0,0,.65);
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,.65);
+
       cursor: pointer;
+
       transition: transform .2s ease;
     }
 
@@ -136,14 +182,17 @@
     .category-image {
       position: absolute;
       inset: 0;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(
-        135deg,
-        rgba(255,255,255,.08),
-        rgba(0,0,0,.7)
-      );
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.08),
+          rgba(0,0,0,.7)
+        );
     }
 
     .category-image span {
@@ -153,33 +202,46 @@
 
     .category-card::after {
       content: "";
+
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        transparent 35%,
-        rgba(0,0,0,.9)
-      );
+
+      background:
+        linear-gradient(
+          transparent 35%,
+          rgba(0,0,0,.9)
+        );
+
       pointer-events: none;
     }
 
     .category-title {
       position: absolute;
+
       z-index: 2;
+
       bottom: 14px;
       left: 10px;
       right: 10px;
+
       text-align: center;
+
       font-size: 16px;
       font-weight: 900;
+
       letter-spacing: 1px;
-      text-shadow: 0 3px 10px black;
+
+      text-shadow:
+        0 3px 10px black;
     }
+
+    /* TROISIÈME CASE */
 
     .category-card.last {
       grid-column: span 2;
+
       aspect-ratio: 2 / 1;
     }
-
 
     /* =========================
        AUTRES PAGES
@@ -187,7 +249,9 @@
 
     .page {
       display: none;
+
       min-height: 100vh;
+
       padding: 20px 15px 100px;
     }
 
@@ -195,103 +259,48 @@
       display: block;
     }
 
-
-    /* =========================
-       PAGE INFO PROFESSIONNELLE
-    ========================= */
-
-    .info-wrapper {
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    .info-main-title {
+    .page h1 {
       text-align: center;
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      margin: 5px 0 20px;
-      color: white;
-    }
 
-    .info-card {
-      background: rgba(5,5,8,.88);
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 22px;
-      padding: 26px 18px;
-      text-align: center;
-      box-shadow: 0 10px 35px rgba(0,0,0,.65);
-      backdrop-filter: blur(10px);
-    }
-
-    .info-section {
-      padding: 5px 0;
-    }
-
-    .info-text {
-      color: white;
-      font-size: 15px;
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .red {
-      color: #e10606;
-      font-weight: 900;
-    }
-
-    .section-title {
-      color: #e10606;
-      font-size: 18px;
-      font-weight: 900;
-      margin-bottom: 14px;
-      letter-spacing: .5px;
-    }
-
-    .info-line {
-      width: 78%;
-      height: 1px;
-      margin: 25px auto;
-      background: linear-gradient(
-        to right,
-        transparent,
-        rgba(225,6,6,.9),
-        transparent
-      );
-      box-shadow: 0 0 8px rgba(225,6,6,.35);
-    }
-
-    .telegram-link {
-      display: inline-block;
-      margin-top: 10px;
-      color: #e10606;
-      font-size: 18px;
-      font-weight: 900;
-      text-decoration: none;
-    }
-
-    .returns-link {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 11px 16px;
-      border-radius: 10px;
-      border: 1px solid rgba(225,6,6,.8);
-      color: #e10606;
-      font-size: 13px;
-      font-weight: 900;
-      text-decoration: none;
+      letter-spacing: 2px;
     }
 
     .page-box {
       margin-top: 15px;
+
       padding: 20px;
+
       border-radius: 20px;
+
       background: rgba(5,5,8,.9);
+
       border: 1px solid rgba(255,255,255,.18);
+
       backdrop-filter: blur(10px);
-      text-align: center;
     }
 
+    /* BOUTON RETOUR */
+
+    .back-button {
+      background: rgba(10,10,10,.8);
+      color: white;
+
+      border: 1px solid rgba(255,255,255,.2);
+
+      padding: 10px 16px;
+
+      border-radius: 12px;
+
+      font-size: 14px;
+
+      cursor: pointer;
+
+      margin-bottom: 15px;
+    }
+
+    .back-button:active {
+      transform: scale(.97);
+    }
 
     /* =========================
        MENU DU BAS
@@ -299,34 +308,60 @@
 
     .bottom-menu {
       position: fixed;
+
       z-index: 100;
+
       bottom: 0;
       left: 0;
+
       width: 100%;
       height: 75px;
+
       display: flex;
+
       justify-content: space-around;
       align-items: center;
+
       background: rgba(8,8,10,.97);
-      border-top: 1px solid rgba(255,255,255,.15);
+
+      border-top:
+        1px solid rgba(255,255,255,.15);
+
       backdrop-filter: blur(15px);
     }
 
     .bottom-menu button {
       flex: 1;
+
       background: none;
       border: none;
+
       color: white;
+
       font-size: 12px;
+
       display: flex;
+
       flex-direction: column;
+
       align-items: center;
+
       gap: 5px;
+
       cursor: pointer;
     }
 
     .bottom-menu .icon {
       font-size: 21px;
+    }
+
+    hr {
+      border: none;
+
+      border-top:
+        1px solid rgba(255,255,255,.15);
+
+      margin: 20px 0;
     }
 
   </style>
@@ -336,11 +371,16 @@
 
   <div class="app">
 
-    <!-- ACCUEIL -->
+    <!-- =====================
+         ACCUEIL
+    ====================== -->
 
     <div id="home" class="home active">
 
+      <!-- BANDE DÉFILANTE -->
+
       <div class="ticker">
+
         <div class="ticker-track">
 
           <div class="ticker-text">
@@ -356,213 +396,205 @@
           </div>
 
         </div>
+
       </div>
 
+      <!-- LOGO -->
+
       <div class="hero-image">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+
+        <img
+          src="IMG_1527.jpeg"
+          alt="CHEZ LUFFY 33"
+        >
+
       </div>
+
+      <!-- SÉPARATION -->
 
       <div class="separator"></div>
 
+      <!-- CATÉGORIES -->
+
       <div class="categories">
 
-     <div class="category-card" onclick="showPage('hash')">
+        <!-- HASH -->
 
-        <<div class="category-card" onclick="showPage('weed')">
+        <div class="category-card" onclick="showPage('hash')">
+
+          <div class="category-image">
+            <span>+</span>
+          </div>
+
+          <div class="category-title">
+            HASH
+          </div>
+
+        </div>
+
+        <!-- WEED -->
+
+        <div class="category-card" onclick="showPage('weed')">
+
+          <div class="category-image">
+            <span>+</span>
+          </div>
+
+          <div class="category-title">
+            WEED
+          </div>
+
+        </div>
+
+        <!-- C*KE -->
 
         <div class="category-card last" onclick="showPage('cake')">
 
+          <div class="category-image">
+            <span>+</span>
+          </div>
+
+          <div class="category-title">
+            C*KE
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
     <!-- =====================
-     HASH
-===================== -->
+         HASH
+    ====================== -->
 
-<div id="hash" class="page">
+    <div id="hash" class="page">
 
-  <h1>HASH</h1>
+      <button class="back-button" onclick="showPage('home')">
+        ← Retour
+      </button>
 
-  <div class="page-box">
-    <p>Les produits HASH apparaîtront ici.</p>
-  </div>
+      <h1>HASH</h1>
 
-</div>
+      <div class="page-box">
+        <p>Les produits de cette catégorie apparaîtront ici.</p>
+      </div>
 
+    </div>
 
-<!-- =====================
-     WEED
-===================== -->
+    <!-- =====================
+         WEED
+    ====================== -->
 
-<div id="weed" class="page">
+    <div id="weed" class="page">
 
-  <h1>WEED</h1>
+      <button class="back-button" onclick="showPage('home')">
+        ← Retour
+      </button>
 
-  <div class="page-box">
-    <p>Les produits WEED apparaîtront ici.</p>
-  </div>
+      <h1>WEED</h1>
 
-</div>
+      <div class="page-box">
+        <p>Les produits de cette catégorie apparaîtront ici.</p>
+      </div>
 
+    </div>
 
-<!-- =====================
-     C*KE
-===================== -->
+    <!-- =====================
+         C*KE
+    ====================== -->
 
-<div id="cake" class="page">
+    <div id="cake" class="page">
 
-  <h1>C*KE</h1>
+      <button class="back-button" onclick="showPage('home')">
+        ← Retour
+      </button>
 
-  <div class="page-box">
-    <p>Les produits apparaîtront ici.</p>
-  </div>
+      <h1>C*KE</h1>
 
-</div>
+      <div class="page-box">
+        <p>Les produits de cette catégorie apparaîtront ici.</p>
+      </div>
 
+    </div>
 
-    <!-- PANIER -->
+    <!-- =====================
+         PANIER
+    ====================== -->
 
     <div id="panier" class="page">
 
+      <h1>🛒 PANIER</h1>
+
       <div class="page-box">
+
         <p>Ton panier est actuellement vide.</p>
+
+        <p>
+          Les produits sélectionnés apparaîtront ici.
+        </p>
+
       </div>
 
     </div>
 
-
-    <!-- INFO -->
+    <!-- =====================
+         INFO
+    ====================== -->
 
     <div id="info" class="page">
 
-      <div class="info-wrapper">
+      <h1>ℹ️ INFORMATIONS</h1>
 
-        <div class="info-main-title">
-          ℹ️ INFORMATIONS
-        </div>
+      <div class="page-box">
 
-        <div class="info-card">
+        <h3>⭐ BIENVENUE ⭐</h3>
 
+        <p>
+          Retrouvez ici toutes les informations importantes.
+        </p>
 
-          <!-- BIENVENUE -->
+        <hr>
 
-          <div class="info-section">
+        <h3>📦 COMMANDES</h3>
 
-            <p class="info-text">
-              ☠️ Bienvenue <span class="red">CHEZ LUFFY 33</span> ☠️
-            </p>
+        <p>
+          Les informations concernant les commandes seront ajoutées ici.
+        </p>
 
-            <br>
+        <hr>
 
-            <p class="info-text">
-              Livraison Express sur
-              <br>
-              <span class="red">Bordeaux & Alentours - 7J/7 de 12h à 00h</span>
-            </p>
+        <h3>💬 CONTACT</h3>
 
-            <br>
-
-            <p class="info-text">
-              ⌚️ Prise de Commandes dispo dès
-              <br>
-              👉 <span class="red">10h du matin jusqu'à 00h</span>
-            </p>
-
-            <br>
-
-            <p class="info-text">
-              📲 Commandes & Contact
-              <br>
-              Exclusivement via Télégram :
-            </p>
-
-            <a
-              class="telegram-link"
-              href="https://t.me/ChezLuffy33"
-              target="_blank"
-            >
-              @ChezLuffy33
-            </a>
-
-          </div>
-
-
-          <div class="info-line"></div>
-
-
-          <!-- DELAIS -->
-
-          <div class="info-section">
-
-            <div class="section-title">
-              ⚡️ DÉLAIS & CONSEILS
-            </div>
-
-            <p class="info-text">
-              • Commande : Remplissez le Formulaire
-              <br>
-              <span class="red">Minutieusement</span>
-              pour que le Traitement
-              <br>
-              de votre Commande Soit le Plus Fluide Possible.
-            </p>
-
-            <br>
-
-            <p class="info-text">
-              • Livraison : Privilégiez les Commandes
-              <br>
-              <span class="red">Avant 13h</span>
-              pour être Dans les Premiers.
-            </p>
-
-          </div>
-
-
-          <div class="info-line"></div>
-
-
-          <!-- RETOURS -->
-
-          <div class="info-section">
-
-            <div class="section-title">
-              🔁 RETOURS & AVIS
-            </div>
-
-            <p class="info-text">
-              📸 N'hésitez pas à Poster une Photo de
-              <br>
-              Votre Commande dans le Chat de Retours
-            </p>
-
-            <a
-              class="returns-link"
-              href="https://t.me/+J4xj67WNkWczZjQ0"
-              target="_blank"
-            >
-              ACCÉDER AU CHAT DES RETOURS
-            </a>
-
-          </div>
-
-
-        </div>
+        <p>
+          Toutes les informations de contact seront disponibles ici.
+        </p>
 
       </div>
 
     </div>
 
-
-    <!-- LIENS -->
+    <!-- =====================
+         LIENS
+    ====================== -->
 
     <div id="liens" class="page">
 
+      <h1>🔗 LIENS</h1>
+
       <div class="page-box">
-        <p>Tous les liens importants apparaîtront ici.</p>
+
+        <p>
+          Tous les liens importants apparaîtront ici.
+        </p>
+
       </div>
 
     </div>
 
-
-    <!-- MENU -->
+    <!-- =====================
+         MENU
+    ====================== -->
 
     <div class="bottom-menu">
 
@@ -590,7 +622,6 @@
 
   </div>
 
-
   <script>
 
     function showPage(pageId) {
@@ -601,11 +632,14 @@
           page.classList.remove('active');
         });
 
-      document
-        .getElementById(pageId)
-        .classList.add('active');
+      const targetPage = document.getElementById(pageId);
+
+      if (targetPage) {
+        targetPage.classList.add('active');
+      }
 
       window.scrollTo(0, 0);
+
     }
 
   </script>
