@@ -14,134 +14,252 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #111;
       color: white;
+      background: #050505;
     }
 
     .app {
       min-height: 100vh;
-      padding-bottom: 90px;
-      background: linear-gradient(
-        rgba(0,0,0,0.35),
-        rgba(0,0,0,0.85)
-      );
+      padding-bottom: 85px;
+      position: relative;
+
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.25),
+          rgba(0,0,0,0.85)
+        ),
+        url("IMG_1527.jpeg");
+
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
     header {
       text-align: center;
-      padding: 25px 15px;
+      padding: 20px 15px 10px;
     }
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      text-transform: uppercase;
-      text-shadow: 0 0 15px #00aaff;
+    .logo-img {
+      width: min(240px, 75vw);
+      max-height: 130px;
+      object-fit: contain;
+      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.8));
     }
 
-    .subtitle {
-      opacity: 0.8;
+    .welcome {
       margin-top: 8px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.9;
     }
 
     .categories {
       padding: 15px;
       display: grid;
-      gap: 15px;
+      gap: 16px;
     }
 
     .card {
-      height: 160px;
-      border-radius: 20px;
+      height: 145px;
+      border-radius: 22px;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 30px;
-      font-weight: bold;
+
+      position: relative;
+      overflow: hidden;
+
       cursor: pointer;
-      border: 2px solid #00aaff;
-      background: rgba(20,20,20,0.9);
-      box-shadow: 0 0 20px rgba(0,170,255,0.4);
+
+      background: rgba(10,10,15,0.78);
+      border: 1px solid rgba(255,255,255,0.25);
+
+      backdrop-filter: blur(8px);
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,0.65),
+        inset 0 1px 0 rgba(255,255,255,0.15);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.12),
+        transparent 35%,
+        transparent 65%,
+        rgba(255,255,255,0.05)
+      );
+    }
+
+    .card span {
+      position: relative;
+      z-index: 1;
+
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 3px;
+
+      text-shadow: 0 4px 15px rgba(0,0,0,0.9);
+    }
+
+    .card small {
+      position: absolute;
+      bottom: 15px;
+      right: 18px;
+
+      font-size: 11px;
+      opacity: 0.7;
+      letter-spacing: 1px;
     }
 
     .card:active {
       transform: scale(0.98);
     }
 
-    .bottom-menu {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-      background: #111;
-      border-top: 1px solid #333;
-      padding: 15px 5px;
-    }
-
-    .bottom-menu button {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 14px;
-    }
-
     .page {
       display: none;
-      padding: 20px;
+      min-height: 100vh;
+      padding: 20px 15px 100px;
     }
 
     .page.active {
       display: block;
     }
 
+    .home {
+      display: none;
+    }
+
     .home.active {
       display: block;
+    }
+
+    .page-box {
+      margin-top: 15px;
+      padding: 20px;
+
+      border-radius: 20px;
+
+      background: rgba(5,5,8,0.82);
+      border: 1px solid rgba(255,255,255,0.18);
+
+      backdrop-filter: blur(10px);
+    }
+
+    .page h1 {
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    .bottom-menu {
+      position: fixed;
+      z-index: 100;
+
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 75px;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      background: rgba(8,8,10,0.95);
+      border-top: 1px solid rgba(255,255,255,0.15);
+
+      backdrop-filter: blur(15px);
+    }
+
+    .bottom-menu button {
+      flex: 1;
+
+      background: none;
+      border: none;
+
+      color: white;
+      font-size: 12px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .bottom-menu .icon {
+      font-size: 22px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin: 20px 0;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="app">
+<div class="app">
 
-    <div id="home" class="home active">
+  <!-- ACCUEIL -->
+  <div id="home" class="home active">
 
-      <header>
-        <div class="logo">CHEZ DOCTOR LUFFY 33</div>
-        <div class="subtitle">Bienvenue dans notre boutique</div>
-      </header>
+    <header>
+      <img src="IMG_1548.png" class="logo-img" alt="Chez Doctor Luffy">
 
-      <div class="categories">
+      <div class="welcome">
+        Bienvenue dans notre boutique
+      </div>
+    </header>
 
-        <div class="card">
-          HASH
-        </div>
+    <div class="categories">
 
-        <div class="card">
-          WEED
-        </div>
+      <div class="card">
+        <span>1er HASH</span>
+        <small>VOIR LES PRODUITS →</small>
+      </div>
 
-        <div class="card">
-          C*KE
-        </div>
+      <div class="card">
+        <span>2ème WEED</span>
+        <small>VOIR LES PRODUITS →</small>
+      </div>
 
+      <div class="card">
+        <span>3ème C*KE</span>
+        <small>VOIR LES PRODUITS →</small>
       </div>
 
     </div>
 
+  </div>
 
-    <div id="panier" class="page">
-      <h1>🛒 PANIER</h1>
-      <p>Vos produits apparaîtront ici.</p>
+
+  <!-- PANIER -->
+  <div id="panier" class="page">
+    <h1>🛒 PANIER</h1>
+
+    <div class="page-box">
+      <p>Ton panier est actuellement vide.</p>
+      <p>Les produits sélectionnés apparaîtront ici.</p>
     </div>
+  </div>
 
 
-    <div id="info" class="page">
-      <h1>ℹ️ INFORMATIONS</h1>
+  <!-- INFO -->
+  <div id="info" class="page">
+    <h1>ℹ️ INFORMATIONS</h1>
 
-      <h3>⭐ BIENVENUE ⭐</h3>
+    <div class="page-box">
+
+      <h3>⭐ BIENVENUE CHEZ DOCTOR LUFFY ⭐</h3>
 
       <p>
         Retrouvez ici toutes les informations importantes concernant la boutique.
@@ -150,60 +268,80 @@
       <hr>
 
       <h3>📦 COMMANDES</h3>
-      <p>Informations sur le fonctionnement des commandes.</p>
+      <p>
+        Les informations concernant le fonctionnement des commandes seront indiquées ici.
+      </p>
+
+      <hr>
+
+      <h3>⏰ HORAIRES</h3>
+      <p>
+        Les horaires seront ajoutés ici.
+      </p>
 
       <hr>
 
       <h3>💬 CONTACT</h3>
-      <p>Informations pour nous contacter.</p>
-    </div>
-
-
-    <div id="liens" class="page">
-      <h1>🔗 LIENS</h1>
-      <p>Vos liens importants apparaîtront ici.</p>
-    </div>
-
-
-    <div class="bottom-menu">
-
-      <button onclick="showPage('home')">
-        🏠 Accueil
-      </button>
-
-      <button onclick="showPage('panier')">
-        🛒 Panier
-      </button>
-
-      <button onclick="showPage('info')">
-        ℹ️ Info
-      </button>
-
-      <button onclick="showPage('liens')">
-        🔗 Liens
-      </button>
+      <p>
+        Toutes les informations de contact seront disponibles ici.
+      </p>
 
     </div>
-
   </div>
 
 
-  <script>
+  <!-- LIENS -->
+  <div id="liens" class="page">
+    <h1>🔗 LIENS</h1>
 
-    function showPage(page) {
+    <div class="page-box">
+      <p>Tous les liens importants apparaîtront ici.</p>
+    </div>
+  </div>
 
-      document.querySelectorAll('.page, .home')
-        .forEach(element => {
-          element.classList.remove('active');
-        });
 
-      document
-        .getElementById(page)
-        .classList.add('active');
+  <!-- MENU -->
+  <div class="bottom-menu">
 
-    }
+    <button onclick="showPage('home')">
+      <span class="icon">🏠</span>
+      Accueil
+    </button>
 
-  </script>
+    <button onclick="showPage('panier')">
+      <span class="icon">🛒</span>
+      Panier
+    </button>
+
+    <button onclick="showPage('info')">
+      <span class="icon">ℹ️</span>
+      Info
+    </button>
+
+    <button onclick="showPage('liens')">
+      <span class="icon">🔗</span>
+      Liens
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+function showPage(pageId) {
+
+  document.querySelectorAll('.page, .home').forEach(function(page) {
+    page.classList.remove('active');
+  });
+
+  document.getElementById(pageId).classList.add('active');
+
+  window.scrollTo(0, 0);
+}
+
+</script>
 
 </body>
 </html>
