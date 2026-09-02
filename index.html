@@ -77,8 +77,13 @@
     }
 
     @keyframes tickerMove {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
     }
 
     /* =========================
@@ -89,10 +94,14 @@
       width: min(140px, 45vw);
       aspect-ratio: 1 / 1;
       margin: 22px auto;
+
       border-radius: 20px;
       overflow: hidden;
+
       background: rgba(0,0,0,.55);
+
       border: 1px solid rgba(255,255,255,.15);
+
       box-shadow: 0 8px 25px rgba(0,0,0,.7);
     }
 
@@ -133,6 +142,7 @@
 
     .category-card {
       aspect-ratio: 1 / 1;
+
       border-radius: 20px;
       overflow: hidden;
       position: relative;
@@ -144,6 +154,7 @@
       box-shadow: 0 8px 25px rgba(0,0,0,.65);
 
       cursor: pointer;
+
       transition: transform .2s ease;
     }
 
@@ -189,6 +200,7 @@
     .category-title {
       position: absolute;
       z-index: 2;
+
       bottom: 14px;
       left: 10px;
       right: 10px;
@@ -197,6 +209,7 @@
 
       font-size: 16px;
       font-weight: 900;
+
       letter-spacing: 1px;
 
       text-shadow: 0 3px 10px black;
@@ -228,8 +241,10 @@
     .category-top {
       position: relative;
       min-height: 165px;
-      margin-bottom: 15px;
+      margin-bottom: 8px;
     }
+
+    /* BOUTON RETOUR */
 
     .back-button {
       position: absolute;
@@ -251,20 +266,38 @@
       cursor: pointer;
     }
 
+    /* TITRE AVEC CONTOUR ROUGE */
+
     .category-page-title {
       position: absolute;
-      top: 52px;
-      left: 5px;
+
+      top: 48px;
+      left: 0;
 
       margin: 0;
 
-      font-size: 24px;
+      padding: 9px 18px;
+
+      border: 2px solid #e10606;
+      border-radius: 10px;
+
+      background: rgba(10,10,10,.78);
+
+      color: white;
+
+      font-size: 20px;
       font-weight: 900;
+
       letter-spacing: 2px;
+
+      box-shadow: 0 0 12px rgba(225,6,6,.35);
     }
+
+    /* LOGO AU MILIEU */
 
     .category-logo {
       position: absolute;
+
       top: 0;
       left: 50%;
 
@@ -286,14 +319,17 @@
     .category-logo img {
       width: 100%;
       height: 100%;
+
       object-fit: contain;
     }
+
+    /* LIGNE ROUGE */
 
     .category-line {
       width: 100%;
       height: 1px;
 
-      margin-top: 5px;
+      margin-top: 0;
 
       background: linear-gradient(
         to right,
@@ -311,7 +347,9 @@
 
     .products-grid {
       display: grid;
+
       grid-template-columns: repeat(2, minmax(0, 1fr));
+
       gap: 12px;
     }
 
@@ -482,7 +520,9 @@
 
 <div class="app">
 
-  <!-- ACCUEIL -->
+  <!-- =====================
+       ACCUEIL
+  ====================== -->
 
   <div id="home" class="home active">
 
@@ -513,18 +553,33 @@
     <div class="categories">
 
       <div class="category-card" onclick="showPage('hash')">
-        <div class="category-image"><span>+</span></div>
-        <div class="category-title">HASH</div>
+        <div class="category-image">
+          <span>+</span>
+        </div>
+
+        <div class="category-title">
+          HASH
+        </div>
       </div>
 
       <div class="category-card" onclick="showPage('weed')">
-        <div class="category-image"><span>+</span></div>
-        <div class="category-title">WEED</div>
+        <div class="category-image">
+          <span>+</span>
+        </div>
+
+        <div class="category-title">
+          WEED
+        </div>
       </div>
 
       <div class="category-card last" onclick="showPage('cake')">
-        <div class="category-image"><span>+</span></div>
-        <div class="category-title">C*KE</div>
+        <div class="category-image">
+          <span>+</span>
+        </div>
+
+        <div class="category-title">
+          C*KE
+        </div>
       </div>
 
     </div>
@@ -532,7 +587,9 @@
   </div>
 
 
-  <!-- HASH -->
+  <!-- =====================
+       HASH
+  ====================== -->
 
   <div id="hash" class="page">
 
@@ -542,7 +599,9 @@
         ← RETOUR
       </button>
 
-      <h1 class="category-page-title">HASH</h1>
+      <h1 class="category-page-title">
+        HASH
+      </h1>
 
       <div class="category-logo">
         <img src="IMG_1527.jpeg" alt="CHEZ DOCTOR LUFFY 33">
@@ -558,37 +617,53 @@
 
       <div class="product-card">
         <div class="product-image"><span>+</span></div>
+
         <div class="product-info">
           <div class="product-name">PRODUIT 1</div>
           <div class="product-price">À PARTIR DE XX €</div>
-          <button class="product-button">VOIR +</button>
+
+          <button class="product-button">
+            VOIR +
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-image"><span>+</span></div>
+
         <div class="product-info">
           <div class="product-name">PRODUIT 2</div>
           <div class="product-price">À PARTIR DE XX €</div>
-          <button class="product-button">VOIR +</button>
+
+          <button class="product-button">
+            VOIR +
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-image"><span>+</span></div>
+
         <div class="product-info">
           <div class="product-name">PRODUIT 3</div>
           <div class="product-price">À PARTIR DE XX €</div>
-          <button class="product-button">VOIR +</button>
+
+          <button class="product-button">
+            VOIR +
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-image"><span>+</span></div>
+
         <div class="product-info">
           <div class="product-name">PRODUIT 4</div>
           <div class="product-price">À PARTIR DE XX €</div>
-          <button class="product-button">VOIR +</button>
+
+          <button class="product-button">
+            VOIR +
+          </button>
         </div>
       </div>
 
@@ -597,7 +672,9 @@
   </div>
 
 
-  <!-- WEED -->
+  <!-- =====================
+       WEED
+  ====================== -->
 
   <div id="weed" class="page">
 
@@ -607,7 +684,9 @@
         ← RETOUR
       </button>
 
-      <h1 class="category-page-title">WEED</h1>
+      <h1 class="category-page-title">
+        WEED
+      </h1>
 
       <div class="category-logo">
         <img src="IMG_1527.jpeg" alt="CHEZ DOCTOR LUFFY 33">
@@ -623,19 +702,27 @@
 
       <div class="product-card">
         <div class="product-image"><span>+</span></div>
+
         <div class="product-info">
           <div class="product-name">PRODUIT 1</div>
           <div class="product-price">À PARTIR DE XX €</div>
-          <button class="product-button">VOIR +</button>
+
+          <button class="product-button">
+            VOIR +
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-image"><span>+</span></div>
+
         <div class="product-info">
           <div class="product-name">PRODUIT 2</div>
           <div class="product-price">À PARTIR DE XX €</div>
-          <button class="product-button">VOIR +</button>
+
+          <button class="product-button">
+            VOIR +
+          </button>
         </div>
       </div>
 
@@ -644,7 +731,9 @@
   </div>
 
 
-  <!-- C*KE -->
+  <!-- =====================
+       C*KE
+  ====================== -->
 
   <div id="cake" class="page">
 
@@ -654,7 +743,9 @@
         ← RETOUR
       </button>
 
-      <h1 class="category-page-title">C*KE</h1>
+      <h1 class="category-page-title">
+        C*KE
+      </h1>
 
       <div class="category-logo">
         <img src="IMG_1527.jpeg" alt="CHEZ DOCTOR LUFFY 33">
@@ -670,19 +761,27 @@
 
       <div class="product-card">
         <div class="product-image"><span>+</span></div>
+
         <div class="product-info">
           <div class="product-name">PRODUIT 1</div>
           <div class="product-price">À PARTIR DE XX €</div>
-          <button class="product-button">VOIR +</button>
+
+          <button class="product-button">
+            VOIR +
+          </button>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-image"><span>+</span></div>
+
         <div class="product-info">
           <div class="product-name">PRODUIT 2</div>
           <div class="product-price">À PARTIR DE XX €</div>
-          <button class="product-button">VOIR +</button>
+
+          <button class="product-button">
+            VOIR +
+          </button>
         </div>
       </div>
 
@@ -691,7 +790,9 @@
   </div>
 
 
-  <!-- PANIER -->
+  <!-- =====================
+       PANIER
+  ====================== -->
 
   <div id="panier" class="page">
 
@@ -705,7 +806,9 @@
   </div>
 
 
-  <!-- INFO -->
+  <!-- =====================
+       INFO
+  ====================== -->
 
   <div id="info" class="page">
 
@@ -739,7 +842,9 @@
   </div>
 
 
-  <!-- LIENS -->
+  <!-- =====================
+       LIENS
+  ====================== -->
 
   <div id="liens" class="page">
 
@@ -752,7 +857,9 @@
   </div>
 
 
-  <!-- MENU BAS -->
+  <!-- =====================
+       MENU BAS
+  ====================== -->
 
   <div class="bottom-menu">
 
