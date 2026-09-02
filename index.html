@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CHEZ DOCTOR LUFFY 33</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+    }
+
+    .app {
+      min-height: 100vh;
+      padding-bottom: 90px;
+      background: linear-gradient(
+        rgba(0,0,0,0.35),
+        rgba(0,0,0,0.85)
+      );
+    }
+
+    header {
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px #00aaff;
+    }
+
+    .subtitle {
+      opacity: 0.8;
+      margin-top: 8px;
+    }
+
+    .categories {
+      padding: 15px;
+      display: grid;
+      gap: 15px;
+    }
+
+    .card {
+      height: 160px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      border: 2px solid #00aaff;
+      background: rgba(20,20,20,0.9);
+      box-shadow: 0 0 20px rgba(0,170,255,0.4);
+    }
+
+    .card:active {
+      transform: scale(0.98);
+    }
+
+    .bottom-menu {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background: #111;
+      border-top: 1px solid #333;
+      padding: 15px 5px;
+    }
+
+    .bottom-menu button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 14px;
+    }
+
+    .page {
+      display: none;
+      padding: 20px;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .home.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <div id="home" class="home active">
+
+      <header>
+        <div class="logo">CHEZ DOCTOR LUFFY 33</div>
+        <div class="subtitle">Bienvenue dans notre boutique</div>
+      </header>
+
+      <div class="categories">
+
+        <div class="card">
+          HASH
+        </div>
+
+        <div class="card">
+          WEED
+        </div>
+
+        <div class="card">
+          C*KE
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div id="panier" class="page">
+      <h1>🛒 PANIER</h1>
+      <p>Vos produits apparaîtront ici.</p>
+    </div>
+
+
+    <div id="info" class="page">
+      <h1>ℹ️ INFORMATIONS</h1>
+
+      <h3>⭐ BIENVENUE ⭐</h3>
+
+      <p>
+        Retrouvez ici toutes les informations importantes concernant la boutique.
+      </p>
+
+      <hr>
+
+      <h3>📦 COMMANDES</h3>
+      <p>Informations sur le fonctionnement des commandes.</p>
+
+      <hr>
+
+      <h3>💬 CONTACT</h3>
+      <p>Informations pour nous contacter.</p>
+    </div>
+
+
+    <div id="liens" class="page">
+      <h1>🔗 LIENS</h1>
+      <p>Vos liens importants apparaîtront ici.</p>
+    </div>
+
+
+    <div class="bottom-menu">
+
+      <button onclick="showPage('home')">
+        🏠 Accueil
+      </button>
+
+      <button onclick="showPage('panier')">
+        🛒 Panier
+      </button>
+
+      <button onclick="showPage('info')">
+        ℹ️ Info
+      </button>
+
+      <button onclick="showPage('liens')">
+        🔗 Liens
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function showPage(page) {
+
+      document.querySelectorAll('.page, .home')
+        .forEach(element => {
+          element.classList.remove('active');
+        });
+
+      document
+        .getElementById(page)
+        .classList.add('active');
+
+    }
+
+  </script>
+
+</body>
+</html>
