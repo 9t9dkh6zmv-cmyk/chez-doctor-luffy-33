@@ -7,943 +7,555 @@
   <title>CHEZ LUFFY 33</title>
 
   <style>
-
     * {
       box-sizing: border-box;
-    }
-
-    html {
-      background: #050505;
     }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      color: white;
       background: #050505;
+      color: white;
     }
 
     .app {
       min-height: 100vh;
-      padding-bottom: 90px;
-
+      padding-bottom: 85px;
       background:
-        linear-gradient(
-          rgba(0,0,0,.40),
-          rgba(0,0,0,.90)
-        ),
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.92)),
         url("IMG_1527.jpeg");
-
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
 
-
     /* =========================
-       PAGES
-    ========================= */
-
-    .home,
-    .page {
-      display: none;
-    }
-
-    .home.active,
-    .page.active {
-      display: block;
-    }
-
-
-    /* =========================
-       ACCUEIL
+       ACCUEIL — VERSION VALIDÉE
     ========================= */
 
     .home {
-      min-height: 100vh;
-      padding: 0 15px 25px;
+      display: none;
+      padding: 0 15px 20px;
     }
 
+    .home.active {
+      display: block;
+    }
 
-    /* =========================
-       BANDE DÉFILANTE
-    ========================= */
+    /* BANDE DÉFILANTE */
 
     .ticker {
       width: calc(100% + 30px);
       margin-left: -15px;
-
       overflow: hidden;
       white-space: nowrap;
-
-      background: rgba(8,8,8,.97);
-
+      background: rgba(8,8,8,.96);
       border-top: 1px solid #e10606;
       border-bottom: 1px solid #e10606;
-
       padding: 4px 0;
-
       box-shadow: 0 4px 15px rgba(0,0,0,.6);
     }
 
     .ticker-track {
       display: flex;
       width: max-content;
-
       animation: tickerMove 14s linear infinite;
     }
 
     .ticker-text {
       flex-shrink: 0;
-
       color: white;
-
       font-size: 10px;
       font-weight: bold;
-
       letter-spacing: 1px;
-
       padding-right: 40px;
     }
 
     @keyframes tickerMove {
-
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
 
-
-    /* =========================
-       LOGO
-    ========================= */
+    /* IMAGE DU HAUT */
 
     .hero-image {
-
-      width: 150px;
-      height: 150px;
-
+      width: min(140px, 45vw);
+      aspect-ratio: 1 / 1;
       margin: 22px auto 22px;
-
-      border-radius: 18px;
-
+      border-radius: 20px;
       overflow: hidden;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: rgba(0,0,0,.60);
-
+      background: rgba(0,0,0,.55);
       border: 1px solid rgba(255,255,255,.15);
-
-      box-shadow:
-        0 8px 25px rgba(0,0,0,.75);
-
+      box-shadow: 0 8px 25px rgba(0,0,0,.7);
     }
 
     .hero-image img {
-
       width: 100%;
       height: 100%;
-
       object-fit: contain;
       object-position: center;
-
     }
 
-
-    /* =========================
-       SÉPARATEUR
-    ========================= */
-
     .separator {
-
       width: 70%;
       height: 1px;
-
-      margin: 0 auto 22px;
-
+      margin: 0 auto 20px;
       background: linear-gradient(
         to right,
         transparent,
         #e10606,
         transparent
       );
-
-      box-shadow:
-        0 0 8px rgba(225,6,6,.7);
-
+      box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
-
-    /* =========================
-       CATÉGORIES
-    ========================= */
+    /* CATÉGORIES */
 
     .categories {
-
       display: grid;
-
       grid-template-columns: repeat(2, 1fr);
-
       gap: 14px;
-
-      max-width: 500px;
-
-      margin: 0 auto;
-
     }
 
     .category-card {
-
-      position: relative;
-
       aspect-ratio: 1 / 1;
-
       border-radius: 20px;
-
       overflow: hidden;
-
-      background: rgba(15,15,18,.92);
-
+      position: relative;
+      background: rgba(15,15,18,.9);
       border: 1px solid rgba(255,255,255,.18);
-
-      box-shadow:
-        0 8px 25px rgba(0,0,0,.70);
-
+      box-shadow: 0 8px 25px rgba(0,0,0,.65);
       cursor: pointer;
-
       transition: transform .2s ease;
-
     }
 
     .category-card:active {
-
       transform: scale(.97);
-
     }
 
     .category-image {
-
       position: absolute;
       inset: 0;
-
       display: flex;
-
       align-items: center;
       justify-content: center;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,.08),
-          rgba(0,0,0,.70)
-        );
-
+      background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.08),
+        rgba(0,0,0,.7)
+      );
     }
 
     .category-image span {
-
       font-size: 42px;
       opacity: .25;
-
     }
 
     .category-card::after {
-
       content: "";
-
       position: absolute;
       inset: 0;
-
-      background:
-        linear-gradient(
-          transparent 35%,
-          rgba(0,0,0,.92)
-        );
-
+      background: linear-gradient(
+        transparent 35%,
+        rgba(0,0,0,.9)
+      );
       pointer-events: none;
-
     }
 
     .category-title {
-
       position: absolute;
-
       z-index: 2;
-
       bottom: 14px;
       left: 10px;
       right: 10px;
-
       text-align: center;
-
       font-size: 16px;
       font-weight: 900;
-
       letter-spacing: 1px;
-
-      text-shadow:
-        0 3px 10px black;
-
+      text-shadow: 0 3px 10px black;
     }
 
     .category-card.last {
-
       grid-column: span 2;
-
       aspect-ratio: 2 / 1;
-
     }
 
 
     /* =========================
-       PAGE INFO
+       AUTRES PAGES
     ========================= */
 
     .page {
-
+      display: none;
       min-height: 100vh;
-
-      padding: 25px 15px 110px;
-
+      padding: 20px 15px 100px;
     }
 
-    .info-container {
+    .page.active {
+      display: block;
+    }
 
+
+    /* =========================
+       PAGE INFO PROFESSIONNELLE
+    ========================= */
+
+    .info-wrapper {
       max-width: 520px;
-
       margin: 0 auto;
-
-      text-align: center;
-
     }
 
-    .info-header {
-
-      margin-bottom: 25px;
-
-      font-size: 25px;
-
+    .info-main-title {
+      text-align: center;
+      font-size: 22px;
       font-weight: 900;
+      letter-spacing: 1px;
+      margin: 5px 0 20px;
+      color: white;
+    }
 
-      color: #e10606;
-
-      text-shadow:
-        0 0 12px rgba(225,6,6,.25);
-
+    .info-card {
+      background: rgba(5,5,8,.88);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 22px;
+      padding: 26px 18px;
+      text-align: center;
+      box-shadow: 0 10px 35px rgba(0,0,0,.65);
+      backdrop-filter: blur(10px);
     }
 
     .info-section {
-
-      padding: 22px 15px;
-
-      margin-bottom: 18px;
-
-      border-radius: 20px;
-
-      background: rgba(5,5,8,.88);
-
-      border: 1px solid rgba(255,255,255,.13);
-
-      box-shadow:
-        0 8px 25px rgba(0,0,0,.60);
-
-      backdrop-filter: blur(10px);
-
-    }
-
-    .info-title {
-
-      color: #e10606;
-
-      font-size: 18px;
-
-      font-weight: 900;
-
-      margin-bottom: 16px;
-
-      text-transform: uppercase;
-
-      letter-spacing: .5px;
-
+      padding: 5px 0;
     }
 
     .info-text {
-
       color: white;
-
       font-size: 15px;
-
       line-height: 1.7;
-
-      margin: 5px 0;
-
+      margin: 0;
     }
 
     .red {
-
       color: #e10606;
-
       font-weight: 900;
-
     }
 
-    .info-divider {
+    .section-title {
+      color: #e10606;
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 14px;
+      letter-spacing: .5px;
+    }
 
-      width: 75%;
-
+    .info-line {
+      width: 78%;
       height: 1px;
-
-      margin: 22px auto;
-
+      margin: 25px auto;
       background: linear-gradient(
         to right,
         transparent,
-        #e10606,
+        rgba(225,6,6,.9),
         transparent
       );
-
+      box-shadow: 0 0 8px rgba(225,6,6,.35);
     }
 
-    .telegram-contact {
-
+    .telegram-link {
       display: inline-block;
-
       margin-top: 10px;
-
       color: #e10606;
-
-      font-size: 20px;
-
+      font-size: 18px;
       font-weight: 900;
-
       text-decoration: none;
-
     }
 
-    .telegram-contact:active {
-
-      transform: scale(.97);
-
-    }
-
-    .returns-button {
-
+    .returns-link {
       display: inline-block;
-
-      margin-top: 18px;
-
-      padding: 12px 20px;
-
-      border-radius: 12px;
-
-      background: transparent;
-
-      border: 1px solid #e10606;
-
+      margin-top: 16px;
+      padding: 11px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(225,6,6,.8);
       color: #e10606;
-
-      text-decoration: none;
-
       font-size: 13px;
-
       font-weight: 900;
-
-    }
-
-    .final-slogan {
-
-      color: #e10606;
-
-      font-size: 20px;
-
-      font-weight: 900;
-
-      line-height: 1.6;
-
-      text-transform: uppercase;
-
-      text-shadow:
-        0 0 12px rgba(225,6,6,.25);
-
-    }
-
-
-    /* =========================
-       PANIER / LIENS
-    ========================= */
-
-    .page-title {
-
-      text-align: center;
-
-      color: #e10606;
-
-      margin-bottom: 25px;
-
+      text-decoration: none;
     }
 
     .page-box {
-
-      max-width: 500px;
-
-      margin: 0 auto;
-
-      padding: 22px;
-
-      text-align: center;
-
+      margin-top: 15px;
+      padding: 20px;
       border-radius: 20px;
-
-      background: rgba(5,5,8,.88);
-
-      border: 1px solid rgba(255,255,255,.15);
-
+      background: rgba(5,5,8,.9);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(10px);
+      text-align: center;
     }
 
 
     /* =========================
-       MENU BAS
+       MENU DU BAS
     ========================= */
 
     .bottom-menu {
-
       position: fixed;
-
-      z-index: 999;
-
+      z-index: 100;
       bottom: 0;
       left: 0;
-
       width: 100%;
-
-      height: 78px;
-
+      height: 75px;
       display: flex;
-
-      align-items: center;
       justify-content: space-around;
-
+      align-items: center;
       background: rgba(8,8,10,.97);
-
-      border-top:
-        1px solid rgba(255,255,255,.15);
-
+      border-top: 1px solid rgba(255,255,255,.15);
       backdrop-filter: blur(15px);
-
     }
 
     .bottom-menu button {
-
       flex: 1;
-
-      height: 100%;
-
+      background: none;
       border: none;
-
-      background: transparent;
-
       color: white;
-
       font-size: 12px;
-
       display: flex;
-
       flex-direction: column;
-
       align-items: center;
-      justify-content: center;
-
       gap: 5px;
-
       cursor: pointer;
-
     }
 
     .bottom-menu .icon {
-
       font-size: 21px;
-
     }
 
   </style>
-
 </head>
-
 
 <body>
 
   <div class="app">
 
-
-    <!-- =====================
-         ACCUEIL
-    ====================== -->
+    <!-- ACCUEIL -->
 
     <div id="home" class="home active">
 
-
       <div class="ticker">
-
         <div class="ticker-track">
 
           <div class="ticker-text">
-
             COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
             COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
             COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-
           </div>
 
           <div class="ticker-text">
-
             COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
             COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
             COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-
           </div>
 
         </div>
-
       </div>
-
-
-      <!-- LOGO -->
 
       <div class="hero-image">
-
-        <img
-          src="IMG_1548.png"
-          alt="CHEZ LUFFY 33"
-        >
-
+        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
       </div>
-
 
       <div class="separator"></div>
 
-
-      <!-- CATÉGORIES -->
-
       <div class="categories">
 
-
         <div class="category-card">
-
-          <div class="category-image">
-            <span>+</span>
-          </div>
-
-          <div class="category-title">
-            HASH
-          </div>
-
+          <div class="category-image"><span>+</span></div>
+          <div class="category-title">HASH</div>
         </div>
 
-
         <div class="category-card">
-
-          <div class="category-image">
-            <span>+</span>
-          </div>
-
-          <div class="category-title">
-            WEED
-          </div>
-
+          <div class="category-image"><span>+</span></div>
+          <div class="category-title">WEED</div>
         </div>
-
 
         <div class="category-card last">
-
-          <div class="category-image">
-            <span>+</span>
-          </div>
-
-          <div class="category-title">
-            C*KE
-          </div>
-
+          <div class="category-image"><span>+</span></div>
+          <div class="category-title">C*KE</div>
         </div>
-
 
       </div>
 
     </div>
 
 
-    <!-- =====================
-         PANIER
-    ====================== -->
+    <!-- PANIER -->
 
     <div id="panier" class="page">
 
-      <h1 class="page-title">
-        🛒 PANIER
-      </h1>
-
       <div class="page-box">
-
-        Ton panier est actuellement vide.
-
+        <p>Ton panier est actuellement vide.</p>
       </div>
 
     </div>
 
 
-    <!-- =====================
-         INFO
-    ====================== -->
+    <!-- INFO -->
 
     <div id="info" class="page">
 
-      <div class="info-container">
+      <div class="info-wrapper">
 
-
-        <div class="info-header">
-
-          ☠️ CHEZ LUFFY 33 ☠️
-
+        <div class="info-main-title">
+          ℹ️ INFORMATIONS
         </div>
 
-
-        <!-- BIENVENUE -->
-
-        <div class="info-section">
-
-          <div class="info-text">
-
-            ☠️ Bienvenue <span class="red">CHEZ LUFFY 33</span> ☠️
-
-          </div>
-
-          <br>
-
-          <div class="info-text">
-
-            Livraison Express sur
-            <span class="red">Bordeaux & Alentours</span>
-
-          </div>
-
-          <div class="red">
-
-            7J/7 de 12h à 00h
-
-          </div>
-
-          <br>
-
-          <div class="info-text">
-
-            ⌚️ Prise de Commandes dispo dès
-
-          </div>
-
-          <div class="red">
-
-            👉 10h du matin jusqu'à 00h
-
-          </div>
+        <div class="info-card">
 
 
-          <div class="info-divider"></div>
+          <!-- BIENVENUE -->
 
+          <div class="info-section">
 
-          <div class="info-title">
-
-            📲 COMMANDES & CONTACT
-
-          </div>
-
-          <div class="info-text">
-
-            Exclusivement via Télégram :
-
-          </div>
-
-          <a
-            class="telegram-contact"
-            href="https://t.me/ChezLuffy33"
-            target="_blank"
-          >
-            @ChezLuffy33
-          </a>
-
-        </div>
-
-
-        <!-- CONSEILS -->
-
-        <div class="info-section">
-
-          <div class="info-title">
-
-            ⚡️ DÉLAIS & CONSEILS
-
-          </div>
-
-
-          <div class="info-text">
-
-            • Commande : Remplissez le Formulaire
+            <p class="info-text">
+              ☠️ Bienvenue <span class="red">CHEZ LUFFY 33</span> ☠️
+            </p>
 
             <br>
 
-            <span class="red">Minutieusement</span>
-
-            pour que le Traitement de votre Commande
+            <p class="info-text">
+              Livraison Express sur
+              <br>
+              <span class="red">Bordeaux & Alentours - 7J/7 de 12h à 00h</span>
+            </p>
 
             <br>
 
-            Soit le Plus Fluide Possible.
+            <p class="info-text">
+              ⌚️ Prise de Commandes dispo dès
+              <br>
+              👉 <span class="red">10h du matin jusqu'à 00h</span>
+            </p>
+
+            <br>
+
+            <p class="info-text">
+              📲 Commandes & Contact
+              <br>
+              Exclusivement via Télégram :
+            </p>
+
+            <a
+              class="telegram-link"
+              href="https://t.me/ChezLuffy33"
+              target="_blank"
+            >
+              @ChezLuffy33
+            </a>
 
           </div>
 
 
-          <br>
+          <div class="info-line"></div>
 
 
-          <div class="info-text">
+          <!-- DELAIS -->
 
-            • Livraison : Privilégiez les Commandes
+          <div class="info-section">
+
+            <div class="section-title">
+              ⚡️ DÉLAIS & CONSEILS
+            </div>
+
+            <p class="info-text">
+              • Commande : Remplissez le Formulaire
+              <br>
+              <span class="red">Minutieusement</span>
+              pour que le Traitement
+              <br>
+              de votre Commande Soit le Plus Fluide Possible.
+            </p>
 
             <br>
 
-            <span class="red">Avant 13h</span>
-
-            pour être Dans les Premiers.
+            <p class="info-text">
+              • Livraison : Privilégiez les Commandes
+              <br>
+              <span class="red">Avant 13h</span>
+              pour être Dans les Premiers.
+            </p>
 
           </div>
+
+
+          <div class="info-line"></div>
+
+
+          <!-- RETOURS -->
+
+          <div class="info-section">
+
+            <div class="section-title">
+              🔁 RETOURS & AVIS
+            </div>
+
+            <p class="info-text">
+              📸 N'hésitez pas à Poster une Photo de
+              <br>
+              Votre Commande dans le Chat de Retours
+            </p>
+
+            <a
+              class="returns-link"
+              href="https://t.me/+J4xj67WNkWczZjQ0"
+              target="_blank"
+            >
+              ACCÉDER AU CHAT DES RETOURS
+            </a>
+
+          </div>
+
 
         </div>
-
-
-        <!-- RETOURS -->
-
-        <div class="info-section">
-
-          <div class="info-title">
-
-            🔁 RETOURS & AVIS
-
-          </div>
-
-          <div class="info-text">
-
-            📸 N'hésitez pas à Poster une Photo de
-
-            <br>
-
-            Votre Commande dans le Chat de Retours
-
-          </div>
-
-
-          <a
-            class="returns-button"
-            href="https://t.me/+J4xj67WNkWczZjQ0"
-            target="_blank"
-          >
-            ACCÉDER AU CHAT DES RETOURS
-          </a>
-
-        </div>
-
-
-        <!-- SLOGAN -->
-
-        <div class="info-section">
-
-          <div class="final-slogan">
-
-            VIENS PÉCHO LA MOULA
-
-            <br>
-
-            À DOCTOR LUFFY
-
-          </div>
-
-        </div>
-
 
       </div>
 
     </div>
 
 
-    <!-- =====================
-         LIENS
-    ====================== -->
+    <!-- LIENS -->
 
     <div id="liens" class="page">
 
-      <h1 class="page-title">
-        🔗 LIENS
-      </h1>
-
       <div class="page-box">
-
-        Tous les liens importants apparaîtront ici.
-
+        <p>Tous les liens importants apparaîtront ici.</p>
       </div>
 
     </div>
 
 
-    <!-- =====================
-         MENU DU BAS
-    ====================== -->
+    <!-- MENU -->
 
     <div class="bottom-menu">
 
-
       <button onclick="showPage('home')">
-
         <span class="icon">🏠</span>
-
         Accueil
-
       </button>
-
 
       <button onclick="showPage('panier')">
-
         <span class="icon">🛒</span>
-
         Panier
-
       </button>
-
 
       <button onclick="showPage('info')">
-
         <span class="icon">ℹ️</span>
-
         Info
-
       </button>
-
 
       <button onclick="showPage('liens')">
-
         <span class="icon">🔗</span>
-
         Liens
-
       </button>
 
-
     </div>
-
 
   </div>
 
@@ -954,24 +566,18 @@
 
       document
         .querySelectorAll('.page, .home')
-        .forEach(function(element) {
-
-          element.classList.remove('active');
-
+        .forEach(function(page) {
+          page.classList.remove('active');
         });
-
 
       document
         .getElementById(pageId)
         .classList.add('active');
 
-
       window.scrollTo(0, 0);
-
     }
 
   </script>
-
 
 </body>
 </html>
