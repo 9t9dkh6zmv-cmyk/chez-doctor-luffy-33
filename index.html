@@ -7,6 +7,7 @@
   <title>CHEZ LUFFY 33</title>
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -68,19 +69,15 @@
     .ticker-track {
       display: flex;
       width: max-content;
-
       animation: tickerMove 14s linear infinite;
     }
 
     .ticker-text {
       flex-shrink: 0;
-
       color: white;
-
       font-size: 10px;
       font-weight: bold;
       letter-spacing: 1px;
-
       padding-right: 40px;
     }
 
@@ -111,14 +108,12 @@
 
       border: 1px solid rgba(255,255,255,.15);
 
-      box-shadow:
-        0 8px 25px rgba(0,0,0,.7);
+      box-shadow: 0 8px 25px rgba(0,0,0,.7);
     }
 
     .hero-image img {
       width: 100%;
       height: 100%;
-
       object-fit: contain;
       object-position: center;
     }
@@ -144,14 +139,12 @@
     }
 
     /* =========================
-       CATÉGORIES
+       CATÉGORIES ACCUEIL
     ========================= */
 
     .categories {
       display: grid;
-
       grid-template-columns: repeat(2, 1fr);
-
       gap: 14px;
     }
 
@@ -159,7 +152,6 @@
       aspect-ratio: 1 / 1;
 
       border-radius: 20px;
-
       overflow: hidden;
       position: relative;
 
@@ -167,11 +159,9 @@
 
       border: 1px solid rgba(255,255,255,.18);
 
-      box-shadow:
-        0 8px 25px rgba(0,0,0,.65);
+      box-shadow: 0 8px 25px rgba(0,0,0,.65);
 
       cursor: pointer;
-
       transition: transform .2s ease;
     }
 
@@ -217,7 +207,6 @@
 
     .category-title {
       position: absolute;
-
       z-index: 2;
 
       bottom: 14px;
@@ -231,27 +220,21 @@
 
       letter-spacing: 1px;
 
-      text-shadow:
-        0 3px 10px black;
+      text-shadow: 0 3px 10px black;
     }
-
-    /* TROISIÈME CASE */
 
     .category-card.last {
       grid-column: span 2;
-
       aspect-ratio: 2 / 1;
     }
 
     /* =========================
-       AUTRES PAGES
+       PAGES
     ========================= */
 
     .page {
       display: none;
-
       min-height: 100vh;
-
       padding: 20px 15px 100px;
     }
 
@@ -261,45 +244,178 @@
 
     .page h1 {
       text-align: center;
-
       letter-spacing: 2px;
+      font-size: 23px;
     }
 
     .page-box {
       margin-top: 15px;
-
       padding: 20px;
 
       border-radius: 20px;
 
-      background: rgba(5,5,8,.9);
+      background: rgba(5,5,8,.90);
 
       border: 1px solid rgba(255,255,255,.18);
 
       backdrop-filter: blur(10px);
+
+      box-shadow: 0 8px 25px rgba(0,0,0,.5);
     }
 
-    /* BOUTON RETOUR */
+    /* =========================
+       BOUTON RETOUR
+    ========================= */
 
     .back-button {
-      background: rgba(10,10,10,.8);
-      color: white;
+      display: inline-flex;
 
-      border: 1px solid rgba(255,255,255,.2);
+      align-items: center;
+      gap: 6px;
 
-      padding: 10px 16px;
+      padding: 9px 14px;
 
       border-radius: 12px;
 
-      font-size: 14px;
+      background: rgba(10,10,10,.8);
+
+      border: 1px solid rgba(255,255,255,.15);
+
+      color: white;
+
+      font-size: 12px;
+      font-weight: bold;
 
       cursor: pointer;
-
-      margin-bottom: 15px;
     }
 
     .back-button:active {
+      transform: scale(.96);
+    }
+
+    /* =========================
+       TITRE CATÉGORIE
+    ========================= */
+
+    .category-header {
+      text-align: center;
+      margin: 15px 0 22px;
+    }
+
+    .category-header h1 {
+      margin-bottom: 10px;
+    }
+
+    .category-line {
+      width: 100px;
+      height: 2px;
+
+      margin: auto;
+
+      background: #e10606;
+
+      box-shadow: 0 0 10px rgba(225,6,6,.8);
+    }
+
+    /* =========================
+       PRODUITS
+    ========================= */
+
+    .products-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 12px;
+    }
+
+    .product-card {
+      overflow: hidden;
+
+      border-radius: 18px;
+
+      background: rgba(10,10,12,.92);
+
+      border: 1px solid rgba(255,255,255,.16);
+
+      box-shadow: 0 8px 20px rgba(0,0,0,.6);
+
+      transition: transform .2s ease;
+    }
+
+    .product-card:active {
       transform: scale(.97);
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.10),
+          rgba(0,0,0,.75)
+        );
+
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+
+    .product-image span {
+      font-size: 35px;
+      opacity: .25;
+    }
+
+    .product-info {
+      padding: 10px 8px 12px;
+      text-align: center;
+    }
+
+    .product-name {
+      margin: 0 0 7px;
+
+      font-size: 13px;
+      font-weight: 900;
+
+      letter-spacing: .5px;
+    }
+
+    .product-price {
+      margin-bottom: 10px;
+
+      color: #e10606;
+
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .product-button {
+      width: 100%;
+
+      padding: 8px 4px;
+
+      border: none;
+      border-radius: 10px;
+
+      background: #e10606;
+
+      color: white;
+
+      font-size: 10px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      box-shadow: 0 4px 12px rgba(225,6,6,.3);
+    }
+
+    .product-button:active {
+      transform: scale(.96);
     }
 
     /* =========================
@@ -324,8 +440,7 @@
 
       background: rgba(8,8,10,.97);
 
-      border-top:
-        1px solid rgba(255,255,255,.15);
+      border-top: 1px solid rgba(255,255,255,.15);
 
       backdrop-filter: blur(15px);
     }
@@ -341,7 +456,6 @@
       font-size: 12px;
 
       display: flex;
-
       flex-direction: column;
 
       align-items: center;
@@ -358,8 +472,7 @@
     hr {
       border: none;
 
-      border-top:
-        1px solid rgba(255,255,255,.15);
+      border-top: 1px solid rgba(255,255,255,.15);
 
       margin: 20px 0;
     }
@@ -369,280 +482,331 @@
 
 <body>
 
-  <div class="app">
+<div class="app">
 
-    <!-- =====================
-         ACCUEIL
-    ====================== -->
+  <!-- =====================
+       ACCUEIL
+  ====================== -->
 
-    <div id="home" class="home active">
+  <div id="home" class="home active">
 
-      <!-- BANDE DÉFILANTE -->
+    <div class="ticker">
+      <div class="ticker-track">
 
-      <div class="ticker">
+        <div class="ticker-text">
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+        </div>
 
-        <div class="ticker-track">
-
-          <div class="ticker-text">
-            COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-            COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-            COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-          </div>
-
-          <div class="ticker-text">
-            COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-            COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-            COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-          </div>
-
+        <div class="ticker-text">
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
         </div>
 
       </div>
+    </div>
 
-      <!-- LOGO -->
+    <div class="hero-image">
+      <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+    </div>
 
-      <div class="hero-image">
+    <div class="separator"></div>
 
-        <img
-          src="IMG_1527.jpeg"
-          alt="CHEZ LUFFY 33"
-        >
+    <div class="categories">
 
-      </div>
-
-      <!-- SÉPARATION -->
-
-      <div class="separator"></div>
-
-      <!-- CATÉGORIES -->
-
-      <div class="categories">
-
-        <!-- HASH -->
-
-        <div class="category-card" onclick="showPage('hash')">
-
-          <div class="category-image">
-            <span>+</span>
-          </div>
-
-          <div class="category-title">
-            HASH
-          </div>
-
+      <div class="category-card" onclick="showPage('hash')">
+        <div class="category-image">
+          <span>+</span>
         </div>
 
-        <!-- WEED -->
+        <div class="category-title">
+          HASH
+        </div>
+      </div>
 
-        <div class="category-card" onclick="showPage('weed')">
-
-          <div class="category-image">
-            <span>+</span>
-          </div>
-
-          <div class="category-title">
-            WEED
-          </div>
-
+      <div class="category-card" onclick="showPage('weed')">
+        <div class="category-image">
+          <span>+</span>
         </div>
 
-        <!-- C*KE -->
+        <div class="category-title">
+          WEED
+        </div>
+      </div>
 
-        <div class="category-card last" onclick="showPage('cake')">
-
-          <div class="category-image">
-            <span>+</span>
-          </div>
-
-          <div class="category-title">
-            C*KE
-          </div>
-
+      <div class="category-card last" onclick="showPage('cake')">
+        <div class="category-image">
+          <span>+</span>
         </div>
 
+        <div class="category-title">
+          C*KE
+        </div>
       </div>
-
-    </div>
-
-    <!-- =====================
-         HASH
-    ====================== -->
-
-    <div id="hash" class="page">
-
-      <button class="back-button" onclick="showPage('home')">
-        ← Retour
-      </button>
-
-      <h1>HASH</h1>
-
-      <div class="page-box">
-        <p>Les produits de cette catégorie apparaîtront ici.</p>
-      </div>
-
-    </div>
-
-    <!-- =====================
-         WEED
-    ====================== -->
-
-    <div id="weed" class="page">
-
-      <button class="back-button" onclick="showPage('home')">
-        ← Retour
-      </button>
-
-      <h1>WEED</h1>
-
-      <div class="page-box">
-        <p>Les produits de cette catégorie apparaîtront ici.</p>
-      </div>
-
-    </div>
-
-    <!-- =====================
-         C*KE
-    ====================== -->
-
-    <div id="cake" class="page">
-
-      <button class="back-button" onclick="showPage('home')">
-        ← Retour
-      </button>
-
-      <h1>C*KE</h1>
-
-      <div class="page-box">
-        <p>Les produits de cette catégorie apparaîtront ici.</p>
-      </div>
-
-    </div>
-
-    <!-- =====================
-         PANIER
-    ====================== -->
-
-    <div id="panier" class="page">
-
-      <h1>🛒 PANIER</h1>
-
-      <div class="page-box">
-
-        <p>Ton panier est actuellement vide.</p>
-
-        <p>
-          Les produits sélectionnés apparaîtront ici.
-        </p>
-
-      </div>
-
-    </div>
-
-    <!-- =====================
-         INFO
-    ====================== -->
-
-    <div id="info" class="page">
-
-      <h1>ℹ️ INFORMATIONS</h1>
-
-      <div class="page-box">
-
-        <h3>⭐ BIENVENUE ⭐</h3>
-
-        <p>
-          Retrouvez ici toutes les informations importantes.
-        </p>
-
-        <hr>
-
-        <h3>📦 COMMANDES</h3>
-
-        <p>
-          Les informations concernant les commandes seront ajoutées ici.
-        </p>
-
-        <hr>
-
-        <h3>💬 CONTACT</h3>
-
-        <p>
-          Toutes les informations de contact seront disponibles ici.
-        </p>
-
-      </div>
-
-    </div>
-
-    <!-- =====================
-         LIENS
-    ====================== -->
-
-    <div id="liens" class="page">
-
-      <h1>🔗 LIENS</h1>
-
-      <div class="page-box">
-
-        <p>
-          Tous les liens importants apparaîtront ici.
-        </p>
-
-      </div>
-
-    </div>
-
-    <!-- =====================
-         MENU
-    ====================== -->
-
-    <div class="bottom-menu">
-
-      <button onclick="showPage('home')">
-        <span class="icon">🏠</span>
-        Accueil
-      </button>
-
-      <button onclick="showPage('panier')">
-        <span class="icon">🛒</span>
-        Panier
-      </button>
-
-      <button onclick="showPage('info')">
-        <span class="icon">ℹ️</span>
-        Info
-      </button>
-
-      <button onclick="showPage('liens')">
-        <span class="icon">🔗</span>
-        Liens
-      </button>
 
     </div>
 
   </div>
 
-  <script>
 
-    function showPage(pageId) {
+  <!-- =====================
+       PAGE HASH
+  ====================== -->
 
-      document
-        .querySelectorAll('.page, .home')
-        .forEach(function(page) {
-          page.classList.remove('active');
-        });
+  <div id="hash" class="page">
 
-      const targetPage = document.getElementById(pageId);
+    <button class="back-button" onclick="showPage('home')">
+      ← RETOUR
+    </button>
 
-      if (targetPage) {
-        targetPage.classList.add('active');
-      }
+    <div class="category-header">
+      <h1>HASH</h1>
+      <div class="category-line"></div>
+    </div>
 
-      window.scrollTo(0, 0);
+    <div class="products-grid">
 
-    }
+      <div class="product-card">
+        <div class="product-image"><span>+</span></div>
+        <div class="product-info">
+          <div class="product-name">PRODUIT 1</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
+        </div>
+      </div>
 
-  </script>
+      <div class="product-card">
+        <div class="product-image"><span>+</span></div>
+        <div class="product-info">
+          <div class="product-name">PRODUIT 2</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image"><span>+</span></div>
+        <div class="product-info">
+          <div class="product-name">PRODUIT 3</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image"><span>+</span></div>
+        <div class="product-info">
+          <div class="product-name">PRODUIT 4</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================
+       PAGE WEED
+  ====================== -->
+
+  <div id="weed" class="page">
+
+    <button class="back-button" onclick="showPage('home')">
+      ← RETOUR
+    </button>
+
+    <div class="category-header">
+      <h1>WEED</h1>
+      <div class="category-line"></div>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product-image"><span>+</span></div>
+        <div class="product-info">
+          <div class="product-name">PRODUIT 1</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image"><span>+</span></div>
+        <div class="product-info">
+          <div class="product-name">PRODUIT 2</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================
+       PAGE C*KE
+  ====================== -->
+
+  <div id="cake" class="page">
+
+    <button class="back-button" onclick="showPage('home')">
+      ← RETOUR
+    </button>
+
+    <div class="category-header">
+      <h1>C*KE</h1>
+      <div class="category-line"></div>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product-image"><span>+</span></div>
+        <div class="product-info">
+          <div class="product-name">PRODUIT 1</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image"><span>+</span></div>
+        <div class="product-info">
+          <div class="product-name">PRODUIT 2</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+          <button class="product-button">VOIR +</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================
+       PANIER
+  ====================== -->
+
+  <div id="panier" class="page">
+
+    <h1>🛒 PANIER</h1>
+
+    <div class="page-box">
+      <p>Ton panier est actuellement vide.</p>
+      <p>Les produits sélectionnés apparaîtront ici.</p>
+    </div>
+
+  </div>
+
+
+  <!-- =====================
+       INFO
+  ====================== -->
+
+  <div id="info" class="page">
+
+    <h1>ℹ️ INFORMATIONS</h1>
+
+    <div class="page-box">
+
+      <h3>☠️ BIENVENUE CHEZ LUFFY 33 ☠️</h3>
+
+      <p>
+        Livraison Express sur Bordeaux & alentours.
+      </p>
+
+      <hr>
+
+      <h3>⚡ DÉLAIS & CONSEILS</h3>
+
+      <p>
+        Remplissez les informations demandées avec attention pour faciliter le traitement.
+      </p>
+
+      <hr>
+
+      <h3>🔁 RETOURS & AVIS</h3>
+
+      <p>
+        Retrouvez ici les informations concernant les retours et avis.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================
+       LIENS
+  ====================== -->
+
+  <div id="liens" class="page">
+
+    <h1>🔗 LIENS</h1>
+
+    <div class="page-box">
+      <p>Tous les liens importants apparaîtront ici.</p>
+    </div>
+
+  </div>
+
+
+  <!-- =====================
+       MENU
+  ====================== -->
+
+  <div class="bottom-menu">
+
+    <button onclick="showPage('home')">
+      <span class="icon">🏠</span>
+      Accueil
+    </button>
+
+    <button onclick="showPage('panier')">
+      <span class="icon">🛒</span>
+      Panier
+    </button>
+
+    <button onclick="showPage('info')">
+      <span class="icon">ℹ️</span>
+      Info
+    </button>
+
+    <button onclick="showPage('liens')">
+      <span class="icon">🔗</span>
+      Liens
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+  function showPage(pageId) {
+
+    document
+      .querySelectorAll('.page, .home')
+      .forEach(function(page) {
+        page.classList.remove('active');
+      });
+
+    document
+      .getElementById(pageId)
+      .classList.add('active');
+
+    window.scrollTo(0, 0);
+
+  }
+
+</script>
 
 </body>
 </html>
