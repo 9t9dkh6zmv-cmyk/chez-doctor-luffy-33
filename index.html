@@ -23,6 +23,7 @@
     .app {
       min-height: 100vh;
       padding-bottom: 85px;
+
       background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.92)),
         url("IMG_1527.jpeg");
@@ -31,7 +32,6 @@
       background-position: center;
       background-attachment: fixed;
     }
-
 
 
     /* =========================
@@ -48,7 +48,6 @@
     }
 
 
-
     /* =========================
        BANDE DÉFILANTE
     ========================= */
@@ -58,10 +57,14 @@
       margin-left: -15px;
       overflow: hidden;
       white-space: nowrap;
+
       background: rgba(8,8,8,.96);
+
       border-top: 1px solid #e10606;
       border-bottom: 1px solid #e10606;
+
       padding: 4px 0;
+
       box-shadow: 0 4px 15px rgba(0,0,0,.6);
     }
 
@@ -93,7 +96,6 @@
     }
 
 
-
     /* =========================
        LOGO ACCUEIL
     ========================= */
@@ -101,11 +103,15 @@
     .hero-image {
       width: min(140px, 45vw);
       aspect-ratio: 1 / 1;
+
       margin: 22px auto;
+
       border-radius: 20px;
       overflow: hidden;
+
       background: rgba(0,0,0,.55);
       border: 1px solid rgba(255,255,255,.15);
+
       box-shadow: 0 8px 25px rgba(0,0,0,.7);
     }
 
@@ -116,7 +122,6 @@
     }
 
 
-
     /* =========================
        LIGNE ACCUEIL
     ========================= */
@@ -124,6 +129,7 @@
     .separator {
       width: 70%;
       height: 1px;
+
       margin: 0 auto 20px;
 
       background: linear-gradient(
@@ -135,7 +141,6 @@
 
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
-
 
 
     /* =========================
@@ -150,12 +155,14 @@
 
     .category-card {
       aspect-ratio: 1 / 1;
+
       border-radius: 20px;
       overflow: hidden;
       position: relative;
 
       background: rgba(15,15,18,.9);
       border: 1px solid rgba(255,255,255,.18);
+
       box-shadow: 0 8px 25px rgba(0,0,0,.65);
 
       cursor: pointer;
@@ -223,7 +230,6 @@
     }
 
 
-
     /* =========================
        PAGES
     ========================= */
@@ -231,13 +237,13 @@
     .page {
       display: none;
       min-height: 100vh;
+
       padding: 15px 15px 100px;
     }
 
     .page.active {
       display: block;
     }
-
 
 
     /* =========================
@@ -276,7 +282,6 @@
     }
 
 
-
     /* =========================
        TITRE CATÉGORIE
     ========================= */
@@ -300,7 +305,6 @@
     }
 
 
-
     /* =========================
        HASH ROUGE
     ========================= */
@@ -314,7 +318,6 @@
     .hash-back {
       border: 1px solid #e10606;
     }
-
 
 
     /* =========================
@@ -332,7 +335,6 @@
     }
 
 
-
     /* =========================
        CAKE BLEU
     ========================= */
@@ -346,7 +348,6 @@
     .cake-back {
       border: 1px solid #00cfff;
     }
-
 
 
     /* =========================
@@ -369,7 +370,6 @@
 
       cursor: pointer;
     }
-
 
 
     /* =========================
@@ -414,7 +414,6 @@
 
       box-shadow: 0 0 8px rgba(0,207,255,.7);
     }
-
 
 
     /* =========================
@@ -528,7 +527,6 @@
     }
 
 
-
     /* =========================
        PANIER / LIENS
     ========================= */
@@ -549,7 +547,6 @@
 
       backdrop-filter: blur(10px);
     }
-
 
 
     /* =========================
@@ -634,7 +631,6 @@
     }
 
 
-
     /* =========================
        LOGO TOUT EN BAS DE INFO
        SANS ZOOM NI DÉFORMATION
@@ -661,7 +657,6 @@
 
       display: block;
     }
-
 
 
     /* =========================
@@ -724,9 +719,7 @@
 <div class="app">
 
 
-  <!-- =========================
-       ACCUEIL
-  ========================= -->
+  <!-- ACCUEIL -->
 
   <div id="home" class="home active">
 
@@ -804,10 +797,7 @@
   </div>
 
 
-
-  <!-- =========================
-       HASH
-  ========================= -->
+  <!-- HASH -->
 
   <div id="hash" class="page">
 
@@ -824,8 +814,7 @@
     </div>
 
 
-    <button class="back-button hash-back"
-            onclick="showPage('home')">
+    <button class="back-button hash-back" onclick="showPage('home')">
       ← RETOUR
     </button>
 
@@ -889,10 +878,7 @@
   </div>
 
 
-
-  <!-- =========================
-       WEED
-  ========================= -->
+  <!-- WEED -->
 
   <div id="weed" class="page">
 
@@ -909,8 +895,7 @@
     </div>
 
 
-    <button class="back-button weed-back"
-            onclick="showPage('home')">
+    <button class="back-button weed-back" onclick="showPage('home')">
       ← RETOUR
     </button>
 
@@ -974,10 +959,7 @@
   </div>
 
 
-
-  <!-- =========================
-       CAKE
-  ========================= -->
+  <!-- CAKE -->
 
   <div id="cake" class="page">
 
@@ -994,8 +976,7 @@
     </div>
 
 
-    <button class="back-button cake-back"
-            onclick="showPage('home')">
+    <button class="back-button cake-back" onclick="showPage('home')">
       ← RETOUR
     </button>
 
@@ -1059,10 +1040,7 @@
   </div>
 
 
-
-  <!-- =========================
-       PANIER
-  ========================= -->
+  <!-- PANIER -->
 
   <div id="panier" class="page">
 
@@ -1083,10 +1061,7 @@
   </div>
 
 
-
-  <!-- =========================
-       INFO
-  ========================= -->
+  <!-- INFO -->
 
   <div id="info" class="page">
 
@@ -1152,12 +1127,8 @@
 
         <br>
 
-        <a class="info-link"
-           href="https://t.me/ChezLuffy33"
-           target="_blank">
-
+        <a class="info-link" href="#" target="_blank">
           @ChezLuffy33
-
         </a>
 
       </p>
@@ -1167,9 +1138,7 @@
 
 
       <div class="info-section-title">
-
         ⚡️ DÉLAIS & CONSEILS :
-
       </div>
 
 
@@ -1225,9 +1194,7 @@
 
 
       <div class="info-section-title">
-
         🔁 RETOURS & AVIS :
-
       </div>
 
 
@@ -1242,12 +1209,8 @@
       </p>
 
 
-      <a class="info-link"
-         href="https://t.me/+J4xj67WNkWczZjQ0"
-         target="_blank">
-
+      <a class="info-link" href="#" target="_blank">
         ACCÉDER AU CHAT
-
       </a>
 
     </div>
@@ -1257,18 +1220,16 @@
 
     <div class="bottom-info-logo">
 
-      <img src="IMG_1555.png"
-           alt="CHEZ DOCTOR LUFFY">
+      <img
+        src="IMG_1555.png"
+        alt="CHEZ DOCTOR LUFFY">
 
     </div>
 
   </div>
 
 
-
-  <!-- =========================
-       LIENS
-  ========================= -->
+  <!-- LIENS -->
 
   <div id="liens" class="page">
 
@@ -1285,10 +1246,7 @@
   </div>
 
 
-
-  <!-- =========================
-       MENU DU BAS
-  ========================= -->
+  <!-- MENU DU BAS -->
 
   <div class="bottom-menu">
 
@@ -1337,9 +1295,7 @@
 
   </div>
 
-
 </div>
-
 
 
 <script>
@@ -1365,7 +1321,6 @@
   }
 
 </script>
-
 
 </body>
 </html>
