@@ -33,8 +33,6 @@
       background-attachment: fixed;
     }
 
-
-
     /* =========================
        ACCUEIL
     ========================= */
@@ -47,8 +45,6 @@
     .home.active {
       display: block;
     }
-
-
 
     /* =========================
        BANDE DÉFILANTE
@@ -66,8 +62,6 @@
       border-bottom: 1px solid #e10606;
 
       padding: 4px 0;
-
-      box-shadow: 0 4px 15px rgba(0,0,0,.6);
     }
 
     .ticker-track {
@@ -78,18 +72,13 @@
 
     .ticker-text {
       flex-shrink: 0;
-
-      color: white;
-
       font-size: 10px;
       font-weight: bold;
       letter-spacing: 1px;
-
       padding-right: 40px;
     }
 
     @keyframes tickerMove {
-
       from {
         transform: translateX(0);
       }
@@ -97,19 +86,15 @@
       to {
         transform: translateX(-50%);
       }
-
     }
 
-
-
     /* =========================
-       LOGO ACCUEIL
+       LOGO
     ========================= */
 
     .hero-image {
       width: min(140px, 45vw);
       aspect-ratio: 1 / 1;
-
       margin: 22px auto;
 
       border-radius: 20px;
@@ -117,7 +102,6 @@
 
       background: rgba(0,0,0,.55);
       border: 1px solid rgba(255,255,255,.15);
-
       box-shadow: 0 8px 25px rgba(0,0,0,.7);
     }
 
@@ -127,16 +111,9 @@
       object-fit: contain;
     }
 
-
-
-    /* =========================
-       LIGNE ACCUEIL
-    ========================= */
-
     .separator {
       width: 70%;
       height: 1px;
-
       margin: 0 auto 20px;
 
       background: linear-gradient(
@@ -145,21 +122,15 @@
         #e10606,
         transparent
       );
-
-      box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
-
-
     /* =========================
-       CATÉGORIES ACCUEIL
+       CATÉGORIES
     ========================= */
 
     .categories {
       display: grid;
-
       grid-template-columns: repeat(2, 1fr);
-
       gap: 14px;
     }
 
@@ -168,22 +139,12 @@
 
       border-radius: 20px;
       overflow: hidden;
-
       position: relative;
 
       background: rgba(15,15,18,.9);
-
       border: 1px solid rgba(255,255,255,.18);
 
-      box-shadow: 0 8px 25px rgba(0,0,0,.65);
-
       cursor: pointer;
-
-      transition: transform .2s ease;
-    }
-
-    .category-card:active {
-      transform: scale(.97);
     }
 
     .category-image {
@@ -193,12 +154,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
-      background: linear-gradient(
-        135deg,
-        rgba(255,255,255,.08),
-        rgba(0,0,0,.7)
-      );
     }
 
     .category-image span {
@@ -208,7 +163,6 @@
 
     .category-card::after {
       content: "";
-
       position: absolute;
       inset: 0;
 
@@ -216,13 +170,10 @@
         transparent 35%,
         rgba(0,0,0,.9)
       );
-
-      pointer-events: none;
     }
 
     .category-title {
       position: absolute;
-
       z-index: 2;
 
       bottom: 14px;
@@ -234,8 +185,6 @@
       font-size: 16px;
       font-weight: 900;
       letter-spacing: 1px;
-
-      text-shadow: 0 3px 10px black;
     }
 
     .category-card.last {
@@ -243,17 +192,13 @@
       aspect-ratio: 2 / 1;
     }
 
-
-
     /* =========================
        PAGES
     ========================= */
 
     .page {
       display: none;
-
       min-height: 100vh;
-
       padding: 15px 15px 100px;
     }
 
@@ -261,26 +206,13 @@
       display: block;
     }
 
-
-
-    /* =========================
-       CORRECTION PAGE INFO
-       SUPPRESSION DE L'ESPACE
-    ========================= */
-
     #info.page {
       min-height: calc(100vh - 75px);
-
-      padding:
-        15px
-        15px
-        0;
+      padding: 15px 15px 0;
     }
 
-
-
     /* =========================
-       EN-TÊTE CATÉGORIES
+       EN-TÊTE CATÉGORIE
     ========================= */
 
     .category-top {
@@ -290,7 +222,6 @@
 
     .category-logo {
       position: absolute;
-
       top: 0;
       left: 50%;
 
@@ -303,28 +234,17 @@
       overflow: hidden;
 
       background: rgba(0,0,0,.55);
-
       border: 1px solid rgba(255,255,255,.15);
-
-      box-shadow: 0 8px 25px rgba(0,0,0,.7);
     }
 
     .category-logo img {
       width: 100%;
       height: 100%;
-
       object-fit: contain;
     }
 
-
-
-    /* =========================
-       TITRE CATÉGORIE
-    ========================= */
-
     .category-page-title {
       position: absolute;
-
       top: 58px;
       left: 0;
 
@@ -335,100 +255,54 @@
 
       font-size: 22px;
       font-weight: 900;
-      letter-spacing: 2px;
 
       background: rgba(5,5,5,.75);
     }
 
-
-
-    /* =========================
-       HASH ROUGE
-    ========================= */
-
     .hash-title {
       color: #e10606;
-
       border: 1px solid #e10606;
+    }
 
-      box-shadow: 0 0 10px rgba(225,6,6,.25);
+    .weed-title {
+      color: #00c853;
+      border: 1px solid #00c853;
+    }
+
+    .cake-title {
+      color: #00cfff;
+      border: 1px solid #00cfff;
+    }
+
+    .back-button {
+      display: block;
+
+      margin: 0 0 8px 5px;
+      padding: 9px 14px;
+
+      border-radius: 12px;
+
+      background: rgba(10,10,10,.8);
+      color: white;
+
+      cursor: pointer;
     }
 
     .hash-back {
       border: 1px solid #e10606;
     }
 
-
-
-    /* =========================
-       WEED VERT
-    ========================= */
-
-    .weed-title {
-      color: #00c853;
-
-      border: 1px solid #00c853;
-
-      box-shadow: 0 0 10px rgba(0,200,83,.25);
-    }
-
     .weed-back {
       border: 1px solid #00c853;
-    }
-
-
-
-    /* =========================
-       C*KE BLEU
-    ========================= */
-
-    .cake-title {
-      color: #00cfff;
-
-      border: 1px solid #00cfff;
-
-      box-shadow: 0 0 10px rgba(0,207,255,.25);
     }
 
     .cake-back {
       border: 1px solid #00cfff;
     }
 
-
-
-    /* =========================
-       RETOUR
-    ========================= */
-
-    .back-button {
-      display: block;
-
-      margin: 0 0 8px 5px;
-
-      padding: 9px 14px;
-
-      border-radius: 12px;
-
-      background: rgba(10,10,10,.8);
-
-      color: white;
-
-      font-size: 12px;
-      font-weight: bold;
-
-      cursor: pointer;
-    }
-
-
-
-    /* =========================
-       LIGNES CATÉGORIES
-    ========================= */
-
     .category-line {
       width: 70%;
       height: 1px;
-
       margin: 0 auto 20px;
     }
 
@@ -439,8 +313,6 @@
         #e10606,
         transparent
       );
-
-      box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
     .weed-line {
@@ -450,8 +322,6 @@
         #00c853,
         transparent
       );
-
-      box-shadow: 0 0 8px rgba(0,200,83,.7);
     }
 
     .cake-line {
@@ -461,11 +331,7 @@
         #00cfff,
         transparent
       );
-
-      box-shadow: 0 0 8px rgba(0,207,255,.7);
     }
-
-
 
     /* =========================
        PRODUITS
@@ -473,48 +339,40 @@
 
     .products-grid {
       display: grid;
-
       grid-template-columns: repeat(2, minmax(0, 1fr));
-
       gap: 12px;
     }
 
     .product-card {
       overflow: hidden;
-
       border-radius: 18px;
 
       background: rgba(10,10,12,.92);
-
       border: 1px solid rgba(255,255,255,.16);
-
-      box-shadow: 0 8px 20px rgba(0,0,0,.6);
-
-      transition: transform .2s ease;
-    }
-
-    .product-card:active {
-      transform: scale(.97);
     }
 
     .product-image {
       width: 100%;
       aspect-ratio: 1 / 1;
+      overflow: hidden;
+
+      background: #111;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-image-placeholder {
+      width: 100%;
+      height: 100%;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      background: linear-gradient(
-        135deg,
-        rgba(255,255,255,.10),
-        rgba(0,0,0,.75)
-      );
-
-      border-bottom: 1px solid rgba(255,255,255,.10);
-    }
-
-    .product-image span {
       font-size: 35px;
       opacity: .25;
     }
@@ -529,26 +387,22 @@
 
       font-size: 13px;
       font-weight: 900;
-      letter-spacing: .5px;
     }
 
     .product-price {
       margin-bottom: 10px;
-
       font-size: 11px;
       font-weight: bold;
     }
 
     .product-button {
       width: 100%;
-
       padding: 8px 4px;
 
       border: none;
       border-radius: 10px;
 
       color: white;
-
       font-size: 10px;
       font-weight: bold;
 
@@ -580,7 +434,151 @@
       color: #050505;
     }
 
+    /* =========================
+       FICHE PRODUIT
+    ========================= */
 
+    .product-page {
+      display: none;
+      min-height: 100vh;
+      padding: 15px 15px 100px;
+    }
+
+    .product-page.active {
+      display: block;
+    }
+
+    .product-main-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+
+      border-radius: 20px;
+      overflow: hidden;
+
+      background: #111;
+      border: 1px solid #e10606;
+
+      margin-bottom: 18px;
+    }
+
+    .product-main-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-detail-box {
+      padding: 20px 16px;
+
+      border-radius: 20px;
+
+      background: rgba(5,5,8,.94);
+      border: 1px solid rgba(225,6,6,.65);
+    }
+
+    .detail-title {
+      text-align: center;
+
+      font-size: 24px;
+      font-weight: 900;
+
+      margin-bottom: 8px;
+    }
+
+    .detail-subtitle {
+      text-align: center;
+
+      color: #e10606;
+
+      font-size: 17px;
+      font-weight: bold;
+
+      margin-bottom: 18px;
+    }
+
+    .new-arrival {
+      padding: 12px;
+      margin-bottom: 20px;
+
+      border-radius: 12px;
+
+      background: #ffd400;
+      color: #111;
+
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .quantity-title {
+      text-align: center;
+
+      font-size: 16px;
+      font-weight: 900;
+
+      margin-bottom: 14px;
+    }
+
+    .quantities {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+
+      margin-bottom: 15px;
+    }
+
+    .quantity-btn {
+      padding: 14px 8px;
+
+      border-radius: 12px;
+
+      background: rgba(20,20,20,.95);
+      border: 1px solid rgba(225,6,6,.7);
+
+      color: white;
+
+      font-size: 15px;
+      font-weight: 900;
+
+      cursor: pointer;
+    }
+
+    .quantity-btn.active {
+      background: #e10606;
+      border-color: #e10606;
+
+      box-shadow: 0 0 15px rgba(225,6,6,.55);
+    }
+
+    .quantity-btn:last-child {
+      grid-column: span 2;
+    }
+
+    .selected-price {
+      text-align: center;
+
+      margin: 18px 0;
+
+      color: #e10606;
+
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .contact-button {
+      width: 100%;
+      padding: 16px;
+
+      border: none;
+      border-radius: 14px;
+
+      background: #e10606;
+      color: white;
+
+      font-size: 16px;
+      font-weight: 900;
+
+      cursor: pointer;
+    }
 
     /* =========================
        PANIER / LIENS
@@ -593,22 +591,16 @@
 
     .page-box {
       margin-top: 15px;
-
       padding: 20px;
 
       border-radius: 20px;
 
       background: rgba(5,5,8,.90);
-
       border: 1px solid rgba(255,255,255,.18);
-
-      backdrop-filter: blur(10px);
     }
 
-
-
     /* =========================
-       PAGE INFO
+       INFO
     ========================= */
 
     .info-box {
@@ -620,21 +612,14 @@
       border-radius: 20px;
 
       background: rgba(5,5,8,.92);
-
       border: 1px solid #e10606;
 
-      backdrop-filter: blur(10px);
-
       text-align: center;
-
-      box-shadow: 0 0 20px rgba(225,6,6,.18);
     }
 
     .info-box p {
       margin: 11px 0;
-
       line-height: 1.65;
-
       font-size: 16px;
     }
 
@@ -643,8 +628,6 @@
 
       font-size: 20px;
       font-weight: 900;
-
-      letter-spacing: .5px;
     }
 
     .info-red {
@@ -682,8 +665,6 @@
         #e10606,
         transparent
       );
-
-      box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
     .info-section-title {
@@ -695,15 +676,12 @@
       font-weight: 900;
     }
 
-
-
     /* =========================
        MENU BAS
     ========================= */
 
     .bottom-menu {
       position: fixed;
-
       z-index: 100;
 
       bottom: 0;
@@ -713,15 +691,11 @@
       height: 75px;
 
       display: flex;
-
       justify-content: space-around;
       align-items: center;
 
       background: rgba(8,8,10,.97);
-
       border-top: 1px solid rgba(255,255,255,.15);
-
-      backdrop-filter: blur(15px);
     }
 
     .bottom-menu button {
@@ -736,7 +710,6 @@
 
       display: flex;
       flex-direction: column;
-
       align-items: center;
 
       gap: 5px;
@@ -749,25 +722,17 @@
     }
 
   </style>
-
 </head>
-
-
 
 <body>
 
 <div class="app">
 
-
-
-  <!-- =========================
-       ACCUEIL
-  ========================= -->
+  <!-- ACCUEIL -->
 
   <div id="home" class="home active">
 
     <div class="ticker">
-
       <div class="ticker-track">
 
         <div class="ticker-text">
@@ -783,72 +748,42 @@
         </div>
 
       </div>
-
     </div>
-
-
 
     <div class="hero-image">
       <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
     </div>
 
-
-
     <div class="separator"></div>
-
-
 
     <div class="categories">
 
       <div class="category-card" onclick="showPage('hash')">
-
         <div class="category-image">
           <span>+</span>
         </div>
-
-        <div class="category-title">
-          HASH
-        </div>
-
+        <div class="category-title">HASH</div>
       </div>
-
-
 
       <div class="category-card" onclick="showPage('weed')">
-
         <div class="category-image">
           <span>+</span>
         </div>
-
-        <div class="category-title">
-          WEED
-        </div>
-
+        <div class="category-title">WEED</div>
       </div>
 
-
-
       <div class="category-card last" onclick="showPage('cake')">
-
         <div class="category-image">
           <span>+</span>
         </div>
-
-        <div class="category-title">
-          C*KE
-        </div>
-
+        <div class="category-title">C*KE</div>
       </div>
 
     </div>
 
   </div>
 
-
-
-  <!-- =========================
-       HASH
-  ========================= -->
+  <!-- HASH -->
 
   <div id="hash" class="page">
 
@@ -864,8 +799,7 @@
 
     </div>
 
-    <button class="back-button hash-back"
-            onclick="showPage('home')">
+    <button class="back-button hash-back" onclick="showPage('home')">
       ← RETOUR
     </button>
 
@@ -873,23 +807,26 @@
 
     <div class="products-grid">
 
+      <!-- MOUSSE CYTHO -->
+
       <div class="product-card hash-product">
 
         <div class="product-image">
-          <span>+</span>
+          <img src="IMG_1515.jpeg" alt="MOUSSE CYTHO">
         </div>
 
         <div class="product-info">
 
           <div class="product-name">
-            PRODUIT 1
+            MOUSSE CYTHO
           </div>
 
           <div class="product-price">
-            À PARTIR DE XX €
+            À PARTIR DE 40 €
           </div>
 
-          <button class="product-button">
+          <button class="product-button"
+                  onclick="showPage('mousse-cytho')">
             VOIR +
           </button>
 
@@ -897,26 +834,26 @@
 
       </div>
 
-
+      <!-- PRODUIT VIDE -->
 
       <div class="product-card hash-product">
 
         <div class="product-image">
-          <span>+</span>
+          <div class="product-image-placeholder">+</div>
         </div>
 
         <div class="product-info">
 
           <div class="product-name">
-            PRODUIT 2
+            PROCHAIN PRODUIT
           </div>
 
           <div class="product-price">
-            À PARTIR DE XX €
+            BIENTÔT DISPONIBLE
           </div>
 
           <button class="product-button">
-            VOIR +
+            BIENTÔT
           </button>
 
         </div>
@@ -927,11 +864,80 @@
 
   </div>
 
+  <!-- FICHE MOUSSE CYTHO -->
 
+  <div id="mousse-cytho" class="product-page">
 
-  <!-- =========================
-       WEED
-  ========================= -->
+    <button class="back-button hash-back"
+            onclick="showPage('hash')">
+      ← RETOUR
+    </button>
+
+    <div class="product-main-image">
+      <img src="IMG_1515.jpeg" alt="MOUSSE CYTHO">
+    </div>
+
+    <div class="product-detail-box">
+
+      <div class="detail-title">
+        ⚪️ MOUSSE CYTHO 🥭🍊
+      </div>
+
+      <div class="detail-subtitle">
+        🔴 Super Mousseux 🧽
+      </div>
+
+      <div class="new-arrival">
+        🔴 NEW ARRIVAGE
+      </div>
+
+      <div class="quantity-title">
+        QUANTITÉ DISPONIBLE
+      </div>
+
+      <div class="quantities">
+
+        <button class="quantity-btn active"
+                onclick="selectQuantity(this, 40)">
+          10g
+        </button>
+
+        <button class="quantity-btn"
+                onclick="selectQuantity(this, 70)">
+          20g
+        </button>
+
+        <button class="quantity-btn"
+                onclick="selectQuantity(this, 100)">
+          30g
+        </button>
+
+        <button class="quantity-btn"
+                onclick="selectQuantity(this, 140)">
+          50g
+        </button>
+
+        <button class="quantity-btn"
+                onclick="selectQuantity(this, 260)">
+          100g
+        </button>
+
+      </div>
+
+      <div id="selected-price" class="selected-price">
+        40 €
+      </div>
+
+      <button class="contact-button"
+              onclick="contactTelegram()">
+        CONTACTER SUR TELEGRAM
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- WEED -->
 
   <div id="weed" class="page">
 
@@ -957,64 +963,25 @@
     <div class="products-grid">
 
       <div class="product-card weed-product">
-
         <div class="product-image">
-          <span>+</span>
+          <div class="product-image-placeholder">+</div>
         </div>
 
         <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 1
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
+          <div class="product-name">PRODUIT 1</div>
+          <div class="product-price">À PARTIR DE XX €</div>
 
           <button class="product-button">
             VOIR +
           </button>
-
         </div>
-
-      </div>
-
-
-
-      <div class="product-card weed-product">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 2
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button">
-            VOIR +
-          </button>
-
-        </div>
-
       </div>
 
     </div>
 
   </div>
 
-
-
-  <!-- =========================
-       C*KE
-  ========================= -->
+  <!-- C*KE -->
 
   <div id="cake" class="page">
 
@@ -1040,349 +1007,174 @@
     <div class="products-grid">
 
       <div class="product-card cake-product">
-
         <div class="product-image">
-          <span>+</span>
+          <div class="product-image-placeholder">+</div>
         </div>
 
         <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 1
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
+          <div class="product-name">PRODUIT 1</div>
+          <div class="product-price">À PARTIR DE XX €</div>
 
           <button class="product-button">
             VOIR +
           </button>
-
         </div>
-
-      </div>
-
-
-
-      <div class="product-card cake-product">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 2
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button">
-            VOIR +
-          </button>
-
-        </div>
-
       </div>
 
     </div>
 
   </div>
 
-
-
-  <!-- =========================
-       PANIER
-  ========================= -->
+  <!-- PANIER -->
 
   <div id="panier" class="page">
 
     <h1>🛒 PANIER</h1>
 
     <div class="page-box">
-
-      <p>
-        Ton panier est actuellement vide.
-      </p>
-
-      <p>
-        Les produits sélectionnés apparaîtront ici.
-      </p>
-
+      <p>Ton panier est actuellement vide.</p>
+      <p>Les produits sélectionnés apparaîtront ici.</p>
     </div>
 
   </div>
 
-
-
-  <!-- =========================
-       INFO
-  ========================= -->
+  <!-- INFO -->
 
   <div id="info" class="page">
 
     <div class="info-box">
 
       <div class="info-title">
-
         Bienvenue
-        <span class="info-red">
-          CHEZ LUFFY 33
-        </span>
+        <span class="info-red">CHEZ LUFFY 33</span>
         ☠️
-
       </div>
 
-
-
       <p>
-
         Livraison Express sur
-
-        <span class="info-red">
-          Bordeaux & alentours
-        </span>
-
+        <span class="info-red">Bordeaux & alentours</span>
         -
-
-        <span class="info-red">
-          7J/7 de 12h à 00h
-        </span>
-
+        <span class="info-red">7J/7 de 12h à 00h</span>
       </p>
 
-
-
       <p>
-
         ⏱️ Prise de Commandes dès
-
         <br>
-
         <span class="info-red">
           10h du matin jusqu'à 00h
         </span>
-
       </p>
 
-
-
       <p>
-
         📲 Commandes & Contact
-
         <br>
-
         exclusivement via
-
-        <span class="info-red">
-          Telegram
-        </span>
-
+        <span class="info-red">Telegram</span>
         :
-
         <br>
-
-        <!-- MODIFICATION : LIEN DIRECT VERS TELEGRAM -->
 
         <a class="info-link"
            href="https://t.me/ChezLuffy33"
            target="_blank"
            rel="noopener">
-
           @CHEZLUFFY33
-
         </a>
-
       </p>
-
-
 
       <div class="info-separator"></div>
 
-
-
       <div class="info-section-title">
-
         ⚡ DÉLAIS & CONSEILS :
-
       </div>
 
-
-
       <p>
-
-        •
-        <span class="info-white">
-          Commande
-        </span>
-
-        :
-
+        • <span class="info-white">Commande</span> :
         remplissez le formulaire
-
-        <span class="info-red">
-          minutieusement
-        </span>
-
+        <span class="info-red">minutieusement</span>
         pour que le traitement de votre commande soit le plus fluide possible.
-
       </p>
-
-
 
       <p>
-
-        •
-        <span class="info-white">
-          Livraison
-        </span>
-
-        :
-
+        • <span class="info-white">Livraison</span> :
         privilégiez les commandes
-
-        <span class="info-red">
-          avant 13h
-        </span>
-
+        <span class="info-red">avant 13h</span>
         pour être dans les premiers.
-
       </p>
-
-
 
       <div class="info-separator"></div>
 
-
-
       <div class="info-section-title">
-
         🔄 RETOURS & AVIS :
-
       </div>
 
-
-
       <p>
-
         📸 N’hésitez pas à poster une photo de
-
         <br>
-
         votre commande dans le chat de retours
-
       </p>
-
-
 
       <a class="info-link"
          href="https://t.me/+J4xj67WNkWczZjQ0"
          target="_blank"
          rel="noopener">
-
         ACCÉDER AU CHAT
-
       </a>
 
     </div>
 
   </div>
 
-
-
-  <!-- =========================
-       LIENS
-  ========================= -->
+  <!-- LIENS -->
 
   <div id="liens" class="page">
 
     <h1>🔗 LIENS</h1>
 
     <div class="page-box">
-
-      <p>
-        Tous les liens importants apparaîtront ici.
-      </p>
-
+      <p>Tous les liens importants apparaîtront ici.</p>
     </div>
 
   </div>
 
-
-
-  <!-- =========================
-       MENU DU BAS
-  ========================= -->
+  <!-- MENU -->
 
   <div class="bottom-menu">
 
     <button onclick="showPage('home')">
-
-      <span class="icon">
-        🏠
-      </span>
-
+      <span class="icon">🏠</span>
       Accueil
-
     </button>
-
-
 
     <button onclick="showPage('panier')">
-
-      <span class="icon">
-        🛒
-      </span>
-
+      <span class="icon">🛒</span>
       Panier
-
     </button>
-
-
 
     <button onclick="showPage('info')">
-
-      <span class="icon">
-        ℹ️
-      </span>
-
+      <span class="icon">ℹ️</span>
       Info
-
     </button>
 
-
-
     <button onclick="showPage('liens')">
-
-      <span class="icon">
-        🔗
-      </span>
-
+      <span class="icon">🔗</span>
       Liens
-
     </button>
 
   </div>
 
 </div>
 
-
-
 <script>
+
+  let selectedWeight = "10g";
+  let selectedPrice = 40;
 
   function showPage(pageId) {
 
     document
-      .querySelectorAll('.page, .home')
+      .querySelectorAll('.page, .home, .product-page')
       .forEach(function(page) {
-
         page.classList.remove('active');
-
       });
 
     document
@@ -1390,6 +1182,33 @@
       .classList.add('active');
 
     window.scrollTo(0, 0);
+
+  }
+
+  function selectQuantity(button, price) {
+
+    document
+      .querySelectorAll('.quantity-btn')
+      .forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+
+    button.classList.add('active');
+
+    selectedWeight = button.textContent.trim();
+    selectedPrice = price;
+
+    document.getElementById('selected-price').textContent =
+      price + " €";
+
+  }
+
+  function contactTelegram() {
+
+    window.open(
+      "https://t.me/ChezLuffy33",
+      "_blank"
+    );
 
   }
 
