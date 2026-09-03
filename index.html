@@ -118,7 +118,7 @@
     }
 
     /* =========================
-       LIGNE ROUGE IDENTIQUE
+       LIGNE ACCUEIL
     ========================= */
 
     .separator {
@@ -149,7 +149,6 @@
 
     .category-card {
       aspect-ratio: 1 / 1;
-
       border-radius: 20px;
       overflow: hidden;
       position: relative;
@@ -161,7 +160,6 @@
       box-shadow: 0 8px 25px rgba(0,0,0,.65);
 
       cursor: pointer;
-
       transition: transform .2s ease;
     }
 
@@ -192,7 +190,6 @@
 
     .category-card::after {
       content: "";
-
       position: absolute;
       inset: 0;
 
@@ -207,7 +204,6 @@
 
     .category-title {
       position: absolute;
-
       z-index: 2;
 
       bottom: 14px;
@@ -234,9 +230,7 @@
 
     .page {
       display: none;
-
       min-height: 100vh;
-
       padding: 15px 15px 100px;
     }
 
@@ -280,8 +274,6 @@
       height: 100%;
       object-fit: contain;
     }
-
-    /* RETOUR + TITRE */
 
     .category-left {
       position: absolute;
@@ -348,14 +340,18 @@
       box-shadow: 0 0 10px rgba(57,198,255,.35);
     }
 
-    /* LIGNE ENTRE HEADER ET PRODUITS */
+    /* =========================
+       LIGNES DE SÉPARATION
+    ========================= */
 
     .category-line {
       width: 70%;
       height: 1px;
 
       margin: 0 auto 20px;
+    }
 
+    .hash-line {
       background: linear-gradient(
         to right,
         transparent,
@@ -364,6 +360,28 @@
       );
 
       box-shadow: 0 0 8px rgba(225,6,6,.7);
+    }
+
+    .weed-line {
+      background: linear-gradient(
+        to right,
+        transparent,
+        #21c45a,
+        transparent
+      );
+
+      box-shadow: 0 0 8px rgba(33,196,90,.7);
+    }
+
+    .cake-line {
+      background: linear-gradient(
+        to right,
+        transparent,
+        #39c6ff,
+        transparent
+      );
+
+      box-shadow: 0 0 8px rgba(57,198,255,.7);
     }
 
     /* =========================
@@ -527,9 +545,25 @@
       margin-bottom: 18px;
     }
 
+    /* TEXTE IMPORTANT ROUGE */
+
     .red-text {
       color: #e10606;
       font-weight: 900;
+    }
+
+    .info-separator {
+      width: 75%;
+      height: 1px;
+
+      margin: 22px auto;
+
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+      );
     }
 
     .info-link {
@@ -551,26 +585,10 @@
 
       font-size: 12px;
       font-weight: bold;
-
-      word-break: break-all;
-    }
-
-    .info-separator {
-      width: 75%;
-      height: 1px;
-
-      margin: 22px auto;
-
-      background: linear-gradient(
-        to right,
-        transparent,
-        rgba(255,255,255,.35),
-        transparent
-      );
     }
 
     /* =========================
-       MENU DU BAS
+       MENU BAS
     ========================= */
 
     .bottom-menu {
@@ -623,14 +641,11 @@
   </style>
 </head>
 
-
 <body>
 
 <div class="app">
 
-  <!-- =====================
-       ACCUEIL
-  ====================== -->
+  <!-- ACCUEIL -->
 
   <div id="home" class="home active">
 
@@ -661,35 +676,18 @@
     <div class="categories">
 
       <div class="category-card" onclick="showPage('hash')">
-        <div class="category-image">
-          <span>+</span>
-        </div>
-
-        <div class="category-title">
-          HASH
-        </div>
+        <div class="category-image"><span>+</span></div>
+        <div class="category-title">HASH</div>
       </div>
-
 
       <div class="category-card" onclick="showPage('weed')">
-        <div class="category-image">
-          <span>+</span>
-        </div>
-
-        <div class="category-title">
-          WEED
-        </div>
+        <div class="category-image"><span>+</span></div>
+        <div class="category-title">WEED</div>
       </div>
 
-
       <div class="category-card last" onclick="showPage('cake')">
-        <div class="category-image">
-          <span>+</span>
-        </div>
-
-        <div class="category-title">
-          C*KE
-        </div>
+        <div class="category-image"><span>+</span></div>
+        <div class="category-title">C*KE</div>
       </div>
 
     </div>
@@ -697,9 +695,7 @@
   </div>
 
 
-  <!-- =====================
-       HASH
-  ====================== -->
+  <!-- HASH -->
 
   <div id="hash" class="page">
 
@@ -723,7 +719,7 @@
 
     </div>
 
-    <div class="category-line"></div>
+    <div class="category-line hash-line"></div>
 
     <div class="products-grid">
 
@@ -732,7 +728,10 @@
 
         <div class="product-info">
           <div class="product-name">PRODUIT 1</div>
-          <div class="product-price hash-color">À PARTIR DE XX €</div>
+
+          <div class="product-price hash-color">
+            À PARTIR DE XX €
+          </div>
 
           <button class="product-button hash-button">
             VOIR +
@@ -740,13 +739,15 @@
         </div>
       </div>
 
-
       <div class="product-card">
         <div class="product-image"><span>+</span></div>
 
         <div class="product-info">
           <div class="product-name">PRODUIT 2</div>
-          <div class="product-price hash-color">À PARTIR DE XX €</div>
+
+          <div class="product-price hash-color">
+            À PARTIR DE XX €
+          </div>
 
           <button class="product-button hash-button">
             VOIR +
@@ -759,9 +760,7 @@
   </div>
 
 
-  <!-- =====================
-       WEED
-  ====================== -->
+  <!-- WEED -->
 
   <div id="weed" class="page">
 
@@ -785,7 +784,7 @@
 
     </div>
 
-    <div class="category-line"></div>
+    <div class="category-line weed-line"></div>
 
     <div class="products-grid">
 
@@ -794,7 +793,10 @@
 
         <div class="product-info">
           <div class="product-name">PRODUIT 1</div>
-          <div class="product-price weed-color">À PARTIR DE XX €</div>
+
+          <div class="product-price weed-color">
+            À PARTIR DE XX €
+          </div>
 
           <button class="product-button weed-button">
             VOIR +
@@ -802,13 +804,15 @@
         </div>
       </div>
 
-
       <div class="product-card">
         <div class="product-image"><span>+</span></div>
 
         <div class="product-info">
           <div class="product-name">PRODUIT 2</div>
-          <div class="product-price weed-color">À PARTIR DE XX €</div>
+
+          <div class="product-price weed-color">
+            À PARTIR DE XX €
+          </div>
 
           <button class="product-button weed-button">
             VOIR +
@@ -821,9 +825,7 @@
   </div>
 
 
-  <!-- =====================
-       C*KE
-  ====================== -->
+  <!-- C*KE -->
 
   <div id="cake" class="page">
 
@@ -847,7 +849,7 @@
 
     </div>
 
-    <div class="category-line"></div>
+    <div class="category-line cake-line"></div>
 
     <div class="products-grid">
 
@@ -856,7 +858,10 @@
 
         <div class="product-info">
           <div class="product-name">PRODUIT 1</div>
-          <div class="product-price cake-color">À PARTIR DE XX €</div>
+
+          <div class="product-price cake-color">
+            À PARTIR DE XX €
+          </div>
 
           <button class="product-button cake-button">
             VOIR +
@@ -864,13 +869,15 @@
         </div>
       </div>
 
-
       <div class="product-card">
         <div class="product-image"><span>+</span></div>
 
         <div class="product-info">
           <div class="product-name">PRODUIT 2</div>
-          <div class="product-price cake-color">À PARTIR DE XX €</div>
+
+          <div class="product-price cake-color">
+            À PARTIR DE XX €
+          </div>
 
           <button class="product-button cake-button">
             VOIR +
@@ -883,9 +890,7 @@
   </div>
 
 
-  <!-- =====================
-       PANIER
-  ====================== -->
+  <!-- PANIER -->
 
   <div id="panier" class="page">
 
@@ -893,18 +898,13 @@
 
     <div class="page-box">
       <p>Ton panier est actuellement vide.</p>
-
-      <p>
-        Les produits sélectionnés apparaîtront ici.
-      </p>
+      <p>Les produits sélectionnés apparaîtront ici.</p>
     </div>
 
   </div>
 
 
-  <!-- =====================
-       INFO
-  ====================== -->
+  <!-- INFO -->
 
   <div id="info" class="page">
 
@@ -913,12 +913,17 @@
     <div class="page-box info-box">
 
       <div class="info-title">
-        ☠️ Bienvenue <strong>CHEZ LUFFY 33</strong> ☠️
+        ☠️ Bienvenue
+        <span class="red-text">CHEZ LUFFY 33</span>
+        ☠️
       </div>
 
 
       <p>
-        Livraison Express sur <strong>Bordeaux &</strong><br>
+        Livraison Express sur
+        <span class="red-text">Bordeaux &</span>
+        <br>
+
         <span class="red-text">
           Alentours - 7J/7 de 12h à 00h
         </span>
@@ -926,15 +931,25 @@
 
 
       <p>
-        ⌚️ Prise de Commandes dispo dès<br>
-        👉 <strong>10h du matin jusqu’à 00h</strong>
+        ⌚️ Prise de Commandes dispo dès
+        <br>
+
+        👉
+        <span class="red-text">
+          10h du matin jusqu’à 00h
+        </span>
       </p>
 
 
       <p>
-        📲 Commandes & Contact<br>
-        Exclusivement via <strong>Télégram</strong> :<br>
-        <strong>@ChezLuffy33</strong>
+        📲 Commandes & Contact
+        <br>
+
+        Exclusivement via
+        <span class="red-text">Télégram</span> :
+        <br>
+
+        <span class="red-text">@ChezLuffy33</span>
       </p>
 
 
@@ -947,15 +962,27 @@
 
 
       <p>
-        • <strong>Commande</strong> : Remplissez le Formulaire<br>
-        <strong>Minutieusement</strong> pour que le Traitement<br>
+        •
+        <span class="red-text">Commande</span>
+        : Remplissez le Formulaire
+        <br>
+
+        <span class="red-text">Minutieusement</span>
+        pour que le Traitement
+        <br>
+
         de votre Commande Soit le Plus Fluide Possible.
       </p>
 
 
       <p>
-        • <strong>Livraison</strong> : Privilégiez les Commandes<br>
-        <strong>Avant 13h</strong> pour être Dans les Premiers.
+        •
+        <span class="red-text">Livraison</span>
+        : Privilégiez les Commandes
+        <br>
+
+        <span class="red-text">Avant 13h</span>
+        pour être Dans les Premiers.
       </p>
 
 
@@ -968,7 +995,9 @@
 
 
       <p>
-        📸 N’hésitez pas à Poster une Photo de<br>
+        📸 N’hésitez pas à Poster une Photo de
+        <br>
+
         Votre Commande dans le Chat de Retours
       </p>
 
@@ -986,28 +1015,20 @@
   </div>
 
 
-  <!-- =====================
-       LIENS
-  ====================== -->
+  <!-- LIENS -->
 
   <div id="liens" class="page">
 
     <h1>🔗 LIENS</h1>
 
     <div class="page-box">
-
-      <p>
-        Tous les liens importants apparaîtront ici.
-      </p>
-
+      <p>Tous les liens importants apparaîtront ici.</p>
     </div>
 
   </div>
 
 
-  <!-- =====================
-       MENU BAS
-  ====================== -->
+  <!-- MENU BAS -->
 
   <div class="bottom-menu">
 
@@ -1016,18 +1037,15 @@
       Accueil
     </button>
 
-
     <button onclick="showPage('panier')">
       <span class="icon">🛒</span>
       Panier
     </button>
 
-
     <button onclick="showPage('info')">
       <span class="icon">ℹ️</span>
       Info
     </button>
-
 
     <button onclick="showPage('liens')">
       <span class="icon">🔗</span>
@@ -1051,11 +1069,9 @@
 
       });
 
-
     document
       .getElementById(pageId)
       .classList.add('active');
-
 
     window.scrollTo(0, 0);
 
