@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -52,17 +53,12 @@
     .ticker {
       width: calc(100% + 30px);
       margin-left: -15px;
-
       overflow: hidden;
       white-space: nowrap;
-
       background: rgba(8,8,8,.96);
-
       border-top: 1px solid #e10606;
       border-bottom: 1px solid #e10606;
-
       padding: 4px 0;
-
       box-shadow: 0 4px 15px rgba(0,0,0,.6);
     }
 
@@ -98,7 +94,6 @@
     .hero-image {
       width: min(140px, 45vw);
       aspect-ratio: 1 / 1;
-
       margin: 22px auto;
 
       border-radius: 20px;
@@ -124,7 +119,6 @@
     .separator {
       width: 70%;
       height: 1px;
-
       margin: 0 auto 20px;
 
       background: linear-gradient(
@@ -248,9 +242,57 @@
       margin-bottom: 15px;
     }
 
+    .back-button {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      padding: 9px 14px;
+
+      border-radius: 12px;
+
+      background: rgba(10,10,10,.8);
+      border: 1px solid rgba(255,255,255,.15);
+
+      color: white;
+
+      font-size: 12px;
+      font-weight: bold;
+
+      cursor: pointer;
+    }
+
+    .category-page-title {
+      position: absolute;
+      top: 52px;
+      left: 5px;
+
+      margin: 0;
+
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    /* CONTOUR TITRES CATÉGORIES */
+
+    .hash-title {
+      color: white;
+      -webkit-text-stroke: 1px #e10606;
+    }
+
+    .weed-title {
+      color: white;
+      -webkit-text-stroke: 1px #18b64b;
+    }
+
+    .cake-title {
+      color: white;
+      -webkit-text-stroke: 1px #4dcfff;
+    }
+
     .category-logo {
       position: absolute;
-
       top: 0;
       left: 50%;
 
@@ -275,113 +317,47 @@
       object-fit: contain;
     }
 
-    .category-left {
-      position: absolute;
-
-      left: 0;
-      bottom: 0;
-
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .back-button {
-      padding: 8px 13px;
-
-      border-radius: 10px;
-
-      background: rgba(10,10,10,.85);
-
-      border: 1px solid rgba(255,255,255,.18);
-
-      color: white;
-
-      font-size: 11px;
-      font-weight: bold;
-
-      cursor: pointer;
-    }
-
-    .category-page-title {
-      margin: 0;
-
-      padding: 8px 14px;
-
-      width: fit-content;
-
-      border-radius: 10px;
-
-      font-size: 20px;
-      font-weight: 900;
-
-      letter-spacing: 2px;
-
-      background: rgba(5,5,5,.75);
-    }
-
-    /* COULEURS TITRES */
-
-    .hash-title {
-      color: #e10606;
-      border: 1px solid #e10606;
-      box-shadow: 0 0 10px rgba(225,6,6,.35);
-    }
-
-    .weed-title {
-      color: #21c45a;
-      border: 1px solid #21c45a;
-      box-shadow: 0 0 10px rgba(33,196,90,.35);
-    }
-
-    .cake-title {
-      color: #39c6ff;
-      border: 1px solid #39c6ff;
-      box-shadow: 0 0 10px rgba(57,198,255,.35);
-    }
-
-    /* =========================
-       LIGNES DE SÉPARATION
-    ========================= */
+    /* LIGNES CATÉGORIES */
 
     .category-line {
       width: 70%;
       height: 1px;
-
       margin: 0 auto 20px;
+
+      box-shadow: 0 0 8px currentColor;
     }
 
     .hash-line {
+      color: #e10606;
+
       background: linear-gradient(
         to right,
         transparent,
         #e10606,
         transparent
       );
-
-      box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
     .weed-line {
+      color: #18b64b;
+
       background: linear-gradient(
         to right,
         transparent,
-        #21c45a,
+        #18b64b,
         transparent
       );
-
-      box-shadow: 0 0 8px rgba(33,196,90,.7);
     }
 
     .cake-line {
+      color: #4dcfff;
+
       background: linear-gradient(
         to right,
         transparent,
-        #39c6ff,
+        #4dcfff,
         transparent
       );
-
-      box-shadow: 0 0 8px rgba(57,198,255,.7);
     }
 
     /* =========================
@@ -390,9 +366,7 @@
 
     .products-grid {
       display: grid;
-
       grid-template-columns: repeat(2, minmax(0, 1fr));
-
       gap: 12px;
     }
 
@@ -476,28 +450,29 @@
 
     /* COULEURS PRODUITS */
 
-    .hash-color {
+    .hash-product .product-price {
       color: #e10606;
     }
 
-    .hash-button {
+    .hash-product .product-button {
       background: #e10606;
     }
 
-    .weed-color {
-      color: #21c45a;
+    .weed-product .product-price {
+      color: #18b64b;
     }
 
-    .weed-button {
-      background: #21c45a;
+    .weed-product .product-button {
+      background: #18b64b;
     }
 
-    .cake-color {
-      color: #39c6ff;
+    .cake-product .product-price {
+      color: #4dcfff;
     }
 
-    .cake-button {
-      background: #39c6ff;
+    .cake-product .product-button {
+      background: #4dcfff;
+      color: #050505;
     }
 
     /* =========================
@@ -511,8 +486,24 @@
 
     .page-box {
       margin-top: 15px;
+      padding: 20px;
 
-      padding: 22px 18px;
+      border-radius: 20px;
+
+      background: rgba(5,5,8,.90);
+
+      border: 1px solid rgba(255,255,255,.18);
+
+      backdrop-filter: blur(10px);
+    }
+
+    /* =========================
+       PAGE INFO
+    ========================= */
+
+    .info-box {
+      margin-top: 15px;
+      padding: 24px 18px;
 
       border-radius: 20px;
 
@@ -522,48 +513,32 @@
 
       backdrop-filter: blur(10px);
 
-      box-shadow: 0 8px 25px rgba(0,0,0,.6);
-    }
-
-    /* =========================
-       PAGE INFO
-    ========================= */
-
-    .info-box {
       text-align: center;
-      line-height: 1.55;
     }
 
     .info-box p {
-      margin: 0 0 14px;
-      font-size: 14px;
+      margin: 10px 0;
+      line-height: 1.65;
+      font-size: 16px;
     }
 
     .info-title {
-      font-size: 17px;
+      margin: 0 0 18px;
+
+      font-size: 19px;
       font-weight: 900;
-      margin-bottom: 18px;
+
+      letter-spacing: .5px;
     }
 
-    /* TEXTE IMPORTANT ROUGE */
-
-    .red-text {
+    .info-red {
       color: #e10606;
       font-weight: 900;
     }
 
-    .info-separator {
-      width: 75%;
-      height: 1px;
-
-      margin: 22px auto;
-
-      background: linear-gradient(
-        to right,
-        transparent,
-        rgba(255,255,255,.35),
-        transparent
-      );
+    .info-white {
+      color: white;
+      font-weight: 900;
     }
 
     .info-link {
@@ -571,29 +546,49 @@
 
       margin-top: 8px;
 
-      padding: 10px 14px;
+      color: #e10606;
 
-      border-radius: 10px;
-
-      background: rgba(225,6,6,.12);
-
-      border: 1px solid rgba(225,6,6,.45);
-
-      color: white;
+      font-size: 18px;
+      font-weight: 900;
 
       text-decoration: none;
+    }
 
-      font-size: 12px;
-      font-weight: bold;
+    .info-link:active {
+      opacity: .7;
+    }
+
+    .info-separator {
+      width: 90%;
+      height: 1px;
+
+      margin: 22px auto;
+
+      background: linear-gradient(
+        to right,
+        transparent,
+        #e10606,
+        transparent
+      );
+
+      box-shadow: 0 0 8px rgba(225,6,6,.7);
+    }
+
+    .info-section-title {
+      margin-bottom: 14px;
+
+      color: #e10606;
+
+      font-size: 18px;
+      font-weight: 900;
     }
 
     /* =========================
-       MENU BAS
+       MENU DU BAS
     ========================= */
 
     .bottom-menu {
       position: fixed;
-
       z-index: 100;
 
       bottom: 0;
@@ -639,423 +634,437 @@
     }
 
   </style>
+
 </head>
 
 <body>
 
 <div class="app">
 
-  <!-- ACCUEIL -->
+  <!-- =====================
+       ACCUEIL
+  ====================== -->
 
   <div id="home" class="home active">
 
-    <div class="ticker">
-      <div class="ticker-track">
+```
+<div class="ticker">
+  <div class="ticker-track">
 
-        <div class="ticker-text">
-          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-        </div>
-
-        <div class="ticker-text">
-          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-        </div>
-
-      </div>
+    <div class="ticker-text">
+      COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+      COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+      COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
     </div>
 
-    <div class="hero-image">
-      <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
-    </div>
-
-    <div class="separator"></div>
-
-    <div class="categories">
-
-      <div class="category-card" onclick="showPage('hash')">
-        <div class="category-image"><span>+</span></div>
-        <div class="category-title">HASH</div>
-      </div>
-
-      <div class="category-card" onclick="showPage('weed')">
-        <div class="category-image"><span>+</span></div>
-        <div class="category-title">WEED</div>
-      </div>
-
-      <div class="category-card last" onclick="showPage('cake')">
-        <div class="category-image"><span>+</span></div>
-        <div class="category-title">C*KE</div>
-      </div>
-
+    <div class="ticker-text">
+      COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+      COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+      COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
     </div>
 
   </div>
+</div>
 
+<div class="hero-image">
+  <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+</div>
 
-  <!-- HASH -->
+<div class="separator"></div>
+
+<div class="categories">
+
+  <div class="category-card" onclick="showPage('hash')">
+    <div class="category-image">
+      <span>+</span>
+    </div>
+
+    <div class="category-title">
+      HASH
+    </div>
+  </div>
+
+  <div class="category-card" onclick="showPage('weed')">
+    <div class="category-image">
+      <span>+</span>
+    </div>
+
+    <div class="category-title">
+      WEED
+    </div>
+  </div>
+
+  <div class="category-card last" onclick="showPage('cake')">
+    <div class="category-image">
+      <span>+</span>
+    </div>
+
+    <div class="category-title">
+      C*KE
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- =====================
+       HASH
+  ====================== -->
 
   <div id="hash" class="page">
 
-    <div class="category-top">
+```
+<div class="category-top">
 
-      <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
-      </div>
+  <div class="category-logo">
+    <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+  </div>
 
-      <div class="category-left">
+  <h1 class="category-page-title hash-title">
+    HASH
+  </h1>
 
-        <button class="back-button" onclick="showPage('home')">
-          ← RETOUR
-        </button>
+</div>
 
-        <h1 class="category-page-title hash-title">
-          HASH
-        </h1>
+<button class="back-button" onclick="showPage('home')">
+  ← RETOUR
+</button>
 
-      </div>
+<div class="category-line hash-line"></div>
 
+<div class="products-grid">
+
+  <div class="product-card hash-product">
+    <div class="product-image"><span>+</span></div>
+
+    <div class="product-info">
+      <div class="product-name">PRODUIT 1</div>
+      <div class="product-price">À PARTIR DE XX €</div>
+
+      <button class="product-button">
+        VOIR +
+      </button>
     </div>
+  </div>
 
-    <div class="category-line hash-line"></div>
+  <div class="product-card hash-product">
+    <div class="product-image"><span>+</span></div>
 
-    <div class="products-grid">
+    <div class="product-info">
+      <div class="product-name">PRODUIT 2</div>
+      <div class="product-price">À PARTIR DE XX €</div>
 
-      <div class="product-card">
-        <div class="product-image"><span>+</span></div>
-
-        <div class="product-info">
-          <div class="product-name">PRODUIT 1</div>
-
-          <div class="product-price hash-color">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button hash-button">
-            VOIR +
-          </button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image"><span>+</span></div>
-
-        <div class="product-info">
-          <div class="product-name">PRODUIT 2</div>
-
-          <div class="product-price hash-color">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button hash-button">
-            VOIR +
-          </button>
-        </div>
-      </div>
-
+      <button class="product-button">
+        VOIR +
+      </button>
     </div>
+  </div>
+
+</div>
+```
 
   </div>
 
-
-  <!-- WEED -->
+  <!-- =====================
+       WEED
+  ====================== -->
 
   <div id="weed" class="page">
 
-    <div class="category-top">
+```
+<div class="category-top">
 
-      <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
-      </div>
+  <div class="category-logo">
+    <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+  </div>
 
-      <div class="category-left">
+  <h1 class="category-page-title weed-title">
+    WEED
+  </h1>
 
-        <button class="back-button" onclick="showPage('home')">
-          ← RETOUR
-        </button>
+</div>
 
-        <h1 class="category-page-title weed-title">
-          WEED
-        </h1>
+<button class="back-button" onclick="showPage('home')">
+  ← RETOUR
+</button>
 
-      </div>
+<div class="category-line weed-line"></div>
 
+<div class="products-grid">
+
+  <div class="product-card weed-product">
+    <div class="product-image"><span>+</span></div>
+
+    <div class="product-info">
+      <div class="product-name">PRODUIT 1</div>
+      <div class="product-price">À PARTIR DE XX €</div>
+
+      <button class="product-button">
+        VOIR +
+      </button>
     </div>
+  </div>
 
-    <div class="category-line weed-line"></div>
+  <div class="product-card weed-product">
+    <div class="product-image"><span>+</span></div>
 
-    <div class="products-grid">
+    <div class="product-info">
+      <div class="product-name">PRODUIT 2</div>
+      <div class="product-price">À PARTIR DE XX €</div>
 
-      <div class="product-card">
-        <div class="product-image"><span>+</span></div>
-
-        <div class="product-info">
-          <div class="product-name">PRODUIT 1</div>
-
-          <div class="product-price weed-color">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button weed-button">
-            VOIR +
-          </button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image"><span>+</span></div>
-
-        <div class="product-info">
-          <div class="product-name">PRODUIT 2</div>
-
-          <div class="product-price weed-color">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button weed-button">
-            VOIR +
-          </button>
-        </div>
-      </div>
-
+      <button class="product-button">
+        VOIR +
+      </button>
     </div>
+  </div>
+
+</div>
+```
 
   </div>
 
-
-  <!-- C*KE -->
+  <!-- =====================
+       C*KE
+  ====================== -->
 
   <div id="cake" class="page">
 
-    <div class="category-top">
+```
+<div class="category-top">
 
-      <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
-      </div>
+  <div class="category-logo">
+    <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+  </div>
 
-      <div class="category-left">
+  <h1 class="category-page-title cake-title">
+    C*KE
+  </h1>
 
-        <button class="back-button" onclick="showPage('home')">
-          ← RETOUR
-        </button>
+</div>
 
-        <h1 class="category-page-title cake-title">
-          C*KE
-        </h1>
+<button class="back-button" onclick="showPage('home')">
+  ← RETOUR
+</button>
 
-      </div>
+<div class="category-line cake-line"></div>
 
+<div class="products-grid">
+
+  <div class="product-card cake-product">
+    <div class="product-image"><span>+</span></div>
+
+    <div class="product-info">
+      <div class="product-name">PRODUIT 1</div>
+      <div class="product-price">À PARTIR DE XX €</div>
+
+      <button class="product-button">
+        VOIR +
+      </button>
     </div>
+  </div>
 
-    <div class="category-line cake-line"></div>
+  <div class="product-card cake-product">
+    <div class="product-image"><span>+</span></div>
 
-    <div class="products-grid">
+    <div class="product-info">
+      <div class="product-name">PRODUIT 2</div>
+      <div class="product-price">À PARTIR DE XX €</div>
 
-      <div class="product-card">
-        <div class="product-image"><span>+</span></div>
-
-        <div class="product-info">
-          <div class="product-name">PRODUIT 1</div>
-
-          <div class="product-price cake-color">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button cake-button">
-            VOIR +
-          </button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image"><span>+</span></div>
-
-        <div class="product-info">
-          <div class="product-name">PRODUIT 2</div>
-
-          <div class="product-price cake-color">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button cake-button">
-            VOIR +
-          </button>
-        </div>
-      </div>
-
+      <button class="product-button">
+        VOIR +
+      </button>
     </div>
+  </div>
+
+</div>
+```
 
   </div>
 
-
-  <!-- PANIER -->
+  <!-- =====================
+       PANIER
+  ====================== -->
 
   <div id="panier" class="page">
 
-    <h1>🛒 PANIER</h1>
+```
+<h1>🛒 PANIER</h1>
 
-    <div class="page-box">
-      <p>Ton panier est actuellement vide.</p>
-      <p>Les produits sélectionnés apparaîtront ici.</p>
-    </div>
+<div class="page-box">
+  <p>Ton panier est actuellement vide.</p>
+
+  <p>
+    Les produits sélectionnés apparaîtront ici.
+  </p>
+</div>
+```
 
   </div>
 
-
-  <!-- INFO -->
+  <!-- =====================
+       INFO
+  ====================== -->
 
   <div id="info" class="page">
 
-    <h1>ℹ️ INFORMATIONS</h1>
+```
+<h1>ℹ️ INFORMATIONS</h1>
 
-    <div class="page-box info-box">
+<div class="info-box">
 
-      <div class="info-title">
-        ☠️ Bienvenue
-        <span class="red-text">CHEZ LUFFY 33</span>
-        ☠️
-      </div>
+  <div class="info-title">
+    ☠️ Bienvenue
+    <span class="info-red">CHEZ LUFFY 33</span>
+    ☠️
+  </div>
 
+  <p>
+    Livraison Express sur
+    <span class="info-red">Bordeaux &</span>
+    <br>
+    <span class="info-red">
+      Alentours - 7J/7 de 12h à 00h
+    </span>
+  </p>
 
-      <p>
-        Livraison Express sur
-        <span class="red-text">Bordeaux &</span>
-        <br>
+  <p>
+    ⌚️ Prise de Commandes dispo dès
+    <br>
+    👉
+    <span class="info-red">
+      10h du matin jusqu'à 00h
+    </span>
+  </p>
 
-        <span class="red-text">
-          Alentours - 7J/7 de 12h à 00h
-        </span>
-      </p>
+  <p>
+    📲 Commandes & Contact
+    <br>
+    Exclusivement via
+    <span class="info-red">Télégram</span> :
+    <br>
 
-
-      <p>
-        ⌚️ Prise de Commandes dispo dès
-        <br>
-
-        👉
-        <span class="red-text">
-          10h du matin jusqu’à 00h
-        </span>
-      </p>
-
-
-      <p>
-        📲 Commandes & Contact
-        <br>
-
-        Exclusivement via
-        <span class="red-text">Télégram</span> :
-        <br>
-
-        <span class="red-text">@ChezLuffy33</span>
-      </p>
-
-
-      <div class="info-separator"></div>
+    <a
+      class="info-link"
+      href="https://t.me/ChezLuffy33"
+      target="_blank"
+    >
+      @ChezLuffy33
+    </a>
+  </p>
 
 
-      <div class="info-title">
-        ⚡️ DÉLAIS & CONSEILS :
-      </div>
+  <div class="info-separator"></div>
 
 
-      <p>
-        •
-        <span class="red-text">Commande</span>
-        : Remplissez le Formulaire
-        <br>
+  <div class="info-section-title">
+    ⚡️ DÉLAIS & CONSEILS :
+  </div>
 
-        <span class="red-text">Minutieusement</span>
-        pour que le Traitement
-        <br>
+  <p>
+    • <span class="info-white">Commande</span> :
+    Remplissez le Formulaire
+    <br>
 
-        de votre Commande Soit le Plus Fluide Possible.
-      </p>
+    <span class="info-red">
+      Minutieusement
+    </span>
 
+    pour que le Traitement
+    <br>
 
-      <p>
-        •
-        <span class="red-text">Livraison</span>
-        : Privilégiez les Commandes
-        <br>
+    de votre Commande Soit le Plus Fluide Possible.
+  </p>
 
-        <span class="red-text">Avant 13h</span>
-        pour être Dans les Premiers.
-      </p>
+  <p>
+    • <span class="info-white">Livraison</span> :
+    Privilégiez les Commandes
+    <br>
 
+    <span class="info-red">
+      Avant 13h
+    </span>
 
-      <div class="info-separator"></div>
-
-
-      <div class="info-title">
-        🔁 RETOURS & AVIS :
-      </div>
-
-
-      <p>
-        📸 N’hésitez pas à Poster une Photo de
-        <br>
-
-        Votre Commande dans le Chat de Retours
-      </p>
+    pour être Dans les Premiers.
+  </p>
 
 
-      <a
-        class="info-link"
-        href="https://t.me/+J4xj67WNkWczZjQ0"
-        target="_blank"
-      >
-        REJOINDRE LE CHAT DES RETOURS
-      </a>
+  <div class="info-separator"></div>
 
-    </div>
+
+  <div class="info-section-title">
+    🔁 RETOURS & AVIS :
+  </div>
+
+  <p>
+    📸 N’hésitez pas à Poster une Photo de
+    <br>
+    Votre Commande dans le Chat de Retours
+  </p>
+
+  <a
+    class="info-link"
+    href="https://t.me/+J4xj67WNkWczZjQ0"
+    target="_blank"
+  >
+    ACCÉDER AU CHAT
+  </a>
+
+</div>
+```
 
   </div>
 
-
-  <!-- LIENS -->
+  <!-- =====================
+       LIENS
+  ====================== -->
 
   <div id="liens" class="page">
 
-    <h1>🔗 LIENS</h1>
+```
+<h1>🔗 LIENS</h1>
 
-    <div class="page-box">
-      <p>Tous les liens importants apparaîtront ici.</p>
-    </div>
+<div class="page-box">
+  <p>
+    Tous les liens importants apparaîtront ici.
+  </p>
+</div>
+```
 
   </div>
 
-
-  <!-- MENU BAS -->
+  <!-- =====================
+       MENU DU BAS
+  ====================== -->
 
   <div class="bottom-menu">
 
-    <button onclick="showPage('home')">
-      <span class="icon">🏠</span>
-      Accueil
-    </button>
+```
+<button onclick="showPage('home')">
+  <span class="icon">🏠</span>
+  Accueil
+</button>
 
-    <button onclick="showPage('panier')">
-      <span class="icon">🛒</span>
-      Panier
-    </button>
+<button onclick="showPage('panier')">
+  <span class="icon">🛒</span>
+  Panier
+</button>
 
-    <button onclick="showPage('info')">
-      <span class="icon">ℹ️</span>
-      Info
-    </button>
+<button onclick="showPage('info')">
+  <span class="icon">ℹ️</span>
+  Info
+</button>
 
-    <button onclick="showPage('liens')">
-      <span class="icon">🔗</span>
-      Liens
-    </button>
+<button onclick="showPage('liens')">
+  <span class="icon">🔗</span>
+  Liens
+</button>
+```
 
   </div>
 
 </div>
-
 
 <script>
 
