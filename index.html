@@ -23,15 +23,15 @@
     .app {
       min-height: 100vh;
       padding-bottom: 85px;
-
       background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.92)),
         url("IMG_1527.jpeg");
 
-      background-size: 140% auto;
+      background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
+
 
     /* =========================
        ACCUEIL
@@ -45,6 +45,7 @@
     .home.active {
       display: block;
     }
+
 
     /* =========================
        BANDE DÉFILANTE
@@ -87,6 +88,7 @@
       }
     }
 
+
     /* =========================
        LOGO ACCUEIL
     ========================= */
@@ -108,6 +110,7 @@
       object-fit: contain;
     }
 
+
     /* =========================
        LIGNE ACCUEIL
     ========================= */
@@ -126,6 +129,7 @@
 
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
+
 
     /* =========================
        CATÉGORIES ACCUEIL
@@ -211,22 +215,21 @@
       aspect-ratio: 2 / 1;
     }
 
+
     /* =========================
        PAGES
     ========================= */
 
     .page {
       display: none;
-      padding: 15px 15px 85px;
+      min-height: 100vh;
+      padding: 15px 15px 100px;
     }
 
     .page.active {
       display: block;
     }
 
-    #info {
-      padding-bottom: 75px;
-    }
 
     /* =========================
        EN-TÊTE CATÉGORIES
@@ -239,6 +242,7 @@
 
     .category-logo {
       position: absolute;
+
       top: 0;
       left: 50%;
 
@@ -262,6 +266,7 @@
       object-fit: contain;
     }
 
+
     /* =========================
        TITRE CATÉGORIE
     ========================= */
@@ -284,6 +289,7 @@
       background: rgba(5,5,5,.75);
     }
 
+
     /* =========================
        HASH ROUGE
     ========================= */
@@ -297,6 +303,7 @@
     .hash-back {
       border: 1px solid #e10606;
     }
+
 
     /* =========================
        WEED VERT
@@ -312,6 +319,7 @@
       border: 1px solid #00c853;
     }
 
+
     /* =========================
        CAKE BLEU
     ========================= */
@@ -326,12 +334,14 @@
       border: 1px solid #00cfff;
     }
 
+
     /* =========================
        RETOUR
     ========================= */
 
     .back-button {
       display: block;
+
       margin: 0 0 8px 5px;
       padding: 9px 14px;
 
@@ -345,6 +355,7 @@
 
       cursor: pointer;
     }
+
 
     /* =========================
        LIGNES CATÉGORIES
@@ -389,13 +400,16 @@
       box-shadow: 0 0 8px rgba(0,207,255,.7);
     }
 
+
     /* =========================
        PRODUITS
     ========================= */
 
     .products-grid {
       display: grid;
+
       grid-template-columns: repeat(2, minmax(0, 1fr));
+
       gap: 12px;
     }
 
@@ -499,6 +513,7 @@
       color: #050505;
     }
 
+
     /* =========================
        PANIER / LIENS
     ========================= */
@@ -519,6 +534,7 @@
 
       backdrop-filter: blur(10px);
     }
+
 
     /* =========================
        PAGE INFO
@@ -601,6 +617,16 @@
       font-weight: 900;
     }
 
+
+    /* =========================
+       ESPACE BAS PAGE INFO
+    ========================= */
+
+    #info {
+      padding-bottom: 100px;
+    }
+
+
     /* =========================
        MENU BAS
     ========================= */
@@ -655,11 +681,15 @@
   </style>
 </head>
 
+
 <body>
 
 <div class="app">
 
-  <!-- ACCUEIL -->
+
+  <!-- =========================
+       ACCUEIL
+  ========================= -->
 
   <div id="home" class="home active">
 
@@ -708,18 +738,19 @@
 
   </div>
 
-  <!-- HASH -->
+
+  <!-- =========================
+       HASH
+  ========================= -->
 
   <div id="hash" class="page">
 
     <div class="category-top">
-
       <h1 class="category-page-title hash-title">HASH</h1>
 
       <div class="category-logo">
         <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
       </div>
-
     </div>
 
     <button class="back-button hash-back" onclick="showPage('home')">
@@ -754,18 +785,19 @@
 
   </div>
 
-  <!-- WEED -->
+
+  <!-- =========================
+       WEED
+  ========================= -->
 
   <div id="weed" class="page">
 
     <div class="category-top">
-
       <h1 class="category-page-title weed-title">WEED</h1>
 
       <div class="category-logo">
         <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
       </div>
-
     </div>
 
     <button class="back-button weed-back" onclick="showPage('home')">
@@ -800,18 +832,19 @@
 
   </div>
 
-  <!-- CAKE -->
+
+  <!-- =========================
+       CAKE
+  ========================= -->
 
   <div id="cake" class="page">
 
     <div class="category-top">
-
       <h1 class="category-page-title cake-title">CAKE</h1>
 
       <div class="category-logo">
         <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
       </div>
-
     </div>
 
     <button class="back-button cake-back" onclick="showPage('home')">
@@ -846,7 +879,10 @@
 
   </div>
 
-  <!-- PANIER -->
+
+  <!-- =========================
+       PANIER
+  ========================= -->
 
   <div id="panier" class="page">
 
@@ -859,7 +895,10 @@
 
   </div>
 
-  <!-- INFO -->
+
+  <!-- =========================
+       INFO
+  ========================= -->
 
   <div id="info" class="page">
 
@@ -892,15 +931,14 @@
         📲 Commandes & Contact
         <br>
         Exclusivement via
-        <span class="info-red">Télégram</span> :
+        <span class="info-red">Télégram</span>
+        :
         <br>
 
         <a class="info-link"
            href="https://t.me/ChezLuffy33"
            target="_blank">
-
           @ChezLuffy33
-
         </a>
       </p>
 
@@ -914,11 +952,9 @@
         • <span class="info-white">Commande</span> :
         Remplissez le Formulaire
         <br>
-
         <span class="info-red">Minutieusement</span>
         pour que le Traitement
         <br>
-
         de votre Commande Soit le Plus Fluide Possible.
       </p>
 
@@ -926,7 +962,6 @@
         • <span class="info-white">Livraison</span> :
         Privilégiez les Commandes
         <br>
-
         <span class="info-red">Avant 13h</span>
         pour être Dans les Premiers.
       </p>
@@ -946,16 +981,17 @@
       <a class="info-link"
          href="https://t.me/+J4xj67WNkWczZjQ0"
          target="_blank">
-
         ACCÉDER AU CHAT
-
       </a>
 
     </div>
 
   </div>
 
-  <!-- LIENS -->
+
+  <!-- =========================
+       LIENS
+  ========================= -->
 
   <div id="liens" class="page">
 
@@ -967,7 +1003,10 @@
 
   </div>
 
-  <!-- MENU DU BAS -->
+
+  <!-- =========================
+       MENU DU BAS
+  ========================= -->
 
   <div class="bottom-menu">
 
@@ -994,6 +1033,7 @@
   </div>
 
 </div>
+
 
 <script>
 
