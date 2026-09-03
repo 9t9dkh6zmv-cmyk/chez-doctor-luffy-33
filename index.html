@@ -23,6 +23,7 @@
     .app {
       min-height: 100vh;
       padding-bottom: 85px;
+
       background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.92)),
         url("IMG_1527.jpeg");
@@ -56,10 +57,13 @@
       margin-left: -15px;
       overflow: hidden;
       white-space: nowrap;
+
       background: rgba(8,8,8,.96);
       border-top: 1px solid #e10606;
       border-bottom: 1px solid #e10606;
+
       padding: 4px 0;
+
       box-shadow: 0 4px 15px rgba(0,0,0,.6);
     }
 
@@ -98,11 +102,15 @@
     .hero-image {
       width: min(140px, 45vw);
       aspect-ratio: 1 / 1;
+
       margin: 22px auto;
+
       border-radius: 20px;
       overflow: hidden;
+
       background: rgba(0,0,0,.55);
       border: 1px solid rgba(255,255,255,.15);
+
       box-shadow: 0 8px 25px rgba(0,0,0,.7);
     }
 
@@ -151,6 +159,7 @@
 
       background: rgba(15,15,18,.9);
       border: 1px solid rgba(255,255,255,.18);
+
       box-shadow: 0 8px 25px rgba(0,0,0,.65);
 
       cursor: pointer;
@@ -225,7 +234,7 @@
     .page {
       display: none;
       min-height: 100vh;
-      padding: 15px 15px 100px;
+      padding: 15px 15px 85px;
     }
 
     .page.active {
@@ -292,9 +301,7 @@
     }
 
 
-    /* =========================
-       HASH ROUGE
-    ========================= */
+    /* HASH */
 
     .hash-title {
       color: #e10606;
@@ -307,9 +314,7 @@
     }
 
 
-    /* =========================
-       WEED VERT
-    ========================= */
+    /* WEED */
 
     .weed-title {
       color: #00c853;
@@ -322,9 +327,7 @@
     }
 
 
-    /* =========================
-       CAKE BLEU
-    ========================= */
+    /* CAKE */
 
     .cake-title {
       color: #00cfff;
@@ -409,9 +412,7 @@
 
     .products-grid {
       display: grid;
-
       grid-template-columns: repeat(2, minmax(0, 1fr));
-
       gap: 12px;
     }
 
@@ -621,14 +622,17 @@
 
 
     /* =========================
-       LOGO EN BAS DE INFO
-       AJOUTÉ DANS L'ESPACE VIDE
+       LOGO TOUT EN BAS
+       CORRIGÉ POUR ÉVITER
+       LE GRAND VIDE / SCROLL
     ========================= */
 
     .bottom-info-logo {
       width: 100%;
+      height: 210px;
 
-      margin-top: 15px;
+      margin: 0;
+      padding: 0;
 
       display: flex;
       justify-content: center;
@@ -638,16 +642,14 @@
     }
 
     .bottom-info-logo img {
-      width: 100%;
-      max-width: 520px;
+      width: 125%;
+      max-width: none;
 
       height: auto;
 
-      max-height: 260px;
-
-      object-fit: contain;
-
       display: block;
+
+      transform: translateY(-8%);
     }
 
 
@@ -711,9 +713,7 @@
 <div class="app">
 
 
-  <!-- =========================
-       ACCUEIL
-  ========================= -->
+  <!-- ACCUEIL -->
 
   <div id="home" class="home active">
 
@@ -791,10 +791,7 @@
   </div>
 
 
-
-  <!-- =========================
-       HASH
-  ========================= -->
+  <!-- HASH -->
 
   <div id="hash" class="page">
 
@@ -810,17 +807,11 @@
 
     </div>
 
-
-    <button class="back-button hash-back"
-            onclick="showPage('home')">
-
+    <button class="back-button hash-back" onclick="showPage('home')">
       ← RETOUR
-
     </button>
 
-
     <div class="category-line hash-line"></div>
-
 
     <div class="products-grid">
 
@@ -878,10 +869,7 @@
   </div>
 
 
-
-  <!-- =========================
-       WEED
-  ========================= -->
+  <!-- WEED -->
 
   <div id="weed" class="page">
 
@@ -897,17 +885,11 @@
 
     </div>
 
-
-    <button class="back-button weed-back"
-            onclick="showPage('home')">
-
+    <button class="back-button weed-back" onclick="showPage('home')">
       ← RETOUR
-
     </button>
 
-
     <div class="category-line weed-line"></div>
-
 
     <div class="products-grid">
 
@@ -965,10 +947,7 @@
   </div>
 
 
-
-  <!-- =========================
-       CAKE
-  ========================= -->
+  <!-- CAKE -->
 
   <div id="cake" class="page">
 
@@ -984,17 +963,11 @@
 
     </div>
 
-
-    <button class="back-button cake-back"
-            onclick="showPage('home')">
-
+    <button class="back-button cake-back" onclick="showPage('home')">
       ← RETOUR
-
     </button>
 
-
     <div class="category-line cake-line"></div>
-
 
     <div class="products-grid">
 
@@ -1052,10 +1025,7 @@
   </div>
 
 
-
-  <!-- =========================
-       PANIER
-  ========================= -->
+  <!-- PANIER -->
 
   <div id="panier" class="page">
 
@@ -1076,10 +1046,7 @@
   </div>
 
 
-
-  <!-- =========================
-       INFO
-  ========================= -->
+  <!-- INFO -->
 
   <div id="info" class="page">
 
@@ -1246,7 +1213,7 @@
     </div>
 
 
-    <!-- LOGO TOUT EN BAS DE LA PAGE INFO -->
+    <!-- LOGO TOUT EN BAS -->
 
     <div class="bottom-info-logo">
 
@@ -1258,10 +1225,7 @@
   </div>
 
 
-
-  <!-- =========================
-       LIENS
-  ========================= -->
+  <!-- LIENS -->
 
   <div id="liens" class="page">
 
@@ -1278,18 +1242,13 @@
   </div>
 
 
-
-  <!-- =========================
-       MENU DU BAS
-  ========================= -->
+  <!-- MENU DU BAS -->
 
   <div class="bottom-menu">
 
     <button onclick="showPage('home')">
 
-      <span class="icon">
-        🏠
-      </span>
+      <span class="icon">🏠</span>
 
       Accueil
 
@@ -1298,9 +1257,7 @@
 
     <button onclick="showPage('panier')">
 
-      <span class="icon">
-        🛒
-      </span>
+      <span class="icon">🛒</span>
 
       Panier
 
@@ -1309,9 +1266,7 @@
 
     <button onclick="showPage('info')">
 
-      <span class="icon">
-        ℹ️
-      </span>
+      <span class="icon">ℹ️</span>
 
       Info
 
@@ -1320,9 +1275,7 @@
 
     <button onclick="showPage('liens')">
 
-      <span class="icon">
-        🔗
-      </span>
+      <span class="icon">🔗</span>
 
       Liens
 
@@ -1330,9 +1283,7 @@
 
   </div>
 
-
 </div>
-
 
 
 <script>
@@ -1347,18 +1298,15 @@
 
       });
 
-
     document
       .getElementById(pageId)
       .classList.add('active');
-
 
     window.scrollTo(0, 0);
 
   }
 
 </script>
-
 
 </body>
 </html>
