@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>CHEZ LUFFY 33</title>
+  <title>CHEZ DOCTOR LUFFY 33</title>
 
   <style>
 
@@ -99,7 +99,6 @@
       overflow: hidden;
 
       background: rgba(0,0,0,.55);
-
       border: 1px solid rgba(255,255,255,.15);
 
       box-shadow: 0 8px 25px rgba(0,0,0,.7);
@@ -272,57 +271,37 @@
       left: 5px;
 
       margin: 0;
+      padding: 8px 14px;
+
+      border-radius: 10px;
 
       font-size: 24px;
       font-weight: 900;
       letter-spacing: 2px;
+
+      background: rgba(5,5,5,.75);
     }
 
     /* =========================
-       TITRES CATÉGORIES AVEC CONTOUR
+       TITRES CATÉGORIES
     ========================= */
 
-    .hash-title,
-    .weed-title,
-    .cake-title {
-      font-weight: 900;
-      paint-order: stroke fill;
-    }
-
-    /* HASH */
-
     .hash-title {
-      color: white;
-      -webkit-text-stroke: 1px #e10606;
-      text-shadow:
-        1px 1px 0 #e10606,
-        -1px -1px 0 #e10606,
-        1px -1px 0 #e10606,
-        -1px 1px 0 #e10606;
+      color: #e10606;
+      border: 1px solid #e10606;
+      box-shadow: 0 0 10px rgba(225,6,6,.25);
     }
-
-    /* WEED */
 
     .weed-title {
-      color: white;
-      -webkit-text-stroke: 1px #18b64b;
-      text-shadow:
-        1px 1px 0 #18b64b,
-        -1px -1px 0 #18b64b,
-        1px -1px 0 #18b64b,
-        -1px 1px 0 #18b64b;
+      color: #18b64b;
+      border: 1px solid #18b64b;
+      box-shadow: 0 0 10px rgba(24,182,75,.25);
     }
 
-    /* C*KE */
-
     .cake-title {
-      color: white;
-      -webkit-text-stroke: 1px #4dcfff;
-      text-shadow:
-        1px 1px 0 #4dcfff,
-        -1px -1px 0 #4dcfff,
-        1px -1px 0 #4dcfff,
-        -1px 1px 0 #4dcfff;
+      color: #4dcfff;
+      border: 1px solid #4dcfff;
+      box-shadow: 0 0 10px rgba(77,207,255,.25);
     }
 
     /* =========================
@@ -610,21 +589,31 @@
     }
 
     /* =========================
-       LOGO SOUS LA CASE INFO
+       LOGO SOUS INFO
     ========================= */
 
-    .info-logo {
-      display: block;
+    .info-logo-container {
+      width: 100%;
+      height: 85px;
 
-      width: min(280px, 75vw);
+      margin-top: 10px;
+
+      overflow: hidden;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .info-logo-container img {
+      width: min(280px, 80vw);
       height: auto;
 
-      margin: 22px auto 0;
+      display: block;
 
-      object-fit: contain;
+      transform: translateY(-15px);
 
-      filter:
-        drop-shadow(0 8px 15px rgba(0,0,0,.8));
+      filter: drop-shadow(0 8px 15px rgba(0,0,0,.7));
     }
 
     /* =========================
@@ -707,7 +696,7 @@
     </div>
 
     <div class="hero-image">
-      <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+      <img src="IMG_1527.jpeg" alt="CHEZ DOCTOR LUFFY 33">
     </div>
 
     <div class="separator"></div>
@@ -745,7 +734,7 @@
       </h1>
 
       <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+        <img src="IMG_1527.jpeg" alt="CHEZ DOCTOR LUFFY 33">
       </div>
 
     </div>
@@ -794,7 +783,7 @@
       </h1>
 
       <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+        <img src="IMG_1527.jpeg" alt="CHEZ DOCTOR LUFFY 33">
       </div>
 
     </div>
@@ -843,7 +832,7 @@
       </h1>
 
       <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+        <img src="IMG_1527.jpeg" alt="CHEZ DOCTOR LUFFY 33">
       </div>
 
     </div>
@@ -996,13 +985,14 @@
 
     </div>
 
-    <!-- LOGO JUSTE EN DESSOUS DU GRAND CARRÉ INFO -->
+    <!-- LOGO SOUS LA CASE INFO -->
 
-    <img
-      class="info-logo"
-      src="IMG_1552.png"
-      alt="Chez Doctor Luffy"
-    >
+    <div class="info-logo-container">
+      <img
+        src="IMG_1548.png"
+        alt="CHEZ DOCTOR LUFFY 33"
+      >
+    </div>
 
   </div>
 
