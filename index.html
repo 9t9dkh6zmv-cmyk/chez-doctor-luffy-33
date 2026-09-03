@@ -278,25 +278,36 @@
       letter-spacing: 2px;
     }
 
-    /* TITRES AVEC CONTOUR */
+   /* =========================
+   TITRES CATÉGORIES AVEC CONTOUR
+========================= */
 
-    .hash-title {
-      color: white;
-      -webkit-text-stroke: 1px #e10606;
-      text-shadow: 0 0 10px rgba(225,6,6,.45);
-    }
+.hash-title {
+  color: white;
+  -webkit-text-stroke: 1.5px #e10606;
+  paint-order: stroke fill;
+  text-shadow:
+    0 0 3px #e10606,
+    0 0 8px rgba(225,6,6,.55);
+}
 
-    .weed-title {
-      color: white;
-      -webkit-text-stroke: 1px #18b64b;
-      text-shadow: 0 0 10px rgba(24,182,75,.45);
-    }
+.weed-title {
+  color: white;
+  -webkit-text-stroke: 1.5px #18b64b;
+  paint-order: stroke fill;
+  text-shadow:
+    0 0 3px #18b64b,
+    0 0 8px rgba(24,182,75,.55);
+}
 
-    .cake-title {
-      color: white;
-      -webkit-text-stroke: 1px #4dcfff;
-      text-shadow: 0 0 10px rgba(77,207,255,.45);
-    }
+.cake-title {
+  color: white;
+  -webkit-text-stroke: 1.5px #4dcfff;
+  paint-order: stroke fill;
+  text-shadow:
+    0 0 3px #4dcfff,
+    0 0 8px rgba(77,207,255,.55);
+}
 
     /* RETOUR */
 
