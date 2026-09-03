@@ -3,11 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>CHEZ LUFFY 33</title>
 
@@ -17,39 +13,26 @@
       box-sizing: border-box;
     }
 
-    html,
     body {
       margin: 0;
-      padding: 0;
-      width: 100%;
-      min-height: 100%;
+      font-family: Arial, sans-serif;
       background: #050505;
       color: white;
-      font-family: Arial, sans-serif;
     }
-
-
-    /* =========================
-       APPLICATION
-    ========================= */
 
     .app {
       min-height: 100vh;
-      min-height: 100dvh;
-
-      padding-bottom: 75px;
+      padding-bottom: 85px;
 
       background:
-        linear-gradient(
-          rgba(0,0,0,.45),
-          rgba(0,0,0,.92)
-        ),
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.92)),
         url("IMG_1527.jpeg");
 
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
+
 
 
     /* =========================
@@ -66,6 +49,7 @@
     }
 
 
+
     /* =========================
        BANDE DÉFILANTE
     ========================= */
@@ -73,7 +57,6 @@
     .ticker {
       width: calc(100% + 30px);
       margin-left: -15px;
-
       overflow: hidden;
       white-space: nowrap;
 
@@ -84,16 +67,13 @@
 
       padding: 4px 0;
 
-      box-shadow:
-        0 4px 15px rgba(0,0,0,.6);
+      box-shadow: 0 4px 15px rgba(0,0,0,.6);
     }
 
     .ticker-track {
       display: flex;
       width: max-content;
-
-      animation:
-        tickerMove 14s linear infinite;
+      animation: tickerMove 14s linear infinite;
     }
 
     .ticker-text {
@@ -103,7 +83,6 @@
 
       font-size: 10px;
       font-weight: bold;
-
       letter-spacing: 1px;
 
       padding-right: 40px;
@@ -122,174 +101,131 @@
     }
 
 
+
     /* =========================
        LOGO ACCUEIL
     ========================= */
 
     .hero-image {
-
       width: min(140px, 45vw);
       aspect-ratio: 1 / 1;
 
       margin: 22px auto;
 
       border-radius: 20px;
-
       overflow: hidden;
 
       background: rgba(0,0,0,.55);
+      border: 1px solid rgba(255,255,255,.15);
 
-      border:
-        1px solid rgba(255,255,255,.15);
-
-      box-shadow:
-        0 8px 25px rgba(0,0,0,.7);
-
+      box-shadow: 0 8px 25px rgba(0,0,0,.7);
     }
 
     .hero-image img {
-
       width: 100%;
       height: 100%;
-
       object-fit: contain;
-
     }
 
 
+
     /* =========================
-       SÉPARATEUR
+       LIGNE ACCUEIL
     ========================= */
 
     .separator {
-
       width: 70%;
       height: 1px;
 
-      margin:
-        0 auto 20px;
+      margin: 0 auto 20px;
 
-      background:
-        linear-gradient(
-          to right,
-          transparent,
-          #e10606,
-          transparent
-        );
+      background: linear-gradient(
+        to right,
+        transparent,
+        #e10606,
+        transparent
+      );
 
-      box-shadow:
-        0 0 8px rgba(225,6,6,.7);
-
+      box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
+
 
 
     /* =========================
-       CATÉGORIES
+       CATÉGORIES ACCUEIL
     ========================= */
 
     .categories {
-
       display: grid;
 
-      grid-template-columns:
-        repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
 
       gap: 14px;
-
     }
 
-
     .category-card {
-
       aspect-ratio: 1 / 1;
 
       border-radius: 20px;
-
       overflow: hidden;
 
       position: relative;
 
-      background:
-        rgba(15,15,18,.9);
+      background: rgba(15,15,18,.9);
 
-      border:
-        1px solid rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.18);
 
-      box-shadow:
-        0 8px 25px rgba(0,0,0,.65);
+      box-shadow: 0 8px 25px rgba(0,0,0,.65);
 
       cursor: pointer;
 
-      transition:
-        transform .2s ease;
-
+      transition: transform .2s ease;
     }
-
 
     .category-card:active {
-
       transform: scale(.97);
-
     }
 
-
     .category-image {
-
       position: absolute;
-
       inset: 0;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,.08),
-          rgba(0,0,0,.7)
-        );
-
+      background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.08),
+        rgba(0,0,0,.7)
+      );
     }
-
 
     .category-image span {
-
       font-size: 42px;
-
       opacity: .25;
-
     }
 
-
     .category-card::after {
-
       content: "";
 
       position: absolute;
-
       inset: 0;
 
-      background:
-        linear-gradient(
-          transparent 35%,
-          rgba(0,0,0,.9)
-        );
+      background: linear-gradient(
+        transparent 35%,
+        rgba(0,0,0,.9)
+      );
 
       pointer-events: none;
-
     }
 
-
     .category-title {
-
       position: absolute;
 
       z-index: 2;
 
       bottom: 14px;
-
       left: 10px;
       right: 10px;
 
@@ -297,22 +233,16 @@
 
       font-size: 16px;
       font-weight: 900;
-
       letter-spacing: 1px;
 
-      text-shadow:
-        0 3px 10px black;
-
+      text-shadow: 0 3px 10px black;
     }
-
 
     .category-card.last {
-
       grid-column: span 2;
-
       aspect-ratio: 2 / 1;
-
     }
+
 
 
     /* =========================
@@ -320,25 +250,33 @@
     ========================= */
 
     .page {
-
       display: none;
 
-      min-height: calc(100vh - 75px);
-      min-height: calc(100dvh - 75px);
+      min-height: 100vh;
 
-      /* IMPORTANT :
-         PAS D'ESPACE EN HAUT */
-      padding:
-        0 15px 20px;
-
+      padding: 15px 15px 100px;
     }
-
 
     .page.active {
-
       display: block;
-
     }
+
+
+
+    /* =========================
+       CORRECTION PAGE INFO
+       SUPPRESSION DE L'ESPACE
+    ========================= */
+
+    #info.page {
+      min-height: calc(100vh - 75px);
+
+      padding:
+        15px
+        15px
+        0;
+    }
+
 
 
     /* =========================
@@ -346,125 +284,116 @@
     ========================= */
 
     .category-top {
-
       position: relative;
-
       min-height: 155px;
-
-      padding-top: 15px;
-
     }
 
-
     .category-logo {
-
       position: absolute;
 
-      top: 15px;
-
+      top: 0;
       left: 50%;
 
-      transform:
-        translateX(-50%);
+      transform: translateX(-50%);
 
       width: 125px;
-
       aspect-ratio: 1 / 1;
 
       border-radius: 18px;
-
       overflow: hidden;
 
-      background:
-        rgba(0,0,0,.55);
+      background: rgba(0,0,0,.55);
 
-      border:
-        1px solid rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.15);
 
-      box-shadow:
-        0 8px 25px rgba(0,0,0,.7);
-
+      box-shadow: 0 8px 25px rgba(0,0,0,.7);
     }
 
-
     .category-logo img {
-
       width: 100%;
       height: 100%;
 
       object-fit: contain;
-
     }
 
 
+
     /* =========================
-       TITRES CATÉGORIES
+       TITRE CATÉGORIE
     ========================= */
 
     .category-page-title {
-
       position: absolute;
 
-      top: 73px;
-
+      top: 58px;
       left: 0;
 
       margin: 0;
-
-      padding:
-        8px 14px;
+      padding: 8px 14px;
 
       border-radius: 10px;
 
       font-size: 22px;
-
       font-weight: 900;
-
       letter-spacing: 2px;
 
-      background:
-        rgba(5,5,5,.75);
-
+      background: rgba(5,5,5,.75);
     }
 
+
+
+    /* =========================
+       HASH ROUGE
+    ========================= */
 
     .hash-title {
-
       color: #e10606;
 
-      border:
-        1px solid #e10606;
+      border: 1px solid #e10606;
 
-      box-shadow:
-        0 0 10px rgba(225,6,6,.25);
-
+      box-shadow: 0 0 10px rgba(225,6,6,.25);
     }
 
+    .hash-back {
+      border: 1px solid #e10606;
+    }
+
+
+
+    /* =========================
+       WEED VERT
+    ========================= */
 
     .weed-title {
-
       color: #00c853;
 
-      border:
-        1px solid #00c853;
+      border: 1px solid #00c853;
 
-      box-shadow:
-        0 0 10px rgba(0,200,83,.25);
-
+      box-shadow: 0 0 10px rgba(0,200,83,.25);
     }
 
+    .weed-back {
+      border: 1px solid #00c853;
+    }
+
+
+
+    /* =========================
+       C*KE BLEU
+    ========================= */
 
     .cake-title {
-
       color: #00cfff;
 
-      border:
-        1px solid #00cfff;
+      border: 1px solid #00cfff;
 
-      box-shadow:
-        0 0 10px rgba(0,207,255,.25);
-
+      box-shadow: 0 0 10px rgba(0,207,255,.25);
     }
+
+    .cake-back {
+      border: 1px solid #00cfff;
+    }
+
 
 
     /* =========================
@@ -472,53 +401,24 @@
     ========================= */
 
     .back-button {
-
       display: block;
 
-      margin:
-        0 0 8px 5px;
+      margin: 0 0 8px 5px;
 
-      padding:
-        9px 14px;
+      padding: 9px 14px;
 
       border-radius: 12px;
 
-      background:
-        rgba(10,10,10,.8);
+      background: rgba(10,10,10,.8);
 
       color: white;
 
       font-size: 12px;
-
       font-weight: bold;
 
       cursor: pointer;
-
     }
 
-
-    .hash-back {
-
-      border:
-        1px solid #e10606;
-
-    }
-
-
-    .weed-back {
-
-      border:
-        1px solid #00c853;
-
-    }
-
-
-    .cake-back {
-
-      border:
-        1px solid #00cfff;
-
-    }
 
 
     /* =========================
@@ -526,63 +426,45 @@
     ========================= */
 
     .category-line {
-
       width: 70%;
-
       height: 1px;
 
-      margin:
-        0 auto 20px;
-
+      margin: 0 auto 20px;
     }
-
 
     .hash-line {
+      background: linear-gradient(
+        to right,
+        transparent,
+        #e10606,
+        transparent
+      );
 
-      background:
-        linear-gradient(
-          to right,
-          transparent,
-          #e10606,
-          transparent
-        );
-
-      box-shadow:
-        0 0 8px rgba(225,6,6,.7);
-
+      box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
-
 
     .weed-line {
+      background: linear-gradient(
+        to right,
+        transparent,
+        #00c853,
+        transparent
+      );
 
-      background:
-        linear-gradient(
-          to right,
-          transparent,
-          #00c853,
-          transparent
-        );
-
-      box-shadow:
-        0 0 8px rgba(0,200,83,.7);
-
+      box-shadow: 0 0 8px rgba(0,200,83,.7);
     }
-
 
     .cake-line {
+      background: linear-gradient(
+        to right,
+        transparent,
+        #00cfff,
+        transparent
+      );
 
-      background:
-        linear-gradient(
-          to right,
-          transparent,
-          #00cfff,
-          transparent
-        );
-
-      box-shadow:
-        0 0 8px rgba(0,207,255,.7);
-
+      box-shadow: 0 0 8px rgba(0,207,255,.7);
     }
+
 
 
     /* =========================
@@ -590,119 +472,88 @@
     ========================= */
 
     .products-grid {
-
       display: grid;
 
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
 
       gap: 12px;
-
     }
 
-
     .product-card {
-
       overflow: hidden;
 
       border-radius: 18px;
 
-      background:
-        rgba(10,10,12,.92);
+      background: rgba(10,10,12,.92);
 
-      border:
-        1px solid rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.16);
 
-      box-shadow:
-        0 8px 20px rgba(0,0,0,.6);
+      box-shadow: 0 8px 20px rgba(0,0,0,.6);
 
+      transition: transform .2s ease;
     }
 
+    .product-card:active {
+      transform: scale(.97);
+    }
 
     .product-image {
-
       width: 100%;
-
       aspect-ratio: 1 / 1;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,.10),
-          rgba(0,0,0,.75)
-        );
+      background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.10),
+        rgba(0,0,0,.75)
+      );
 
-      border-bottom:
-        1px solid rgba(255,255,255,.10);
-
+      border-bottom: 1px solid rgba(255,255,255,.10);
     }
-
 
     .product-image span {
-
       font-size: 35px;
-
       opacity: .25;
-
     }
-
 
     .product-info {
-
-      padding:
-        10px 8px 12px;
-
+      padding: 10px 8px 12px;
       text-align: center;
-
     }
 
-
     .product-name {
-
       margin-bottom: 7px;
 
       font-size: 13px;
-
       font-weight: 900;
-
+      letter-spacing: .5px;
     }
 
-
     .product-price {
-
       margin-bottom: 10px;
 
       font-size: 11px;
-
       font-weight: bold;
-
     }
 
-
     .product-button {
-
       width: 100%;
 
-      padding:
-        8px 4px;
+      padding: 8px 4px;
 
       border: none;
-
       border-radius: 10px;
 
       color: white;
 
       font-size: 10px;
-
       font-weight: bold;
 
+      cursor: pointer;
     }
-
 
     .hash-product .product-price {
       color: #e10606;
@@ -730,34 +581,30 @@
     }
 
 
+
     /* =========================
        PANIER / LIENS
     ========================= */
 
     .page h1 {
-
       text-align: center;
-
       letter-spacing: 2px;
-
     }
 
-
     .page-box {
-
       margin-top: 15px;
 
       padding: 20px;
 
       border-radius: 20px;
 
-      background:
-        rgba(5,5,8,.90);
+      background: rgba(5,5,8,.90);
 
-      border:
-        1px solid rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.18);
 
+      backdrop-filter: blur(10px);
     }
+
 
 
     /* =========================
@@ -765,136 +612,89 @@
     ========================= */
 
     .info-box {
+      margin-top: 15px;
+      margin-bottom: 0;
 
-      /* IMPORTANT :
-         COLLE EN HAUT */
-      margin-top: 0;
+      padding: 24px 18px;
 
-      padding:
-        26px 20px 30px;
+      border-radius: 20px;
 
-      border-radius:
-        0 0 40px 40px;
+      background: rgba(5,5,8,.92);
 
-      background:
-        linear-gradient(
-          rgba(5,7,12,.96),
-          rgba(5,5,8,.97)
-        );
+      border: 1px solid #e10606;
 
-      border:
-        2px solid #e10606;
-
-      border-top: none;
-
-      box-shadow:
-        0 10px 35px rgba(0,0,0,.7);
+      backdrop-filter: blur(10px);
 
       text-align: center;
 
+      box-shadow: 0 0 20px rgba(225,6,6,.18);
     }
-
 
     .info-box p {
+      margin: 11px 0;
 
-      margin:
-        22px 0;
-
-      line-height: 1.55;
+      line-height: 1.65;
 
       font-size: 16px;
-
-      color:
-        #e4e4e4;
-
     }
 
-
     .info-title {
+      margin: 0 0 18px;
 
-      margin:
-        0 0 28px;
-
-      font-size: 24px;
-
+      font-size: 20px;
       font-weight: 900;
 
       letter-spacing: .5px;
-
-      white-space: nowrap;
-
     }
-
 
     .info-red {
-
-      color: #ff2020;
-
+      color: #e10606;
       font-weight: 900;
-
     }
-
 
     .info-white {
-
       color: white;
-
       font-weight: 900;
-
     }
 
-
     .info-link {
-
       display: inline-block;
 
-      margin-top: 10px;
+      margin-top: 8px;
 
-      color: #ff2020;
+      color: #e10606;
 
       font-size: 18px;
-
       font-weight: 900;
 
       text-decoration: none;
-
     }
-
 
     .info-separator {
-
       width: 90%;
-
       height: 1px;
 
-      margin:
-        28px auto;
+      margin: 22px auto;
 
-      background:
-        linear-gradient(
-          to right,
-          transparent,
-          #e10606,
-          transparent
-        );
+      background: linear-gradient(
+        to right,
+        transparent,
+        #e10606,
+        transparent
+      );
 
-      box-shadow:
-        0 0 8px rgba(225,6,6,.7);
-
+      box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
-
 
     .info-section-title {
+      margin-bottom: 14px;
 
-      margin-bottom: 20px;
+      color: #e10606;
 
-      color: #ff2020;
-
-      font-size: 21px;
-
+      font-size: 18px;
       font-weight: 900;
-
     }
+
 
 
     /* =========================
@@ -902,39 +702,32 @@
     ========================= */
 
     .bottom-menu {
-
       position: fixed;
 
-      z-index: 9999;
+      z-index: 100;
 
       bottom: 0;
       left: 0;
 
       width: 100%;
-
       height: 75px;
 
       display: flex;
 
       justify-content: space-around;
-
       align-items: center;
 
-      background:
-        rgba(8,8,10,.98);
+      background: rgba(8,8,10,.97);
 
-      border-top:
-        1px solid rgba(255,255,255,.15);
+      border-top: 1px solid rgba(255,255,255,.15);
 
+      backdrop-filter: blur(15px);
     }
 
-
     .bottom-menu button {
-
       flex: 1;
 
       background: none;
-
       border: none;
 
       color: white;
@@ -942,7 +735,6 @@
       font-size: 12px;
 
       display: flex;
-
       flex-direction: column;
 
       align-items: center;
@@ -950,26 +742,22 @@
       gap: 5px;
 
       cursor: pointer;
-
     }
-
 
     .bottom-menu .icon {
-
       font-size: 21px;
-
     }
-
 
   </style>
 
 </head>
 
 
+
 <body>
 
-
 <div class="app">
+
 
 
   <!-- =========================
@@ -977,7 +765,6 @@
   ========================= -->
 
   <div id="home" class="home active">
-
 
     <div class="ticker">
 
@@ -1000,26 +787,20 @@
     </div>
 
 
+
     <div class="hero-image">
-
-      <img
-        src="IMG_1527.jpeg"
-        alt="CHEZ LUFFY 33"
-      >
-
+      <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
     </div>
+
 
 
     <div class="separator"></div>
 
 
+
     <div class="categories">
 
-
-      <div
-        class="category-card"
-        onclick="showPage('hash')"
-      >
+      <div class="category-card" onclick="showPage('hash')">
 
         <div class="category-image">
           <span>+</span>
@@ -1032,10 +813,8 @@
       </div>
 
 
-      <div
-        class="category-card"
-        onclick="showPage('weed')"
-      >
+
+      <div class="category-card" onclick="showPage('weed')">
 
         <div class="category-image">
           <span>+</span>
@@ -1048,10 +827,8 @@
       </div>
 
 
-      <div
-        class="category-card last"
-        onclick="showPage('cake')"
-      >
+
+      <div class="category-card last" onclick="showPage('cake')">
 
         <div class="category-image">
           <span>+</span>
@@ -1063,11 +840,10 @@
 
       </div>
 
-
     </div>
 
-
   </div>
+
 
 
   <!-- =========================
@@ -1083,27 +859,17 @@
       </h1>
 
       <div class="category-logo">
-
-        <img
-          src="IMG_1527.jpeg"
-          alt="CHEZ LUFFY 33"
-        >
-
+        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
       </div>
 
     </div>
 
-
-    <button
-      class="back-button hash-back"
-      onclick="showPage('home')"
-    >
+    <button class="back-button hash-back"
+            onclick="showPage('home')">
       ← RETOUR
     </button>
 
-
     <div class="category-line hash-line"></div>
-
 
     <div class="products-grid">
 
@@ -1130,6 +896,7 @@
         </div>
 
       </div>
+
 
 
       <div class="product-card hash-product">
@@ -1159,6 +926,7 @@
     </div>
 
   </div>
+
 
 
   <!-- =========================
@@ -1174,27 +942,17 @@
       </h1>
 
       <div class="category-logo">
-
-        <img
-          src="IMG_1527.jpeg"
-          alt="CHEZ LUFFY 33"
-        >
-
+        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
       </div>
 
     </div>
 
-
-    <button
-      class="back-button weed-back"
-      onclick="showPage('home')"
-    >
+    <button class="back-button weed-back"
+            onclick="showPage('home')">
       ← RETOUR
     </button>
 
-
     <div class="category-line weed-line"></div>
-
 
     <div class="products-grid">
 
@@ -1221,6 +979,7 @@
         </div>
 
       </div>
+
 
 
       <div class="product-card weed-product">
@@ -1250,6 +1009,7 @@
     </div>
 
   </div>
+
 
 
   <!-- =========================
@@ -1265,27 +1025,17 @@
       </h1>
 
       <div class="category-logo">
-
-        <img
-          src="IMG_1527.jpeg"
-          alt="CHEZ LUFFY 33"
-        >
-
+        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
       </div>
 
     </div>
 
-
-    <button
-      class="back-button cake-back"
-      onclick="showPage('home')"
-    >
+    <button class="back-button cake-back"
+            onclick="showPage('home')">
       ← RETOUR
     </button>
 
-
     <div class="category-line cake-line"></div>
-
 
     <div class="products-grid">
 
@@ -1312,6 +1062,7 @@
         </div>
 
       </div>
+
 
 
       <div class="product-card cake-product">
@@ -1341,6 +1092,7 @@
     </div>
 
   </div>
+
 
 
   <!-- =========================
@@ -1366,15 +1118,14 @@
   </div>
 
 
+
   <!-- =========================
        INFO
   ========================= -->
 
   <div id="info" class="page">
 
-
     <div class="info-box">
-
 
       <div class="info-title">
 
@@ -1387,15 +1138,23 @@
       </div>
 
 
+
       <p>
 
         Livraison Express sur
 
         <span class="info-red">
-          Bordeaux & alentours - 7J/7 de 12h à 00h
+          Bordeaux & alentours
+        </span>
+
+        -
+
+        <span class="info-red">
+          7J/7 de 12h à 00h
         </span>
 
       </p>
+
 
 
       <p>
@@ -1411,35 +1170,48 @@
       </p>
 
 
+
       <p>
 
         📲 Commandes & Contact
 
         <br>
 
-        exclusivement via Telegram :
+        exclusivement via
 
-        <br><br>
+        <span class="info-red">
+          Telegram
+        </span>
 
-        <a
-          class="info-link"
-          href="https://t.me/CHEZLUFFY33"
-          target="_blank"
-        >
+        :
+
+        <br>
+
+        <!-- MODIFICATION : LIEN DIRECT VERS TELEGRAM -->
+
+        <a class="info-link"
+           href="https://t.me/ChezLuffy33"
+           target="_blank"
+           rel="noopener">
+
           @CHEZLUFFY33
+
         </a>
 
       </p>
 
 
+
       <div class="info-separator"></div>
+
 
 
       <div class="info-section-title">
 
-        ⚡️ DÉLAIS & CONSEILS :
+        ⚡ DÉLAIS & CONSEILS :
 
       </div>
+
 
 
       <p>
@@ -1462,6 +1234,7 @@
       </p>
 
 
+
       <p>
 
         •
@@ -1482,7 +1255,9 @@
       </p>
 
 
+
       <div class="info-separator"></div>
+
 
 
       <div class="info-section-title">
@@ -1490,6 +1265,7 @@
         🔄 RETOURS & AVIS :
 
       </div>
+
 
 
       <p>
@@ -1503,21 +1279,20 @@
       </p>
 
 
-      <a
-        class="info-link"
-        href="https://t.me/+J4xj67WNkWczZjQ0"
-        target="_blank"
-      >
+
+      <a class="info-link"
+         href="https://t.me/+J4xj67WNkWczZjQ0"
+         target="_blank"
+         rel="noopener">
 
         ACCÉDER AU CHAT
 
       </a>
 
-
     </div>
 
-
   </div>
+
 
 
   <!-- =========================
@@ -1539,12 +1314,12 @@
   </div>
 
 
+
   <!-- =========================
        MENU DU BAS
   ========================= -->
 
   <div class="bottom-menu">
-
 
     <button onclick="showPage('home')">
 
@@ -1555,6 +1330,7 @@
       Accueil
 
     </button>
+
 
 
     <button onclick="showPage('panier')">
@@ -1568,6 +1344,7 @@
     </button>
 
 
+
     <button onclick="showPage('info')">
 
       <span class="icon">
@@ -1577,6 +1354,7 @@
       Info
 
     </button>
+
 
 
     <button onclick="showPage('liens')">
@@ -1589,11 +1367,10 @@
 
     </button>
 
-
   </div>
 
-
 </div>
+
 
 
 <script>
@@ -1608,18 +1385,15 @@
 
       });
 
-
     document
       .getElementById(pageId)
       .classList.add('active');
-
 
     window.scrollTo(0, 0);
 
   }
 
 </script>
-
 
 </body>
 </html>
