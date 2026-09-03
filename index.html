@@ -278,35 +278,48 @@
       letter-spacing: 2px;
     }
 
-   /* =========================
+/* =========================
    TITRES CATÉGORIES AVEC CONTOUR
 ========================= */
 
+.hash-title,
+.weed-title,
+.cake-title {
+  font-weight: 900;
+  paint-order: stroke fill;
+}
+
+/* HASH */
+
 .hash-title {
   color: white;
-  -webkit-text-stroke: 1.5px #e10606;
-  paint-order: stroke fill;
-  text-shadow:
-    0 0 3px #e10606,
-    0 0 8px rgba(225,6,6,.55);
+  -webkit-text-stroke: 1px #e10606;
+  text-shadow: 1px 1px 0 #e10606,
+              -1px -1px 0 #e10606,
+              1px -1px 0 #e10606,
+              -1px 1px 0 #e10606;
 }
+
+/* WEED */
 
 .weed-title {
   color: white;
-  -webkit-text-stroke: 1.5px #18b64b;
-  paint-order: stroke fill;
-  text-shadow:
-    0 0 3px #18b64b,
-    0 0 8px rgba(24,182,75,.55);
+  -webkit-text-stroke: 1px #18b64b;
+  text-shadow: 1px 1px 0 #18b64b,
+              -1px -1px 0 #18b64b,
+              1px -1px 0 #18b64b,
+              -1px 1px 0 #18b64b;
 }
+
+/* C*KE */
 
 .cake-title {
   color: white;
-  -webkit-text-stroke: 1.5px #4dcfff;
-  paint-order: stroke fill;
-  text-shadow:
-    0 0 3px #4dcfff,
-    0 0 8px rgba(77,207,255,.55);
+  -webkit-text-stroke: 1px #4dcfff;
+  text-shadow: 1px 1px 0 #4dcfff,
+              -1px -1px 0 #4dcfff,
+              1px -1px 0 #4dcfff,
+              -1px 1px 0 #4dcfff;
 }
 
     /* RETOUR */
