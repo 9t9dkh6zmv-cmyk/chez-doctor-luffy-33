@@ -76,10 +76,13 @@
 
     .ticker-text {
       flex-shrink: 0;
+
       color: white;
+
       font-size: 10px;
       font-weight: bold;
       letter-spacing: 1px;
+
       padding-right: 40px;
     }
 
@@ -129,6 +132,7 @@
     .separator {
       width: 70%;
       height: 1px;
+
       margin: 0 auto 20px;
 
       background: linear-gradient(
@@ -148,7 +152,9 @@
 
     .categories {
       display: grid;
+
       grid-template-columns: repeat(2, 1fr);
+
       gap: 14px;
     }
 
@@ -157,14 +163,17 @@
 
       border-radius: 20px;
       overflow: hidden;
+
       position: relative;
 
       background: rgba(15,15,18,.9);
+
       border: 1px solid rgba(255,255,255,.18);
 
       box-shadow: 0 8px 25px rgba(0,0,0,.65);
 
       cursor: pointer;
+
       transition: transform .2s ease;
     }
 
@@ -208,6 +217,7 @@
 
     .category-title {
       position: absolute;
+
       z-index: 2;
 
       bottom: 14px;
@@ -235,12 +245,29 @@
 
     .page {
       display: none;
+
       min-height: 100vh;
+
       padding: 15px 15px 100px;
     }
 
     .page.active {
       display: block;
+    }
+
+
+    /* =========================
+       CORRECTION PAGE INFO
+       SUPPRESSION DE L'ESPACE
+    ========================= */
+
+    #info.page {
+      min-height: calc(100vh - 75px);
+
+      padding:
+        15px
+        15px
+        0;
     }
 
 
@@ -268,6 +295,7 @@
       overflow: hidden;
 
       background: rgba(0,0,0,.55);
+
       border: 1px solid rgba(255,255,255,.15);
 
       box-shadow: 0 8px 25px rgba(0,0,0,.7);
@@ -276,6 +304,7 @@
     .category-logo img {
       width: 100%;
       height: 100%;
+
       object-fit: contain;
     }
 
@@ -309,7 +338,9 @@
 
     .hash-title {
       color: #e10606;
+
       border: 1px solid #e10606;
+
       box-shadow: 0 0 10px rgba(225,6,6,.25);
     }
 
@@ -324,7 +355,9 @@
 
     .weed-title {
       color: #00c853;
+
       border: 1px solid #00c853;
+
       box-shadow: 0 0 10px rgba(0,200,83,.25);
     }
 
@@ -334,12 +367,14 @@
 
 
     /* =========================
-       C*KE BLEU
+       CAKE BLEU
     ========================= */
 
     .cake-title {
       color: #00cfff;
+
       border: 1px solid #00cfff;
+
       box-shadow: 0 0 10px rgba(0,207,255,.25);
     }
 
@@ -356,11 +391,13 @@
       display: block;
 
       margin: 0 0 8px 5px;
+
       padding: 9px 14px;
 
       border-radius: 12px;
 
       background: rgba(10,10,10,.8);
+
       color: white;
 
       font-size: 12px;
@@ -377,6 +414,7 @@
     .category-line {
       width: 70%;
       height: 1px;
+
       margin: 0 auto 20px;
     }
 
@@ -420,7 +458,9 @@
 
     .products-grid {
       display: grid;
+
       grid-template-columns: repeat(2, minmax(0, 1fr));
+
       gap: 12px;
     }
 
@@ -430,6 +470,7 @@
       border-radius: 18px;
 
       background: rgba(10,10,12,.92);
+
       border: 1px solid rgba(255,255,255,.16);
 
       box-shadow: 0 8px 20px rgba(0,0,0,.6);
@@ -536,11 +577,13 @@
 
     .page-box {
       margin-top: 15px;
+
       padding: 20px;
 
       border-radius: 20px;
 
       background: rgba(5,5,8,.90);
+
       border: 1px solid rgba(255,255,255,.18);
 
       backdrop-filter: blur(10px);
@@ -553,36 +596,38 @@
 
     .info-box {
       margin-top: 15px;
+      margin-bottom: 0;
+
       padding: 24px 18px;
 
       border-radius: 20px;
 
       background: rgba(5,5,8,.92);
-      border: 1px solid #e10606;
 
-      box-shadow: 0 0 20px rgba(225,6,6,.15);
+      border: 1px solid #e10606;
 
       backdrop-filter: blur(10px);
 
       text-align: center;
+
+      box-shadow: 0 0 20px rgba(225,6,6,.18);
     }
 
     .info-box p {
-      margin: 18px 0;
+      margin: 11px 0;
 
-      line-height: 1.55;
+      line-height: 1.65;
+
       font-size: 16px;
     }
 
     .info-title {
-      margin: 0 0 24px;
-
-      color: white;
+      margin: 0 0 18px;
 
       font-size: 20px;
       font-weight: 900;
 
-      white-space: nowrap;
+      letter-spacing: .5px;
     }
 
     .info-red {
@@ -612,7 +657,7 @@
       width: 90%;
       height: 1px;
 
-      margin: 24px auto;
+      margin: 22px auto;
 
       background: linear-gradient(
         to right,
@@ -625,7 +670,7 @@
     }
 
     .info-section-title {
-      margin-bottom: 18px;
+      margin-bottom: 14px;
 
       color: #e10606;
 
@@ -686,6 +731,7 @@
     }
 
   </style>
+
 </head>
 
 
@@ -731,6 +777,7 @@
 
     <div class="categories">
 
+
       <div class="category-card" onclick="showPage('hash')">
 
         <div class="category-image">
@@ -769,6 +816,7 @@
 
       </div>
 
+
     </div>
 
   </div>
@@ -796,7 +844,9 @@
 
     <button class="back-button hash-back"
             onclick="showPage('home')">
+
       ← RETOUR
+
     </button>
 
 
@@ -881,7 +931,9 @@
 
     <button class="back-button weed-back"
             onclick="showPage('home')">
+
       ← RETOUR
+
     </button>
 
 
@@ -966,7 +1018,9 @@
 
     <button class="back-button cake-back"
             onclick="showPage('home')">
+
       ← RETOUR
+
     </button>
 
 
@@ -1064,36 +1118,66 @@
 
 
       <div class="info-title">
-        Bienvenue <span class="info-red">CHEZ LUFFY 33</span> ☠️
+
+        Bienvenue
+        <span class="info-red">
+          CHEZ LUFFY 33
+        </span>
+        ☠️
+
       </div>
 
 
       <p>
+
         Livraison Express sur
-        <span class="info-red">Bordeaux & alentours</span>
+
+        <span class="info-red">
+          Bordeaux & alentours
+        </span>
+
         -
-        <span class="info-red">7J/7 de 12h à 00h</span>
+
+        <span class="info-red">
+          7J/7 de 12h à 00h
+        </span>
+
       </p>
 
 
       <p>
+
         ⏱️ Prise de Commandes dès
+
         <br>
+
         <span class="info-red">
           10h du matin jusqu'à 00h
         </span>
+
       </p>
 
 
       <p>
+
         📲 Commandes & Contact
+
         <br>
-        exclusivement via Telegram :
+
+        exclusivement via
+
+        <span class="info-red">
+          Telegram
+        </span>
+
+        :
+
         <br>
 
         <span class="info-red">
           @CHEZLUFFY33
         </span>
+
       </p>
 
 
@@ -1101,23 +1185,49 @@
 
 
       <div class="info-section-title">
+
         ⚡ DÉLAIS & CONSEILS :
+
       </div>
 
 
       <p>
-        • <span class="info-white">Commande</span> :
+
+        •
+        <span class="info-white">
+          Commande
+        </span>
+
+        :
+
         remplissez le formulaire
-        <span class="info-red">minutieusement</span>
+
+        <span class="info-red">
+          minutieusement
+        </span>
+
         pour que le traitement de votre commande soit le plus fluide possible.
+
       </p>
 
 
       <p>
-        • <span class="info-white">Livraison</span> :
+
+        •
+        <span class="info-white">
+          Livraison
+        </span>
+
+        :
+
         privilégiez les commandes
-        <span class="info-red">avant 13h</span>
+
+        <span class="info-red">
+          avant 13h
+        </span>
+
         pour être dans les premiers.
+
       </p>
 
 
@@ -1125,14 +1235,20 @@
 
 
       <div class="info-section-title">
+
         🔄 RETOURS & AVIS :
+
       </div>
 
 
       <p>
+
         📸 N’hésitez pas à poster une photo de
+
         <br>
+
         votre commande dans le chat de retours
+
       </p>
 
 
@@ -1177,9 +1293,12 @@
 
   <div class="bottom-menu">
 
+
     <button onclick="showPage('home')">
 
-      <span class="icon">🏠</span>
+      <span class="icon">
+        🏠
+      </span>
 
       Accueil
 
@@ -1188,7 +1307,9 @@
 
     <button onclick="showPage('panier')">
 
-      <span class="icon">🛒</span>
+      <span class="icon">
+        🛒
+      </span>
 
       Panier
 
@@ -1197,7 +1318,9 @@
 
     <button onclick="showPage('info')">
 
-      <span class="icon">ℹ️</span>
+      <span class="icon">
+        ℹ️
+      </span>
 
       Info
 
@@ -1206,16 +1329,20 @@
 
     <button onclick="showPage('liens')">
 
-      <span class="icon">🔗</span>
+      <span class="icon">
+        🔗
+      </span>
 
       Liens
 
     </button>
 
+
   </div>
 
 
 </div>
+
 
 
 <script>
