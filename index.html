@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-
 <html lang="fr">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>CHEZ LUFFY 33</title>
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -19,20 +22,19 @@
       color: white;
     }
 
-    button {
-      font-family: inherit;
-    }
-
     .app {
       min-height: 100vh;
       padding-bottom: 85px;
+
       background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.92)),
         url("IMG_1527.jpeg");
+
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
+
 
     /* =========================
        ACCUEIL
@@ -46,6 +48,7 @@
     .home.active {
       display: block;
     }
+
 
     /* =========================
        BANDE DÉFILANTE
@@ -79,6 +82,7 @@
     }
 
     @keyframes tickerMove {
+
       from {
         transform: translateX(0);
       }
@@ -86,7 +90,9 @@
       to {
         transform: translateX(-50%);
       }
+
     }
+
 
     /* =========================
        LOGO ACCUEIL
@@ -109,6 +115,7 @@
       object-fit: contain;
     }
 
+
     /* =========================
        LIGNE ACCUEIL
     ========================= */
@@ -117,17 +124,20 @@
       width: 70%;
       height: 1px;
       margin: 0 auto 20px;
+
       background: linear-gradient(
         to right,
         transparent,
         #e10606,
         transparent
       );
+
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
+
     /* =========================
-       CATÉGORIES
+       CATÉGORIES ACCUEIL
     ========================= */
 
     .categories {
@@ -155,9 +165,11 @@
     .category-image {
       position: absolute;
       inset: 0;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       background: linear-gradient(
         135deg,
         rgba(255,255,255,.08),
@@ -174,10 +186,12 @@
       content: "";
       position: absolute;
       inset: 0;
+
       background: linear-gradient(
         transparent 35%,
         rgba(0,0,0,.9)
       );
+
       pointer-events: none;
     }
 
@@ -187,6 +201,7 @@
       bottom: 14px;
       left: 10px;
       right: 10px;
+
       text-align: center;
       font-size: 16px;
       font-weight: 900;
@@ -198,6 +213,7 @@
       grid-column: span 2;
       aspect-ratio: 2 / 1;
     }
+
 
     /* =========================
        PAGES
@@ -213,13 +229,19 @@
       display: block;
     }
 
+
+    /* =========================
+       PAGE INFO
+    ========================= */
+
     #info.page {
       min-height: calc(100vh - 75px);
       padding: 15px 15px 0;
     }
 
+
     /* =========================
-       EN-TÊTE CATÉGORIE
+       EN-TÊTE CATÉGORIES
     ========================= */
 
     .category-top {
@@ -232,10 +254,13 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
+
       width: 125px;
       aspect-ratio: 1 / 1;
+
       border-radius: 18px;
       overflow: hidden;
+
       background: rgba(0,0,0,.55);
       border: 1px solid rgba(255,255,255,.15);
       box-shadow: 0 8px 25px rgba(0,0,0,.7);
@@ -247,36 +272,73 @@
       object-fit: contain;
     }
 
+
+    /* =========================
+       TITRE CATÉGORIE
+    ========================= */
+
     .category-page-title {
       position: absolute;
       top: 58px;
       left: 0;
+
       margin: 0;
       padding: 8px 14px;
+
       border-radius: 10px;
+
       font-size: 22px;
       font-weight: 900;
       letter-spacing: 2px;
+
       background: rgba(5,5,5,.75);
     }
 
-    .red-title {
+
+    /* =========================
+       HASH ROUGE
+    ========================= */
+
+    .hash-title {
       color: #e10606;
       border: 1px solid #e10606;
       box-shadow: 0 0 10px rgba(225,6,6,.25);
     }
 
-    .green-title {
+    .hash-back {
+      border: 1px solid #e10606;
+    }
+
+
+    /* =========================
+       WEED VERT
+    ========================= */
+
+    .weed-title {
       color: #00c853;
       border: 1px solid #00c853;
       box-shadow: 0 0 10px rgba(0,200,83,.25);
     }
 
-    .blue-title {
+    .weed-back {
+      border: 1px solid #00c853;
+    }
+
+
+    /* =========================
+       CAKE BLEU
+    ========================= */
+
+    .cake-title {
       color: #00cfff;
       border: 1px solid #00cfff;
       box-shadow: 0 0 10px rgba(0,207,255,.25);
     }
+
+    .cake-back {
+      border: 1px solid #00cfff;
+    }
+
 
     /* =========================
        RETOUR
@@ -284,19 +346,24 @@
 
     .back-button {
       display: block;
+
       margin: 0 0 8px 5px;
       padding: 9px 14px;
+
       border-radius: 12px;
+
       background: rgba(10,10,10,.8);
       color: white;
-      border: 1px solid #e10606;
+
       font-size: 12px;
       font-weight: bold;
+
       cursor: pointer;
     }
 
+
     /* =========================
-       LIGNES
+       LIGNES CATÉGORIES
     ========================= */
 
     .category-line {
@@ -305,20 +372,39 @@
       margin: 0 auto 20px;
     }
 
-    .red-line {
-      background: linear-gradient(to right, transparent, #e10606, transparent);
+    .hash-line {
+      background: linear-gradient(
+        to right,
+        transparent,
+        #e10606,
+        transparent
+      );
+
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
-    .green-line {
-      background: linear-gradient(to right, transparent, #00c853, transparent);
+    .weed-line {
+      background: linear-gradient(
+        to right,
+        transparent,
+        #00c853,
+        transparent
+      );
+
       box-shadow: 0 0 8px rgba(0,200,83,.7);
     }
 
-    .blue-line {
-      background: linear-gradient(to right, transparent, #00cfff, transparent);
+    .cake-line {
+      background: linear-gradient(
+        to right,
+        transparent,
+        #00cfff,
+        transparent
+      );
+
       box-shadow: 0 0 8px rgba(0,207,255,.7);
     }
+
 
     /* =========================
        PRODUITS
@@ -332,10 +418,14 @@
 
     .product-card {
       overflow: hidden;
+
       border-radius: 18px;
+
       background: rgba(10,10,12,.92);
       border: 1px solid rgba(255,255,255,.16);
+
       box-shadow: 0 8px 20px rgba(0,0,0,.6);
+
       transition: transform .2s ease;
     }
 
@@ -346,15 +436,19 @@
     .product-image {
       width: 100%;
       aspect-ratio: 1 / 1;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       background: linear-gradient(
         135deg,
         rgba(255,255,255,.10),
         rgba(0,0,0,.75)
       );
+
       border-bottom: 1px solid rgba(255,255,255,.10);
+
       overflow: hidden;
     }
 
@@ -376,6 +470,7 @@
 
     .product-name {
       margin-bottom: 7px;
+
       font-size: 13px;
       font-weight: 900;
       letter-spacing: .5px;
@@ -383,22 +478,51 @@
 
     .product-price {
       margin-bottom: 10px;
+
       font-size: 11px;
       font-weight: bold;
-      color: #e10606;
     }
 
     .product-button {
       width: 100%;
       padding: 8px 4px;
+
       border: none;
       border-radius: 10px;
-      background: #e10606;
+
       color: white;
+
       font-size: 10px;
       font-weight: bold;
+
       cursor: pointer;
     }
+
+    .hash-product .product-price {
+      color: #e10606;
+    }
+
+    .hash-product .product-button {
+      background: #e10606;
+    }
+
+    .weed-product .product-price {
+      color: #00c853;
+    }
+
+    .weed-product .product-button {
+      background: #00c853;
+    }
+
+    .cake-product .product-price {
+      color: #00cfff;
+    }
+
+    .cake-product .product-button {
+      background: #00cfff;
+      color: #050505;
+    }
+
 
     /* =========================
        PAGE PRODUIT
@@ -411,64 +535,95 @@
 
     .product-detail-back {
       display: inline-block;
+
       margin-bottom: 18px;
       padding: 12px 18px;
+
       border-radius: 14px;
+
       background: rgba(10,10,10,.9);
       border: 1px solid #e10606;
+
       color: white;
+
       font-size: 14px;
       font-weight: 900;
+
       cursor: pointer;
     }
 
     .product-detail-card {
       padding: 18px;
+
       border-radius: 28px;
+
       background: rgba(7,10,16,.96);
       border: 1px solid rgba(255,255,255,.14);
+
       box-shadow: 0 10px 35px rgba(0,0,0,.7);
     }
 
     .detail-product-photo {
       width: 100%;
       height: 280px;
+
       object-fit: cover;
+
       border-radius: 20px;
+
       display: block;
       margin-bottom: 20px;
+
       border: 1px solid rgba(255,255,255,.15);
     }
 
     .detail-product-name {
       margin: 0;
+
       font-size: 28px;
       font-weight: 900;
       letter-spacing: 2px;
     }
 
+
+    /* DESCRIPTION */
+
     .detail-description {
       margin: 12px 0 22px;
+
       color: #e10606;
+
       font-size: 16px;
       line-height: 1.5;
     }
 
+
+    /* TEXTE PRODUIT */
+
     .arrival-box {
       padding: 18px;
       margin-bottom: 22px;
+
       border-radius: 18px;
+
       background: rgba(255,255,255,.03);
       border: 1px solid #e10606;
+
       color: white;
+
       font-size: 16px;
       font-weight: 900;
       letter-spacing: 1px;
     }
 
+
+    /* QUANTITÉS */
+
     .quantity-title {
       margin: 20px 0 15px;
+
       color: #e10606;
+
       font-size: 17px;
       font-weight: 900;
       letter-spacing: 3px;
@@ -483,14 +638,20 @@
     .quantity-box {
       min-height: 125px;
       padding: 15px 8px;
+
       border-radius: 24px;
+
       background: rgba(255,255,255,.025);
       border: 1px solid #e10606;
+
       display: flex;
       flex-direction: column;
+
       justify-content: center;
       align-items: center;
+
       cursor: pointer;
+
       transition: .2s ease;
     }
 
@@ -519,39 +680,55 @@
       width: 100%;
       margin-top: 28px;
       padding: 22px 15px;
+
       border: 2px solid #e10606;
       border-radius: 50px;
+
       background: #e10606;
       color: white;
+
       font-size: 18px;
       font-weight: 900;
       letter-spacing: 4px;
+
       cursor: pointer;
+
       box-shadow: 0 0 20px rgba(225,6,6,.30);
     }
 
+
     /* =========================
-       MESSAGE PANIER
+       MESSAGE VALIDATION PANIER
     ========================= */
 
     .success-message {
       position: fixed;
       z-index: 9999;
+
       left: 50%;
       top: 50%;
+
       transform: translate(-50%, -50%) scale(.8);
+
       width: 190px;
       height: 190px;
+
       border-radius: 30px;
+
       background: rgba(10,10,12,.97);
       border: 2px solid #e10606;
+
       box-shadow: 0 0 35px rgba(225,6,6,.45);
+
       display: flex;
       flex-direction: column;
+
       justify-content: center;
       align-items: center;
+
       opacity: 0;
       pointer-events: none;
+
       transition: .25s ease;
     }
 
@@ -563,27 +740,35 @@
     .success-icon {
       width: 80px;
       height: 80px;
+
       border-radius: 50%;
       border: 3px solid #e10606;
+
       color: white;
+
       font-size: 55px;
       font-weight: bold;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       margin-bottom: 15px;
     }
 
     .success-text {
       color: white;
+
       font-size: 13px;
       font-weight: 900;
       letter-spacing: 1px;
+
       text-align: center;
     }
 
+
     /* =========================
-       PANIER / INFO
+       PANIER / LIENS
     ========================= */
 
     .page h1 {
@@ -594,21 +779,35 @@
     .page-box {
       margin-top: 15px;
       padding: 20px;
+
       border-radius: 20px;
+
       background: rgba(5,5,8,.90);
       border: 1px solid rgba(255,255,255,.18);
+
       backdrop-filter: blur(10px);
     }
+
+
+    /* =========================
+       PAGE INFO
+    ========================= */
 
     .info-box {
       margin-top: 15px;
       margin-bottom: 0;
+
       padding: 24px 18px;
+
       border-radius: 20px;
+
       background: rgba(5,5,8,.92);
       border: 1px solid #e10606;
+
       backdrop-filter: blur(10px);
+
       text-align: center;
+
       box-shadow: 0 0 20px rgba(225,6,6,.18);
     }
 
@@ -620,6 +819,7 @@
 
     .info-title {
       margin: 0 0 18px;
+
       font-size: 20px;
       font-weight: 900;
       letter-spacing: .5px;
@@ -638,9 +838,12 @@
     .info-link {
       display: inline-block;
       margin-top: 8px;
+
       color: #e10606;
+
       font-size: 18px;
       font-weight: 900;
+
       text-decoration: none;
     }
 
@@ -648,16 +851,26 @@
       width: 90%;
       height: 1px;
       margin: 22px auto;
-      background: linear-gradient(to right, transparent, #e10606, transparent);
+
+      background: linear-gradient(
+        to right,
+        transparent,
+        #e10606,
+        transparent
+      );
+
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
     .info-section-title {
       margin-bottom: 14px;
+
       color: #e10606;
+
       font-size: 18px;
       font-weight: 900;
     }
+
 
     /* =========================
        MENU BAS
@@ -666,553 +879,925 @@
     .bottom-menu {
       position: fixed;
       z-index: 100;
+
       bottom: 0;
       left: 0;
+
       width: 100%;
       height: 75px;
+
       display: flex;
       justify-content: space-around;
       align-items: center;
+
       background: rgba(8,8,10,.97);
       border-top: 1px solid rgba(255,255,255,.15);
+
       backdrop-filter: blur(15px);
     }
 
     .bottom-menu button {
       flex: 1;
+
       background: none;
       border: none;
+
       color: white;
+
       font-size: 12px;
+
       display: flex;
       flex-direction: column;
       align-items: center;
+
       gap: 5px;
+
       cursor: pointer;
     }
 
     .bottom-menu .icon {
       font-size: 21px;
     }
+
   </style>
 
 </head>
+
 
 <body>
 
 <div class="app">
 
-  <!-- ACCUEIL -->
+
+  <!-- =========================
+       ACCUEIL
+  ========================= -->
 
   <div id="home" class="home active">
 
-```
-<div class="ticker">
-  <div class="ticker-track">
-    <div class="ticker-text">
-      BIENVENUE CHEZ LUFFY 33 • COMMANDE RAPIDE • SERVICE DISCRET •
-      BIENVENUE CHEZ LUFFY 33 • COMMANDE RAPIDE • SERVICE DISCRET •
+    <div class="ticker">
+
+      <div class="ticker-track">
+
+        <div class="ticker-text">
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+        </div>
+
+        <div class="ticker-text">
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="ticker-text">
-      BIENVENUE CHEZ LUFFY 33 • COMMANDE RAPIDE • SERVICE DISCRET •
-      BIENVENUE CHEZ LUFFY 33 • COMMANDE RAPIDE • SERVICE DISCRET •
+
+    <div class="hero-image">
+      <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
     </div>
+
+
+    <div class="separator"></div>
+
+
+    <div class="categories">
+
+      <div class="category-card" onclick="showPage('hash')">
+
+        <div class="category-image">
+          <span>+</span>
+        </div>
+
+        <div class="category-title">
+          HASH
+        </div>
+
+      </div>
+
+
+      <div class="category-card" onclick="showPage('weed')">
+
+        <div class="category-image">
+          <span>+</span>
+        </div>
+
+        <div class="category-title">
+          WEED
+        </div>
+
+      </div>
+
+
+      <div class="category-card last" onclick="showPage('cake')">
+
+        <div class="category-image">
+          <span>+</span>
+        </div>
+
+        <div class="category-title">
+          C*KE
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
-</div>
 
-<div class="hero-image">
-  <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
-</div>
 
-<div class="separator"></div>
-
-<div class="categories">
-
-  <div class="category-card" onclick="showPage('hash')">
-    <div class="category-image">
-      <span>+</span>
-    </div>
-
-    <div class="category-title">
-      PRODUITS
-    </div>
-  </div>
-
-  <div class="category-card" onclick="showPage('weed')">
-    <div class="category-image">
-      <span>+</span>
-    </div>
-
-    <div class="category-title">
-      COLLECTION
-    </div>
-  </div>
-
-  <div class="category-card last" onclick="showPage('cake')">
-    <div class="category-image">
-      <span>+</span>
-    </div>
-
-    <div class="category-title">
-      NOUVEAUTÉS
-    </div>
-  </div>
-
-</div>
-```
-
-  </div>
-
-  <!-- CATÉGORIE 1 -->
+  <!-- =========================
+       HASH
+  ========================= -->
 
   <div id="hash" class="page">
 
-```
-<div class="category-top">
-  <h1 class="category-page-title red-title">PRODUITS</h1>
+    <div class="category-top">
 
-  <div class="category-logo">
-    <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
-  </div>
-</div>
+      <h1 class="category-page-title hash-title">
+        HASH
+      </h1>
 
-<button class="back-button" onclick="showPage('home')">
-  ← RETOUR
-</button>
-
-<div class="category-line red-line"></div>
-
-<div class="products-grid">
-
-  <div class="product-card">
-    <div class="product-image">
-      <img src="IMG_1515.jpeg" alt="Produit Premium">
-    </div>
-
-    <div class="product-info">
-      <div class="product-name">
-        PRODUIT PREMIUM
+      <div class="category-logo">
+        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
       </div>
 
-      <div class="product-price">
-        À PARTIR DE 40 €
-      </div>
-
-      <button class="product-button" onclick="showPage('produit1')">
-        VOIR +
-      </button>
-    </div>
-  </div>
-
-  <div class="product-card">
-    <div class="product-image">
-      <img src="IMG_1511.jpeg" alt="Produit Sélection">
     </div>
 
-    <div class="product-info">
-      <div class="product-name">
-        SÉLECTION PREMIUM
+
+    <button class="back-button hash-back"
+            onclick="showPage('home')">
+      ← RETOUR
+    </button>
+
+
+    <div class="category-line hash-line"></div>
+
+
+    <div class="products-grid">
+
+
+      <!-- PREMIER PRODUIT -->
+
+      <div class="product-card hash-product">
+
+        <div class="product-image">
+          <img src="IMG_1515.jpeg" alt="MOUSSE CYTHO 🥭🍊">
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-name">
+            MOUSSE CYTHO 🥭
+          </div>
+
+          <div class="product-price">
+            À PARTIR DE 40 €
+          </div>
+
+          <button class="product-button"
+                  onclick="showPage('produit1')">
+            VOIR +
+          </button>
+
+        </div>
+
       </div>
 
-      <div class="product-price">
-        À PARTIR DE 60 €
+
+      <!-- DEUXIÈME PRODUIT PASQUANTINO -->
+
+      <div class="product-card hash-product">
+
+        <div class="product-image">
+          <img src="IMG_1511.jpeg" alt="PASQUANTINO 🍓">
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-name">
+            PASQUANTINO 🍓
+          </div>
+
+          <div class="product-price">
+            À PARTIR DE 60 €
+          </div>
+
+          <button class="product-button"
+                  onclick="showPage('produit2')">
+            VOIR +
+          </button>
+
+        </div>
+
       </div>
 
-      <button class="product-button" onclick="showPage('produit2')">
-        VOIR +
-      </button>
     </div>
-  </div>
-
-</div>
-```
 
   </div>
 
-  <!-- PRODUIT 1 -->
+
+  <!-- =========================
+       PAGE PRODUIT 1
+  ========================= -->
 
   <div id="produit1" class="page">
 
-```
-<div class="product-detail">
+    <div class="product-detail">
 
-  <button class="product-detail-back" onclick="showPage('hash')">
-    ← RETOUR
-  </button>
+      <button class="product-detail-back"
+              onclick="showPage('hash')">
+        ← RETOUR
+      </button>
 
-  <div class="product-detail-card">
 
-    <img
-      src="IMG_1515.jpeg"
-      alt="Produit Premium"
-      class="detail-product-photo"
-    >
+      <div class="product-detail-card">
 
-    <h1 class="detail-product-name">
-      PRODUIT PREMIUM
-    </h1>
 
-    <div class="detail-description">
-      Une sélection premium.
-    </div>
+        <img src="IMG_1515.jpeg"
+             alt="MOUSSE CYTHO 🥭"
+             class="detail-product-photo">
 
-    <div class="arrival-box">
-      NOUVEAUTÉ ✨
-      <br><br>
-      <em>
-        Produit disponible en plusieurs formats.
-      </em>
-    </div>
 
-    <div class="quantity-title">
-      OPTIONS DISPONIBLES
-    </div>
+        <h1 class="detail-product-name">
+          MOUSSE CYTHO 🥭
+        </h1>
 
-    <div class="quantity-grid">
 
-      <div class="quantity-box" onclick="selectQuantity(this, 'Option 1', '40€')">
-        <div class="quantity-weight">Option 1</div>
-        <div class="quantity-price">40€</div>
+        <div class="detail-description">
+          Cali Mousse Premium 🧽
+        </div>
+
+
+        <div class="arrival-box">
+
+          𝖥𝖱𝖠𝖯𝖯𝖤 𝖣𝖤 𝖳𝖤𝖱𝖱𝖠𝖨𝖭 🟡💥
+
+          <br><br>
+
+          <em>
+            Plus besoin de prouver avec nos mousses,
+            la vraie fusée 🤤💫😍💎
+          </em>
+
+        </div>
+
+
+        <div class="quantity-title">
+          QUANTITÉS DISPONIBLES
+        </div>
+
+
+        <div class="quantity-grid">
+
+
+          <div class="quantity-box"
+               onclick="selectQuantity(this, '10g', '40€')">
+
+            <div class="quantity-weight">
+              10g
+            </div>
+
+            <div class="quantity-price">
+              40€
+            </div>
+
+          </div>
+
+
+          <div class="quantity-box"
+               onclick="selectQuantity(this, '20g', '70€')">
+
+            <div class="quantity-weight">
+              20g
+            </div>
+
+            <div class="quantity-price">
+              70€
+            </div>
+
+          </div>
+
+
+          <div class="quantity-box"
+               onclick="selectQuantity(this, '30g', '100€')">
+
+            <div class="quantity-weight">
+              30g
+            </div>
+
+            <div class="quantity-price">
+              100€
+            </div>
+
+          </div>
+
+
+          <div class="quantity-box"
+               onclick="selectQuantity(this, '50g', '140€')">
+
+            <div class="quantity-weight">
+              50g
+            </div>
+
+            <div class="quantity-price">
+              140€
+            </div>
+
+          </div>
+
+
+          <div class="quantity-box"
+               onclick="selectQuantity(this, '100g', '260€')">
+
+            <div class="quantity-weight">
+              100g
+            </div>
+
+            <div class="quantity-price">
+              260€
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <button class="add-cart-button"
+                onclick="addToCart('MOUSSE CYTHO 🥭🍊')">
+          AJOUTER AU PANIER
+        </button>
+
+
       </div>
 
-      <div class="quantity-box" onclick="selectQuantity(this, 'Option 2', '70€')">
-        <div class="quantity-weight">Option 2</div>
-        <div class="quantity-price">70€</div>
-      </div>
-
-      <div class="quantity-box" onclick="selectQuantity(this, 'Option 3', '100€')">
-        <div class="quantity-weight">Option 3</div>
-        <div class="quantity-price">100€</div>
-      </div>
-
     </div>
-
-    <button class="add-cart-button" onclick="addToCart('PRODUIT PREMIUM')">
-      AJOUTER AU PANIER
-    </button>
 
   </div>
-</div>
-```
 
-  </div>
 
-  <!-- PRODUIT 2 -->
+  <!-- =========================
+       PAGE PRODUIT 2 PASQUANTINO
+  ========================= -->
 
   <div id="produit2" class="page">
 
-```
-<div class="product-detail">
+    <div class="product-detail">
 
-  <button class="product-detail-back" onclick="showPage('hash')">
-    ← RETOUR
-  </button>
+      <button class="product-detail-back"
+              onclick="showPage('hash')">
+        ← RETOUR
+      </button>
 
-  <div class="product-detail-card">
 
-    <img
-      src="IMG_1511.jpeg"
-      alt="Sélection Premium"
-      class="detail-product-photo"
-    >
+      <div class="product-detail-card">
 
-    <h1 class="detail-product-name">
-      SÉLECTION PREMIUM
-    </h1>
 
-    <div class="detail-description">
-      Une sélection de qualité.
-    </div>
+        <img src="IMG_1511.jpeg"
+             alt="PASQUANTINO 🍓"
+             class="detail-product-photo">
 
-    <div class="arrival-box">
-      DISPONIBLE ✨
-      <br><br>
-      <em>
-        Plusieurs options disponibles.
-      </em>
-    </div>
 
-    <div class="quantity-title">
-      OPTIONS DISPONIBLES
-    </div>
+        <h1 class="detail-product-name">
+          PASQUANTINO 🍓
+        </h1>
 
-    <div class="quantity-grid">
 
-      <div class="quantity-box" onclick="selectQuantity(this, 'Option 1', '60€')">
-        <div class="quantity-weight">Option 1</div>
-        <div class="quantity-price">60€</div>
+        <div class="detail-description">
+          120u Premium By Cousin Vinnie 🇮🇹
+        </div>
+
+
+        <div class="arrival-box">
+
+          𝖵𝖱𝖠𝖨 𝖲𝖠𝖵𝖤𝖴𝖱 𝖤𝖳 𝖣𝖤𝖥𝖮𝖭𝖢𝖤🤤
+
+          <br><br>
+
+          <em>
+            𝘐𝘥𝘦́𝘢𝘭 𝘱𝘰𝘶𝘳 𝘭𝘦𝘴 𝘱𝘦𝘵𝘪𝘵𝘴 𝘣𝘶𝘥𝘨𝘦𝘵 & 
+            𝘳𝘦𝘷𝘦𝘯𝘥𝘦𝘶𝘳𝘴 𝘧𝘪𝘭𝘵𝘳𝘦́ 𝘣𝘪𝘦𝘯 𝘴𝘦𝘤 𝘱𝘦́𝘵𝘢𝘯𝘵 
+.           𝘢̀ 𝘤𝘰𝘯𝘴𝘦𝘳𝘷𝘦𝘳 𝘣𝘪𝘦𝘯 𝘢𝘶 𝘧𝘳𝘢𝘪𝘴🧊
+          </em>
+
+        </div>
+
+
+        <div class="quantity-title">
+          QUANTITÉS DISPONIBLES
+        </div>
+
+
+        <div class="quantity-grid">
+
+
+          <div class="quantity-box"
+               onclick="selectQuantity(this, '10g', '60€')">
+
+            <div class="quantity-weight">
+              10g
+            </div>
+
+            <div class="quantity-price">
+              60€
+            </div>
+
+          </div>
+
+
+          <div class="quantity-box"
+               onclick="selectQuantity(this, '20g', '110€')">
+
+            <div class="quantity-weight">
+              20g
+            </div>
+
+            <div class="quantity-price">
+              110€
+            </div>
+
+          </div>
+
+
+          <div class="quantity-box"
+               onclick="selectQuantity(this, '30g', '160€')">
+
+            <div class="quantity-weight">
+              30g
+            </div>
+
+            <div class="quantity-price">
+              160€
+            </div>
+
+          </div>
+
+
+          <div class="quantity-box"
+               onclick="selectQuantity(this, '50g', '220€')">
+
+            <div class="quantity-weight">
+              50g
+            </div>
+
+            <div class="quantity-price">
+              220€
+            </div>
+
+          </div>
+
+
+          <div class="quantity-box"
+               onclick="selectQuantity(this, '100g', '420€')">
+
+            <div class="quantity-weight">
+              100g
+            </div>
+
+            <div class="quantity-price">
+              420€
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <button class="add-cart-button"
+                onclick="addToCart('PASQUANTINO 🍓')">
+          AJOUTER AU PANIER
+        </button>
+
+
       </div>
 
-      <div class="quantity-box" onclick="selectQuantity(this, 'Option 2', '110€')">
-        <div class="quantity-weight">Option 2</div>
-        <div class="quantity-price">110€</div>
-      </div>
-
-      <div class="quantity-box" onclick="selectQuantity(this, 'Option 3', '160€')">
-        <div class="quantity-weight">Option 3</div>
-        <div class="quantity-price">160€</div>
-      </div>
-
     </div>
 
-    <button class="add-cart-button" onclick="addToCart('SÉLECTION PREMIUM')">
-      AJOUTER AU PANIER
+  </div>
+
+
+  <!-- =========================
+       WEED
+  ========================= -->
+
+  <div class="product-card weed-product">
+
+  <div class="product-image">
+    <img src="IMG_1584.jpeg" alt="AMNESIA LEMON 🍋">
+  </div>
+
+  <div class="product-info">
+
+    <div class="product-name">
+      AMNESIA LEMON 🍋
+    </div>
+
+    <div class="product-price">
+      À PARTIR DE 60 €
+    </div>
+
+    <button class="product-button"
+            onclick="showPage('amnesia')">
+      VOIR +
     </button>
 
   </div>
-</div>
-```
-
-  </div>
-
-  <!-- COLLECTION -->
-
-  <div id="weed" class="page">
-
-```
-<div class="category-top">
-
-  <h1 class="category-page-title green-title">
-    COLLECTION
-  </h1>
-
-  <div class="category-logo">
-    <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
-  </div>
 
 </div>
+  
 
-<button class="back-button" onclick="showPage('home')">
-  ← RETOUR
-</button>
-
-<div class="category-line green-line"></div>
-
-<div class="products-grid">
-
-  <div class="product-card">
-    <div class="product-image">
-      <span>+</span>
-    </div>
-
-    <div class="product-info">
-      <div class="product-name">
-        BIENTÔT DISPONIBLE
-      </div>
-
-      <div class="product-price">
-        NOUVEAUTÉ
-      </div>
-
-      <button class="product-button">
-        VOIR +
-      </button>
-    </div>
-  </div>
-
-</div>
-```
-
-  </div>
-
-  <!-- NOUVEAUTÉS -->
+  <!-- =========================
+       CAKE
+  ========================= -->
 
   <div id="cake" class="page">
 
-```
-<div class="category-top">
+    <div class="category-top">
 
-  <h1 class="category-page-title blue-title">
-    NOUVEAUTÉS
-  </h1>
+      <h1 class="category-page-title cake-title">
+        C*KE
+      </h1>
 
-  <div class="category-logo">
-    <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+      <div class="category-logo">
+        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+      </div>
+
+    </div>
+
+
+    <button class="back-button cake-back"
+            onclick="showPage('home')">
+      ← RETOUR
+    </button>
+
+
+    <div class="category-line cake-line"></div>
+
+
+    <div class="products-grid">
+
+      <div class="product-card cake-product">
+
+        <div class="product-image">
+          <span>+</span>
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-name">
+            ÉCAILLE 0.9 ❄️
+          </div>
+
+          <div class="product-price">
+            À PARTIR DE 60 €
+          </div>
+
+          <button class="product-button">
+            VOIR +
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="product-card cake-product">
+
+        <div class="product-image">
+          <span>+</span>
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-name">
+            PRODUIT 2
+          </div>
+
+          <div class="product-price">
+            À PARTIR DE XX €
+          </div>
+
+          <button class="product-button">
+            VOIR +
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+<!-- =========================
+     PAGE AMNESIA LEMON
+========================= -->
+
+<div id="amnesia" class="page">
+
+  <div class="product-detail">
+
+    <button class="product-detail-back"
+            onclick="showPage('weed')">
+      ← RETOUR
+    </button>
+
+    <div class="product-detail-card">
+
+      <img src="IMG_1584.jpeg"
+           alt="AMNESIA LEMON 🍋"
+           class="detail-product-photo">
+
+      <h1 class="detail-product-name">
+        AMNESIA LEMON 🍋
+      </h1>
+
+      <div class="detail-description">
+        Fleur CBD aux notes fraîches et citronnées 🍋
+      </div>
+
+      <div class="arrival-box">
+        DESCRIPTION PROVISOIRE 🍋✨
+
+        <br><br>
+
+        <em>
+          Une variété au parfum citronné et à l'arôme frais.
+          Plus d'informations prochainement.
+        </em>
+      </div>
+
+    </div>
+
   </div>
 
 </div>
 
-<button class="back-button" onclick="showPage('home')">
-  ← RETOUR
-</button>
-
-<div class="category-line blue-line"></div>
-
-<div class="products-grid">
-
-  <div class="product-card">
-    <div class="product-image">
-      <span>✨</span>
-    </div>
-
-    <div class="product-info">
-      <div class="product-name">
-        PROCHAINEMENT
-      </div>
-
-      <div class="product-price">
-        RESTE CONNECTÉ
-      </div>
-
-      <button class="product-button">
-        VOIR +
-      </button>
-    </div>
-  </div>
-
-</div>
-```
-
-  </div>
-
-  <!-- PANIER -->
+  <!-- =========================
+       PANIER
+  ========================= -->
 
   <div id="panier" class="page">
 
-```
-<h1>🛒 PANIER</h1>
+    <h1>🛒 PANIER</h1>
 
-<div class="page-box" id="cart-content">
+    <div class="page-box" id="cart-content">
 
-  <p>
-    Ton panier est actuellement vide.
-  </p>
+      <p>
+        Ton panier est actuellement vide.
+      </p>
 
-  <p>
-    Les produits sélectionnés apparaîtront ici.
-  </p>
+      <p>
+        Les produits sélectionnés apparaîtront ici.
+      </p>
 
-</div>
-```
+    </div>
 
   </div>
 
-  <!-- INFO -->
+
+  <!-- =========================
+       INFO
+  ========================= -->
 
   <div id="info" class="page">
 
-```
-<div class="info-box">
+    <div class="info-box">
 
-  <div class="info-title">
-    Bienvenue
-    <span class="info-red">
-      CHEZ LUFFY 33
-    </span>
-    ☠️
+      <div class="info-title">
+
+        Bienvenue
+
+        <span class="info-red">
+          CHEZ LUFFY 33
+        </span>
+
+        ☠️
+
+      </div>
+
+
+      <p>
+
+        Livraison Express sur
+
+        <span class="info-red">
+          Bordeaux & alentours
+        </span>
+
+        -
+
+        <span class="info-red">
+          7J/7 de 12h à 00h
+        </span>
+
+      </p>
+
+
+      <p>
+
+        ⏱️ Prise de Commandes dès
+
+        <br>
+
+        <span class="info-red">
+          10h du matin jusqu'à 00h
+        </span>
+
+      </p>
+
+
+      <p>
+
+        📲 Commandes & Contact
+
+        <br>
+
+        exclusivement via
+
+        <span class="info-red">
+          Telegram
+        </span>
+
+        :
+
+        <br>
+
+        <a class="info-link"
+           href="https://t.me/ChezLuffy33"
+           target="_blank"
+           rel="noopener">
+
+          @CHEZLUFFY33
+
+        </a>
+
+      </p>
+
+
+      <div class="info-separator"></div>
+
+
+      <div class="info-section-title">
+        ⚡ DÉLAIS & CONSEILS :
+      </div>
+
+
+      <p>
+
+        •
+
+        <span class="info-white">
+          Commande
+        </span>
+
+        :
+
+        remplissez le formulaire
+
+        <span class="info-red">
+          minutieusement
+        </span>
+
+        pour que le traitement de votre commande soit le plus fluide possible.
+
+      </p>
+
+
+      <p>
+
+        •
+
+        <span class="info-white">
+          Livraison
+        </span>
+
+        :
+
+        privilégiez les commandes
+
+        <span class="info-red">
+          avant 13h
+        </span>
+
+        pour être dans les premiers.
+
+      </p>
+
+
+      <div class="info-separator"></div>
+
+
+      <div class="info-section-title">
+        🔄 RETOURS & AVIS :
+      </div>
+
+
+      <p>
+
+        📸 N’hésitez pas à poster une photo de
+
+        <br>
+
+        votre commande dans le chat de retours
+
+      </p>
+
+
+      <a class="info-link"
+         href="https://t.me/+J4xj67WNkWczZjQ0"
+         target="_blank"
+         rel="noopener">
+
+        ACCÉDER AU CHAT
+
+      </a>
+
+    </div>
+
   </div>
 
-  <p>
-    Service disponible sur
-    <span class="info-red">
-      Bordeaux & alentours
-    </span>
-  </p>
 
-  <p>
-    📲 Contact exclusivement via
-    <span class="info-red">
-      Telegram
-    </span>
-    :
-    <br>
-
-    <a
-      class="info-link"
-      href="https://t.me/ChezLuffy33"
-      target="_blank"
-      rel="noopener"
-    >
-      @CHEZLUFFY33
-    </a>
-  </p>
-
-  <div class="info-separator"></div>
-
-  <div class="info-section-title">
-    ⚡ INFORMATIONS :
-  </div>
-
-  <p>
-    • Remplissez les informations demandées
-    <span class="info-red">
-      minutieusement
-    </span>
-    pour un traitement plus fluide.
-  </p>
-
-  <div class="info-separator"></div>
-
-  <div class="info-section-title">
-    🔄 RETOURS & AVIS :
-  </div>
-
-  <p>
-    📸 Partagez vos retours dans notre communauté.
-  </p>
-
-  <a
-    class="info-link"
-    href="https://t.me/+J4xj67WNkWczZjQ0"
-    target="_blank"
-    rel="noopener"
-  >
-    ACCÉDER AU CHAT
-  </a>
-
-</div>
-```
-
-  </div>
-
-  <!-- LIENS -->
+  <!-- =========================
+       LIENS
+  ========================= -->
 
   <div id="liens" class="page">
 
-```
-<h1>🔗 LIENS</h1>
+    <h1>🔗 LIENS</h1>
 
-<div class="page-box">
-  <p>
-    Tous les liens importants apparaîtront ici.
-  </p>
-</div>
-```
+    <div class="page-box">
+
+      <p>
+        Tous les liens importants apparaîtront ici.
+      </p>
+
+    </div>
 
   </div>
 
-  <!-- MENU BAS -->
+
+  <!-- =========================
+       MENU DU BAS
+  ========================= -->
 
   <div class="bottom-menu">
 
-```
-<button onclick="showPage('home')">
-  <span class="icon">🏠</span>
-  Accueil
-</button>
+    <button onclick="showPage('home')">
 
-<button onclick="showPage('panier')">
-  <span class="icon">🛒</span>
-  Panier
-</button>
+      <span class="icon">
+        🏠
+      </span>
 
-<button onclick="showPage('info')">
-  <span class="icon">ℹ️</span>
-  Info
-</button>
+      Accueil
 
-<button onclick="showPage('liens')">
-  <span class="icon">🔗</span>
-  Liens
-</button>
-```
+    </button>
+
+
+    <button onclick="showPage('panier')">
+
+      <span class="icon">
+        🛒
+      </span>
+
+      Panier
+
+    </button>
+
+
+    <button onclick="showPage('info')">
+
+      <span class="icon">
+        ℹ️
+      </span>
+
+      Info
+
+    </button>
+
+
+    <button onclick="showPage('liens')">
+
+      <span class="icon">
+        🔗
+      </span>
+
+      Liens
+
+    </button>
 
   </div>
 
 </div>
 
-<!-- MESSAGE VALIDATION -->
+
+<!-- =========================
+     MESSAGE VALIDATION
+========================= -->
 
 <div id="success-message" class="success-message">
 
@@ -1226,50 +1811,67 @@
 
 </div>
 
+
 <script>
 
   let selectedQuantity = null;
   let selectedPrice = null;
+
 
   function showPage(pageId) {
 
     document
       .querySelectorAll('.page, .home')
       .forEach(function(page) {
+
         page.classList.remove('active');
+
       });
 
-    const targetPage = document.getElementById(pageId);
 
-    if (targetPage) {
-      targetPage.classList.add('active');
-    }
+    document
+      .getElementById(pageId)
+      .classList.add('active');
+
 
     window.scrollTo(0, 0);
+
   }
+
 
   function selectQuantity(element, quantity, price) {
 
     document
       .querySelectorAll('.quantity-box')
       .forEach(function(box) {
+
         box.classList.remove('selected');
+
       });
+
 
     element.classList.add('selected');
 
+
     selectedQuantity = quantity;
     selectedPrice = price;
+
   }
+
 
   function addToCart(productName) {
 
     if (!selectedQuantity) {
-      alert("Choisis d'abord une option.");
+
+      alert("Choisis d'abord une quantité.");
+
       return;
+
     }
 
+
     const cart = document.getElementById('cart-content');
+
 
     cart.innerHTML = `
       <h2 style="text-align:center;">
@@ -1287,7 +1889,7 @@
 
         <br><br>
 
-        Option : ${selectedQuantity}
+        Quantité : ${selectedQuantity}
 
         <br>
 
@@ -1296,14 +1898,20 @@
       </div>
     `;
 
+
     const successMessage =
       document.getElementById('success-message');
 
+
     successMessage.classList.add('show');
 
+
     setTimeout(function() {
+
       successMessage.classList.remove('show');
+
     }, 1800);
+
   }
 
 </script>
