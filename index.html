@@ -36,6 +36,7 @@
     }
 
 
+
     /* =========================
        ACCUEIL
     ========================= */
@@ -48,6 +49,7 @@
     .home.active {
       display: block;
     }
+
 
 
     /* =========================
@@ -92,6 +94,7 @@
     }
 
 
+
     /* =========================
        LOGO ACCUEIL
     ========================= */
@@ -114,6 +117,7 @@
     }
 
 
+
     /* =========================
        LIGNE ACCUEIL
     ========================= */
@@ -132,6 +136,7 @@
 
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
+
 
 
     /* =========================
@@ -211,6 +216,7 @@
     }
 
 
+
     /* =========================
        PAGES
     ========================= */
@@ -226,6 +232,7 @@
     }
 
 
+
     /* =========================
        PAGE INFO
     ========================= */
@@ -234,6 +241,7 @@
       min-height: calc(100vh - 75px);
       padding: 15px 15px 0;
     }
+
 
 
     /* =========================
@@ -266,6 +274,7 @@
     }
 
 
+
     /* =========================
        TITRE CATÉGORIE
     ========================= */
@@ -284,6 +293,7 @@
     }
 
 
+
     /* =========================
        HASH ROUGE
     ========================= */
@@ -297,6 +307,7 @@
     .hash-back {
       border: 1px solid #e10606;
     }
+
 
 
     /* =========================
@@ -314,6 +325,7 @@
     }
 
 
+
     /* =========================
        C*KE BLEU
     ========================= */
@@ -327,6 +339,7 @@
     .cake-back {
       border: 1px solid #00cfff;
     }
+
 
 
     /* =========================
@@ -344,6 +357,7 @@
       font-weight: bold;
       cursor: pointer;
     }
+
 
 
     /* =========================
@@ -388,6 +402,7 @@
 
       box-shadow: 0 0 8px rgba(0,207,255,.7);
     }
+
 
 
     /* =========================
@@ -496,6 +511,7 @@
     }
 
 
+
     /* =========================
        PAGE PRODUIT
     ========================= */
@@ -552,20 +568,28 @@
       line-height: 1.5;
     }
 
+
+
+    /* NEW ARRIVAGE EN ROUGE */
+
     .arrival-box {
       padding: 18px;
       margin-bottom: 22px;
       border-radius: 18px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(160,190,220,.18);
-      color: #9eacc0;
+      background: rgba(225,6,6,.05);
+      border: 1px solid rgba(225,6,6,.55);
+      color: #e10606;
       font-size: 16px;
       letter-spacing: 1px;
     }
 
+
+
+    /* TITRE QUANTITÉS EN ROUGE */
+
     .quantity-title {
       margin: 20px 0 15px;
-      color: #aabbd0;
+      color: #e10606;
       font-size: 17px;
       font-weight: 900;
       letter-spacing: 3px;
@@ -577,12 +601,16 @@
       gap: 12px;
     }
 
+
+
+    /* CASES QUANTITÉS EN ROUGE */
+
     .quantity-box {
       min-height: 125px;
       padding: 15px 8px;
       border-radius: 24px;
-      background: rgba(255,255,255,.025);
-      border: 1px solid rgba(130,155,185,.28);
+      background: rgba(225,6,6,.04);
+      border: 1px solid rgba(225,6,6,.45);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -597,7 +625,7 @@
 
     .quantity-box.selected {
       border: 2px solid #e10606;
-      box-shadow: 0 0 20px rgba(225,6,6,.25);
+      box-shadow: 0 0 20px rgba(225,6,6,.35);
     }
 
     .quantity-weight {
@@ -607,24 +635,30 @@
     }
 
     .quantity-price {
-      color: #c3d0df;
+      color: #e10606;
       font-size: 22px;
       font-weight: bold;
     }
+
+
+
+    /* BOUTON AJOUTER AU PANIER ROUGE */
 
     .add-cart-button {
       width: 100%;
       margin-top: 28px;
       padding: 22px 15px;
-      border: none;
+      border: 1px solid #ff3b3b;
       border-radius: 50px;
-      background: linear-gradient(135deg, #f1f4f8, #8db7df);
-      color: #18202b;
+      background: linear-gradient(135deg, #e10606, #8b0000);
+      color: white;
       font-size: 18px;
       font-weight: 900;
       letter-spacing: 4px;
       cursor: pointer;
+      box-shadow: 0 0 20px rgba(225,6,6,.35);
     }
+
 
 
     /* =========================
@@ -644,6 +678,7 @@
       border: 1px solid rgba(255,255,255,.18);
       backdrop-filter: blur(10px);
     }
+
 
 
     /* =========================
@@ -717,6 +752,7 @@
     }
 
 
+
     /* =========================
        MENU BAS
     ========================= */
@@ -758,9 +794,11 @@
 </head>
 
 
+
 <body>
 
 <div class="app">
+
 
 
   <!-- =========================
@@ -790,12 +828,15 @@
     </div>
 
 
+
     <div class="hero-image">
       <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
     </div>
 
 
+
     <div class="separator"></div>
+
 
 
     <div class="categories">
@@ -813,6 +854,7 @@
       </div>
 
 
+
       <div class="category-card" onclick="showPage('weed')">
 
         <div class="category-image">
@@ -824,6 +866,7 @@
         </div>
 
       </div>
+
 
 
       <div class="category-card last" onclick="showPage('cake')">
@@ -841,6 +884,7 @@
     </div>
 
   </div>
+
 
 
   <!-- =========================
@@ -862,17 +906,19 @@
     </div>
 
 
+
     <button class="back-button hash-back"
             onclick="showPage('home')">
       ← RETOUR
     </button>
 
 
+
     <div class="category-line hash-line"></div>
 
 
-    <div class="products-grid">
 
+    <div class="products-grid">
 
       <!-- PREMIER PRODUIT HASH -->
 
@@ -900,6 +946,7 @@
         </div>
 
       </div>
+
 
 
       <!-- DEUXIÈME PRODUIT HASH -->
@@ -933,6 +980,7 @@
   </div>
 
 
+
   <!-- =========================
        PAGE PREMIER PRODUIT HASH
   ========================= -->
@@ -947,8 +995,8 @@
       </button>
 
 
-      <div class="product-detail-card">
 
+      <div class="product-detail-card">
 
         <!-- PHOTO DU PRODUIT -->
 
@@ -1059,8 +1107,6 @@
           </div>
 
 
-          <!-- LA CASE 200g A ÉTÉ SUPPRIMÉE -->
-
         </div>
 
 
@@ -1075,6 +1121,7 @@
     </div>
 
   </div>
+
 
 
   <!-- =========================
@@ -1161,6 +1208,7 @@
   </div>
 
 
+
   <!-- =========================
        C*KE
   ========================= -->
@@ -1245,6 +1293,7 @@
   </div>
 
 
+
   <!-- =========================
        PANIER
   ========================= -->
@@ -1266,6 +1315,7 @@
     </div>
 
   </div>
+
 
 
   <!-- =========================
@@ -1430,6 +1480,7 @@
   </div>
 
 
+
   <!-- =========================
        LIENS
   ========================= -->
@@ -1447,6 +1498,7 @@
     </div>
 
   </div>
+
 
 
   <!-- =========================
@@ -1504,6 +1556,7 @@
 </div>
 
 
+
 <script>
 
   let selectedQuantity = null;
@@ -1531,6 +1584,7 @@
   }
 
 
+
   function selectQuantity(element, quantity, price) {
 
     document
@@ -1549,6 +1603,7 @@
     selectedPrice = price;
 
   }
+
 
 
   function addToCart() {
