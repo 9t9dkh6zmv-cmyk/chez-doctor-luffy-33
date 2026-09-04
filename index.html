@@ -615,6 +615,45 @@
     }
 
 
+    /* =====================================
+       UNIQUEMENT PRODUIT 1 HASH → ROUGE
+    ===================================== */
+
+    #produit1 .detail-description {
+      color: white;
+    }
+
+    #produit1 .arrival-box {
+      background: rgba(225,6,6,.08);
+      border: 1px solid rgba(225,6,6,.55);
+      color: #e10606;
+      box-shadow: 0 0 15px rgba(225,6,6,.10);
+    }
+
+    #produit1 .quantity-title {
+      color: #e10606;
+    }
+
+    #produit1 .quantity-box {
+      border: 1px solid rgba(225,6,6,.55);
+    }
+
+    #produit1 .quantity-box.selected {
+      border: 2px solid #e10606;
+      box-shadow: 0 0 20px rgba(225,6,6,.40);
+    }
+
+    #produit1 .quantity-price {
+      color: #e10606;
+    }
+
+    #produit1 .add-cart-button {
+      background: linear-gradient(135deg, #ff2929, #a50000);
+      color: white;
+      box-shadow: 0 0 20px rgba(225,6,6,.35);
+    }
+
+
     /* =========================
        PANIER / LIENS
     ========================= */
@@ -936,21 +975,15 @@
       <div class="product-detail-card">
 
 
-        <!-- PHOTO DU PRODUIT -->
-
         <img src="IMG_1515.jpeg"
              alt="PRODUIT 1"
              class="detail-product-photo">
 
 
-        <!-- NOM DU PRODUIT -->
-
         <h1 class="detail-product-name">
           PRODUIT 1
         </h1>
 
-
-        <!-- DESCRIPTION -->
 
         <div class="detail-description">
           Description du produit ici.<br>
@@ -958,14 +991,10 @@
         </div>
 
 
-        <!-- ARRIVAGE -->
-
         <div class="arrival-box">
           NEW ARRIVAGE
         </div>
 
-
-        <!-- QUANTITÉS -->
 
         <div class="quantity-title">
           QUANTITÉS DISPONIBLES
@@ -973,7 +1002,6 @@
 
 
         <div class="quantity-grid">
-
 
           <div class="quantity-box"
                onclick="selectQuantity(this, '10g', 'XX€')">
@@ -1058,7 +1086,6 @@
 
           </div>
 
-
         </div>
 
 
@@ -1066,7 +1093,6 @@
                 onclick="addToCart()">
           AJOUTER AU PANIER
         </button>
-
 
       </div>
 
@@ -1532,7 +1558,7 @@
   function selectQuantity(element, quantity, price) {
 
     document
-      .querySelectorAll('.quantity-box')
+      .querySelectorAll('#produit1 .quantity-box')
       .forEach(function(box) {
 
         box.classList.remove('selected');
@@ -1594,7 +1620,6 @@
   }
 
 </script>
-
 
 </body>
 
