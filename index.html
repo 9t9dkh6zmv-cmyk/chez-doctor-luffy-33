@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 
 <head>
@@ -26,6 +25,7 @@
     .app {
       min-height: 100vh;
       padding-bottom: 85px;
+
       background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.92)),
         url("IMG_1527.jpeg");
@@ -122,12 +122,14 @@
       width: 70%;
       height: 1px;
       margin: 0 auto 20px;
+
       background: linear-gradient(
         to right,
         transparent,
         #e10606,
         transparent
       );
+
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
@@ -164,6 +166,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
       background: linear-gradient(
         135deg,
         rgba(255,255,255,.08),
@@ -180,10 +183,12 @@
       content: "";
       position: absolute;
       inset: 0;
+
       background: linear-gradient(
         transparent 35%,
         rgba(0,0,0,.9)
       );
+
       pointer-events: none;
     }
 
@@ -358,6 +363,7 @@
         #e10606,
         transparent
       );
+
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
@@ -368,6 +374,7 @@
         #00c853,
         transparent
       );
+
       box-shadow: 0 0 8px rgba(0,200,83,.7);
     }
 
@@ -378,6 +385,7 @@
         #00cfff,
         transparent
       );
+
       box-shadow: 0 0 8px rgba(0,207,255,.7);
     }
 
@@ -411,11 +419,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
       background: linear-gradient(
         135deg,
         rgba(255,255,255,.10),
         rgba(0,0,0,.75)
       );
+
       border-bottom: 1px solid rgba(255,255,255,.10);
       overflow: hidden;
     }
@@ -533,9 +543,11 @@
       letter-spacing: 2px;
     }
 
+    /* DESCRIPTION EN ROUGE */
+
     .detail-description {
       margin: 12px 0 22px;
-      color: #9eacc0;
+      color: #e10606;
       font-size: 16px;
       line-height: 1.5;
     }
@@ -615,45 +627,6 @@
     }
 
 
-    /* =====================================
-       UNIQUEMENT PRODUIT 1 HASH → ROUGE
-    ===================================== */
-
-    #produit1 .detail-description {
-      color: white;
-    }
-
-    #produit1 .arrival-box {
-      background: rgba(225,6,6,.08);
-      border: 1px solid rgba(225,6,6,.55);
-      color: #e10606;
-      box-shadow: 0 0 15px rgba(225,6,6,.10);
-    }
-
-    #produit1 .quantity-title {
-      color: #e10606;
-    }
-
-    #produit1 .quantity-box {
-      border: 1px solid rgba(225,6,6,.55);
-    }
-
-    #produit1 .quantity-box.selected {
-      border: 2px solid #e10606;
-      box-shadow: 0 0 20px rgba(225,6,6,.40);
-    }
-
-    #produit1 .quantity-price {
-      color: #e10606;
-    }
-
-    #produit1 .add-cart-button {
-      background: linear-gradient(135deg, #ff2929, #a50000);
-      color: white;
-      box-shadow: 0 0 20px rgba(225,6,6,.35);
-    }
-
-
     /* =========================
        PANIER / LIENS
     ========================= */
@@ -725,12 +698,14 @@
       width: 90%;
       height: 1px;
       margin: 22px auto;
+
       background: linear-gradient(
         to right,
         transparent,
         #e10606,
         transparent
       );
+
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
@@ -975,15 +950,21 @@
       <div class="product-detail-card">
 
 
+        <!-- PHOTO DU PRODUIT -->
+
         <img src="IMG_1515.jpeg"
              alt="PRODUIT 1"
              class="detail-product-photo">
 
 
+        <!-- NOM DU PRODUIT -->
+
         <h1 class="detail-product-name">
           PRODUIT 1
         </h1>
 
+
+        <!-- DESCRIPTION -->
 
         <div class="detail-description">
           Description du produit ici.<br>
@@ -991,10 +972,14 @@
         </div>
 
 
+        <!-- ARRIVAGE -->
+
         <div class="arrival-box">
           NEW ARRIVAGE
         </div>
 
+
+        <!-- QUANTITÉS -->
 
         <div class="quantity-title">
           QUANTITÉS DISPONIBLES
@@ -1002,6 +987,7 @@
 
 
         <div class="quantity-grid">
+
 
           <div class="quantity-box"
                onclick="selectQuantity(this, '10g', 'XX€')">
@@ -1073,18 +1059,7 @@
           </div>
 
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '200g', 'XX€')">
-
-            <div class="quantity-weight">
-              200g
-            </div>
-
-            <div class="quantity-price">
-              XX€
-            </div>
-
-          </div>
+          <!-- LA CASE 200g A ÉTÉ SUPPRIMÉE -->
 
         </div>
 
@@ -1093,6 +1068,7 @@
                 onclick="addToCart()">
           AJOUTER AU PANIER
         </button>
+
 
       </div>
 
@@ -1558,7 +1534,7 @@
   function selectQuantity(element, quantity, price) {
 
     document
-      .querySelectorAll('#produit1 .quantity-box')
+      .querySelectorAll('.quantity-box')
       .forEach(function(box) {
 
         box.classList.remove('selected');
@@ -1621,6 +1597,6 @@
 
 </script>
 
-</body>
 
+</body>
 </html>
