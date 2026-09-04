@@ -36,7 +36,6 @@
     }
 
 
-
     /* =========================
        ACCUEIL
     ========================= */
@@ -49,7 +48,6 @@
     .home.active {
       display: block;
     }
-
 
 
     /* =========================
@@ -94,7 +92,6 @@
     }
 
 
-
     /* =========================
        LOGO ACCUEIL
     ========================= */
@@ -117,7 +114,6 @@
     }
 
 
-
     /* =========================
        LIGNE ACCUEIL
     ========================= */
@@ -136,7 +132,6 @@
 
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
-
 
 
     /* =========================
@@ -216,7 +211,6 @@
     }
 
 
-
     /* =========================
        PAGES
     ========================= */
@@ -232,7 +226,6 @@
     }
 
 
-
     /* =========================
        PAGE INFO
     ========================= */
@@ -241,7 +234,6 @@
       min-height: calc(100vh - 75px);
       padding: 15px 15px 0;
     }
-
 
 
     /* =========================
@@ -274,7 +266,6 @@
     }
 
 
-
     /* =========================
        TITRE CATÉGORIE
     ========================= */
@@ -293,7 +284,6 @@
     }
 
 
-
     /* =========================
        HASH ROUGE
     ========================= */
@@ -307,7 +297,6 @@
     .hash-back {
       border: 1px solid #e10606;
     }
-
 
 
     /* =========================
@@ -325,7 +314,6 @@
     }
 
 
-
     /* =========================
        C*KE BLEU
     ========================= */
@@ -339,7 +327,6 @@
     .cake-back {
       border: 1px solid #00cfff;
     }
-
 
 
     /* =========================
@@ -357,7 +344,6 @@
       font-weight: bold;
       cursor: pointer;
     }
-
 
 
     /* =========================
@@ -402,7 +388,6 @@
 
       box-shadow: 0 0 8px rgba(0,207,255,.7);
     }
-
 
 
     /* =========================
@@ -511,7 +496,6 @@
     }
 
 
-
     /* =========================
        PAGE PRODUIT
     ========================= */
@@ -559,6 +543,7 @@
       letter-spacing: 2px;
     }
 
+
     /* DESCRIPTION EN ROUGE */
 
     .detail-description {
@@ -569,23 +554,19 @@
     }
 
 
-
-    /* NEW ARRIVAGE EN ROUGE */
+    /* NEW ARRIVAGE EN BLANC */
 
     .arrival-box {
       padding: 18px;
       margin-bottom: 22px;
       border-radius: 18px;
-      background: rgba(225,6,6,.05);
-      border: 1px solid rgba(225,6,6,.55);
-      color: #e10606;
+      background: rgba(255,255,255,.03);
+      border: 1px solid #e10606;
+      color: white;
       font-size: 16px;
+      font-weight: 900;
       letter-spacing: 1px;
     }
-
-
-
-    /* TITRE QUANTITÉS EN ROUGE */
 
     .quantity-title {
       margin: 20px 0 15px;
@@ -601,16 +582,12 @@
       gap: 12px;
     }
 
-
-
-    /* CASES QUANTITÉS EN ROUGE */
-
     .quantity-box {
       min-height: 125px;
       padding: 15px 8px;
       border-radius: 24px;
-      background: rgba(225,6,6,.04);
-      border: 1px solid rgba(225,6,6,.45);
+      background: rgba(255,255,255,.025);
+      border: 1px solid #e10606;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -625,7 +602,7 @@
 
     .quantity-box.selected {
       border: 2px solid #e10606;
-      box-shadow: 0 0 20px rgba(225,6,6,.35);
+      box-shadow: 0 0 20px rgba(225,6,6,.25);
     }
 
     .quantity-weight {
@@ -640,25 +617,85 @@
       font-weight: bold;
     }
 
-
-
-    /* BOUTON AJOUTER AU PANIER ROUGE */
-
     .add-cart-button {
       width: 100%;
       margin-top: 28px;
       padding: 22px 15px;
-      border: 1px solid #ff3b3b;
+      border: 2px solid #e10606;
       border-radius: 50px;
-      background: linear-gradient(135deg, #e10606, #8b0000);
+      background: #e10606;
       color: white;
       font-size: 18px;
       font-weight: 900;
       letter-spacing: 4px;
       cursor: pointer;
-      box-shadow: 0 0 20px rgba(225,6,6,.35);
+      box-shadow: 0 0 20px rgba(225,6,6,.30);
     }
 
+
+    /* =========================
+       MESSAGE VALIDATION PANIER
+    ========================= */
+
+    .success-message {
+      position: fixed;
+      z-index: 9999;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(.8);
+
+      width: 190px;
+      height: 190px;
+
+      border-radius: 30px;
+
+      background: rgba(10,10,12,.97);
+      border: 2px solid #e10606;
+
+      box-shadow: 0 0 35px rgba(225,6,6,.45);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      opacity: 0;
+      pointer-events: none;
+
+      transition: .25s ease;
+    }
+
+    .success-message.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+
+      border-radius: 50%;
+      border: 3px solid #e10606;
+
+      color: white;
+
+      font-size: 55px;
+      font-weight: bold;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 15px;
+    }
+
+    .success-text {
+      color: white;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-align: center;
+    }
 
 
     /* =========================
@@ -678,7 +715,6 @@
       border: 1px solid rgba(255,255,255,.18);
       backdrop-filter: blur(10px);
     }
-
 
 
     /* =========================
@@ -752,7 +788,6 @@
     }
 
 
-
     /* =========================
        MENU BAS
     ========================= */
@@ -764,11 +799,14 @@
       left: 0;
       width: 100%;
       height: 75px;
+
       display: flex;
       justify-content: space-around;
       align-items: center;
+
       background: rgba(8,8,10,.97);
       border-top: 1px solid rgba(255,255,255,.15);
+
       backdrop-filter: blur(15px);
     }
 
@@ -778,10 +816,13 @@
       border: none;
       color: white;
       font-size: 12px;
+
       display: flex;
       flex-direction: column;
       align-items: center;
+
       gap: 5px;
+
       cursor: pointer;
     }
 
@@ -794,11 +835,9 @@
 </head>
 
 
-
 <body>
 
 <div class="app">
-
 
 
   <!-- =========================
@@ -828,15 +867,12 @@
     </div>
 
 
-
     <div class="hero-image">
       <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
     </div>
 
 
-
     <div class="separator"></div>
-
 
 
     <div class="categories">
@@ -854,7 +890,6 @@
       </div>
 
 
-
       <div class="category-card" onclick="showPage('weed')">
 
         <div class="category-image">
@@ -866,7 +901,6 @@
         </div>
 
       </div>
-
 
 
       <div class="category-card last" onclick="showPage('cake')">
@@ -884,7 +918,6 @@
     </div>
 
   </div>
-
 
 
   <!-- =========================
@@ -906,21 +939,19 @@
     </div>
 
 
-
     <button class="back-button hash-back"
             onclick="showPage('home')">
       ← RETOUR
     </button>
 
 
-
     <div class="category-line hash-line"></div>
-
 
 
     <div class="products-grid">
 
-      <!-- PREMIER PRODUIT HASH -->
+
+      <!-- PREMIER PRODUIT -->
 
       <div class="product-card hash-product">
 
@@ -948,8 +979,7 @@
       </div>
 
 
-
-      <!-- DEUXIÈME PRODUIT HASH -->
+      <!-- DEUXIÈME PRODUIT -->
 
       <div class="product-card hash-product">
 
@@ -980,9 +1010,8 @@
   </div>
 
 
-
   <!-- =========================
-       PAGE PREMIER PRODUIT HASH
+       PAGE PRODUIT 1
   ========================= -->
 
   <div id="produit1" class="page">
@@ -995,24 +1024,18 @@
       </button>
 
 
-
       <div class="product-detail-card">
 
-        <!-- PHOTO DU PRODUIT -->
 
         <img src="IMG_1515.jpeg"
              alt="PRODUIT 1"
              class="detail-product-photo">
 
 
-        <!-- NOM DU PRODUIT -->
-
         <h1 class="detail-product-name">
           PRODUIT 1
         </h1>
 
-
-        <!-- DESCRIPTION -->
 
         <div class="detail-description">
           Description du produit ici.<br>
@@ -1020,14 +1043,10 @@
         </div>
 
 
-        <!-- ARRIVAGE -->
-
         <div class="arrival-box">
           NEW ARRIVAGE
         </div>
 
-
-        <!-- QUANTITÉS -->
 
         <div class="quantity-title">
           QUANTITÉS DISPONIBLES
@@ -1106,7 +1125,6 @@
 
           </div>
 
-
         </div>
 
 
@@ -1121,7 +1139,6 @@
     </div>
 
   </div>
-
 
 
   <!-- =========================
@@ -1208,7 +1225,6 @@
   </div>
 
 
-
   <!-- =========================
        C*KE
   ========================= -->
@@ -1293,7 +1309,6 @@
   </div>
 
 
-
   <!-- =========================
        PANIER
   ========================= -->
@@ -1315,7 +1330,6 @@
     </div>
 
   </div>
-
 
 
   <!-- =========================
@@ -1480,7 +1494,6 @@
   </div>
 
 
-
   <!-- =========================
        LIENS
   ========================= -->
@@ -1498,7 +1511,6 @@
     </div>
 
   </div>
-
 
 
   <!-- =========================
@@ -1552,9 +1564,24 @@
 
   </div>
 
-
 </div>
 
+
+<!-- =========================
+     MESSAGE VALIDATION
+========================= -->
+
+<div id="success-message" class="success-message">
+
+  <div class="success-icon">
+    ✓
+  </div>
+
+  <div class="success-text">
+    AJOUTÉ AU PANIER
+  </div>
+
+</div>
 
 
 <script>
@@ -1584,7 +1611,6 @@
   }
 
 
-
   function selectQuantity(element, quantity, price) {
 
     document
@@ -1603,7 +1629,6 @@
     selectedPrice = price;
 
   }
-
 
 
   function addToCart() {
@@ -1646,12 +1671,24 @@
     `;
 
 
-    alert("Produit ajouté au panier !");
+    /* AFFICHAGE DU SYMBOLE VALIDÉ */
+
+    const successMessage =
+      document.getElementById('success-message');
+
+
+    successMessage.classList.add('show');
+
+
+    setTimeout(function() {
+
+      successMessage.classList.remove('show');
+
+    }, 1800);
 
   }
 
 </script>
-
 
 </body>
 </html>
