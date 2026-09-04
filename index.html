@@ -1,1854 +1,2665 @@
-<!DOCTYPE html>
-<html lang="fr">
+\<!DOCTYPE html>
 
-<head>
+\<html lang="fr">
 
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>CHEZ LUFFY 33</title>
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #050505;
-      color: white;
-    }
-
-    .app {
-      min-height: 100vh;
-      padding-bottom: 85px;
-
-      background:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.92)),
-        url("IMG_1527.jpeg");
-
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-
-
-    /* =========================
-       ACCUEIL
-    ========================= */
-
-    .home {
-      display: none;
-      padding: 0 15px 20px;
-    }
-
-    .home.active {
-      display: block;
-    }
-
-
-    /* =========================
-       BANDE DÉFILANTE
-    ========================= */
-
-    .ticker {
-      width: calc(100% + 30px);
-      margin-left: -15px;
-      overflow: hidden;
-      white-space: nowrap;
-      background: rgba(8,8,8,.96);
-      border-top: 1px solid #e10606;
-      border-bottom: 1px solid #e10606;
-      padding: 4px 0;
-      box-shadow: 0 4px 15px rgba(0,0,0,.6);
-    }
-
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      animation: tickerMove 14s linear infinite;
-    }
-
-    .ticker-text {
-      flex-shrink: 0;
-      color: white;
-      font-size: 10px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      padding-right: 40px;
-    }
-
-    @keyframes tickerMove {
-
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-
-    }
-
-
-    /* =========================
-       LOGO ACCUEIL
-    ========================= */
-
-    .hero-image {
-      width: min(140px, 45vw);
-      aspect-ratio: 1 / 1;
-      margin: 22px auto;
-      border-radius: 20px;
-      overflow: hidden;
-      background: rgba(0,0,0,.55);
-      border: 1px solid rgba(255,255,255,.15);
-      box-shadow: 0 8px 25px rgba(0,0,0,.7);
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-
-    /* =========================
-       LIGNE ACCUEIL
-    ========================= */
-
-    .separator {
-      width: 70%;
-      height: 1px;
-      margin: 0 auto 20px;
-
-      background: linear-gradient(
-        to right,
-        transparent,
-        #e10606,
-        transparent
-      );
-
-      box-shadow: 0 0 8px rgba(225,6,6,.7);
-    }
-
-
-    /* =========================
-       CATÉGORIES ACCUEIL
-    ========================= */
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .category-card {
-      aspect-ratio: 1 / 1;
-      border-radius: 20px;
-      overflow: hidden;
-      position: relative;
-      background: rgba(15,15,18,.9);
-      border: 1px solid rgba(255,255,255,.18);
-      box-shadow: 0 8px 25px rgba(0,0,0,.65);
-      cursor: pointer;
-      transition: transform .2s ease;
-    }
-
-    .category-card:active {
-      transform: scale(.97);
-    }
-
-    .category-image {
-      position: absolute;
-      inset: 0;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: linear-gradient(
-        135deg,
-        rgba(255,255,255,.08),
-        rgba(0,0,0,.7)
-      );
-    }
-
-    .category-image span {
-      font-size: 42px;
-      opacity: .25;
-    }
-
-    .category-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-
-      background: linear-gradient(
-        transparent 35%,
-        rgba(0,0,0,.9)
-      );
-
-      pointer-events: none;
-    }
-
-    .category-title {
-      position: absolute;
-      z-index: 2;
-      bottom: 14px;
-      left: 10px;
-      right: 10px;
-
-      text-align: center;
-      font-size: 16px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-shadow: 0 3px 10px black;
-    }
-
-    .category-card.last {
-      grid-column: span 2;
-      aspect-ratio: 2 / 1;
-    }
-
-
-    /* =========================
-       PAGES
-    ========================= */
-
-    .page {
-      display: none;
-      min-height: 100vh;
-      padding: 15px 15px 100px;
-    }
-
-    .page.active {
-      display: block;
-    }
-
-
-    /* =========================
-       PAGE INFO
-    ========================= */
-
-    #info.page {
-      min-height: calc(100vh - 75px);
-      padding: 15px 15px 0;
-    }
-
-
-    /* =========================
-       EN-TÊTE CATÉGORIES
-    ========================= */
-
-    .category-top {
-      position: relative;
-      min-height: 155px;
-    }
-
-    .category-logo {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-
-      width: 125px;
-      aspect-ratio: 1 / 1;
-
-      border-radius: 18px;
-      overflow: hidden;
-
-      background: rgba(0,0,0,.55);
-      border: 1px solid rgba(255,255,255,.15);
-      box-shadow: 0 8px 25px rgba(0,0,0,.7);
-    }
-
-    .category-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-
-    /* =========================
-       TITRE CATÉGORIE
-    ========================= */
-
-    .category-page-title {
-      position: absolute;
-      top: 58px;
-      left: 0;
-
-      margin: 0;
-      padding: 8px 14px;
-
-      border-radius: 10px;
-
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 2px;
-
-      background: rgba(5,5,5,.75);
-    }
-
-
-    /* =========================
-       HASH ROUGE
-    ========================= */
-
-    .hash-title {
-      color: #e10606;
-      border: 1px solid #e10606;
-      box-shadow: 0 0 10px rgba(225,6,6,.25);
-    }
-
-    .hash-back {
-      border: 1px solid #e10606;
-    }
-
-
-    /* =========================
-       WEED VERT
-    ========================= */
-
-    .weed-title {
-      color: #00c853;
-      border: 1px solid #00c853;
-      box-shadow: 0 0 10px rgba(0,200,83,.25);
-    }
-
-    .weed-back {
-      border: 1px solid #00c853;
-    }
-
-
-    /* =========================
-       CAKE BLEU
-    ========================= */
-
-    .cake-title {
-      color: #00cfff;
-      border: 1px solid #00cfff;
-      box-shadow: 0 0 10px rgba(0,207,255,.25);
-    }
-
-    .cake-back {
-      border: 1px solid #00cfff;
-    }
-
-
-    /* =========================
-       RETOUR
-    ========================= */
-
-    .back-button {
-      display: block;
-
-      margin: 0 0 8px 5px;
-      padding: 9px 14px;
-
-      border-radius: 12px;
-
-      background: rgba(10,10,10,.8);
-      color: white;
-
-      font-size: 12px;
-      font-weight: bold;
-
-      cursor: pointer;
-    }
-
-
-    /* =========================
-       LIGNES CATÉGORIES
-    ========================= */
-
-    .category-line {
-      width: 70%;
-      height: 1px;
-      margin: 0 auto 20px;
-    }
-
-    .hash-line {
-      background: linear-gradient(
-        to right,
-        transparent,
-        #e10606,
-        transparent
-      );
-
-      box-shadow: 0 0 8px rgba(225,6,6,.7);
-    }
-
-    .weed-line {
-      background: linear-gradient(
-        to right,
-        transparent,
-        #00c853,
-        transparent
-      );
-
-      box-shadow: 0 0 8px rgba(0,200,83,.7);
-    }
-
-    .cake-line {
-      background: linear-gradient(
-        to right,
-        transparent,
-        #00cfff,
-        transparent
-      );
-
-      box-shadow: 0 0 8px rgba(0,207,255,.7);
-    }
-
-
-    /* =========================
-       PRODUITS
-    ========================= */
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .product-card {
-      overflow: hidden;
-
-      border-radius: 18px;
-
-      background: rgba(10,10,12,.92);
-      border: 1px solid rgba(255,255,255,.16);
-
-      box-shadow: 0 8px 20px rgba(0,0,0,.6);
-
-      transition: transform .2s ease;
-    }
-
-    .product-card:active {
-      transform: scale(.97);
-    }
-
-    .product-image {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: linear-gradient(
-        135deg,
-        rgba(255,255,255,.10),
-        rgba(0,0,0,.75)
-      );
+\<head>
 
-      border-bottom: 1px solid rgba(255,255,255,.10);
+  \<meta charset="UTF-8">
 
-      overflow: hidden;
-    }
+  \<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  \<title>CHEZ LUFFY 33\</title>
 
-    .product-image span {
-      font-size: 35px;
-      opacity: .25;
-    }
+  \<style>
 
-    .product-info {
-      padding: 10px 8px 12px;
-      text-align: center;
-    }
+    \* {
 
-    .product-name {
-      margin-bottom: 7px;
+      box-sizing: border-box;
 
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: .5px;
-    }
+    }
 
-    .product-price {
-      margin-bottom: 10px;
+    body {
 
-      font-size: 11px;
-      font-weight: bold;
-    }
+      margin: 0;
 
-    .product-button {
-      width: 100%;
-      padding: 8px 4px;
+      font-family: Arial, sans-serif;
 
-      border: none;
-      border-radius: 10px;
+      background: #050505;
 
-      color: white;
+      color: white;
 
-      font-size: 10px;
-      font-weight: bold;
+    }
 
-      cursor: pointer;
-    }
+    .app {
 
-    .hash-product .product-price {
-      color: #e10606;
-    }
+      min-height: 100vh;
 
-    .hash-product .product-button {
-      background: #e10606;
-    }
+      padding-bottom: 85px;
 
-    .weed-product .product-price {
-      color: #00c853;
-    }
+      background:
 
-    .weed-product .product-button {
-      background: #00c853;
-    }
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.92)),
 
-    .cake-product .product-price {
-      color: #00cfff;
-    }
+        url("IMG\_1527.jpeg");
 
-    .cake-product .product-button {
-      background: #00cfff;
-      color: #050505;
-    }
+      background-size: cover;
 
+      background-position: center;
 
-    /* =========================
-       PAGE PRODUIT
-    ========================= */
+      background-attachment: fixed;
 
-    .product-detail {
-      max-width: 650px;
-      margin: auto;
-    }
+    }
 
-    .product-detail-back {
-      display: inline-block;
 
-      margin-bottom: 18px;
-      padding: 12px 18px;
 
-      border-radius: 14px;
+    /\* =========================
 
-      background: rgba(10,10,10,.9);
-      border: 1px solid #e10606;
+       ACCUEIL
 
-      color: white;
+    ========================= \*/
 
-      font-size: 14px;
-      font-weight: 900;
+    .home {
 
-      cursor: pointer;
-    }
+      display: none;
 
-    .product-detail-card {
-      padding: 18px;
+      padding: 0 15px 20px;
 
-      border-radius: 28px;
+    }
 
-      background: rgba(7,10,16,.96);
-      border: 1px solid rgba(255,255,255,.14);
+    .home.active {
 
-      box-shadow: 0 10px 35px rgba(0,0,0,.7);
-    }
+      display: block;
 
-    .detail-product-photo {
-      width: 100%;
-      height: 280px;
+    }
 
-      object-fit: cover;
 
-      border-radius: 20px;
 
-      display: block;
-      margin-bottom: 20px;
+    /\* =========================
 
-      border: 1px solid rgba(255,255,255,.15);
-    }
+       BANDE DÉFILANTE
 
-    .detail-product-name {
-      margin: 0;
+    ========================= \*/
 
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: 2px;
-    }
+    .ticker {
 
+      width: calc(100% + 30px);
 
-    /* DESCRIPTION */
+      margin-left: -15px;
 
-    .detail-description {
-      margin: 12px 0 22px;
+      overflow: hidden;
 
-      color: #e10606;
+      white-space: nowrap;
 
-      font-size: 16px;
-      line-height: 1.5;
-    }
+      background: rgba(8,8,8,.96);
 
+      border-top: 1px solid #e10606;
 
-    /* TEXTE PRODUIT */
+      border-bottom: 1px solid #e10606;
 
-    .arrival-box {
-      padding: 18px;
-      margin-bottom: 22px;
+      padding: 4px 0;
 
-      border-radius: 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.6);
 
-      background: rgba(255,255,255,.03);
-      border: 1px solid #e10606;
+    }
 
-      color: white;
+    .ticker-track {
 
-      font-size: 16px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
+      display: flex;
 
+      width: max-content;
 
-    /* QUANTITÉS */
+      animation: tickerMove 14s linear infinite;
 
-    .quantity-title {
-      margin: 20px 0 15px;
+    }
 
-      color: #e10606;
+    .ticker-text {
 
-      font-size: 17px;
-      font-weight: 900;
-      letter-spacing: 3px;
-    }
+      flex-shrink: 0;
 
-    .quantity-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
+      color: white;
 
-    .quantity-box {
-      min-height: 125px;
-      padding: 15px 8px;
+      font-size: 10px;
 
-      border-radius: 24px;
+      font-weight: bold;
 
-      background: rgba(255,255,255,.025);
-      border: 1px solid #e10606;
+      letter-spacing: 1px;
 
-      display: flex;
-      flex-direction: column;
+      padding-right: 40px;
 
-      justify-content: center;
-      align-items: center;
+    }
 
-      cursor: pointer;
+    @keyframes tickerMove {
 
-      transition: .2s ease;
-    }
+      from {
 
-    .quantity-box:active {
-      transform: scale(.96);
-    }
+        transform: translateX(0);
 
-    .quantity-box.selected {
-      border: 2px solid #e10606;
-      box-shadow: 0 0 20px rgba(225,6,6,.25);
-    }
+      }
 
-    .quantity-weight {
-      font-size: 25px;
-      font-weight: 900;
-      margin-bottom: 12px;
-    }
+      to {
 
-    .quantity-price {
-      color: #e10606;
-      font-size: 22px;
-      font-weight: bold;
-    }
+        transform: translateX(-50%);
 
-    .add-cart-button {
-      width: 100%;
-      margin-top: 28px;
-      padding: 22px 15px;
+      }
 
-      border: 2px solid #e10606;
-      border-radius: 50px;
+    }
 
-      background: #e10606;
-      color: white;
 
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: 4px;
 
-      cursor: pointer;
+    /\* =========================
 
-      box-shadow: 0 0 20px rgba(225,6,6,.30);
-    }
+       LOGO ACCUEIL
 
+    ========================= \*/
 
-    /* =========================
-       MESSAGE VALIDATION PANIER
-    ========================= */
+    .hero-image {
 
-    .success-message {
-      position: fixed;
-      z-index: 9999;
+      width: min(140px, 45vw);
 
-      left: 50%;
-      top: 50%;
+      aspect-ratio: 1 / 1;
 
-      transform: translate(-50%, -50%) scale(.8);
+      margin: 22px auto;
 
-      width: 190px;
-      height: 190px;
+      border-radius: 20px;
 
-      border-radius: 30px;
+      overflow: hidden;
 
-      background: rgba(10,10,12,.97);
-      border: 2px solid #e10606;
+      background: rgba(0,0,0,.55);
 
-      box-shadow: 0 0 35px rgba(225,6,6,.45);
+      border: 1px solid rgba(255,255,255,.15);
 
-      display: flex;
-      flex-direction: column;
+      box-shadow: 0 8px 25px rgba(0,0,0,.7);
 
-      justify-content: center;
-      align-items: center;
+    }
 
-      opacity: 0;
-      pointer-events: none;
+    .hero-image img {
 
-      transition: .25s ease;
-    }
+      width: 100%;
 
-    .success-message.show {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
-    }
+      height: 100%;
 
-    .success-icon {
-      width: 80px;
-      height: 80px;
+      object-fit: contain;
 
-      border-radius: 50%;
-      border: 3px solid #e10606;
+    }
 
-      color: white;
 
-      font-size: 55px;
-      font-weight: bold;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /\* =========================
 
-      margin-bottom: 15px;
-    }
+       LIGNE ACCUEIL
 
-    .success-text {
-      color: white;
+    ========================= \*/
 
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 1px;
+    .separator {
 
-      text-align: center;
-    }
+      width: 70%;
 
+      height: 1px;
 
-    /* =========================
-       PANIER / LIENS
-    ========================= */
+      margin: 0 auto 20px;
 
-    .page h1 {
-      text-align: center;
-      letter-spacing: 2px;
-    }
+      background: linear-gradient(
 
-    .page-box {
-      margin-top: 15px;
-      padding: 20px;
+        to right,
 
-      border-radius: 20px;
+        transparent,
 
-      background: rgba(5,5,8,.90);
-      border: 1px solid rgba(255,255,255,.18);
+        #e10606,
 
-      backdrop-filter: blur(10px);
-    }
+        transparent
 
+      );
 
-    /* =========================
-       PAGE INFO
-    ========================= */
+      box-shadow: 0 0 8px rgba(225,6,6,.7);
 
-    .info-box {
-      margin-top: 15px;
-      margin-bottom: 0;
+    }
 
-      padding: 24px 18px;
 
-      border-radius: 20px;
 
-      background: rgba(5,5,8,.92);
-      border: 1px solid #e10606;
+    /\* =========================
 
-      backdrop-filter: blur(10px);
+       CATÉGORIES ACCUEIL
 
-      text-align: center;
+    ========================= \*/
 
-      box-shadow: 0 0 20px rgba(225,6,6,.18);
-    }
+    .categories {
 
-    .info-box p {
-      margin: 11px 0;
-      line-height: 1.65;
-      font-size: 16px;
-    }
+      display: grid;
 
-    .info-title {
-      margin: 0 0 18px;
+      grid-template-columns: repeat(2, 1fr);
 
-      font-size: 20px;
-      font-weight: 900;
-      letter-spacing: .5px;
-    }
+      gap: 14px;
 
-    .info-red {
-      color: #e10606;
-      font-weight: 900;
-    }
+    }
 
-    .info-white {
-      color: white;
-      font-weight: 900;
-    }
+    .category-card {
 
-    .info-link {
-      display: inline-block;
-      margin-top: 8px;
+      aspect-ratio: 1 / 1;
 
-      color: #e10606;
+      border-radius: 20px;
 
-      font-size: 18px;
-      font-weight: 900;
+      overflow: hidden;
 
-      text-decoration: none;
-    }
+      position: relative;
 
-    .info-separator {
-      width: 90%;
-      height: 1px;
-      margin: 22px auto;
+      background: rgba(15,15,18,.9);
 
-      background: linear-gradient(
-        to right,
-        transparent,
-        #e10606,
-        transparent
-      );
+      border: 1px solid rgba(255,255,255,.18);
 
-      box-shadow: 0 0 8px rgba(225,6,6,.7);
-    }
+      box-shadow: 0 8px 25px rgba(0,0,0,.65);
 
-    .info-section-title {
-      margin-bottom: 14px;
+      cursor: pointer;
 
-      color: #e10606;
+      transition: transform .2s ease;
 
-      font-size: 18px;
-      font-weight: 900;
-    }
+    }
 
+    .category-card\:active {
 
-    /* =========================
-       MENU BAS
-    ========================= */
+      transform: scale(.97);
 
-    .bottom-menu {
-      position: fixed;
-      z-index: 100;
+    }
 
-      bottom: 0;
-      left: 0;
+    .category-image {
 
-      width: 100%;
-      height: 75px;
+      position: absolute;
 
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
+      inset: 0;
 
-      background: rgba(8,8,10,.97);
-      border-top: 1px solid rgba(255,255,255,.15);
+      display: flex;
 
-      backdrop-filter: blur(15px);
-    }
+      align-items: center;
 
-    .bottom-menu button {
-      flex: 1;
+      justify-content: center;
 
-      background: none;
-      border: none;
+      background: linear-gradient(
 
-      color: white;
+        135deg,
 
-      font-size: 12px;
+        rgba(255,255,255,.08),
 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+        rgba(0,0,0,.7)
 
-      gap: 5px;
+      );
 
-      cursor: pointer;
-    }
+    }
 
-    .bottom-menu .icon {
-      font-size: 21px;
-    }
+    .category-image span {
 
-  </style>
+      font-size: 42px;
 
-</head>
+      opacity: .25;
 
+    }
 
-<body>
+    .category-card::after {
 
-<div class="app">
+      content: "";
 
+      position: absolute;
 
-  <!-- =========================
-       ACCUEIL
-  ========================= -->
+      inset: 0;
 
-  <div id="home" class="home active">
+      background: linear-gradient(
 
-    <div class="ticker">
+        transparent 35%,
 
-      <div class="ticker-track">
+        rgba(0,0,0,.9)
 
-        <div class="ticker-text">
-          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-        </div>
+      );
 
-        <div class="ticker-text">
-          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-        </div>
+      pointer-events: none;
 
-      </div>
+    }
 
-    </div>
+    .category-title {
 
+      position: absolute;
 
-    <div class="hero-image">
-      <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
-    </div>
+      z-index: 2;
 
+      bottom: 14px;
 
-    <div class="separator"></div>
+      left: 10px;
 
+      right: 10px;
 
-    <div class="categories">
+      text-align: center;
 
-      <div class="category-card" onclick="showPage('hash')">
+      font-size: 16px;
 
-        <div class="category-image">
-          <span>+</span>
-        </div>
+      font-weight: 900;
 
-        <div class="category-title">
-          HASH
-        </div>
+      letter-spacing: 1px;
 
-      </div>
+      text-shadow: 0 3px 10px black;
 
+    }
 
-      <div class="category-card" onclick="showPage('weed')">
+    .category-card.last {
 
-        <div class="category-image">
-          <span>+</span>
-        </div>
+      grid-column: span 2;
 
-        <div class="category-title">
-          WEED
-        </div>
+      aspect-ratio: 2 / 1;
 
-      </div>
+    }
 
 
-      <div class="category-card last" onclick="showPage('cake')">
 
-        <div class="category-image">
-          <span>+</span>
-        </div>
+    /\* =========================
 
-        <div class="category-title">
-          C*KE
-        </div>
+       PAGES
 
-      </div>
+    ========================= \*/
 
-    </div>
+    .page {
 
-  </div>
+      display: none;
 
+      min-height: 100vh;
 
-  <!-- =========================
-       HASH
-  ========================= -->
+      padding: 15px 15px 100px;
 
-  <div id="hash" class="page">
+    }
 
-    <div class="category-top">
+    .page.active {
 
-      <h1 class="category-page-title hash-title">
-        HASH
-      </h1>
+      display: block;
 
-      <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
-      </div>
+    }
 
-    </div>
 
 
-    <button class="back-button hash-back"
-            onclick="showPage('home')">
-      ← RETOUR
-    </button>
+    /\* =========================
 
+       PAGE INFO
 
-    <div class="category-line hash-line"></div>
+    ========================= \*/
 
+    #info.page {
 
-    <div class="products-grid">
+      min-height: calc(100vh - 75px);
 
+      padding: 15px 15px 0;
 
-      <!-- PREMIER PRODUIT -->
+    }
 
-      <div class="product-card hash-product">
 
-        <div class="product-image">
-          <img src="IMG_1515.jpeg" alt="MOUSSE CYTHO 🥭🍊">
-        </div>
 
-        <div class="product-info">
+    /\* =========================
 
-          <div class="product-name">
-            MOUSSE CYTHO 🥭
-          </div>
+       EN-TÊTE CATÉGORIES
 
-          <div class="product-price">
-            À PARTIR DE 40 €
-          </div>
+    ========================= \*/
 
-          <button class="product-button"
-                  onclick="showPage('produit1')">
-            VOIR +
-          </button>
+    .category-top {
 
-        </div>
+      position: relative;
 
-      </div>
+      min-height: 155px;
 
+    }
 
-      <!-- DEUXIÈME PRODUIT PASQUANTINO -->
+    .category-logo {
 
-      <div class="product-card hash-product">
+      position: absolute;
 
-        <div class="product-image">
-          <img src="IMG_1511.jpeg" alt="PASQUANTINO 🍓">
-        </div>
+      top: 0;
 
-        <div class="product-info">
+      left: 50%;
 
-          <div class="product-name">
-            PASQUANTINO 🍓
-          </div>
+      transform: translateX(-50%);
 
-          <div class="product-price">
-            À PARTIR DE 60 €
-          </div>
+      width: 125px;
 
-          <button class="product-button"
-                  onclick="showPage('produit2')">
-            VOIR +
-          </button>
+      aspect-ratio: 1 / 1;
 
-        </div>
+      border-radius: 18px;
 
-      </div>
+      overflow: hidden;
 
-    </div>
+      background: rgba(0,0,0,.55);
 
-  </div>
+      border: 1px solid rgba(255,255,255,.15);
 
+      box-shadow: 0 8px 25px rgba(0,0,0,.7);
 
-  <!-- =========================
-       PAGE PRODUIT 1
-  ========================= -->
+    }
 
-  <div id="produit1" class="page">
+    .category-logo img {
 
-    <div class="product-detail">
+      width: 100%;
 
-      <button class="product-detail-back"
-              onclick="showPage('hash')">
-        ← RETOUR
-      </button>
+      height: 100%;
 
+      object-fit: contain;
 
-      <div class="product-detail-card">
+    }
 
 
-        <img src="IMG_1515.jpeg"
-             alt="MOUSSE CYTHO 🥭"
-             class="detail-product-photo">
 
+    /\* =========================
 
-        <h1 class="detail-product-name">
-          MOUSSE CYTHO 🥭
-        </h1>
+       TITRE CATÉGORIE
 
+    ========================= \*/
 
-        <div class="detail-description">
-          Cali Mousse Premium 🧽
-        </div>
+    .category-page-title {
 
+      position: absolute;
 
-        <div class="arrival-box">
+      top: 58px;
 
-          𝖥𝖱𝖠𝖯𝖯𝖤 𝖣𝖤 𝖳𝖤𝖱𝖱𝖠𝖨𝖭 🟡💥
+      left: 0;
 
-          <br><br>
+      margin: 0;
 
-          <em>
-            Plus besoin de prouver avec nos mousses,
-            la vraie fusée 🤤💫😍💎
-          </em>
+      padding: 8px 14px;
 
-        </div>
+      border-radius: 10px;
 
+      font-size: 22px;
 
-        <div class="quantity-title">
-          QUANTITÉS DISPONIBLES
-        </div>
+      font-weight: 900;
 
+      letter-spacing: 2px;
 
-        <div class="quantity-grid">
+      background: rgba(5,5,5,.75);
 
+    }
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '10g', '40€')">
 
-            <div class="quantity-weight">
-              10g
-            </div>
 
-            <div class="quantity-price">
-              40€
-            </div>
+    /\* =========================
 
-          </div>
+       HASH ROUGE
 
+    ========================= \*/
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '20g', '70€')">
+    .hash-title {
 
-            <div class="quantity-weight">
-              20g
-            </div>
+      color: #e10606;
 
-            <div class="quantity-price">
-              70€
-            </div>
+      border: 1px solid #e10606;
 
-          </div>
+      box-shadow: 0 0 10px rgba(225,6,6,.25);
 
+    }
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '30g', '100€')">
+    .hash-back {
 
-            <div class="quantity-weight">
-              30g
-            </div>
+      border: 1px solid #e10606;
 
-            <div class="quantity-price">
-              100€
-            </div>
+    }
 
-          </div>
 
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '50g', '140€')">
+    /\* =========================
 
-            <div class="quantity-weight">
-              50g
-            </div>
+       WEED VERT
 
-            <div class="quantity-price">
-              140€
-            </div>
+    ========================= \*/
 
-          </div>
+    .weed-title {
 
+      color: #00c853;
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '100g', '260€')">
+      border: 1px solid #00c853;
 
-            <div class="quantity-weight">
-              100g
-            </div>
+      box-shadow: 0 0 10px rgba(0,200,83,.25);
 
-            <div class="quantity-price">
-              260€
-            </div>
+    }
 
-          </div>
+    .weed-back {
 
+      border: 1px solid #00c853;
 
-        </div>
+    }
 
 
-        <button class="add-cart-button"
-                onclick="addToCart('MOUSSE CYTHO 🥭🍊')">
-          AJOUTER AU PANIER
-        </button>
 
+    /\* =========================
 
-      </div>
+       CAKE BLEU
 
-    </div>
+    ========================= \*/
 
-  </div>
+    .cake-title {
 
+      color: #00cfff;
 
-  <!-- =========================
-       PAGE PRODUIT 2 PASQUANTINO
-  ========================= -->
+      border: 1px solid #00cfff;
 
-  <div id="produit2" class="page">
+      box-shadow: 0 0 10px rgba(0,207,255,.25);
 
-    <div class="product-detail">
+    }
 
-      <button class="product-detail-back"
-              onclick="showPage('hash')">
-        ← RETOUR
-      </button>
+    .cake-back {
 
+      border: 1px solid #00cfff;
 
-      <div class="product-detail-card">
+    }
 
 
-        <img src="IMG_1511.jpeg"
-             alt="PASQUANTINO 🍓"
-             class="detail-product-photo">
 
+    /\* =========================
 
-        <h1 class="detail-product-name">
-          PASQUANTINO 🍓
-        </h1>
+       RETOUR
 
+    ========================= \*/
 
-        <div class="detail-description">
-          120u Premium By Cousin Vinnie 🇮🇹
-        </div>
+    .back-button {
 
+      display: block;
 
-        <div class="arrival-box">
+      margin: 0 0 8px 5px;
 
-          𝖵𝖱𝖠𝖨
+      padding: 9px 14px;
 
-          <br><br>
+      border-radius: 12px;
 
-          <em>
-            𝘐𝘥𝘦́𝘢𝘭
-          </em>
+      background: rgba(10,10,10,.8);
 
-        </div>
+      color: white;
 
+      font-size: 12px;
 
-        <div class="quantity-title">
-          QUANTITÉS DISPONIBLES
-        </div>
+      font-weight: bold;
 
+      cursor: pointer;
 
-        <div class="quantity-grid">
+    }
 
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '10g', '60€')">
 
-            <div class="quantity-weight">
-              10g
-            </div>
+    /\* =========================
 
-            <div class="quantity-price">
-              60€
-            </div>
+       LIGNES CATÉGORIES
 
-          </div>
+    ========================= \*/
 
+    .category-line {
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '20g', '110€')">
+      width: 70%;
 
-            <div class="quantity-weight">
-              20g
-            </div>
+      height: 1px;
 
-            <div class="quantity-price">
-              110€
-            </div>
+      margin: 0 auto 20px;
 
-          </div>
+    }
 
+    .hash-line {
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '30g', '160€')">
+      background: linear-gradient(
 
-            <div class="quantity-weight">
-              30g
-            </div>
+        to right,
 
-            <div class="quantity-price">
-              160€
-            </div>
+        transparent,
 
-          </div>
+        #e10606,
 
+        transparent
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '50g', '220€')">
+      );
 
-            <div class="quantity-weight">
-              50g
-            </div>
+      box-shadow: 0 0 8px rgba(225,6,6,.7);
 
-            <div class="quantity-price">
-              220€
-            </div>
+    }
 
-          </div>
+    .weed-line {
 
+      background: linear-gradient(
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '100g', '420€')">
+        to right,
 
-            <div class="quantity-weight">
-              100g
-            </div>
+        transparent,
 
-            <div class="quantity-price">
-              420€
-            </div>
+        #00c853,
 
-          </div>
+        transparent
 
+      );
 
-        </div>
+      box-shadow: 0 0 8px rgba(0,200,83,.7);
 
+    }
 
-        <button class="add-cart-button"
-                onclick="addToCart('PASQUANTINO 🍓')">
-          AJOUTER AU PANIER
-        </button>
+    .cake-line {
 
+      background: linear-gradient(
 
-      </div>
+        to right,
 
-    </div>
+        transparent,
 
-  </div>
+        #00cfff,
 
+        transparent
 
-  <!-- =========================
-       WEED
-  ========================= -->
+      );
 
-      <div class="product-card weed-product">
+      box-shadow: 0 0 8px rgba(0,207,255,.7);
 
-        <div class="product-image">
-          <img src="IMG_1511.jpeg" alt="PASQUANTINO 🍓">
-        </div>
+    }
 
-        <div class="product-info">
 
-          <div class="product-name">
-            AMNÉSIA LEMON 🍋
-          </div>
 
-          <div class="product-price">
-            À PARTIR DE 60 €
-          </div>
+    /\* =========================
 
-          <button class="product-button">
-            VOIR +
-          </button>
+       PRODUITS
 
-        </div>
+    ========================= \*/
 
-      </div>
+    .products-grid {
 
-    </div>
+      display: grid;
 
-  </div>
+      grid-template-columns: repeat(2, minmax(0, 1fr));
 
+      gap: 12px;
 
-  <!-- =========================
-       CAKE
-  ========================= -->
+    }
 
-  <div id="cake" class="page">
+    .product-card {
 
-    <div class="category-top">
+      overflow: hidden;
 
-      <h1 class="category-page-title cake-title">
-        C*KE
-      </h1>
+      border-radius: 18px;
 
-      <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
-      </div>
+      background: rgba(10,10,12,.92);
 
-    </div>
+      border: 1px solid rgba(255,255,255,.16);
 
+      box-shadow: 0 8px 20px rgba(0,0,0,.6);
 
-    <button class="back-button cake-back"
-            onclick="showPage('home')">
-      ← RETOUR
-    </button>
+      transition: transform .2s ease;
 
+    }
 
-    <div class="category-line cake-line"></div>
+    .product-card\:active {
 
+      transform: scale(.97);
 
-    <div class="products-grid">
+    }
 
-      <div class="product-card cake-product">
+    .product-image {
 
-        <div class="product-image">
-          <span>+</span>
-        </div>
+      width: 100%;
 
-        <div class="product-info">
+      aspect-ratio: 1 / 1;
 
-          <div class="product-name">
-            ❄️
-          </div>
+      display: flex;
 
-          <div class="product-price">
-            À PARTIR DE 60 €
-          </div>
+      align-items: center;
 
-          <button class="product-button">
-            VOIR +
-          </button>
+      justify-content: center;
 
-        </div>
+      background: linear-gradient(
 
-      </div>
+        135deg,
 
-    </div>
+        rgba(255,255,255,.10),
 
-  </div>
+        rgba(0,0,0,.75)
 
+      );
 
-  <!-- =========================
-       PANIER
-  ========================= -->
+      border-bottom: 1px solid rgba(255,255,255,.10);
 
-  <div id="panier" class="page">
+      overflow: hidden;
 
-    <h1>🛒 PANIER</h1>
+    }
 
-    <div class="page-box" id="cart-content">
+    .product-image img {
 
-      <p>
-        Ton panier est actuellement vide.
-      </p>
+      width: 100%;
 
-      <p>
-        Les produits sélectionnés apparaîtront ici.
-      </p>
+      height: 100%;
 
-    </div>
+      object-fit: cover;
 
-  </div>
+    }
 
+    .product-image span {
 
-  <!-- =========================
-       INFO
-  ========================= -->
+      font-size: 35px;
 
-  <div id="info" class="page">
+      opacity: .25;
 
-    <div class="info-box">
+    }
 
-      <div class="info-title">
+    .product-info {
 
-        Bienvenue
+      padding: 10px 8px 12px;
 
-        <span class="info-red">
-          CHEZ LUFFY 33
-        </span>
+      text-align: center;
 
-        ☠️
+    }
 
-      </div>
+    .product-name {
 
+      margin-bottom: 7px;
 
-      <p>
+      font-size: 13px;
 
-        Livraison Express sur
+      font-weight: 900;
 
-        <span class="info-red">
-          Bordeaux & alentours
-        </span>
+      letter-spacing: .5px;
 
-        -
+    }
 
-        <span class="info-red">
-          7J/7 de 12h à 00h
-        </span>
+    .product-price {
 
-      </p>
+      margin-bottom: 10px;
 
+      font-size: 11px;
 
-      <p>
+      font-weight: bold;
 
-        ⏱️ Prise de Commandes dès
+    }
 
-        <br>
+    .product-button {
 
-        <span class="info-red">
-          10h du matin jusqu'à 00h
-        </span>
+      width: 100%;
 
-      </p>
+      padding: 8px 4px;
 
+      border: none;
 
-      <p>
+      border-radius: 10px;
 
-        📲 Commandes & Contact
+      color: white;
 
-        <br>
+      font-size: 10px;
 
-        exclusivement via
+      font-weight: bold;
 
-        <span class="info-red">
-          Telegram
-        </span>
+      cursor: pointer;
 
-        :
+    }
 
-        <br>
+    .hash-product .product-price {
 
-        <a class="info-link"
-           href="https://t.me/ChezLuffy33"
-           target="_blank"
-           rel="noopener">
+      color: #e10606;
 
-          @CHEZLUFFY33
+    }
 
-        </a>
+    .hash-product .product-button {
 
-      </p>
+      background: #e10606;
 
+    }
 
-      <div class="info-separator"></div>
+    .weed-product .product-price {
 
+      color: #00c853;
 
-      <div class="info-section-title">
-        ⚡ DÉLAIS & CONSEILS :
-      </div>
+    }
 
+    .weed-product .product-button {
 
-      <p>
+      background: #00c853;
 
-        •
+    }
 
-        <span class="info-white">
-          Commande
-        </span>
+    .cake-product .product-price {
 
-        :
+      color: #00cfff;
 
-        remplissez le formulaire
+    }
 
-        <span class="info-red">
-          minutieusement
-        </span>
+    .cake-product .product-button {
 
-        pour que le traitement de votre commande soit le plus fluide possible.
+      background: #00cfff;
 
-      </p>
+      color: #050505;
 
+    }
 
-      <p>
 
-        •
 
-        <span class="info-white">
-          Livraison
-        </span>
+    /\* =========================
 
-        :
+       PAGE PRODUIT
 
-        privilégiez les commandes
+    ========================= \*/
 
-        <span class="info-red">
-          avant 13h
-        </span>
+    .product-detail {
 
-        pour être dans les premiers.
+      max-width: 650px;
 
-      </p>
+      margin: auto;
 
+    }
 
-      <div class="info-separator"></div>
+    .product-detail-back {
 
+      display: inline-block;
 
-      <div class="info-section-title">
-        🔄 RETOURS & AVIS :
-      </div>
+      margin-bottom: 18px;
 
+      padding: 12px 18px;
 
-      <p>
+      border-radius: 14px;
 
-        📸 N’hésitez pas à poster une photo de
+      background: rgba(10,10,10,.9);
 
-        <br>
+      border: 1px solid #e10606;
 
-        votre commande dans le chat de retours
+      color: white;
 
-      </p>
+      font-size: 14px;
 
+      font-weight: 900;
 
-      <a class="info-link"
-         href="https://t.me/+J4xj67WNkWczZjQ0"
-         target="_blank"
-         rel="noopener">
+      cursor: pointer;
 
-        ACCÉDER AU CHAT
+    }
 
-      </a>
+    .product-detail-card {
 
-    </div>
+      padding: 18px;
 
-  </div>
+      border-radius: 28px;
 
+      background: rgba(7,10,16,.96);
 
-  <!-- =========================
-       LIENS
-  ========================= -->
+      border: 1px solid rgba(255,255,255,.14);
 
-  <div id="liens" class="page">
+      box-shadow: 0 10px 35px rgba(0,0,0,.7);
 
-    <h1>🔗 LIENS</h1>
+    }
 
-    <div class="page-box">
+    .detail-product-photo {
 
-      <p>
-        Tous les liens importants apparaîtront ici.
-      </p>
+      width: 100%;
 
-    </div>
+      height: 280px;
 
-  </div>
+      object-fit: cover;
 
+      border-radius: 20px;
 
-  <!-- =========================
-       MENU DU BAS
-  ========================= -->
+      display: block;
 
-  <div class="bottom-menu">
+      margin-bottom: 20px;
 
-    <button onclick="showPage('home')">
+      border: 1px solid rgba(255,255,255,.15);
 
-      <span class="icon">
-        🏠
-      </span>
+    }
 
-      Accueil
+    .detail-product-name {
 
-    </button>
+      margin: 0;
 
+      font-size: 28px;
 
-    <button onclick="showPage('panier')">
+      font-weight: 900;
 
-      <span class="icon">
-        🛒
-      </span>
+      letter-spacing: 2px;
 
-      Panier
+    }
 
-    </button>
 
 
-    <button onclick="showPage('info')">
+    /\* DESCRIPTION \*/
 
-      <span class="icon">
-        ℹ️
-      </span>
+    .detail-description {
 
-      Info
+      margin: 12px 0 22px;
 
-    </button>
+      color: #e10606;
 
+      font-size: 16px;
 
-    <button onclick="showPage('liens')">
+      line-height: 1.5;
 
-      <span class="icon">
-        🔗
-      </span>
+    }
 
-      Liens
 
-    </button>
 
-  </div>
+    /\* TEXTE PRODUIT \*/
 
-</div>
+    .arrival-box {
 
+      padding: 18px;
 
-<!-- =========================
-     MESSAGE VALIDATION
-========================= -->
+      margin-bottom: 22px;
 
-<div id="success-message" class="success-message">
+      border-radius: 18px;
 
-  <div class="success-icon">
-    ✓
-  </div>
+      background: rgba(255,255,255,.03);
 
-  <div class="success-text">
-    AJOUTÉ AU PANIER
-  </div>
+      border: 1px solid #e10606;
 
-</div>
+      color: white;
 
+      font-size: 16px;
 
-<script>
+      font-weight: 900;
 
-  let selectedQuantity = null;
-  let selectedPrice = null;
+      letter-spacing: 1px;
 
+    }
 
-  function showPage(pageId) {
 
-    document
-      .querySelectorAll('.page, .home')
-      .forEach(function(page) {
 
-        page.classList.remove('active');
+    /\* QUANTITÉS \*/
 
-      });
+    .quantity-title {
 
+      margin: 20px 0 15px;
 
-    document
-      .getElementById(pageId)
-      .classList.add('active');
+      color: #e10606;
 
+      font-size: 17px;
 
-    window.scrollTo(0, 0);
+      font-weight: 900;
 
-  }
+      letter-spacing: 3px;
 
+    }
 
-  function selectQuantity(element, quantity, price) {
+    .quantity-grid {
 
-    document
-      .querySelectorAll('.quantity-box')
-      .forEach(function(box) {
+      display: grid;
 
-        box.classList.remove('selected');
+      grid-template-columns: repeat(3, 1fr);
 
-      });
+      gap: 12px;
 
+    }
 
-    element.classList.add('selected');
+    .quantity-box {
 
+      min-height: 125px;
 
-    selectedQuantity = quantity;
-    selectedPrice = price;
+      padding: 15px 8px;
 
-  }
+      border-radius: 24px;
 
+      background: rgba(255,255,255,.025);
 
-  function addToCart(productName) {
+      border: 1px solid #e10606;
 
-    if (!selectedQuantity) {
+      display: flex;
 
-      alert("Choisis d'abord une quantité.");
+      flex-direction: column;
 
-      return;
+      justify-content: center;
 
-    }
+      align-items: center;
 
+      cursor: pointer;
 
-    const cart = document.getElementById('cart-content');
+      transition: .2s ease;
 
+    }
 
-    cart.innerHTML = `
-      <h2 style="text-align:center;">
-        TON PANIER 🛒
-      </h2>
+    .quantity-box\:active {
 
-      <div style="
-        padding:15px;
-        border-radius:15px;
-        border:1px solid #e10606;
-        margin-top:15px;
-      ">
+      transform: scale(.96);
 
-        <strong>${productName}</strong>
+    }
 
-        <br><br>
+    .quantity-box.selected {
 
-        Quantité : ${selectedQuantity}
+      border: 2px solid #e10606;
 
-        <br>
+      box-shadow: 0 0 20px rgba(225,6,6,.25);
 
-        Prix : ${selectedPrice}
+    }
 
-      </div>
-    `;
+    .quantity-weight {
 
+      font-size: 25px;
 
-    const successMessage =
-      document.getElementById('success-message');
+      font-weight: 900;
 
+      margin-bottom: 12px;
 
-    successMessage.classList.add('show');
+    }
 
+    .quantity-price {
 
-    setTimeout(function() {
+      color: #e10606;
 
-      successMessage.classList.remove('show');
+      font-size: 22px;
 
-    }, 1800);
+      font-weight: bold;
 
-  }
+    }
 
-</script>
+    .add-cart-button {
 
-</body>
-</html>
+      width: 100%;
+
+      margin-top: 28px;
+
+      padding: 22px 15px;
+
+      border: 2px solid #e10606;
+
+      border-radius: 50px;
+
+      background: #e10606;
+
+      color: white;
+
+      font-size: 18px;
+
+      font-weight: 900;
+
+      letter-spacing: 4px;
+
+      cursor: pointer;
+
+      box-shadow: 0 0 20px rgba(225,6,6,.30);
+
+    }
+
+
+
+    /\* =========================
+
+       MESSAGE VALIDATION PANIER
+
+    ========================= \*/
+
+    .success-message {
+
+      position: fixed;
+
+      z-index: 9999;
+
+      left: 50%;
+
+      top: 50%;
+
+      transform: translate(-50%, -50%) scale(.8);
+
+      width: 190px;
+
+      height: 190px;
+
+      border-radius: 30px;
+
+      background: rgba(10,10,12,.97);
+
+      border: 2px solid #e10606;
+
+      box-shadow: 0 0 35px rgba(225,6,6,.45);
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      align-items: center;
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transition: .25s ease;
+
+    }
+
+    .success-message.show {
+
+      opacity: 1;
+
+      transform: translate(-50%, -50%) scale(1);
+
+    }
+
+    .success-icon {
+
+      width: 80px;
+
+      height: 80px;
+
+      border-radius: 50%;
+
+      border: 3px solid #e10606;
+
+      color: white;
+
+      font-size: 55px;
+
+      font-weight: bold;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      margin-bottom: 15px;
+
+    }
+
+    .success-text {
+
+      color: white;
+
+      font-size: 13px;
+
+      font-weight: 900;
+
+      letter-spacing: 1px;
+
+      text-align: center;
+
+    }
+
+
+
+    /\* =========================
+
+       PANIER / LIENS
+
+    ========================= \*/
+
+    .page h1 {
+
+      text-align: center;
+
+      letter-spacing: 2px;
+
+    }
+
+    .page-box {
+
+      margin-top: 15px;
+
+      padding: 20px;
+
+      border-radius: 20px;
+
+      background: rgba(5,5,8,.90);
+
+      border: 1px solid rgba(255,255,255,.18);
+
+      backdrop-filter: blur(10px);
+
+    }
+
+
+
+    /\* =========================
+
+       PAGE INFO
+
+    ========================= \*/
+
+    .info-box {
+
+      margin-top: 15px;
+
+      margin-bottom: 0;
+
+      padding: 24px 18px;
+
+      border-radius: 20px;
+
+      background: rgba(5,5,8,.92);
+
+      border: 1px solid #e10606;
+
+      backdrop-filter: blur(10px);
+
+      text-align: center;
+
+      box-shadow: 0 0 20px rgba(225,6,6,.18);
+
+    }
+
+    .info-box p {
+
+      margin: 11px 0;
+
+      line-height: 1.65;
+
+      font-size: 16px;
+
+    }
+
+    .info-title {
+
+      margin: 0 0 18px;
+
+      font-size: 20px;
+
+      font-weight: 900;
+
+      letter-spacing: .5px;
+
+    }
+
+    .info-red {
+
+      color: #e10606;
+
+      font-weight: 900;
+
+    }
+
+    .info-white {
+
+      color: white;
+
+      font-weight: 900;
+
+    }
+
+    .info-link {
+
+      display: inline-block;
+
+      margin-top: 8px;
+
+      color: #e10606;
+
+      font-size: 18px;
+
+      font-weight: 900;
+
+      text-decoration: none;
+
+    }
+
+    .info-separator {
+
+      width: 90%;
+
+      height: 1px;
+
+      margin: 22px auto;
+
+      background: linear-gradient(
+
+        to right,
+
+        transparent,
+
+        #e10606,
+
+        transparent
+
+      );
+
+      box-shadow: 0 0 8px rgba(225,6,6,.7);
+
+    }
+
+    .info-section-title {
+
+      margin-bottom: 14px;
+
+      color: #e10606;
+
+      font-size: 18px;
+
+      font-weight: 900;
+
+    }
+
+
+
+    /\* =========================
+
+       MENU BAS
+
+    ========================= \*/
+
+    .bottom-menu {
+
+      position: fixed;
+
+      z-index: 100;
+
+      bottom: 0;
+
+      left: 0;
+
+      width: 100%;
+
+      height: 75px;
+
+      display: flex;
+
+      justify-content: space-around;
+
+      align-items: center;
+
+      background: rgba(8,8,10,.97);
+
+      border-top: 1px solid rgba(255,255,255,.15);
+
+      backdrop-filter: blur(15px);
+
+    }
+
+    .bottom-menu button {
+
+      flex: 1;
+
+      background: none;
+
+      border: none;
+
+      color: white;
+
+      font-size: 12px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      gap: 5px;
+
+      cursor: pointer;
+
+    }
+
+    .bottom-menu .icon {
+
+      font-size: 21px;
+
+    }
+
+  \</style>
+
+\</head>
+
+
+
+\<body>
+
+\<div class="app">
+
+
+
+  \<!-- =========================
+
+       ACCUEIL
+
+  ========================= -->
+
+  \<div id="home" class="home active">
+
+    \<div class="ticker">
+
+      \<div class="ticker-track">
+
+        \<div class="ticker-text">
+
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+
+        \</div>
+
+        \<div class="ticker-text">
+
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+
+          COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
+
+        \</div>
+
+      \</div>
+
+    \</div>
+
+
+
+    \<div class="hero-image">
+
+      \<img src="IMG\_1527.jpeg" alt="CHEZ LUFFY 33">
+
+    \</div>
+
+
+
+    \<div class="separator">\</div>
+
+
+
+    \<div class="categories">
+
+      \<div class="category-card" onclick="showPage('hash')">
+
+        \<div class="category-image">
+
+          \<span>+\</span>
+
+        \</div>
+
+        \<div class="category-title">
+
+          HASH
+
+        \</div>
+
+      \</div>
+
+
+
+      \<div class="category-card" onclick="showPage('weed')">
+
+        \<div class="category-image">
+
+          \<span>+\</span>
+
+        \</div>
+
+        \<div class="category-title">
+
+          WEED
+
+        \</div>
+
+      \</div>
+
+
+
+      \<div class="category-card last" onclick="showPage('cake')">
+
+        \<div class="category-image">
+
+          \<span>+\</span>
+
+        \</div>
+
+        \<div class="category-title">
+
+          C\*KE
+
+        \</div>
+
+      \</div>
+
+    \</div>
+
+  \</div>
+
+
+
+  \<!-- =========================
+
+       HASH
+
+  ========================= -->
+
+  \<div id="hash" class="page">
+
+    \<div class="category-top">
+
+      \<h1 class="category-page-title hash-title">
+
+        HASH
+
+      \</h1>
+
+      \<div class="category-logo">
+
+        \<img src="IMG\_1527.jpeg" alt="CHEZ LUFFY 33">
+
+      \</div>
+
+    \</div>
+
+
+
+    \<button class="back-button hash-back"
+
+            onclick="showPage('home')">
+
+      ← RETOUR
+
+    \</button>
+
+
+
+    \<div class="category-line hash-line">\</div>
+
+
+
+    \<div class="products-grid">
+
+
+
+      \<!-- PREMIER PRODUIT -->
+
+      \<div class="product-card hash-product">
+
+        \<div class="product-image">
+
+          \<img src="IMG\_1515.jpeg" alt="MOUSSE CYTHO 🥭🍊">
+
+        \</div>
+
+        \<div class="product-info">
+
+          \<div class="product-name">
+
+            MOUSSE CYTHO 🥭
+
+          \</div>
+
+          \<div class="product-price">
+
+            À PARTIR DE 40 €
+
+          \</div>
+
+          \<button class="product-button"
+
+                  onclick="showPage('produit1')">
+
+            VOIR +
+
+          \</button>
+
+        \</div>
+
+      \</div>
+
+
+
+      \<!-- DEUXIÈME PRODUIT PASQUANTINO -->
+
+      \<div class="product-card hash-product">
+
+        \<div class="product-image">
+
+          \<img src="IMG\_1511.jpeg" alt="PASQUANTINO 🍓">
+
+        \</div>
+
+        \<div class="product-info">
+
+          \<div class="product-name">
+
+            PASQUANTINO 🍓
+
+          \</div>
+
+          \<div class="product-price">
+
+            À PARTIR DE 60 €
+
+          \</div>
+
+          \<button class="product-button"
+
+                  onclick="showPage('produit2')">
+
+            VOIR +
+
+          \</button>
+
+        \</div>
+
+      \</div>
+
+    \</div>
+
+  \</div>
+
+
+
+  \<!-- =========================
+
+       PAGE PRODUIT 1
+
+  ========================= -->
+
+  \<div id="produit1" class="page">
+
+    \<div class="product-detail">
+
+      \<button class="product-detail-back"
+
+              onclick="showPage('hash')">
+
+        ← RETOUR
+
+      \</button>
+
+
+
+      \<div class="product-detail-card">
+
+
+
+        \<img src="IMG\_1515.jpeg"
+
+             alt="MOUSSE CYTHO 🥭"
+
+             class="detail-product-photo">
+
+
+
+        \<h1 class="detail-product-name">
+
+          MOUSSE CYTHO 🥭
+
+        \</h1>
+
+
+
+        \<div class="detail-description">
+
+          Cali Mousse Premium 🧽
+
+        \</div>
+
+
+
+        \<div class="arrival-box">
+
+          𝖥𝖱𝖠𝖯𝖯𝖤 𝖣𝖤 𝖳𝖤𝖱𝖱𝖠𝖨𝖭 🟡💥
+
+          \<br>\<br>
+
+          \<em>
+
+            Plus besoin de prouver avec nos mousses,
+
+            la vraie fusée 🤤💫😍💎
+
+          \</em>
+
+        \</div>
+
+
+
+        \<div class="quantity-title">
+
+          QUANTITÉS DISPONIBLES
+
+        \</div>
+
+
+
+        \<div class="quantity-grid">
+
+
+
+          \<div class="quantity-box"
+
+               onclick="selectQuantity(this, '10g', '40€')">
+
+            \<div class="quantity-weight">
+
+              10g
+
+            \</div>
+
+            \<div class="quantity-price">
+
+              40€
+
+            \</div>
+
+          \</div>
+
+
+
+          \<div class="quantity-box"
+
+               onclick="selectQuantity(this, '20g', '70€')">
+
+            \<div class="quantity-weight">
+
+              20g
+
+            \</div>
+
+            \<div class="quantity-price">
+
+              70€
+
+            \</div>
+
+          \</div>
+
+
+
+          \<div class="quantity-box"
+
+               onclick="selectQuantity(this, '30g', '100€')">
+
+            \<div class="quantity-weight">
+
+              30g
+
+            \</div>
+
+            \<div class="quantity-price">
+
+              100€
+
+            \</div>
+
+          \</div>
+
+
+
+          \<div class="quantity-box"
+
+               onclick="selectQuantity(this, '50g', '140€')">
+
+            \<div class="quantity-weight">
+
+              50g
+
+            \</div>
+
+            \<div class="quantity-price">
+
+              140€
+
+            \</div>
+
+          \</div>
+
+
+
+          \<div class="quantity-box"
+
+               onclick="selectQuantity(this, '100g', '260€')">
+
+            \<div class="quantity-weight">
+
+              100g
+
+            \</div>
+
+            \<div class="quantity-price">
+
+              260€
+
+            \</div>
+
+          \</div>
+
+
+
+        \</div>
+
+
+
+        \<button class="add-cart-button"
+
+                onclick="addToCart('MOUSSE CYTHO 🥭🍊')">
+
+          AJOUTER AU PANIER
+
+        \</button>
+
+
+
+      \</div>
+
+    \</div>
+
+  \</div>
+
+
+
+  \<!-- =========================
+
+       PAGE PRODUIT 2 PASQUANTINO
+
+  ========================= -->
+
+  \<div id="produit2" class="page">
+
+    \<div class="product-detail">
+
+      \<button class="product-detail-back"
+
+              onclick="showPage('hash')">
+
+        ← RETOUR
+
+      \</button>
+
+
+
+      \<div class="product-detail-card">
+
+
+
+        \<img src="IMG\_1511.jpeg"
+
+             alt="PASQUANTINO 🍓"
+
+             class="detail-product-photo">
+
+
+
+        \<h1 class="detail-product-name">
+
+          PASQUANTINO 🍓
+
+        \</h1>
+
+
+
+        \<div class="detail-description">
+
+          120u Premium By Cousin Vinnie 🇮🇹
+
+        \</div>
+
+
+
+        \<div class="arrival-box">
+
+          𝖵𝖱𝖠𝖨
+
+          \<br>\<br>
+
+          \<em>
+
+            𝘐𝘥𝘦́𝘢𝘭
+
+          \</em>
+
+        \</div>
+
+
+
+        \<div class="quantity-title">
+
+          QUANTITÉS DISPONIBLES
+
+        \</div>
+
+
+
+        \<div class="quantity-grid">
+
+
+
+          \<div class="quantity-box"
+
+               onclick="selectQuantity(this, '10g', '60€')">
+
+            \<div class="quantity-weight">
+
+              10g
+
+            \</div>
+
+            \<div class="quantity-price">
+
+              60€
+
+            \</div>
+
+          \</div>
+
+
+
+          \<div class="quantity-box"
+
+               onclick="selectQuantity(this, '20g', '110€')">
+
+            \<div class="quantity-weight">
+
+              20g
+
+            \</div>
+
+            \<div class="quantity-price">
+
+              110€
+
+            \</div>
+
+          \</div>
+
+
+
+          \<div class="quantity-box"
+
+               onclick="selectQuantity(this, '30g', '160€')">
+
+            \<div class="quantity-weight">
+
+              30g
+
+            \</div>
+
+            \<div class="quantity-price">
+
+              160€
+
+            \</div>
+
+          \</div>
+
+
+
+          \<div class="quantity-box"
+
+               onclick="selectQuantity(this, '50g', '220€')">
+
+            \<div class="quantity-weight">
+
+              50g
+
+            \</div>
+
+            \<div class="quantity-price">
+
+              220€
+
+            \</div>
+
+          \</div>
+
+
+
+          \<div class="quantity-box"
+
+               onclick="selectQuantity(this, '100g', '420€')">
+
+            \<div class="quantity-weight">
+
+              100g
+
+            \</div>
+
+            \<div class="quantity-price">
+
+              420€
+
+            \</div>
+
+          \</div>
+
+
+
+        \</div>
+
+
+
+        \<button class="add-cart-button"
+
+                onclick="addToCart('PASQUANTINO 🍓')">
+
+          AJOUTER AU PANIER
+
+        \</button>
+
+
+
+      \</div>
+
+    \</div>
+
+  \</div>
+
+
+
+  \<!-- =========================
+
+       WEED
+
+  ========================= -->
+
+  \<div id="weed" class="page">
+
+    \<div class="category-top">
+
+      \<h1 class="category-page-title weed-title">
+
+        WEED
+
+      \</h1>
+
+      \<div class="category-logo">
+
+        \<img src="IMG\_1527.jpeg" alt="CHEZ LUFFY 33">
+
+      \</div>
+
+    \</div>
+
+
+
+    \<button class="back-button weed-back"
+
+            onclick="showPage('home')">
+
+      ← RETOUR
+
+    \</button>
+
+
+
+    \<div class="category-line weed-line">\</div>
+
+
+
+    \<div class="products-grid">
+
+      \<div class="product-card weed-product">
+
+        \<div class="product-image">
+
+          \<span>+\</span>
+
+        \</div>
+
+        \<div class="product-info">
+
+          \<div class="product-name">
+
+            AMNÉSIA LEMON 🍋
+
+          \</div>
+
+          \<div class="product-price">
+
+            À PARTIR DE 60 €
+
+          \</div>
+
+          \<button class="product-button">
+
+            VOIR +
+
+          \</button>
+
+        \</div>
+
+      \</div>
+
+    \</div>
+
+  \</div>
+
+
+
+  \<!-- =========================
+
+       CAKE
+
+  ========================= -->
+
+  \<div id="cake" class="page">
+
+    \<div class="category-top">
+
+      \<h1 class="category-page-title cake-title">
+
+        C\*KE
+
+      \</h1>
+
+      \<div class="category-logo">
+
+        \<img src="IMG\_1527.jpeg" alt="CHEZ LUFFY 33">
+
+      \</div>
+
+    \</div>
+
+
+
+    \<button class="back-button cake-back"
+
+            onclick="showPage('home')">
+
+      ← RETOUR
+
+    \</button>
+
+
+
+    \<div class="category-line cake-line">\</div>
+
+
+
+    \<div class="products-grid">
+
+      \<div class="product-card cake-product">
+
+        \<div class="product-image">
+
+          \<span>+\</span>
+
+        \</div>
+
+        \<div class="product-info">
+
+          \<div class="product-name">
+
+            ❄️
+
+          \</div>
+
+          \<div class="product-price">
+
+            À PARTIR DE 60 €
+
+          \</div>
+
+          \<button class="product-button">
+
+            VOIR +
+
+          \</button>
+
+        \</div>
+
+      \</div>
+
+    \</div>
+
+  \</div>
+
+
+
+  \<!-- =========================
+
+       PANIER
+
+  ========================= -->
+
+  \<div id="panier" class="page">
+
+    \<h1>🛒 PANIER\</h1>
+
+    \<div class="page-box" id="cart-content">
+
+      \<p>
+
+        Ton panier est actuellement vide.
+
+      \</p>
+
+      \<p>
+
+        Les produits sélectionnés apparaîtront ici.
+
+      \</p>
+
+    \</div>
+
+  \</div>
+
+
+
+  \<!-- =========================
+
+       INFO
+
+  ========================= -->
+
+  \<div id="info" class="page">
+
+    \<div class="info-box">
+
+      \<div class="info-title">
+
+        Bienvenue
+
+        \<span class="info-red">
+
+          CHEZ LUFFY 33
+
+        \</span>
+
+        ☠️
+
+      \</div>
+
+
+
+      \<p>
+
+        Livraison Express sur
+
+        \<span class="info-red">
+
+          Bordeaux & alentours
+
+        \</span>
+
+        -
+
+        \<span class="info-red">
+
+          7J/7 de 12h à 00h
+
+        \</span>
+
+      \</p>
+
+
+
+      \<p>
+
+        ⏱️ Prise de Commandes dès
+
+        \<br>
+
+        \<span class="info-red">
+
+          10h du matin jusqu'à 00h
+
+        \</span>
+
+      \</p>
+
+
+
+      \<p>
+
+        📲 Commandes & Contact
+
+        \<br>
+
+        exclusivement via
+
+        \<span class="info-red">
+
+          Telegram
+
+        \</span>
+
+        :
+
+        \<br>
+
+        \<a class="info-link"
+
+           href="[https://t.me/ChezLuffy33](https://t.me/ChezLuffy33)"
+
+           target="\_blank"
+
+           rel="noopener">
+
+          @CHEZLUFFY33
+
+        \</a>
+
+      \</p>
+
+
+
+      \<div class="info-separator">\</div>
+
+
+
+      \<div class="info-section-title">
+
+        ⚡ DÉLAIS & CONSEILS :
+
+      \</div>
+
+
+
+      \<p>
+
+        •
+
+        \<span class="info-white">
+
+          Commande
+
+        \</span>
+
+        :
+
+        remplissez le formulaire
+
+        \<span class="info-red">
+
+          minutieusement
+
+        \</span>
+
+        pour que le traitement de votre commande soit le plus fluide possible.
+
+      \</p>
+
+
+
+      \<p>
+
+        •
+
+        \<span class="info-white">
+
+          Livraison
+
+        \</span>
+
+        :
+
+        privilégiez les commandes
+
+        \<span class="info-red">
+
+          avant 13h
+
+        \</span>
+
+        pour être dans les premiers.
+
+      \</p>
+
+
+
+      \<div class="info-separator">\</div>
+
+
+
+      \<div class="info-section-title">
+
+        🔄 RETOURS & AVIS :
+
+      \</div>
+
+
+
+      \<p>
+
+        📸 N’hésitez pas à poster une photo de
+
+        \<br>
+
+        votre commande dans le chat de retours
+
+      \</p>
+
+
+
+      \<a class="info-link"
+
+         href="[https://t.me/+J4xj67WNkWczZjQ0](https://t.me/+J4xj67WNkWczZjQ0)"
+
+         target="\_blank"
+
+         rel="noopener">
+
+        ACCÉDER AU CHAT
+
+      \</a>
+
+    \</div>
+
+  \</div>
+
+
+
+  \<!-- =========================
+
+       LIENS
+
+  ========================= -->
+
+  \<div id="liens" class="page">
+
+    \<h1>🔗 LIENS\</h1>
+
+    \<div class="page-box">
+
+      \<p>
+
+        Tous les liens importants apparaîtront ici.
+
+      \</p>
+
+    \</div>
+
+  \</div>
+
+
+
+  \<!-- =========================
+
+       MENU DU BAS
+
+  ========================= -->
+
+  \<div class="bottom-menu">
+
+    \<button onclick="showPage('home')">
+
+      \<span class="icon">
+
+        🏠
+
+      \</span>
+
+      Accueil
+
+    \</button>
+
+
+
+    \<button onclick="showPage('panier')">
+
+      \<span class="icon">
+
+        🛒
+
+      \</span>
+
+      Panier
+
+    \</button>
+
+
+
+    \<button onclick="showPage('info')">
+
+      \<span class="icon">
+
+        ℹ️
+
+      \</span>
+
+      Info
+
+    \</button>
+
+
+
+    \<button onclick="showPage('liens')">
+
+      \<span class="icon">
+
+        🔗
+
+      \</span>
+
+      Liens
+
+    \</button>
+
+  \</div>
+
+\</div>
+
+
+
+\<!-- =========================
+
+     MESSAGE VALIDATION
+
+\========================= -->
+
+\<div id="success-message" class="success-message">
+
+  \<div class="success-icon">
+
+    ✓
+
+  \</div>
+
+  \<div class="success-text">
+
+    AJOUTÉ AU PANIER
+
+  \</div>
+
+\</div>
+
+
+
+\<script>
+
+  let selectedQuantity = null;
+
+  let selectedPrice = null;
+
+
+
+  function showPage(pageId) {
+
+    document
+
+      .querySelectorAll('.page, .home')
+
+      .forEach(function(page) {
+
+        page.classList.remove('active');
+
+      });
+
+
+
+    document
+
+      .getElementById(pageId)
+
+      .classList.add('active');
+
+
+
+    window\.scrollTo(0, 0);
+
+  }
+
+
+
+  function selectQuantity(element, quantity, price) {
+
+    document
+
+      .querySelectorAll('.quantity-box')
+
+      .forEach(function(box) {
+
+        box.classList.remove('selected');
+
+      });
+
+
+
+    element.classList.add('selected');
+
+
+
+    selectedQuantity = quantity;
+
+    selectedPrice = price;
+
+  }
+
+
+
+  function addToCart(productName) {
+
+    if (!selectedQuantity) {
+
+      alert("Choisis d'abord une quantité.");
+
+      return;
+
+    }
+
+
+
+    const cart = document.getElementById('cart-content');
+
+
+
+    cart.innerHTML = \`
+
+      \<h2 style="text-align\:center;">
+
+        TON PANIER 🛒
+
+      \</h2>
+
+      \<div style="
+
+        padding:15px;
+
+        border-radius:15px;
+
+        border:1px solid #e10606;
+
+        margin-top:15px;
+
+      ">
+
+        \<strong>${productName}\</strong>
+
+        \<br>\<br>
+
+        Quantité : ${selectedQuantity}
+
+        \<br>
+
+        Prix : ${selectedPrice}
+
+      \</div>
+
+    \`;
+
+
+
+    const successMessage =
+
+      document.getElementById('success-message');
+
+
+
+    successMessage.classList.add('show');
+
+
+
+    setTimeout(function() {
+
+      successMessage.classList.remove('show');
+
+    }, 1800);
+
+  }
+
+\</script>
+
+\</body>
+
+\</html>
