@@ -11,6 +11,7 @@
 
     * {
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     html {
@@ -24,12 +25,20 @@
       color: white;
     }
 
+
+    /* =========================
+       APPLICATION
+    ========================= */
+
     .app {
       min-height: 100vh;
-      padding-bottom: 85px;
+      padding-bottom: 75px;
 
       background:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.92)),
+        linear-gradient(
+          rgba(0, 0, 0, .45),
+          rgba(0, 0, 0, .92)
+        ),
         url("IMG_1527.jpeg");
 
       background-size: cover;
@@ -44,7 +53,8 @@
 
     .home {
       display: none;
-      padding: 0 15px 20px;
+      min-height: 100vh;
+      padding: 0 15px 25px;
     }
 
     .home.active {
@@ -59,13 +69,16 @@
     .ticker {
       width: calc(100% + 30px);
       margin-left: -15px;
+
       overflow: hidden;
       white-space: nowrap;
-      background: rgba(8,8,8,.96);
+
+      background: rgba(8, 8, 8, .96);
+
       border-top: 1px solid #e10606;
       border-bottom: 1px solid #e10606;
-      padding: 4px 0;
-      box-shadow: 0 4px 15px rgba(0,0,0,.6);
+
+      padding: 5px 0;
     }
 
     .ticker-track {
@@ -76,10 +89,14 @@
 
     .ticker-text {
       flex-shrink: 0;
+
       color: white;
+
       font-size: 10px;
       font-weight: bold;
+
       letter-spacing: 1px;
+
       padding-right: 40px;
     }
 
@@ -101,20 +118,27 @@
     ========================= */
 
     .hero-image {
-      width: min(140px, 45vw);
+      width: min(150px, 45vw);
       aspect-ratio: 1 / 1;
+
       margin: 22px auto;
-      border-radius: 20px;
+
+      border-radius: 22px;
       overflow: hidden;
-      background: rgba(0,0,0,.55);
-      border: 1px solid rgba(255,255,255,.15);
-      box-shadow: 0 8px 25px rgba(0,0,0,.7);
+
+      background: rgba(0, 0, 0, .55);
+
+      border: 1px solid rgba(255, 255, 255, .18);
+
+      box-shadow:
+        0 8px 25px rgba(0, 0, 0, .8);
     }
 
     .hero-image img {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      display: block;
     }
 
 
@@ -125,266 +149,10 @@
     .separator {
       width: 70%;
       height: 1px;
-      margin: 0 auto 20px;
-
-      background: linear-gradient(
-        to right,
-        transparent,
-        #e10606,
-        transparent
-      );
-
-      box-shadow: 0 0 8px rgba(225,6,6,.7);
-    }
-
-
-    /* =========================
-       PRODUIT ACCUEIL
-    ========================= */
-
-    .product-card {
-
-      overflow: hidden;
-      border-radius: 20px;
-
-      background:
-        rgba(10,10,12,.92);
-
-      border:
-        1px solid rgba(255,255,255,.18);
-
-      box-shadow:
-        0 8px 25px rgba(0,0,0,.65);
-
-      cursor: pointer;
-
-      transition:
-        transform .2s ease;
-
-    }
-
-    .product-card:active {
-      transform: scale(.98);
-    }
-
-    .product-image {
-
-      width: 100%;
-      aspect-ratio: 1 / 1;
-
-      background: #111;
-
-      overflow: hidden;
-
-    }
-
-    .product-image img {
-
-      width: 100%;
-      height: 100%;
-
-      display: block;
-
-      object-fit: cover;
-
-    }
-
-    .product-info {
-
-      padding: 14px;
-
-      text-align: center;
-
-    }
-
-    .product-name {
-
-      font-size: 17px;
-
-      font-weight: 900;
-
-      letter-spacing: 1px;
-
-      margin-bottom: 8px;
-
-    }
-
-    .product-price {
-
-      color: #e10606;
-
-      font-size: 13px;
-
-      font-weight: bold;
-
-      margin-bottom: 12px;
-
-    }
-
-    .product-button {
-
-      width: 100%;
-
-      padding: 11px;
-
-      border: none;
-
-      border-radius: 12px;
-
-      background: #e10606;
-
-      color: white;
-
-      font-size: 12px;
-
-      font-weight: 900;
-
-      cursor: pointer;
-
-    }
-
-
-    /* =========================
-       PAGE PRODUIT
-    ========================= */
-
-    .page {
-
-      display: none;
-
-      min-height: 100vh;
-
-      padding: 15px 15px 105px;
-
-    }
-
-    .page.active {
-      display: block;
-    }
-
-
-    /* =========================
-       EN-TÊTE
-    ========================= */
-
-    .category-top {
-
-      position: relative;
-
-      min-height: 155px;
-
-    }
-
-    .category-logo {
-
-      position: absolute;
-
-      top: 0;
-
-      left: 50%;
-
-      transform: translateX(-50%);
-
-      width: 125px;
-
-      aspect-ratio: 1 / 1;
-
-      border-radius: 18px;
-
-      overflow: hidden;
-
-      background: rgba(0,0,0,.55);
-
-      border: 1px solid rgba(255,255,255,.15);
-
-      box-shadow: 0 8px 25px rgba(0,0,0,.7);
-
-    }
-
-    .category-logo img {
-
-      width: 100%;
-      height: 100%;
-
-      object-fit: contain;
-
-    }
-
-    .category-page-title {
-
-      position: absolute;
-
-      top: 58px;
-
-      left: 0;
-
-      margin: 0;
-
-      padding: 8px 14px;
-
-      border-radius: 10px;
-
-      font-size: 22px;
-
-      font-weight: 900;
-
-      letter-spacing: 2px;
-
-      color: #e10606;
-
-      border: 1px solid #e10606;
-
-      background: rgba(5,5,5,.75);
-
-      box-shadow:
-        0 0 10px rgba(225,6,6,.25);
-
-    }
-
-
-    /* =========================
-       RETOUR
-    ========================= */
-
-    .back-button {
-
-      display: block;
-
-      margin: 0 0 12px 5px;
-
-      padding: 10px 15px;
-
-      border-radius: 12px;
-
-      background: rgba(10,10,10,.8);
-
-      color: white;
-
-      border: 1px solid #e10606;
-
-      font-size: 12px;
-
-      font-weight: bold;
-
-      cursor: pointer;
-
-    }
-
-
-    /* =========================
-       LIGNE
-    ========================= */
-
-    .category-line {
-
-      width: 70%;
-
-      height: 1px;
 
       margin: 0 auto 20px;
 
       background:
-
         linear-gradient(
           to right,
           transparent,
@@ -393,292 +161,475 @@
         );
 
       box-shadow:
-        0 0 8px rgba(225,6,6,.7);
-
+        0 0 8px rgba(225, 6, 6, .7);
     }
 
 
     /* =========================
-       FICHE PRODUIT
+       CATÉGORIES
+    ========================= */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .category-card {
+      aspect-ratio: 1 / 1;
+
+      border-radius: 20px;
+      overflow: hidden;
+
+      position: relative;
+
+      background:
+        rgba(15, 15, 18, .92);
+
+      border:
+        1px solid rgba(255, 255, 255, .18);
+
+      box-shadow:
+        0 8px 25px rgba(0, 0, 0, .7);
+
+      cursor: pointer;
+
+      transition: transform .2s ease;
+    }
+
+    .category-card:active {
+      transform: scale(.97);
+    }
+
+    .category-image {
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, .08),
+          rgba(0, 0, 0, .75)
+        );
+    }
+
+    .category-image span {
+      font-size: 42px;
+      opacity: .30;
+    }
+
+    .category-card::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          transparent 35%,
+          rgba(0, 0, 0, .92)
+        );
+
+      pointer-events: none;
+    }
+
+    .category-title {
+      position: absolute;
+
+      z-index: 2;
+
+      bottom: 14px;
+      left: 10px;
+      right: 10px;
+
+      text-align: center;
+
+      font-size: 16px;
+      font-weight: 900;
+
+      letter-spacing: 1px;
+
+      text-shadow:
+        0 3px 10px black;
+    }
+
+    .category-card.last {
+      grid-column: span 2;
+      aspect-ratio: 2 / 1;
+    }
+
+
+    /* =========================
+       PAGES
+    ========================= */
+
+    .page {
+      display: none;
+
+      min-height: 100vh;
+
+      padding: 15px 15px 100px;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+
+    /* =========================
+       PAGE PRODUIT
+    ========================= */
+
+    .category-top {
+      position: relative;
+      min-height: 155px;
+    }
+
+    .category-logo {
+      position: absolute;
+
+      top: 0;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 125px;
+      aspect-ratio: 1 / 1;
+
+      border-radius: 22px;
+      overflow: hidden;
+
+      background: rgba(0, 0, 0, .55);
+
+      border:
+        1px solid rgba(255, 255, 255, .18);
+
+      box-shadow:
+        0 8px 25px rgba(0, 0, 0, .8);
+    }
+
+    .category-logo img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+      display: block;
+    }
+
+
+    /* =========================
+       TITRE
+    ========================= */
+
+    .category-page-title {
+      position: absolute;
+
+      top: 58px;
+      left: 0;
+
+      margin: 0;
+
+      padding: 10px 18px;
+
+      border-radius: 14px;
+
+      font-size: 22px;
+      font-weight: 900;
+
+      letter-spacing: 3px;
+
+      background:
+        rgba(5, 5, 5, .80);
+    }
+
+    .hash-title {
+      color: #ff1a1a;
+
+      border:
+        1px solid #ff1a1a;
+
+      box-shadow:
+        0 0 15px rgba(255, 0, 0, .25);
+    }
+
+
+    /* =========================
+       RETOUR
+    ========================= */
+
+    .back-button {
+      display: inline-block;
+
+      margin: 0 0 20px 5px;
+
+      padding: 12px 22px;
+
+      border-radius: 14px;
+
+      background:
+        rgba(10, 10, 10, .85);
+
+      color: white;
+
+      font-size: 14px;
+      font-weight: 900;
+
+      letter-spacing: 1px;
+
+      cursor: pointer;
+    }
+
+    .hash-back {
+      border: 1px solid #ff1a1a;
+    }
+
+
+    /* =========================
+       LIGNE PRODUIT
+    ========================= */
+
+    .category-line {
+      width: 70%;
+      height: 1px;
+
+      margin: 0 auto 22px;
+    }
+
+    .hash-line {
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          #ff1a1a,
+          transparent
+        );
+
+      box-shadow:
+        0 0 8px rgba(255, 0, 0, .7);
+    }
+
+
+    /* =========================
+       PHOTO PRODUIT
     ========================= */
 
     .product-container {
-
       width: min(100%, 600px);
-
       margin: 0 auto;
-
     }
 
-
-    /* PHOTO */
-
     .product-photo-card {
-
       width: 100%;
 
-      border-radius: 24px;
-
+      border-radius: 26px;
       overflow: hidden;
 
-      margin-bottom: 18px;
-
-      background: rgba(8,12,18,.94);
+      background:
+        rgba(8, 12, 18, .94);
 
       border:
-        1px solid rgba(255,255,255,.16);
+        1px solid rgba(255, 255, 255, .18);
 
       box-shadow:
-        0 10px 30px rgba(0,0,0,.65);
-
+        0 10px 30px rgba(0, 0, 0, .65);
     }
 
     .product-photo {
-
       width: 100%;
-
       aspect-ratio: 1 / 1;
 
       overflow: hidden;
 
       background: #111;
-
     }
 
     .product-photo img {
-
       width: 100%;
       height: 100%;
 
       display: block;
 
       object-fit: cover;
-
     }
 
 
-    /* INFORMATIONS */
+    /* =========================
+       INFOS PRODUIT
+    ========================= */
 
     .product-details-card {
+      margin-top: 18px;
 
       width: 100%;
 
-      padding: 30px 20px 28px;
+      padding: 25px 20px 28px;
 
-      border-radius: 28px;
+      border-radius: 26px;
 
       background:
-
         linear-gradient(
           145deg,
-          rgba(16,19,25,.97),
-          rgba(5,7,11,.98)
+          rgba(16, 19, 25, .97),
+          rgba(5, 7, 11, .98)
         );
 
       border:
-        1px solid rgba(130,150,175,.35);
+        1px solid rgba(130, 150, 175, .35);
 
       box-shadow:
-        0 15px 35px rgba(0,0,0,.65);
+        0 15px 35px rgba(0, 0, 0, .65);
 
       text-align: center;
-
     }
 
-
-    /* NOM */
-
     .product-title {
+      margin-bottom: 12px;
 
-      margin-bottom: 14px;
-
-      font-size:
-        clamp(24px, 7vw, 34px);
+      font-size: clamp(24px, 7vw, 34px);
 
       font-weight: 900;
 
       letter-spacing: 2px;
 
       color: #f1f1f1;
-
     }
 
     .product-subtitle {
-
-      margin-bottom: 25px;
-
-      font-size: 18px;
-
-      letter-spacing: 1px;
-
-      color: #a8b8cf;
-
-    }
-
-
-    /* ARRIVAGE */
-
-    .product-arrivage {
-
-      width: 100%;
-
-      margin-bottom: 35px;
-
-      padding: 20px 15px;
-
-      border-radius: 22px;
-
-      text-align: left;
+      margin-bottom: 20px;
 
       font-size: 17px;
 
-      font-weight: 700;
+      color: #a8b8cf;
+    }
 
-      letter-spacing: 1px;
+    .product-arrivage {
+      width: 100%;
+
+      margin-bottom: 25px;
+
+      padding: 16px;
+
+      border-radius: 18px;
+
+      background:
+        rgba(20, 24, 31, .85);
+
+      border:
+        1px solid rgba(120, 140, 165, .28);
 
       color: #9aacc5;
 
-      background:
-        rgba(20,24,31,.85);
-
-      border:
-        1px solid rgba(120,140,165,.28);
-
+      font-size: 15px;
+      font-weight: 700;
     }
 
 
-    /* QUANTITÉS */
+    /* =========================
+       QUANTITÉS
+    ========================= */
 
     .quantity-title {
-
-      margin: 0 0 25px;
+      margin: 0 0 18px;
 
       text-align: left;
 
-      font-size: 16px;
-
+      font-size: 15px;
       font-weight: 900;
 
-      letter-spacing: 3px;
+      letter-spacing: 2px;
 
       color: #9aacc5;
-
     }
 
     .quantity-grid {
-
       display: grid;
 
       grid-template-columns:
         repeat(3, 1fr);
 
-      gap: 14px;
-
+      gap: 10px;
     }
 
     .quantity-box {
+      min-height: 110px;
 
-      min-height: 140px;
+      padding: 15px 6px;
 
-      padding: 15px 8px;
-
-      border-radius: 25px;
+      border-radius: 20px;
 
       display: flex;
 
       flex-direction: column;
 
       align-items: center;
-
       justify-content: center;
 
-      gap: 15px;
+      gap: 12px;
 
       background:
-
         linear-gradient(
           145deg,
-          rgba(15,20,27,.98),
-          rgba(8,12,17,.98)
+          rgba(15, 20, 27, .98),
+          rgba(8, 12, 17, .98)
         );
 
       border:
-        2px solid rgba(100,120,145,.35);
+        2px solid rgba(100, 120, 145, .35);
 
       cursor: pointer;
 
-      transition:
-        all .2s ease;
-
+      transition: .2s ease;
     }
 
     .quantity-box:active {
-
       transform: scale(.96);
-
     }
 
-
-    /* SÉLECTION */
-
     .quantity-box.selected {
-
       border:
-        2px solid #e10606;
+        2px solid #ff1a1a;
 
       box-shadow:
-
-        0 0 18px rgba(225,6,6,.25),
-
-        inset 0 0 15px rgba(225,6,6,.05);
-
+        0 0 18px rgba(255, 0, 0, .22);
     }
 
     .quantity-weight {
-
-      font-size: 28px;
-
+      font-size: 24px;
       font-weight: 900;
-
-      color: #f2f2f2;
-
     }
 
     .quantity-price {
-
-      font-size: 24px;
-
+      font-size: 21px;
       font-weight: 800;
 
       color: #c7d3e3;
-
     }
 
     .quantity-box.selected .quantity-price {
-
       color: #ff2b2b;
-
     }
 
 
     /* =========================
-       BOUTON COMMANDER
+       BOUTON
     ========================= */
 
     .order-button {
-
       width: 100%;
 
-      margin-top: 35px;
+      margin-top: 25px;
 
-      padding: 22px 15px;
+      padding: 18px 15px;
 
       border: none;
 
       border-radius: 50px;
 
       background:
-
         linear-gradient(
           135deg,
           #f4f4f4,
@@ -688,23 +639,90 @@
 
       color: #172131;
 
-      font-size: 16px;
-
+      font-size: 15px;
       font-weight: 900;
 
       letter-spacing: 3px;
 
       cursor: pointer;
-
-      box-shadow:
-        0 8px 25px rgba(90,150,200,.20);
-
     }
 
     .order-button:active {
-
       transform: scale(.98);
+    }
 
+
+    /* =========================
+       PANIER
+    ========================= */
+
+    .page h1 {
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    .page-box {
+      margin-top: 15px;
+
+      padding: 20px;
+
+      border-radius: 20px;
+
+      background:
+        rgba(5, 5, 8, .90);
+
+      border:
+        1px solid rgba(255, 255, 255, .18);
+    }
+
+
+    /* =========================
+       INFO
+    ========================= */
+
+    .info-box {
+      margin-top: 15px;
+
+      padding: 24px 18px;
+
+      border-radius: 20px;
+
+      background:
+        rgba(5, 5, 8, .92);
+
+      border:
+        1px solid #e10606;
+
+      text-align: center;
+
+      box-shadow:
+        0 0 20px rgba(225, 6, 6, .18);
+    }
+
+    .info-title {
+      margin-bottom: 18px;
+
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .info-box p {
+      line-height: 1.65;
+    }
+
+    .info-red {
+      color: #e10606;
+      font-weight: 900;
+    }
+
+    .info-link {
+      color: #e10606;
+
+      font-weight: 900;
+
+      text-decoration: none;
+
+      font-size: 18px;
     }
 
 
@@ -713,7 +731,6 @@
     ========================= */
 
     .bottom-menu {
-
       position: fixed;
 
       z-index: 100;
@@ -722,31 +739,30 @@
       left: 0;
 
       width: 100%;
-
       height: 75px;
 
       display: flex;
 
+      justify-content: space-around;
+      align-items: center;
+
       background:
-        rgba(8,8,10,.97);
+        rgba(5, 8, 14, .97);
 
       border-top:
-        1px solid rgba(255,255,255,.15);
+        1px solid rgba(255, 255, 255, .12);
 
       backdrop-filter:
         blur(15px);
-
     }
 
     .bottom-menu button {
-
       flex: 1;
 
       background: none;
-
       border: none;
 
-      color: white;
+      color: #e5e5e5;
 
       font-size: 12px;
 
@@ -756,40 +772,36 @@
 
       align-items: center;
 
-      justify-content: center;
-
       gap: 5px;
 
       cursor: pointer;
-
     }
 
     .bottom-menu .icon {
-
-      font-size: 21px;
-
+      font-size: 22px;
     }
 
 
-    /* PETITS ÉCRANS */
+    /* =========================
+       PETITS ÉCRANS
+    ========================= */
 
     @media (max-width: 380px) {
 
       .quantity-grid {
-        gap: 10px;
+        gap: 8px;
       }
 
       .quantity-box {
-        min-height: 120px;
-        border-radius: 20px;
+        min-height: 95px;
       }
 
       .quantity-weight {
-        font-size: 23px;
+        font-size: 20px;
       }
 
       .quantity-price {
-        font-size: 20px;
+        font-size: 18px;
       }
 
     }
@@ -815,19 +827,15 @@
       <div class="ticker-track">
 
         <div class="ticker-text">
-
           COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
           COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
           COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-
         </div>
 
         <div class="ticker-text">
-
           COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
           COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
           COMMANDE RAPIDE • LIVRAISON DISCRÈTE •
-
         </div>
 
       </div>
@@ -837,7 +845,10 @@
 
     <div class="hero-image">
 
-      <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+      <img
+        src="IMG_1527.jpeg"
+        alt="CHEZ LUFFY 33"
+      >
 
     </div>
 
@@ -845,37 +856,52 @@
     <div class="separator"></div>
 
 
-    <!-- PRODUIT -->
+    <div class="categories">
 
-    <div class="product-card"
-         onclick="showPage('produit')">
+      <div
+        class="category-card"
+        onclick="showPage('product')"
+      >
 
-      <div class="product-image">
+        <div class="category-image">
+          <span>📦</span>
+        </div>
 
-        <img src="IMG_1515.jpeg"
-             alt="MOUSSE CYTHO">
+        <div class="category-title">
+          PRODUIT
+        </div>
 
       </div>
 
-      <div class="product-info">
 
-        <div class="product-name">
+      <div
+        class="category-card"
+        onclick="showPage('product')"
+      >
 
-          MOUSSE CYTHO 🥭🍊
-
+        <div class="category-image">
+          <span>🛍️</span>
         </div>
 
-        <div class="product-price">
-
-          À PARTIR DE 40€
-
+        <div class="category-title">
+          PRODUITS
         </div>
 
-        <button class="product-button">
+      </div>
 
-          VOIR LE PRODUIT
 
-        </button>
+      <div
+        class="category-card last"
+        onclick="showPage('info')"
+      >
+
+        <div class="category-image">
+          <span>ℹ️</span>
+        </div>
+
+        <div class="category-title">
+          INFORMATIONS
+        </div>
 
       </div>
 
@@ -884,41 +910,41 @@
   </div>
 
 
+
   <!-- =========================
        PAGE PRODUIT
   ========================= -->
 
-  <div id="produit" class="page">
-
+  <div id="product" class="page">
 
     <div class="category-top">
 
-      <h1 class="category-page-title">
-
+      <h1 class="category-page-title hash-title">
         PRODUIT
-
       </h1>
 
 
       <div class="category-logo">
 
-        <img src="IMG_1527.jpeg"
-             alt="CHEZ LUFFY 33">
+        <img
+          src="IMG_1527.jpeg"
+          alt="CHEZ LUFFY 33"
+        >
 
       </div>
 
     </div>
 
 
-    <button class="back-button"
-            onclick="showPage('home')">
-
+    <button
+      class="back-button hash-back"
+      onclick="showPage('home')"
+    >
       ← RETOUR
-
     </button>
 
 
-    <div class="category-line"></div>
+    <div class="category-line hash-line"></div>
 
 
     <div class="product-container">
@@ -930,8 +956,10 @@
 
         <div class="product-photo">
 
-          <img src="IMG_1515.jpeg"
-               alt="MOUSSE CYTHO">
+          <img
+            src="IMG_1515.jpeg"
+            alt="Produit"
+          >
 
         </div>
 
@@ -942,144 +970,212 @@
 
       <div class="product-details-card">
 
-
         <div class="product-title">
-
           MOUSSE CYTHO 🥭🍊
-
         </div>
 
 
         <div class="product-subtitle">
-
           Super Mousseux 🧽
-
         </div>
 
 
         <div class="product-arrivage">
-
           NEW ARRIVAGE : JAUNE
-
         </div>
 
 
         <div class="quantity-title">
-
           QUANTITÉS DISPONIBLES
-
         </div>
 
 
         <div class="quantity-grid">
 
 
-          <div class="quantity-box selected"
-               onclick="selectQuantity(this, '10g', '40€')">
+          <div
+            class="quantity-box selected"
+            onclick="selectQuantity(this, '10g', '40€')"
+          >
 
             <div class="quantity-weight">
-
               10g
-
             </div>
 
             <div class="quantity-price">
-
               40€
-
             </div>
 
           </div>
 
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '20g', '70€')">
+          <div
+            class="quantity-box"
+            onclick="selectQuantity(this, '20g', '70€')"
+          >
 
             <div class="quantity-weight">
-
               20g
-
             </div>
 
             <div class="quantity-price">
-
               70€
-
             </div>
 
           </div>
 
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '30g', '100€')">
+          <div
+            class="quantity-box"
+            onclick="selectQuantity(this, '30g', '100€')"
+          >
 
             <div class="quantity-weight">
-
               30g
-
             </div>
 
             <div class="quantity-price">
-
               100€
-
             </div>
 
           </div>
 
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '50g', '140€')">
+          <div
+            class="quantity-box"
+            onclick="selectQuantity(this, '50g', '140€')"
+          >
 
             <div class="quantity-weight">
-
               50g
-
             </div>
 
             <div class="quantity-price">
-
               140€
-
             </div>
 
           </div>
 
 
-          <div class="quantity-box"
-               onclick="selectQuantity(this, '100g', '260€')">
+          <div
+            class="quantity-box"
+            onclick="selectQuantity(this, '100g', '260€')"
+          >
 
             <div class="quantity-weight">
-
               100g
-
             </div>
 
             <div class="quantity-price">
-
               260€
-
             </div>
 
           </div>
-
 
         </div>
 
 
-        <button class="order-button"
-                onclick="orderProduct()">
-
+        <button
+          class="order-button"
+          onclick="orderProduct()"
+        >
           COMMANDER MAINTENANT
-
         </button>
-
 
       </div>
 
     </div>
 
   </div>
+
+
+
+  <!-- =========================
+       PANIER
+  ========================= -->
+
+  <div id="panier" class="page">
+
+    <h1>🛒 PANIER</h1>
+
+
+    <div class="page-box">
+
+      <p id="cartText">
+        Ton panier est actuellement vide.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =========================
+       INFO
+  ========================= -->
+
+  <div id="info" class="page">
+
+    <div class="info-box">
+
+      <div class="info-title">
+
+        Bienvenue
+
+        <span class="info-red">
+          CHEZ LUFFY 33
+        </span>
+
+        ☠️
+
+      </div>
+
+
+      <p>
+
+        Livraison Express sur
+
+        <span class="info-red">
+          Bordeaux & alentours
+        </span>
+
+      </p>
+
+
+      <p>
+
+        <span class="info-red">
+          7J/7 de 12h à 00h
+        </span>
+
+      </p>
+
+
+      <p>
+
+        📲 Commandes & Contact
+
+        <br>
+
+        via Telegram
+
+      </p>
+
+
+      <a
+        class="info-link"
+        href="https://t.me/ChezLuffy33"
+        target="_blank"
+        rel="noopener"
+      >
+        @CHEZLUFFY33
+      </a>
+
+    </div>
+
+  </div>
+
 
 
   <!-- =========================
@@ -1098,7 +1194,7 @@
     </button>
 
 
-    <button onclick="showPage('produit')">
+    <button onclick="showPage('product')">
 
       <span class="icon">📦</span>
 
@@ -1107,7 +1203,7 @@
     </button>
 
 
-    <button onclick="alert('Panier bientôt disponible')">
+    <button onclick="showPage('panier')">
 
       <span class="icon">🛒</span>
 
@@ -1116,7 +1212,7 @@
     </button>
 
 
-    <button onclick="alert('Informations bientôt disponibles')">
+    <button onclick="showPage('info')">
 
       <span class="icon">ℹ️</span>
 
@@ -1129,6 +1225,7 @@
 
 
 </div>
+
 
 
 <script>
@@ -1160,16 +1257,14 @@
 
 
   /* =========================
-     SÉLECTION QUANTITÉ
+     QUANTITÉ
   ========================= */
 
   let selectedWeight = '10g';
-
   let selectedPrice = '40€';
 
 
   function selectQuantity(element, weight, price) {
-
 
     document
       .querySelectorAll('.quantity-box')
@@ -1184,29 +1279,36 @@
 
 
     selectedWeight = weight;
-
     selectedPrice = price;
 
   }
 
 
   /* =========================
-     COMMANDER
+     PANIER
   ========================= */
 
   function orderProduct() {
 
-    alert(
-      'Produit sélectionné : MOUSSE CYTHO 🥭🍊\n\n' +
-      'Quantité : ' + selectedWeight + '\n' +
-      'Prix : ' + selectedPrice
-    );
+    document.getElementById('cartText').innerHTML =
+
+      '<strong>Produit sélectionné :</strong><br><br>' +
+
+      'MOUSSE CYTHO 🥭🍊<br>' +
+
+      selectedWeight +
+
+      ' — ' +
+
+      selectedPrice;
+
+
+    showPage('panier');
 
   }
 
 
 </script>
-
 
 </body>
 </html>
