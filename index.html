@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>CHEZ LUFFY 33</title>
@@ -23,16 +26,13 @@
     .app {
       min-height: 100vh;
       padding-bottom: 85px;
-
       background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.92)),
         url("IMG_1527.jpeg");
-
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
-
 
 
     /* =========================
@@ -49,7 +49,6 @@
     }
 
 
-
     /* =========================
        BANDE DÉFILANTE
     ========================= */
@@ -59,14 +58,10 @@
       margin-left: -15px;
       overflow: hidden;
       white-space: nowrap;
-
       background: rgba(8,8,8,.96);
-
       border-top: 1px solid #e10606;
       border-bottom: 1px solid #e10606;
-
       padding: 4px 0;
-
       box-shadow: 0 4px 15px rgba(0,0,0,.6);
     }
 
@@ -78,13 +73,10 @@
 
     .ticker-text {
       flex-shrink: 0;
-
       color: white;
-
       font-size: 10px;
       font-weight: bold;
       letter-spacing: 1px;
-
       padding-right: 40px;
     }
 
@@ -101,7 +93,6 @@
     }
 
 
-
     /* =========================
        LOGO ACCUEIL
     ========================= */
@@ -109,15 +100,11 @@
     .hero-image {
       width: min(140px, 45vw);
       aspect-ratio: 1 / 1;
-
       margin: 22px auto;
-
       border-radius: 20px;
       overflow: hidden;
-
       background: rgba(0,0,0,.55);
       border: 1px solid rgba(255,255,255,.15);
-
       box-shadow: 0 8px 25px rgba(0,0,0,.7);
     }
 
@@ -128,7 +115,6 @@
     }
 
 
-
     /* =========================
        LIGNE ACCUEIL
     ========================= */
@@ -136,19 +122,15 @@
     .separator {
       width: 70%;
       height: 1px;
-
       margin: 0 auto 20px;
-
       background: linear-gradient(
         to right,
         transparent,
         #e10606,
         transparent
       );
-
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
-
 
 
     /* =========================
@@ -157,28 +139,19 @@
 
     .categories {
       display: grid;
-
       grid-template-columns: repeat(2, 1fr);
-
       gap: 14px;
     }
 
     .category-card {
       aspect-ratio: 1 / 1;
-
       border-radius: 20px;
       overflow: hidden;
-
       position: relative;
-
       background: rgba(15,15,18,.9);
-
       border: 1px solid rgba(255,255,255,.18);
-
       box-shadow: 0 8px 25px rgba(0,0,0,.65);
-
       cursor: pointer;
-
       transition: transform .2s ease;
     }
 
@@ -189,11 +162,9 @@
     .category-image {
       position: absolute;
       inset: 0;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       background: linear-gradient(
         135deg,
         rgba(255,255,255,.08),
@@ -208,33 +179,25 @@
 
     .category-card::after {
       content: "";
-
       position: absolute;
       inset: 0;
-
       background: linear-gradient(
         transparent 35%,
         rgba(0,0,0,.9)
       );
-
       pointer-events: none;
     }
 
     .category-title {
       position: absolute;
-
       z-index: 2;
-
       bottom: 14px;
       left: 10px;
       right: 10px;
-
       text-align: center;
-
       font-size: 16px;
       font-weight: 900;
       letter-spacing: 1px;
-
       text-shadow: 0 3px 10px black;
     }
 
@@ -244,16 +207,13 @@
     }
 
 
-
     /* =========================
        PAGES
     ========================= */
 
     .page {
       display: none;
-
       min-height: 100vh;
-
       padding: 15px 15px 100px;
     }
 
@@ -262,21 +222,14 @@
     }
 
 
-
     /* =========================
        CORRECTION PAGE INFO
-       SUPPRESSION DE L'ESPACE
     ========================= */
 
     #info.page {
       min-height: calc(100vh - 75px);
-
-      padding:
-        15px
-        15px
-        0;
+      padding: 15px 15px 0;
     }
-
 
 
     /* =========================
@@ -290,32 +243,23 @@
 
     .category-logo {
       position: absolute;
-
       top: 0;
       left: 50%;
-
       transform: translateX(-50%);
-
       width: 125px;
       aspect-ratio: 1 / 1;
-
       border-radius: 18px;
       overflow: hidden;
-
       background: rgba(0,0,0,.55);
-
       border: 1px solid rgba(255,255,255,.15);
-
       box-shadow: 0 8px 25px rgba(0,0,0,.7);
     }
 
     .category-logo img {
       width: 100%;
       height: 100%;
-
       object-fit: contain;
     }
-
 
 
     /* =========================
@@ -324,22 +268,16 @@
 
     .category-page-title {
       position: absolute;
-
       top: 58px;
       left: 0;
-
       margin: 0;
       padding: 8px 14px;
-
       border-radius: 10px;
-
       font-size: 22px;
       font-weight: 900;
       letter-spacing: 2px;
-
       background: rgba(5,5,5,.75);
     }
-
 
 
     /* =========================
@@ -348,9 +286,7 @@
 
     .hash-title {
       color: #e10606;
-
       border: 1px solid #e10606;
-
       box-shadow: 0 0 10px rgba(225,6,6,.25);
     }
 
@@ -359,16 +295,13 @@
     }
 
 
-
     /* =========================
        WEED VERT
     ========================= */
 
     .weed-title {
       color: #00c853;
-
       border: 1px solid #00c853;
-
       box-shadow: 0 0 10px rgba(0,200,83,.25);
     }
 
@@ -377,16 +310,13 @@
     }
 
 
-
     /* =========================
-       C*KE BLEU
+       CAKE BLEU
     ========================= */
 
     .cake-title {
       color: #00cfff;
-
       border: 1px solid #00cfff;
-
       box-shadow: 0 0 10px rgba(0,207,255,.25);
     }
 
@@ -395,30 +325,21 @@
     }
 
 
-
     /* =========================
        RETOUR
     ========================= */
 
     .back-button {
       display: block;
-
       margin: 0 0 8px 5px;
-
       padding: 9px 14px;
-
       border-radius: 12px;
-
       background: rgba(10,10,10,.8);
-
       color: white;
-
       font-size: 12px;
       font-weight: bold;
-
       cursor: pointer;
     }
-
 
 
     /* =========================
@@ -428,7 +349,6 @@
     .category-line {
       width: 70%;
       height: 1px;
-
       margin: 0 auto 20px;
     }
 
@@ -439,7 +359,6 @@
         #e10606,
         transparent
       );
-
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
@@ -450,7 +369,6 @@
         #00c853,
         transparent
       );
-
       box-shadow: 0 0 8px rgba(0,200,83,.7);
     }
 
@@ -461,10 +379,8 @@
         #00cfff,
         transparent
       );
-
       box-shadow: 0 0 8px rgba(0,207,255,.7);
     }
-
 
 
     /* =========================
@@ -473,23 +389,16 @@
 
     .products-grid {
       display: grid;
-
       grid-template-columns: repeat(2, minmax(0, 1fr));
-
       gap: 12px;
     }
 
     .product-card {
       overflow: hidden;
-
       border-radius: 18px;
-
       background: rgba(10,10,12,.92);
-
       border: 1px solid rgba(255,255,255,.16);
-
       box-shadow: 0 8px 20px rgba(0,0,0,.6);
-
       transition: transform .2s ease;
     }
 
@@ -500,17 +409,14 @@
     .product-image {
       width: 100%;
       aspect-ratio: 1 / 1;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       background: linear-gradient(
         135deg,
         rgba(255,255,255,.10),
         rgba(0,0,0,.75)
       );
-
       border-bottom: 1px solid rgba(255,255,255,.10);
     }
 
@@ -526,7 +432,6 @@
 
     .product-name {
       margin-bottom: 7px;
-
       font-size: 13px;
       font-weight: 900;
       letter-spacing: .5px;
@@ -534,24 +439,18 @@
 
     .product-price {
       margin-bottom: 10px;
-
       font-size: 11px;
       font-weight: bold;
     }
 
     .product-button {
       width: 100%;
-
       padding: 8px 4px;
-
       border: none;
       border-radius: 10px;
-
       color: white;
-
       font-size: 10px;
       font-weight: bold;
-
       cursor: pointer;
     }
 
@@ -581,6 +480,66 @@
     }
 
 
+    /* =========================
+       FICHE PRODUIT
+    ========================= */
+
+    .product-detail {
+      display: none;
+      min-height: 100vh;
+      padding: 15px 15px 100px;
+    }
+
+    .product-detail.active {
+      display: block;
+    }
+
+    .detail-card {
+      margin-top: 20px;
+      overflow: hidden;
+      border-radius: 20px;
+      background: rgba(10,10,12,.94);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 8px 25px rgba(0,0,0,.7);
+    }
+
+    .detail-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #111;
+    }
+
+    .detail-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .detail-content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .detail-name {
+      margin: 0 0 12px;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .detail-price {
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #e10606;
+    }
+
+    .detail-description {
+      color: rgba(255,255,255,.85);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
 
     /* =========================
        PANIER / LIENS
@@ -593,18 +552,12 @@
 
     .page-box {
       margin-top: 15px;
-
       padding: 20px;
-
       border-radius: 20px;
-
       background: rgba(5,5,8,.90);
-
       border: 1px solid rgba(255,255,255,.18);
-
       backdrop-filter: blur(10px);
     }
-
 
 
     /* =========================
@@ -614,36 +567,25 @@
     .info-box {
       margin-top: 15px;
       margin-bottom: 0;
-
       padding: 24px 18px;
-
       border-radius: 20px;
-
       background: rgba(5,5,8,.92);
-
       border: 1px solid #e10606;
-
       backdrop-filter: blur(10px);
-
       text-align: center;
-
       box-shadow: 0 0 20px rgba(225,6,6,.18);
     }
 
     .info-box p {
       margin: 11px 0;
-
       line-height: 1.65;
-
       font-size: 16px;
     }
 
     .info-title {
       margin: 0 0 18px;
-
       font-size: 20px;
       font-weight: 900;
-
       letter-spacing: .5px;
     }
 
@@ -659,42 +601,32 @@
 
     .info-link {
       display: inline-block;
-
       margin-top: 8px;
-
       color: #e10606;
-
       font-size: 18px;
       font-weight: 900;
-
       text-decoration: none;
     }
 
     .info-separator {
       width: 90%;
       height: 1px;
-
       margin: 22px auto;
-
       background: linear-gradient(
         to right,
         transparent,
         #e10606,
         transparent
       );
-
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
     .info-section-title {
       margin-bottom: 14px;
-
       color: #e10606;
-
       font-size: 18px;
       font-weight: 900;
     }
-
 
 
     /* =========================
@@ -703,44 +635,29 @@
 
     .bottom-menu {
       position: fixed;
-
       z-index: 100;
-
       bottom: 0;
       left: 0;
-
       width: 100%;
       height: 75px;
-
       display: flex;
-
       justify-content: space-around;
       align-items: center;
-
       background: rgba(8,8,10,.97);
-
       border-top: 1px solid rgba(255,255,255,.15);
-
       backdrop-filter: blur(15px);
     }
 
     .bottom-menu button {
       flex: 1;
-
       background: none;
       border: none;
-
       color: white;
-
       font-size: 12px;
-
       display: flex;
       flex-direction: column;
-
       align-items: center;
-
       gap: 5px;
-
       cursor: pointer;
     }
 
@@ -753,11 +670,9 @@
 </head>
 
 
-
 <body>
 
 <div class="app">
-
 
 
   <!-- =========================
@@ -787,15 +702,12 @@
     </div>
 
 
-
     <div class="hero-image">
       <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
     </div>
 
 
-
     <div class="separator"></div>
-
 
 
     <div class="categories">
@@ -813,7 +725,6 @@
       </div>
 
 
-
       <div class="category-card" onclick="showPage('weed')">
 
         <div class="category-image">
@@ -827,7 +738,6 @@
       </div>
 
 
-
       <div class="category-card last" onclick="showPage('cake')">
 
         <div class="category-image">
@@ -835,7 +745,7 @@
         </div>
 
         <div class="category-title">
-          C*KE
+          CAKE
         </div>
 
       </div>
@@ -843,7 +753,6 @@
     </div>
 
   </div>
-
 
 
   <!-- =========================
@@ -864,14 +773,18 @@
 
     </div>
 
+
     <button class="back-button hash-back"
             onclick="showPage('home')">
       ← RETOUR
     </button>
 
+
     <div class="category-line hash-line"></div>
 
+
     <div class="products-grid">
+
 
       <div class="product-card hash-product">
 
@@ -889,14 +802,19 @@
             À PARTIR DE XX €
           </div>
 
-          <button class="product-button">
+          <button class="product-button"
+                  onclick="showProduct(
+                    'PRODUIT 1',
+                    'IMG_1515.jpeg',
+                    'À PARTIR DE XX €',
+                    'Description du produit 1.'
+                  )">
             VOIR +
           </button>
 
         </div>
 
       </div>
-
 
 
       <div class="product-card hash-product">
@@ -915,7 +833,13 @@
             À PARTIR DE XX €
           </div>
 
-          <button class="product-button">
+          <button class="product-button"
+                  onclick="showProduct(
+                    'PRODUIT 2',
+                    'IMG_1555.png',
+                    'À PARTIR DE XX €',
+                    'Description du produit 2.'
+                  )">
             VOIR +
           </button>
 
@@ -923,10 +847,10 @@
 
       </div>
 
+
     </div>
 
   </div>
-
 
 
   <!-- =========================
@@ -947,14 +871,18 @@
 
     </div>
 
+
     <button class="back-button weed-back"
             onclick="showPage('home')">
       ← RETOUR
     </button>
 
+
     <div class="category-line weed-line"></div>
 
+
     <div class="products-grid">
+
 
       <div class="product-card weed-product">
 
@@ -972,14 +900,19 @@
             À PARTIR DE XX €
           </div>
 
-          <button class="product-button">
+          <button class="product-button"
+                  onclick="showProduct(
+                    'PRODUIT 1',
+                    'IMG_1515.jpeg',
+                    'À PARTIR DE XX €',
+                    'Description du produit 1.'
+                  )">
             VOIR +
           </button>
 
         </div>
 
       </div>
-
 
 
       <div class="product-card weed-product">
@@ -998,7 +931,13 @@
             À PARTIR DE XX €
           </div>
 
-          <button class="product-button">
+          <button class="product-button"
+                  onclick="showProduct(
+                    'PRODUIT 2',
+                    'IMG_1555.png',
+                    'À PARTIR DE XX €',
+                    'Description du produit 2.'
+                  )">
             VOIR +
           </button>
 
@@ -1006,14 +945,14 @@
 
       </div>
 
+
     </div>
 
   </div>
 
 
-
   <!-- =========================
-       C*KE
+       CAKE
   ========================= -->
 
   <div id="cake" class="page">
@@ -1021,7 +960,7 @@
     <div class="category-top">
 
       <h1 class="category-page-title cake-title">
-        C*KE
+        CAKE
       </h1>
 
       <div class="category-logo">
@@ -1030,14 +969,18 @@
 
     </div>
 
+
     <button class="back-button cake-back"
             onclick="showPage('home')">
       ← RETOUR
     </button>
 
+
     <div class="category-line cake-line"></div>
 
+
     <div class="products-grid">
+
 
       <div class="product-card cake-product">
 
@@ -1055,14 +998,19 @@
             À PARTIR DE XX €
           </div>
 
-          <button class="product-button">
+          <button class="product-button"
+                  onclick="showProduct(
+                    'PRODUIT 1',
+                    'IMG_1515.jpeg',
+                    'À PARTIR DE XX €',
+                    'Description du produit 1.'
+                  )">
             VOIR +
           </button>
 
         </div>
 
       </div>
-
 
 
       <div class="product-card cake-product">
@@ -1081,7 +1029,13 @@
             À PARTIR DE XX €
           </div>
 
-          <button class="product-button">
+          <button class="product-button"
+                  onclick="showProduct(
+                    'PRODUIT 2',
+                    'IMG_1555.png',
+                    'À PARTIR DE XX €',
+                    'Description du produit 2.'
+                  )">
             VOIR +
           </button>
 
@@ -1089,10 +1043,45 @@
 
       </div>
 
+
     </div>
 
   </div>
 
+
+  <!-- =========================
+       FICHE PRODUIT
+  ========================= -->
+
+  <div id="product-detail" class="product-detail">
+
+    <button class="back-button hash-back"
+            onclick="goBackProduct()">
+      ← RETOUR
+    </button>
+
+
+    <div class="detail-card">
+
+      <div class="detail-image">
+        <img id="detail-img" src="" alt="Produit">
+      </div>
+
+
+      <div class="detail-content">
+
+        <h1 id="detail-name" class="detail-name"></h1>
+
+        <div id="detail-price" class="detail-price"></div>
+
+        <div id="detail-description"
+             class="detail-description"></div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 
   <!-- =========================
@@ -1118,7 +1107,6 @@
   </div>
 
 
-
   <!-- =========================
        INFO
   ========================= -->
@@ -1130,13 +1118,14 @@
       <div class="info-title">
 
         Bienvenue
+
         <span class="info-red">
           CHEZ LUFFY 33
         </span>
+
         ☠️
 
       </div>
-
 
 
       <p>
@@ -1156,7 +1145,6 @@
       </p>
 
 
-
       <p>
 
         ⏱️ Prise de Commandes dès
@@ -1168,7 +1156,6 @@
         </span>
 
       </p>
-
 
 
       <p>
@@ -1187,8 +1174,6 @@
 
         <br>
 
-        <!-- MODIFICATION : LIEN DIRECT VERS TELEGRAM -->
-
         <a class="info-link"
            href="https://t.me/ChezLuffy33"
            target="_blank"
@@ -1201,22 +1186,18 @@
       </p>
 
 
-
       <div class="info-separator"></div>
 
 
-
       <div class="info-section-title">
-
         ⚡ DÉLAIS & CONSEILS :
-
       </div>
-
 
 
       <p>
 
         •
+
         <span class="info-white">
           Commande
         </span>
@@ -1234,10 +1215,10 @@
       </p>
 
 
-
       <p>
 
         •
+
         <span class="info-white">
           Livraison
         </span>
@@ -1255,17 +1236,12 @@
       </p>
 
 
-
       <div class="info-separator"></div>
 
 
-
       <div class="info-section-title">
-
         🔄 RETOURS & AVIS :
-
       </div>
-
 
 
       <p>
@@ -1277,7 +1253,6 @@
         votre commande dans le chat de retours
 
       </p>
-
 
 
       <a class="info-link"
@@ -1292,7 +1267,6 @@
     </div>
 
   </div>
-
 
 
   <!-- =========================
@@ -1314,7 +1288,6 @@
   </div>
 
 
-
   <!-- =========================
        MENU DU BAS
   ========================= -->
@@ -1332,7 +1305,6 @@
     </button>
 
 
-
     <button onclick="showPage('panier')">
 
       <span class="icon">
@@ -1344,7 +1316,6 @@
     </button>
 
 
-
     <button onclick="showPage('info')">
 
       <span class="icon">
@@ -1354,7 +1325,6 @@
       Info
 
     </button>
-
 
 
     <button onclick="showPage('liens')">
@@ -1369,31 +1339,84 @@
 
   </div>
 
-</div>
 
+</div>
 
 
 <script>
 
+  let previousPage = 'home';
+
+
   function showPage(pageId) {
 
     document
-      .querySelectorAll('.page, .home')
+      .querySelectorAll('.page, .home, .product-detail')
       .forEach(function(page) {
 
         page.classList.remove('active');
 
       });
 
+
     document
       .getElementById(pageId)
       .classList.add('active');
+
 
     window.scrollTo(0, 0);
 
   }
 
+
+  function showProduct(name, image, price, description) {
+
+    let activePage = document.querySelector('.page.active, .home.active');
+
+    if (activePage) {
+      previousPage = activePage.id;
+    } else {
+      previousPage = 'home';
+    }
+
+
+    document
+      .querySelectorAll('.page, .home, .product-detail')
+      .forEach(function(page) {
+
+        page.classList.remove('active');
+
+      });
+
+
+    document.getElementById('detail-name').textContent = name;
+
+    document.getElementById('detail-img').src = image;
+
+    document.getElementById('detail-price').textContent = price;
+
+    document.getElementById('detail-description').textContent = description;
+
+
+    document
+      .getElementById('product-detail')
+      .classList.add('active');
+
+
+    window.scrollTo(0, 0);
+
+  }
+
+
+  function goBackProduct() {
+
+    showPage(previousPage);
+
+  }
+
 </script>
 
+
 </body>
+
 </html>
