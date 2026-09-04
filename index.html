@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>CHEZ LUFFY 33</title>
@@ -34,7 +31,6 @@
       background-attachment: fixed;
     }
 
-
     /* =========================
        ACCUEIL
     ========================= */
@@ -47,7 +43,6 @@
     .home.active {
       display: block;
     }
-
 
     /* =========================
        BANDE DÉFILANTE
@@ -81,7 +76,6 @@
     }
 
     @keyframes tickerMove {
-
       from {
         transform: translateX(0);
       }
@@ -89,9 +83,7 @@
       to {
         transform: translateX(-50%);
       }
-
     }
-
 
     /* =========================
        LOGO ACCUEIL
@@ -114,7 +106,6 @@
       object-fit: contain;
     }
 
-
     /* =========================
        LIGNE ACCUEIL
     ========================= */
@@ -131,7 +122,6 @@
       );
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
-
 
     /* =========================
        CATÉGORIES ACCUEIL
@@ -206,7 +196,6 @@
       aspect-ratio: 2 / 1;
     }
 
-
     /* =========================
        PAGES
     ========================= */
@@ -221,16 +210,10 @@
       display: block;
     }
 
-
-    /* =========================
-       CORRECTION PAGE INFO
-    ========================= */
-
     #info.page {
       min-height: calc(100vh - 75px);
       padding: 15px 15px 0;
     }
-
 
     /* =========================
        EN-TÊTE CATÉGORIES
@@ -261,11 +244,6 @@
       object-fit: contain;
     }
 
-
-    /* =========================
-       TITRE CATÉGORIE
-    ========================= */
-
     .category-page-title {
       position: absolute;
       top: 58px;
@@ -279,10 +257,7 @@
       background: rgba(5,5,5,.75);
     }
 
-
-    /* =========================
-       HASH ROUGE
-    ========================= */
+    /* HASH */
 
     .hash-title {
       color: #e10606;
@@ -294,10 +269,7 @@
       border: 1px solid #e10606;
     }
 
-
-    /* =========================
-       WEED VERT
-    ========================= */
+    /* WEED */
 
     .weed-title {
       color: #00c853;
@@ -309,10 +281,7 @@
       border: 1px solid #00c853;
     }
 
-
-    /* =========================
-       CAKE BLEU
-    ========================= */
+    /* C*KE */
 
     .cake-title {
       color: #00cfff;
@@ -323,7 +292,6 @@
     .cake-back {
       border: 1px solid #00cfff;
     }
-
 
     /* =========================
        RETOUR
@@ -341,7 +309,6 @@
       cursor: pointer;
     }
 
-
     /* =========================
        LIGNES CATÉGORIES
     ========================= */
@@ -353,35 +320,19 @@
     }
 
     .hash-line {
-      background: linear-gradient(
-        to right,
-        transparent,
-        #e10606,
-        transparent
-      );
+      background: linear-gradient(to right, transparent, #e10606, transparent);
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
     .weed-line {
-      background: linear-gradient(
-        to right,
-        transparent,
-        #00c853,
-        transparent
-      );
+      background: linear-gradient(to right, transparent, #00c853, transparent);
       box-shadow: 0 0 8px rgba(0,200,83,.7);
     }
 
     .cake-line {
-      background: linear-gradient(
-        to right,
-        transparent,
-        #00cfff,
-        transparent
-      );
+      background: linear-gradient(to right, transparent, #00cfff, transparent);
       box-shadow: 0 0 8px rgba(0,207,255,.7);
     }
-
 
     /* =========================
        PRODUITS
@@ -399,19 +350,12 @@
       background: rgba(10,10,12,.92);
       border: 1px solid rgba(255,255,255,.16);
       box-shadow: 0 8px 20px rgba(0,0,0,.6);
-      transition: transform .2s ease;
-    }
-
-    .product-card:active {
-      transform: scale(.97);
     }
 
     .product-image {
       width: 100%;
       aspect-ratio: 1 / 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
       background: linear-gradient(
         135deg,
         rgba(255,255,255,.10),
@@ -420,7 +364,17 @@
       border-bottom: 1px solid rgba(255,255,255,.10);
     }
 
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .product-image span {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
       font-size: 35px;
       opacity: .25;
     }
@@ -479,9 +433,8 @@
       color: #050505;
     }
 
-
     /* =========================
-       FICHE PRODUIT
+       PAGE DÉTAIL PRODUIT
     ========================= */
 
     .product-detail {
@@ -494,11 +447,10 @@
       display: block;
     }
 
-    .detail-card {
-      margin-top: 20px;
-      overflow: hidden;
+    .detail-box {
+      padding: 18px;
       border-radius: 20px;
-      background: rgba(10,10,12,.94);
+      background: rgba(5,5,8,.92);
       border: 1px solid rgba(255,255,255,.18);
       box-shadow: 0 8px 25px rgba(0,0,0,.7);
     }
@@ -506,7 +458,10 @@
     .detail-image {
       width: 100%;
       aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 16px;
       background: #111;
+      margin-bottom: 18px;
     }
 
     .detail-image img {
@@ -515,31 +470,69 @@
       object-fit: cover;
     }
 
-    .detail-content {
-      padding: 20px;
-      text-align: center;
-    }
-
     .detail-name {
-      margin: 0 0 12px;
+      text-align: center;
       font-size: 24px;
       font-weight: 900;
-      letter-spacing: 1px;
+      margin-bottom: 10px;
     }
 
     .detail-price {
-      margin-bottom: 20px;
+      text-align: center;
       font-size: 18px;
       font-weight: bold;
-      color: #e10606;
+      margin-bottom: 20px;
     }
 
     .detail-description {
-      color: rgba(255,255,255,.85);
       line-height: 1.6;
-      font-size: 15px;
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 20px;
     }
 
+    .detail-order {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 14px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .detail-back {
+      margin-bottom: 15px;
+    }
+
+    .hash-detail .detail-name,
+    .hash-detail .detail-price {
+      color: #e10606;
+    }
+
+    .hash-detail .detail-order {
+      background: #e10606;
+    }
+
+    .weed-detail .detail-name,
+    .weed-detail .detail-price {
+      color: #00c853;
+    }
+
+    .weed-detail .detail-order {
+      background: #00c853;
+    }
+
+    .cake-detail .detail-name,
+    .cake-detail .detail-price {
+      color: #00cfff;
+    }
+
+    .cake-detail .detail-order {
+      background: #00cfff;
+      color: #050505;
+    }
 
     /* =========================
        PANIER / LIENS
@@ -558,7 +551,6 @@
       border: 1px solid rgba(255,255,255,.18);
       backdrop-filter: blur(10px);
     }
-
 
     /* =========================
        PAGE INFO
@@ -586,7 +578,6 @@
       margin: 0 0 18px;
       font-size: 20px;
       font-weight: 900;
-      letter-spacing: .5px;
     }
 
     .info-red {
@@ -612,12 +603,7 @@
       width: 90%;
       height: 1px;
       margin: 22px auto;
-      background: linear-gradient(
-        to right,
-        transparent,
-        #e10606,
-        transparent
-      );
+      background: linear-gradient(to right, transparent, #e10606, transparent);
       box-shadow: 0 0 8px rgba(225,6,6,.7);
     }
 
@@ -627,7 +613,6 @@
       font-size: 18px;
       font-weight: 900;
     }
-
 
     /* =========================
        MENU BAS
@@ -666,23 +651,17 @@
     }
 
   </style>
-
 </head>
-
 
 <body>
 
 <div class="app">
 
-
-  <!-- =========================
-       ACCUEIL
-  ========================= -->
+  <!-- ACCUEIL -->
 
   <div id="home" class="home active">
 
     <div class="ticker">
-
       <div class="ticker-track">
 
         <div class="ticker-text">
@@ -698,93 +677,72 @@
         </div>
 
       </div>
-
     </div>
-
 
     <div class="hero-image">
       <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
     </div>
 
-
     <div class="separator"></div>
-
 
     <div class="categories">
 
       <div class="category-card" onclick="showPage('hash')">
-
-        <div class="category-image">
-          <span>+</span>
-        </div>
-
-        <div class="category-title">
-          HASH
-        </div>
-
+        <div class="category-image"><span>+</span></div>
+        <div class="category-title">HASH</div>
       </div>
-
 
       <div class="category-card" onclick="showPage('weed')">
-
-        <div class="category-image">
-          <span>+</span>
-        </div>
-
-        <div class="category-title">
-          WEED
-        </div>
-
+        <div class="category-image"><span>+</span></div>
+        <div class="category-title">WEED</div>
       </div>
 
-
       <div class="category-card last" onclick="showPage('cake')">
-
-        <div class="category-image">
-          <span>+</span>
-        </div>
-
-        <div class="category-title">
-          CAKE
-        </div>
-
+        <div class="category-image"><span>+</span></div>
+        <div class="category-title">C*KE</div>
       </div>
 
     </div>
 
   </div>
 
-
-  <!-- =========================
-       HASH
-  ========================= -->
+  <!-- HASH -->
 
   <div id="hash" class="page">
 
     <div class="category-top">
-
-      <h1 class="category-page-title hash-title">
-        HASH
-      </h1>
+      <h1 class="category-page-title hash-title">HASH</h1>
 
       <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+        <img src="IMG_1527.jpeg">
       </div>
-
     </div>
 
-
-    <button class="back-button hash-back"
-            onclick="showPage('home')">
+    <button class="back-button hash-back" onclick="showPage('home')">
       ← RETOUR
     </button>
 
-
     <div class="category-line hash-line"></div>
-
 
     <div class="products-grid">
 
+      <div class="product-card hash-product">
+
+        <div class="product-image">
+          <span>+</span>
+        </div>
+
+        <div class="product-info">
+          <div class="product-name">PRODUIT 1</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+
+          <button class="product-button"
+            onclick="openProduct('detail-hash-1')">
+            VOIR +
+          </button>
+        </div>
+
+      </div>
 
       <div class="product-card hash-product">
 
@@ -793,96 +751,58 @@
         </div>
 
         <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 1
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
+          <div class="product-name">PRODUIT 2</div>
+          <div class="product-price">À PARTIR DE XX €</div>
 
           <button class="product-button"
-                  onclick="showProduct(
-                    'PRODUIT 1',
-                    'IMG_1515.jpeg',
-                    'À PARTIR DE XX €',
-                    'Description du produit 1.'
-                  )">
+            onclick="openProduct('detail-hash-2')">
             VOIR +
           </button>
-
         </div>
 
       </div>
-
-
-      <div class="product-card hash-product">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 2
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button"
-                  onclick="showProduct(
-                    'PRODUIT 2',
-                    'IMG_1555.png',
-                    'À PARTIR DE XX €',
-                    'Description du produit 2.'
-                  )">
-            VOIR +
-          </button>
-
-        </div>
-
-      </div>
-
 
     </div>
 
   </div>
 
-
-  <!-- =========================
-       WEED
-  ========================= -->
+  <!-- WEED -->
 
   <div id="weed" class="page">
 
     <div class="category-top">
-
-      <h1 class="category-page-title weed-title">
-        WEED
-      </h1>
+      <h1 class="category-page-title weed-title">WEED</h1>
 
       <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+        <img src="IMG_1527.jpeg">
       </div>
-
     </div>
 
-
-    <button class="back-button weed-back"
-            onclick="showPage('home')">
+    <button class="back-button weed-back" onclick="showPage('home')">
       ← RETOUR
     </button>
 
-
     <div class="category-line weed-line"></div>
-
 
     <div class="products-grid">
 
+      <div class="product-card weed-product">
+
+        <div class="product-image">
+          <span>+</span>
+        </div>
+
+        <div class="product-info">
+          <div class="product-name">PRODUIT 1</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+
+          <button class="product-button"
+            onclick="openProduct('detail-weed-1')">
+            VOIR +
+          </button>
+        </div>
+
+      </div>
 
       <div class="product-card weed-product">
 
@@ -891,96 +811,58 @@
         </div>
 
         <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 1
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
+          <div class="product-name">PRODUIT 2</div>
+          <div class="product-price">À PARTIR DE XX €</div>
 
           <button class="product-button"
-                  onclick="showProduct(
-                    'PRODUIT 1',
-                    'IMG_1515.jpeg',
-                    'À PARTIR DE XX €',
-                    'Description du produit 1.'
-                  )">
+            onclick="openProduct('detail-weed-2')">
             VOIR +
           </button>
-
         </div>
 
       </div>
-
-
-      <div class="product-card weed-product">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 2
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button"
-                  onclick="showProduct(
-                    'PRODUIT 2',
-                    'IMG_1555.png',
-                    'À PARTIR DE XX €',
-                    'Description du produit 2.'
-                  )">
-            VOIR +
-          </button>
-
-        </div>
-
-      </div>
-
 
     </div>
 
   </div>
 
-
-  <!-- =========================
-       CAKE
-  ========================= -->
+  <!-- C*KE -->
 
   <div id="cake" class="page">
 
     <div class="category-top">
-
-      <h1 class="category-page-title cake-title">
-        CAKE
-      </h1>
+      <h1 class="category-page-title cake-title">C*KE</h1>
 
       <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+        <img src="IMG_1527.jpeg">
       </div>
-
     </div>
 
-
-    <button class="back-button cake-back"
-            onclick="showPage('home')">
+    <button class="back-button cake-back" onclick="showPage('home')">
       ← RETOUR
     </button>
-
 
     <div class="category-line cake-line"></div>
 
-
     <div class="products-grid">
 
+      <div class="product-card cake-product">
+
+        <div class="product-image">
+          <span>+</span>
+        </div>
+
+        <div class="product-info">
+          <div class="product-name">PRODUIT 1</div>
+          <div class="product-price">À PARTIR DE XX €</div>
+
+          <button class="product-button"
+            onclick="openProduct('detail-cake-1')">
+            VOIR +
+          </button>
+        </div>
+
+      </div>
 
       <div class="product-card cake-product">
 
@@ -989,434 +871,390 @@
         </div>
 
         <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 1
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
+          <div class="product-name">PRODUIT 2</div>
+          <div class="product-price">À PARTIR DE XX €</div>
 
           <button class="product-button"
-                  onclick="showProduct(
-                    'PRODUIT 1',
-                    'IMG_1515.jpeg',
-                    'À PARTIR DE XX €',
-                    'Description du produit 1.'
-                  )">
+            onclick="openProduct('detail-cake-2')">
             VOIR +
           </button>
-
         </div>
 
       </div>
-
-
-      <div class="product-card cake-product">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 2
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button"
-                  onclick="showProduct(
-                    'PRODUIT 2',
-                    'IMG_1555.png',
-                    'À PARTIR DE XX €',
-                    'Description du produit 2.'
-                  )">
-            VOIR +
-          </button>
-
-        </div>
-
-      </div>
-
 
     </div>
 
   </div>
 
-
   <!-- =========================
-       FICHE PRODUIT
+       DÉTAIL HASH 1
   ========================= -->
 
-  <div id="product-detail" class="product-detail">
+  <div id="detail-hash-1" class="product-detail hash-detail">
 
-    <button class="back-button hash-back"
-            onclick="goBackProduct()">
+    <button class="back-button hash-back detail-back"
+      onclick="showPage('hash')">
       ← RETOUR
     </button>
 
-
-    <div class="detail-card">
+    <div class="detail-box">
 
       <div class="detail-image">
-        <img id="detail-img" src="" alt="Produit">
+        <img src="PHOTO_PRODUIT.jpg" alt="Produit">
       </div>
 
+      <div class="detail-name">PRODUIT 1</div>
 
-      <div class="detail-content">
-
-        <h1 id="detail-name" class="detail-name"></h1>
-
-        <div id="detail-price" class="detail-price"></div>
-
-        <div id="detail-description"
-             class="detail-description"></div>
-
+      <div class="detail-price">
+        À PARTIR DE XX €
       </div>
+
+      <div class="detail-description">
+        Écris ici la description complète de ton produit.
+        Tu peux expliquer ses caractéristiques et toutes
+        les informations que tu veux afficher.
+      </div>
+
+      <button class="detail-order">
+        AJOUTER AU PANIER
+      </button>
 
     </div>
 
   </div>
 
+  <!-- DÉTAIL HASH 2 -->
 
-  <!-- =========================
-       PANIER
-  ========================= -->
+  <div id="detail-hash-2" class="product-detail hash-detail">
+
+    <button class="back-button hash-back detail-back"
+      onclick="showPage('hash')">
+      ← RETOUR
+    </button>
+
+    <div class="detail-box">
+
+      <div class="detail-image">
+        <img src="PHOTO_PRODUIT_2.jpg" alt="Produit">
+      </div>
+
+      <div class="detail-name">PRODUIT 2</div>
+
+      <div class="detail-price">À PARTIR DE XX €</div>
+
+      <div class="detail-description">
+        Description complète du produit 2.
+      </div>
+
+      <button class="detail-order">
+        AJOUTER AU PANIER
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- DÉTAIL WEED 1 -->
+
+  <div id="detail-weed-1" class="product-detail weed-detail">
+
+    <button class="back-button weed-back detail-back"
+      onclick="showPage('weed')">
+      ← RETOUR
+    </button>
+
+    <div class="detail-box">
+
+      <div class="detail-image">
+        <img src="PHOTO_WEED.jpg" alt="Produit">
+      </div>
+
+      <div class="detail-name">PRODUIT 1</div>
+
+      <div class="detail-price">À PARTIR DE XX €</div>
+
+      <div class="detail-description">
+        Description complète du produit.
+      </div>
+
+      <button class="detail-order">
+        AJOUTER AU PANIER
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- DÉTAIL WEED 2 -->
+
+  <div id="detail-weed-2" class="product-detail weed-detail">
+
+    <button class="back-button weed-back detail-back"
+      onclick="showPage('weed')">
+      ← RETOUR
+    </button>
+
+    <div class="detail-box">
+
+      <div class="detail-image">
+        <img src="PHOTO_WEED_2.jpg" alt="Produit">
+      </div>
+
+      <div class="detail-name">PRODUIT 2</div>
+
+      <div class="detail-price">À PARTIR DE XX €</div>
+
+      <div class="detail-description">
+        Description complète du produit.
+      </div>
+
+      <button class="detail-order">
+        AJOUTER AU PANIER
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- DÉTAIL C*KE 1 -->
+
+  <div id="detail-cake-1" class="product-detail cake-detail">
+
+    <button class="back-button cake-back detail-back"
+      onclick="showPage('cake')">
+      ← RETOUR
+    </button>
+
+    <div class="detail-box">
+
+      <div class="detail-image">
+        <img src="PHOTO_CAKE.jpg" alt="Produit">
+      </div>
+
+      <div class="detail-name">PRODUIT 1</div>
+
+      <div class="detail-price">À PARTIR DE XX €</div>
+
+      <div class="detail-description">
+        Description complète du produit.
+      </div>
+
+      <button class="detail-order">
+        AJOUTER AU PANIER
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- DÉTAIL C*KE 2 -->
+
+  <div id="detail-cake-2" class="product-detail cake-detail">
+
+    <button class="back-button cake-back detail-back"
+      onclick="showPage('cake')">
+      ← RETOUR
+    </button>
+
+    <div class="detail-box">
+
+      <div class="detail-image">
+        <img src="PHOTO_CAKE_2.jpg" alt="Produit">
+      </div>
+
+      <div class="detail-name">PRODUIT 2</div>
+
+      <div class="detail-price">À PARTIR DE XX €</div>
+
+      <div class="detail-description">
+        Description complète du produit.
+      </div>
+
+      <button class="detail-order">
+        AJOUTER AU PANIER
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- PANIER -->
 
   <div id="panier" class="page">
 
     <h1>🛒 PANIER</h1>
 
     <div class="page-box">
-
-      <p>
-        Ton panier est actuellement vide.
-      </p>
-
-      <p>
-        Les produits sélectionnés apparaîtront ici.
-      </p>
-
+      <p>Ton panier est actuellement vide.</p>
+      <p>Les produits sélectionnés apparaîtront ici.</p>
     </div>
 
   </div>
 
-
-  <!-- =========================
-       INFO
-  ========================= -->
+  <!-- INFO -->
 
   <div id="info" class="page">
 
     <div class="info-box">
 
       <div class="info-title">
-
         Bienvenue
-
-        <span class="info-red">
-          CHEZ LUFFY 33
-        </span>
-
+        <span class="info-red">CHEZ LUFFY 33</span>
         ☠️
-
       </div>
 
-
       <p>
-
         Livraison Express sur
-
-        <span class="info-red">
-          Bordeaux & alentours
-        </span>
-
+        <span class="info-red">Bordeaux & alentours</span>
         -
-
-        <span class="info-red">
-          7J/7 de 12h à 00h
-        </span>
-
+        <span class="info-red">7J/7 de 12h à 00h</span>
       </p>
 
-
       <p>
-
         ⏱️ Prise de Commandes dès
-
         <br>
-
         <span class="info-red">
           10h du matin jusqu'à 00h
         </span>
-
       </p>
 
-
       <p>
-
         📲 Commandes & Contact
-
         <br>
-
         exclusivement via
-
-        <span class="info-red">
-          Telegram
-        </span>
-
+        <span class="info-red">Telegram</span>
         :
-
         <br>
 
         <a class="info-link"
-           href="https://t.me/ChezLuffy33"
-           target="_blank"
-           rel="noopener">
-
+          href="https://t.me/ChezLuffy33"
+          target="_blank"
+          rel="noopener">
           @CHEZLUFFY33
-
         </a>
-
       </p>
 
-
       <div class="info-separator"></div>
-
 
       <div class="info-section-title">
         ⚡ DÉLAIS & CONSEILS :
       </div>
 
-
       <p>
-
-        •
-
-        <span class="info-white">
-          Commande
-        </span>
-
-        :
-
+        • <span class="info-white">Commande</span> :
         remplissez le formulaire
-
-        <span class="info-red">
-          minutieusement
-        </span>
-
-        pour que le traitement de votre commande soit le plus fluide possible.
-
+        <span class="info-red">minutieusement</span>
+        pour que le traitement de votre commande soit
+        le plus fluide possible.
       </p>
-
 
       <p>
-
-        •
-
-        <span class="info-white">
-          Livraison
-        </span>
-
-        :
-
+        • <span class="info-white">Livraison</span> :
         privilégiez les commandes
-
-        <span class="info-red">
-          avant 13h
-        </span>
-
+        <span class="info-red">avant 13h</span>
         pour être dans les premiers.
-
       </p>
-
 
       <div class="info-separator"></div>
-
 
       <div class="info-section-title">
         🔄 RETOURS & AVIS :
       </div>
 
-
       <p>
-
         📸 N’hésitez pas à poster une photo de
-
         <br>
-
         votre commande dans le chat de retours
-
       </p>
 
-
       <a class="info-link"
-         href="https://t.me/+J4xj67WNkWczZjQ0"
-         target="_blank"
-         rel="noopener">
-
+        href="https://t.me/+J4xj67WNkWczZjQ0"
+        target="_blank"
+        rel="noopener">
         ACCÉDER AU CHAT
-
       </a>
 
     </div>
 
   </div>
 
-
-  <!-- =========================
-       LIENS
-  ========================= -->
+  <!-- LIENS -->
 
   <div id="liens" class="page">
 
     <h1>🔗 LIENS</h1>
 
     <div class="page-box">
-
-      <p>
-        Tous les liens importants apparaîtront ici.
-      </p>
-
+      <p>Tous les liens importants apparaîtront ici.</p>
     </div>
 
   </div>
 
-
-  <!-- =========================
-       MENU DU BAS
-  ========================= -->
+  <!-- MENU DU BAS -->
 
   <div class="bottom-menu">
 
     <button onclick="showPage('home')">
-
-      <span class="icon">
-        🏠
-      </span>
-
+      <span class="icon">🏠</span>
       Accueil
-
     </button>
-
 
     <button onclick="showPage('panier')">
-
-      <span class="icon">
-        🛒
-      </span>
-
+      <span class="icon">🛒</span>
       Panier
-
     </button>
-
 
     <button onclick="showPage('info')">
-
-      <span class="icon">
-        ℹ️
-      </span>
-
+      <span class="icon">ℹ️</span>
       Info
-
     </button>
 
-
     <button onclick="showPage('liens')">
-
-      <span class="icon">
-        🔗
-      </span>
-
+      <span class="icon">🔗</span>
       Liens
-
     </button>
 
   </div>
 
-
 </div>
-
 
 <script>
 
-  let previousPage = 'home';
-
-
-  function showPage(pageId) {
+  function hideAllPages() {
 
     document
       .querySelectorAll('.page, .home, .product-detail')
       .forEach(function(page) {
-
         page.classList.remove('active');
-
       });
 
+  }
+
+  function showPage(pageId) {
+
+    hideAllPages();
 
     document
       .getElementById(pageId)
       .classList.add('active');
 
-
     window.scrollTo(0, 0);
 
   }
 
+  function openProduct(productId) {
 
-  function showProduct(name, image, price, description) {
-
-    let activePage = document.querySelector('.page.active, .home.active');
-
-    if (activePage) {
-      previousPage = activePage.id;
-    } else {
-      previousPage = 'home';
-    }
-
+    hideAllPages();
 
     document
-      .querySelectorAll('.page, .home, .product-detail')
-      .forEach(function(page) {
-
-        page.classList.remove('active');
-
-      });
-
-
-    document.getElementById('detail-name').textContent = name;
-
-    document.getElementById('detail-img').src = image;
-
-    document.getElementById('detail-price').textContent = price;
-
-    document.getElementById('detail-description').textContent = description;
-
-
-    document
-      .getElementById('product-detail')
+      .getElementById(productId)
       .classList.add('active');
 
-
     window.scrollTo(0, 0);
-
-  }
-
-
-  function goBackProduct() {
-
-    showPage(previousPage);
 
   }
 
 </script>
 
-
 </body>
-
 </html>
