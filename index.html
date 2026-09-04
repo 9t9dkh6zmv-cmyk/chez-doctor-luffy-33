@@ -34,7 +34,6 @@
     }
 
 
-
     /* =========================
        ACCUEIL
     ========================= */
@@ -49,7 +48,6 @@
     }
 
 
-
     /* =========================
        BANDE DÉFILANTE
     ========================= */
@@ -57,6 +55,7 @@
     .ticker {
       width: calc(100% + 30px);
       margin-left: -15px;
+
       overflow: hidden;
       white-space: nowrap;
 
@@ -101,7 +100,6 @@
     }
 
 
-
     /* =========================
        LOGO ACCUEIL
     ========================= */
@@ -116,6 +114,7 @@
       overflow: hidden;
 
       background: rgba(0,0,0,.55);
+
       border: 1px solid rgba(255,255,255,.15);
 
       box-shadow: 0 8px 25px rgba(0,0,0,.7);
@@ -126,7 +125,6 @@
       height: 100%;
       object-fit: contain;
     }
-
 
 
     /* =========================
@@ -150,16 +148,13 @@
     }
 
 
-
     /* =========================
-       CATÉGORIES ACCUEIL
+       CATÉGORIES
     ========================= */
 
     .categories {
       display: grid;
-
       grid-template-columns: repeat(2, 1fr);
-
       gap: 14px;
     }
 
@@ -178,8 +173,6 @@
       box-shadow: 0 8px 25px rgba(0,0,0,.65);
 
       cursor: pointer;
-
-      transition: transform .2s ease;
     }
 
     .category-card:active {
@@ -244,7 +237,6 @@
     }
 
 
-
     /* =========================
        PAGES
     ========================= */
@@ -260,23 +252,6 @@
     .page.active {
       display: block;
     }
-
-
-
-    /* =========================
-       CORRECTION PAGE INFO
-       SUPPRESSION DE L'ESPACE
-    ========================= */
-
-    #info.page {
-      min-height: calc(100vh - 75px);
-
-      padding:
-        15px
-        15px
-        0;
-    }
-
 
 
     /* =========================
@@ -317,9 +292,8 @@
     }
 
 
-
     /* =========================
-       TITRE CATÉGORIE
+       TITRES CATÉGORIES
     ========================= */
 
     .category-page-title {
@@ -341,10 +315,7 @@
     }
 
 
-
-    /* =========================
-       HASH ROUGE
-    ========================= */
+    /* HASH */
 
     .hash-title {
       color: #e10606;
@@ -359,10 +330,7 @@
     }
 
 
-
-    /* =========================
-       WEED VERT
-    ========================= */
+    /* WEED */
 
     .weed-title {
       color: #00c853;
@@ -377,10 +345,7 @@
     }
 
 
-
-    /* =========================
-       C*KE BLEU
-    ========================= */
+    /* CAKE */
 
     .cake-title {
       color: #00cfff;
@@ -393,7 +358,6 @@
     .cake-back {
       border: 1px solid #00cfff;
     }
-
 
 
     /* =========================
@@ -420,9 +384,8 @@
     }
 
 
-
     /* =========================
-       LIGNES CATÉGORIES
+       LIGNES
     ========================= */
 
     .category-line {
@@ -466,9 +429,8 @@
     }
 
 
-
     /* =========================
-       PRODUITS
+       PRODUITS HASH
     ========================= */
 
     .products-grid {
@@ -490,6 +452,8 @@
 
       box-shadow: 0 8px 20px rgba(0,0,0,.6);
 
+      cursor: pointer;
+
       transition: transform .2s ease;
     }
 
@@ -500,6 +464,8 @@
     .product-image {
       width: 100%;
       aspect-ratio: 1 / 1;
+
+      overflow: hidden;
 
       display: flex;
       align-items: center;
@@ -514,6 +480,15 @@
       border-bottom: 1px solid rgba(255,255,255,.10);
     }
 
+    .product-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+    }
+
     .product-image span {
       font-size: 35px;
       opacity: .25;
@@ -521,6 +496,7 @@
 
     .product-info {
       padding: 10px 8px 12px;
+
       text-align: center;
     }
 
@@ -529,6 +505,7 @@
 
       font-size: 13px;
       font-weight: 900;
+
       letter-spacing: .5px;
     }
 
@@ -563,23 +540,164 @@
       background: #e10606;
     }
 
-    .weed-product .product-price {
-      color: #00c853;
+
+    /* =========================
+       PAGE DÉTAIL PRODUIT
+    ========================= */
+
+    .product-detail-page {
+      padding-top: 15px;
     }
 
-    .weed-product .product-button {
-      background: #00c853;
+    .product-detail-container {
+      width: 86%;
+      margin: 0 auto;
     }
 
-    .cake-product .product-price {
-      color: #00cfff;
+    .product-detail-image {
+      width: 100%;
+
+      aspect-ratio: 1 / 1;
+
+      overflow: hidden;
+
+      border-radius: 18px;
+
+      background: #111;
+
+      border: 1px solid rgba(255,255,255,.16);
+
+      box-shadow: 0 10px 25px rgba(0,0,0,.7);
     }
 
-    .cake-product .product-button {
-      background: #00cfff;
-      color: #050505;
+    .product-detail-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
     }
 
+    .product-detail-box {
+      margin-top: 12px;
+
+      padding: 16px 10px 16px;
+
+      border-radius: 18px;
+
+      text-align: center;
+
+      background: rgba(10,10,12,.94);
+
+      border: 1px solid rgba(255,255,255,.16);
+
+      box-shadow: 0 10px 25px rgba(0,0,0,.7);
+    }
+
+    .product-detail-title {
+      font-size: 18px;
+
+      font-weight: 900;
+
+      letter-spacing: .5px;
+
+      margin-bottom: 6px;
+    }
+
+    .product-detail-subtitle {
+      font-size: 13px;
+
+      font-weight: bold;
+
+      color: #ddd;
+
+      margin-bottom: 12px;
+    }
+
+    .product-arrivage {
+      display: inline-block;
+
+      margin-bottom: 14px;
+
+      padding: 7px 10px;
+
+      border-radius: 8px;
+
+      font-size: 11px;
+      font-weight: 900;
+
+      color: #ffd400;
+
+      background: rgba(255,212,0,.08);
+
+      border: 1px solid rgba(255,212,0,.35);
+    }
+
+
+    /* =========================
+       PRIX
+       3 EN HAUT
+       2 CENTRÉS EN BAS
+    ========================= */
+
+    .price-grid {
+      display: grid;
+
+      grid-template-columns: repeat(6, 1fr);
+
+      gap: 8px;
+
+      width: 100%;
+    }
+
+    .price-box {
+      grid-column: span 2;
+
+      padding: 10px 4px;
+
+      border-radius: 10px;
+
+      background: rgba(20,20,23,.95);
+
+      border: 1px solid rgba(225,6,6,.7);
+
+      box-shadow: 0 3px 10px rgba(0,0,0,.35);
+
+      text-align: center;
+    }
+
+    /* Les 2 dernières cases centrées */
+
+    .price-box:nth-child(4) {
+      grid-column: 2 / span 2;
+    }
+
+    .price-box:nth-child(5) {
+      grid-column: 4 / span 2;
+    }
+
+    .weight {
+      display: block;
+
+      font-size: 13px;
+
+      font-weight: 900;
+
+      color: white;
+
+      margin-bottom: 4px;
+    }
+
+    .price {
+      display: block;
+
+      font-size: 13px;
+
+      font-weight: 900;
+
+      color: #e10606;
+    }
 
 
     /* =========================
@@ -606,14 +724,17 @@
     }
 
 
-
     /* =========================
-       PAGE INFO
+       INFO
     ========================= */
+
+    #info.page {
+      min-height: calc(100vh - 75px);
+      padding: 15px 15px 0;
+    }
 
     .info-box {
       margin-top: 15px;
-      margin-bottom: 0;
 
       padding: 24px 18px;
 
@@ -696,7 +817,6 @@
     }
 
 
-
     /* =========================
        MENU BAS
     ========================= */
@@ -753,11 +873,9 @@
 </head>
 
 
-
 <body>
 
 <div class="app">
-
 
 
   <!-- =========================
@@ -787,15 +905,12 @@
     </div>
 
 
-
     <div class="hero-image">
       <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
     </div>
 
 
-
     <div class="separator"></div>
-
 
 
     <div class="categories">
@@ -813,7 +928,6 @@
       </div>
 
 
-
       <div class="category-card" onclick="showPage('weed')">
 
         <div class="category-image">
@@ -825,7 +939,6 @@
         </div>
 
       </div>
-
 
 
       <div class="category-card last" onclick="showPage('cake')">
@@ -843,7 +956,6 @@
     </div>
 
   </div>
-
 
 
   <!-- =========================
@@ -864,29 +976,42 @@
 
     </div>
 
+
     <button class="back-button hash-back"
             onclick="showPage('home')">
       ← RETOUR
     </button>
 
+
     <div class="category-line hash-line"></div>
+
+
+    <!-- LES 2 CASES COMME AVANT -->
 
     <div class="products-grid">
 
-      <div class="product-card hash-product">
+
+      <!-- PRODUIT 1 = MOUSSE CYTHO -->
+
+      <div class="product-card hash-product"
+           onclick="showPage('mousse-cytho')">
 
         <div class="product-image">
-          <span>+</span>
+
+          <img src="IMG_1515.jpeg"
+               alt="MOUSSE CYTHO">
+
         </div>
+
 
         <div class="product-info">
 
           <div class="product-name">
-            PRODUIT 1
+            MOUSSE CYTHO 🥭🍊
           </div>
 
           <div class="product-price">
-            À PARTIR DE XX €
+            À PARTIR DE 40 €
           </div>
 
           <button class="product-button">
@@ -898,12 +1023,14 @@
       </div>
 
 
+      <!-- PRODUIT 2 -->
 
       <div class="product-card hash-product">
 
         <div class="product-image">
           <span>+</span>
         </div>
+
 
         <div class="product-info">
 
@@ -927,6 +1054,97 @@
 
   </div>
 
+
+  <!-- =========================
+       PAGE PRODUIT
+       MOUSSE CYTHO
+  ========================= -->
+
+  <div id="mousse-cytho"
+       class="page product-detail-page">
+
+
+    <button class="back-button hash-back"
+            onclick="showPage('hash')">
+      ← RETOUR
+    </button>
+
+
+    <div class="product-detail-container">
+
+
+      <!-- PHOTO -->
+
+      <div class="product-detail-image">
+
+        <img src="IMG_1515.jpeg"
+             alt="MOUSSE CYTHO">
+
+      </div>
+
+
+      <!-- CARRÉ TEXTE -->
+
+      <div class="product-detail-box">
+
+
+        <div class="product-detail-title">
+          MOUSSE CYTHO 🥭🍊
+        </div>
+
+
+        <div class="product-detail-subtitle">
+          Super Mousseux 🧽
+        </div>
+
+
+        <div class="product-arrivage">
+          NEW ARRIVAGE : JAUNE
+        </div>
+
+
+        <!-- PRIX -->
+
+        <div class="price-grid">
+
+
+          <div class="price-box">
+            <span class="weight">10g</span>
+            <span class="price">40€</span>
+          </div>
+
+
+          <div class="price-box">
+            <span class="weight">20g</span>
+            <span class="price">70€</span>
+          </div>
+
+
+          <div class="price-box">
+            <span class="weight">30g</span>
+            <span class="price">100€</span>
+          </div>
+
+
+          <div class="price-box">
+            <span class="weight">50g</span>
+            <span class="price">140€</span>
+          </div>
+
+
+          <div class="price-box">
+            <span class="weight">100g</span>
+            <span class="price">260€</span>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 
   <!-- =========================
@@ -947,73 +1165,20 @@
 
     </div>
 
+
     <button class="back-button weed-back"
             onclick="showPage('home')">
       ← RETOUR
     </button>
 
+
     <div class="category-line weed-line"></div>
-
-    <div class="products-grid">
-
-      <div class="product-card weed-product">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 1
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button">
-            VOIR +
-          </button>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="product-card weed-product">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 2
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button">
-            VOIR +
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
 
   </div>
 
 
-
   <!-- =========================
-       C*KE
+       CAKE
   ========================= -->
 
   <div id="cake" class="page">
@@ -1030,69 +1195,16 @@
 
     </div>
 
+
     <button class="back-button cake-back"
             onclick="showPage('home')">
       ← RETOUR
     </button>
 
+
     <div class="category-line cake-line"></div>
 
-    <div class="products-grid">
-
-      <div class="product-card cake-product">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 1
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button">
-            VOIR +
-          </button>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="product-card cake-product">
-
-        <div class="product-image">
-          <span>+</span>
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-name">
-            PRODUIT 2
-          </div>
-
-          <div class="product-price">
-            À PARTIR DE XX €
-          </div>
-
-          <button class="product-button">
-            VOIR +
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
   </div>
-
 
 
   <!-- =========================
@@ -1118,7 +1230,6 @@
   </div>
 
 
-
   <!-- =========================
        INFO
   ========================= -->
@@ -1138,7 +1249,6 @@
       </div>
 
 
-
       <p>
 
         Livraison Express sur
@@ -1156,7 +1266,6 @@
       </p>
 
 
-
       <p>
 
         ⏱️ Prise de Commandes dès
@@ -1168,7 +1277,6 @@
         </span>
 
       </p>
-
 
 
       <p>
@@ -1187,8 +1295,6 @@
 
         <br>
 
-        <!-- MODIFICATION : LIEN DIRECT VERS TELEGRAM -->
-
         <a class="info-link"
            href="https://t.me/ChezLuffy33"
            target="_blank"
@@ -1201,23 +1307,17 @@
       </p>
 
 
-
       <div class="info-separator"></div>
 
 
-
       <div class="info-section-title">
-
         ⚡ DÉLAIS & CONSEILS :
-
       </div>
-
 
 
       <p>
 
-        •
-        <span class="info-white">
+        • <span class="info-white">
           Commande
         </span>
 
@@ -1229,16 +1329,14 @@
           minutieusement
         </span>
 
-        pour que le traitement de votre commande soit le plus fluide possible.
+        pour que le traitement soit fluide.
 
       </p>
 
 
-
       <p>
 
-        •
-        <span class="info-white">
+        • <span class="info-white">
           Livraison
         </span>
 
@@ -1255,17 +1353,12 @@
       </p>
 
 
-
       <div class="info-separator"></div>
 
 
-
       <div class="info-section-title">
-
         🔄 RETOURS & AVIS :
-
       </div>
-
 
 
       <p>
@@ -1277,7 +1370,6 @@
         votre commande dans le chat de retours
 
       </p>
-
 
 
       <a class="info-link"
@@ -1292,7 +1384,6 @@
     </div>
 
   </div>
-
 
 
   <!-- =========================
@@ -1314,12 +1405,12 @@
   </div>
 
 
-
   <!-- =========================
-       MENU DU BAS
+       MENU BAS
   ========================= -->
 
   <div class="bottom-menu">
+
 
     <button onclick="showPage('home')">
 
@@ -1330,7 +1421,6 @@
       Accueil
 
     </button>
-
 
 
     <button onclick="showPage('panier')">
@@ -1344,7 +1434,6 @@
     </button>
 
 
-
     <button onclick="showPage('info')">
 
       <span class="icon">
@@ -1354,7 +1443,6 @@
       Info
 
     </button>
-
 
 
     <button onclick="showPage('liens')">
@@ -1367,10 +1455,10 @@
 
     </button>
 
+
   </div>
 
 </div>
-
 
 
 <script>
@@ -1385,15 +1473,18 @@
 
       });
 
+
     document
       .getElementById(pageId)
       .classList.add('active');
+
 
     window.scrollTo(0, 0);
 
   }
 
 </script>
+
 
 </body>
 </html>
