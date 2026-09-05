@@ -3016,7 +3016,7 @@ function submitOrder() {
     document.getElementById('telegram').value.trim();
 
 
-  /* L'adresse est obligatoire en premier */
+  /* ADRESSE OBLIGATOIRE */
 
   if (!address) {
     alert("Entre ton adresse exacte.");
@@ -3025,8 +3025,7 @@ function submitOrder() {
 
 
   let total = 0;
-
-  const products = [];
+  let productsList = "";
 
 
   cart.forEach(function(item) {
@@ -3035,17 +3034,21 @@ function submitOrder() {
 
     total += subtotal;
 
-    products.push({
-      nom: item.name,
-      quantite: item.quantity,
-      nombre: item.count,
-      sous_total: subtotal.toFixed(2) + " €"
-    });
+
+    productsList +=
+      item.name +
+      " " +
+      item.count +
+      "x" +
+      item.quantity +
+      " = " +
+      subtotal.toFixed(2) +
+      "€\n";
 
   });
 
 
-  /* Envoi vers Make */
+  /* ENVOI VERS MAKE */
 
   fetch("https://hook.eu1.make.com/7hs6r7a8qmh99tq7c4avlpq7dkg82fcx", {
 
@@ -3057,7 +3060,7 @@ function submitOrder() {
 
     body: JSON.stringify({
 
-      produits: products,
+      produits: productsList,
 
       total: total.toFixed(2) + " €",
 
