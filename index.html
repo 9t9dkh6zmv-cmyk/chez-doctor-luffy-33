@@ -2150,107 +2150,763 @@
 
 <script>
 
-  let selectedQuantity = null;
-  let selectedPrice = null;
+  <script>
+
+/* =========================
+   PANIER
+========================= */
+
+let cart = [];
 
 
-  function showPage(pageId) {
+/* =========================
+   NAVIGATION
+========================= */
 
-    document
-      .querySelectorAll('.page, .home')
-      .forEach(function(page) {
+function showPage(pageId) {
 
-        page.classList.remove('active');
+  document
+    .querySelectorAll('.page, .home')
+    .forEach(function(page) {
 
-      });
+      page.classList.remove('active');
+
+    });
 
 
-    document
-      .getElementById(pageId)
-      .classList.add('active');
+  const targetPage = document.getElementById(pageId);
 
+
+  if (targetPage) {
+
+    targetPage.classList.add('active');
 
     window.scrollTo(0, 0);
 
   }
 
 
-  function selectQuantity(element, quantity, price) {
+  /* Affiche le panier quand on ouvre la page */
 
-    document
-      .querySelectorAll('.quantity-box')
-      .forEach(function(box) {
+  if (pageId === 'panier') {
 
-        box.classList.remove('selected');
+    renderCart();
 
-      });
+  }
 
-
-    element.classList.add('selected');
+}
 
 
-    selectedQuantity = quantity;
-    selectedPrice = price;
+/* =========================
+   SÉLECTION QUANTITÉ
+========================= */
+
+function selectQuantity(element, quantity, price) {
+
+  /* Trouve la fiche produit actuelle */
+
+  const detail =
+    element.closest('.product-detail');
+
+
+  if (!detail) return;
+
+
+  /* Désélectionne uniquement
+     les quantités de CE produit */
+
+  detail
+    .querySelectorAll('.quantity-box')
+    .forEach(function(box) {
+
+      box.classList.remove('selected');
+
+    });
+
+
+  /* Sélectionne la quantité */
+
+  element.classList.add('selected');
+
+
+  /* Sauvegarde le choix
+     directement sur la fiche */
+
+  detail.dataset.quantity = quantity;
+
+  detail.dataset.price = price;
+
+}
+
+
+/* =========================
+   AJOUT AU PANIER
+========================= */
+
+function addToCart(productName) {
+
+  /* Trouve la page actuellement ouverte */
+
+  const activePage =
+    document.querySelector('.page.active');
+
+
+  if (!activePage) {
+
+    alert("Erreur : produit introuvable.");
+
+    return;
 
   }
 
 
-  function addToCart(productName) {
-
-    if (!selectedQuantity) {
-
-      alert("Choisis d'abord une quantité.");
-
-      return;
-
-    }
+  const detail =
+    activePage.querySelector('.product-detail');
 
 
-    const cart = document.getElementById('cart-content');
+  if (!detail) {
+
+    alert("Erreur : fiche produit introuvable.");
+
+    return;
+
+  }
 
 
-    cart.innerHTML = `
-      <h2 style="text-align:center;">
-        TON PANIER 🛒
-      </h2>
+  const quantity =
+    detail.dataset.quantity;
+
+
+  const priceText =
+    detail.dataset.price;
+
+
+  /* Vérifie qu'une quantité est choisie */
+
+  if (!quantity || !priceText) {
+
+    alert("Choisis d'abord une quantité.");
+
+    return;
+
+  }
+
+
+  /* Transforme 60€ en nombre */
+
+  const price = Number(
+
+    priceText
+      .replace('€', '')
+      .replace(',', '.')
+
+  );
+
+
+  /* Vérifie si le même produit
+     avec la même quantité existe */
+
+  const existingItem =
+    cart.find(function(item) {
+
+      return (
+        item.name === productName &&
+        item.quantity === quantity
+      );
+
+    });
+
+
+  /* Si déjà présent → augmente */
+
+  if (existingItem) {
+
+    existingItem.count += 1;
+
+  }
+
+
+  /* Sinon → ajoute */
+
+  else {
+
+    cart.push({
+
+      name: productName,
+
+      quantity: quantity,
+
+      price: price,
+
+      count: 1
+
+    });
+
+  }
+
+
+  /* Sauvegarde */
+
+  saveCart();
+
+
+  /* Message ajouté */
+
+  showSuccess();
+
+}
+
+
+/* =========================
+   AFFICHAGE DU PANIER
+========================= */
+
+function renderCart() {
+
+  const container =
+    document.getElementById('cart-content');
+
+
+  if (!container) return;
+
+
+  /* =========================
+     PANIER VIDE
+  ========================= */
+
+  if (cart.length === 0) {
+
+    container.innerHTML = `
 
       <div style="
-        padding:15px;
-        border-radius:15px;
-        border:1px solid #e10606;
-        margin-top:15px;
+        text-align:center;
+        padding:30px 10px;
       ">
 
-        <strong>${productName}</strong>
+        <div style="
+          font-size:55px;
+          margin-bottom:15px;
+        ">
+          🛒
+        </div>
 
-        <br><br>
 
-        Quantité : ${selectedQuantity}
+        <h2>
+          TON PANIER EST VIDE
+        </h2>
 
-        <br>
 
-        Prix : ${selectedPrice}
+        <p style="opacity:.7;">
+
+          Les produits sélectionnés
+          apparaîtront ici.
+
+        </p>
 
       </div>
+
     `;
 
-
-    const successMessage =
-      document.getElementById('success-message');
-
-
-    successMessage.classList.add('show');
-
-
-    setTimeout(function() {
-
-      successMessage.classList.remove('show');
-
-    }, 1800);
+    return;
 
   }
+
+
+  /* =========================
+     PRODUITS
+  ========================= */
+
+  let total = 0;
+
+
+  let html = `
+
+    <h2 style="
+      text-align:center;
+      margin-top:0;
+      margin-bottom:20px;
+    ">
+      TON PANIER 🛒
+    </h2>
+
+  `;
+
+
+  cart.forEach(function(item, index) {
+
+
+    const subtotal =
+      item.price * item.count;
+
+
+    total += subtotal;
+
+
+    html += `
+
+      <div style="
+
+        padding:15px;
+
+        margin-bottom:15px;
+
+        border-radius:15px;
+
+        background:rgba(255,255,255,.04);
+
+        border:1px solid rgba(255,255,255,.15);
+
+      ">
+
+
+        <!-- NOM -->
+
+        <div style="
+
+          font-size:16px;
+
+          font-weight:bold;
+
+          margin-bottom:8px;
+
+        ">
+
+          ${item.name}
+
+        </div>
+
+
+        <!-- FORMAT -->
+
+        <div style="opacity:.8;">
+
+          Quantité choisie :
+          <strong>${item.quantity}</strong>
+
+        </div>
+
+
+        <!-- PRIX -->
+
+        <div style="
+
+          color:#e10606;
+
+          font-weight:bold;
+
+          margin-top:8px;
+
+        ">
+
+          ${item.price.toFixed(2)} €
+
+        </div>
+
+
+        <!-- BOUTONS -->
+
+        <div style="
+
+          display:flex;
+
+          align-items:center;
+
+          justify-content:space-between;
+
+          margin-top:15px;
+
+        ">
+
+
+          <div>
+
+
+            <!-- MOINS -->
+
+            <button
+
+              onclick="decreaseItem(${index})"
+
+              style="
+
+                width:38px;
+
+                height:38px;
+
+                border:none;
+
+                border-radius:10px;
+
+                background:#222;
+
+                color:white;
+
+                font-size:22px;
+
+              "
+
+            >
+
+              −
+
+            </button>
+
+
+            <!-- NOMBRE -->
+
+            <strong style="
+
+              display:inline-block;
+
+              width:40px;
+
+              text-align:center;
+
+            ">
+
+              ${item.count}
+
+            </strong>
+
+
+            <!-- PLUS -->
+
+            <button
+
+              onclick="increaseItem(${index})"
+
+              style="
+
+                width:38px;
+
+                height:38px;
+
+                border:none;
+
+                border-radius:10px;
+
+                background:#e10606;
+
+                color:white;
+
+                font-size:22px;
+
+              "
+
+            >
+
+              +
+
+            </button>
+
+
+          </div>
+
+
+          <!-- SOUS TOTAL -->
+
+          <strong style="font-size:17px;">
+
+            ${subtotal.toFixed(2)} €
+
+          </strong>
+
+
+        </div>
+
+
+        <!-- SUPPRIMER -->
+
+        <button
+
+          onclick="removeItem(${index})"
+
+          style="
+
+            width:100%;
+
+            margin-top:15px;
+
+            padding:10px;
+
+            border-radius:10px;
+
+            background:transparent;
+
+            color:#ff5555;
+
+            border:1px solid #ff5555;
+
+            font-weight:bold;
+
+          "
+
+        >
+
+          🗑️ SUPPRIMER
+
+        </button>
+
+
+      </div>
+
+    `;
+
+  });
+
+
+  /* =========================
+     TOTAL
+  ========================= */
+
+  html += `
+
+    <div style="
+
+      padding:18px;
+
+      margin-top:20px;
+
+      border-radius:15px;
+
+      border:1px solid #e10606;
+
+    ">
+
+
+      <div style="
+
+        display:flex;
+
+        justify-content:space-between;
+
+        align-items:center;
+
+        font-size:20px;
+
+        font-weight:bold;
+
+      ">
+
+
+        <span>
+
+          TOTAL
+
+        </span>
+
+
+        <span style="color:#e10606;">
+
+          ${total.toFixed(2)} €
+
+        </span>
+
+
+      </div>
+
+
+      <!-- VIDER -->
+
+      <button
+
+        onclick="clearCart()"
+
+        style="
+
+          width:100%;
+
+          margin-top:18px;
+
+          padding:14px;
+
+          border-radius:12px;
+
+          background:transparent;
+
+          color:white;
+
+          border:1px solid #777;
+
+          font-weight:bold;
+
+        "
+
+      >
+
+        🗑️ VIDER LE PANIER
+
+      </button>
+
+
+    </div>
+
+  `;
+
+
+  container.innerHTML = html;
+
+}
+
+
+/* =========================
+   AUGMENTER
+========================= */
+
+function increaseItem(index) {
+
+  cart[index].count += 1;
+
+  saveCart();
+
+  renderCart();
+
+}
+
+
+/* =========================
+   DIMINUER
+========================= */
+
+function decreaseItem(index) {
+
+  cart[index].count -= 1;
+
+
+  /* Si quantité = 0 → supprime */
+
+  if (cart[index].count <= 0) {
+
+    cart.splice(index, 1);
+
+  }
+
+
+  saveCart();
+
+  renderCart();
+
+}
+
+
+/* =========================
+   SUPPRIMER
+========================= */
+
+function removeItem(index) {
+
+  cart.splice(index, 1);
+
+  saveCart();
+
+  renderCart();
+
+}
+
+
+/* =========================
+   VIDER LE PANIER
+========================= */
+
+function clearCart() {
+
+  cart = [];
+
+  saveCart();
+
+  renderCart();
+
+}
+
+
+/* =========================
+   SAUVEGARDE
+========================= */
+
+function saveCart() {
+
+  localStorage.setItem(
+
+    'chezLuffyCart',
+
+    JSON.stringify(cart)
+
+  );
+
+}
+
+
+/* =========================
+   CHARGEMENT
+========================= */
+
+function loadCart() {
+
+  const savedCart =
+    localStorage.getItem('chezLuffyCart');
+
+
+  if (!savedCart) return;
+
+
+  try {
+
+    cart = JSON.parse(savedCart);
+
+  }
+
+
+  catch (error) {
+
+    cart = [];
+
+  }
+
+}
+
+
+/* =========================
+   MESSAGE AJOUTÉ
+========================= */
+
+function showSuccess() {
+
+  const successMessage =
+    document.getElementById('success-message');
+
+
+  if (!successMessage) return;
+
+
+  successMessage.classList.add('show');
+
+
+  setTimeout(function() {
+
+    successMessage.classList.remove('show');
+
+  }, 1800);
+
+}
+
+
+/* =========================
+   DÉMARRAGE
+========================= */
+
+document.addEventListener(
+
+  'DOMContentLoaded',
+
+  function() {
+
+    loadCart();
+
+  }
+
+);
 
 </script>
 
-</body>
-</html>
+  </body> 
+  </html>
