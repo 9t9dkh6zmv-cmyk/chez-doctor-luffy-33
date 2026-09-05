@@ -2708,75 +2708,27 @@ function renderCart() {
 
 <div style="
   margin-top:25px;
-  padding-top:20px;
+  padding-top:25px;
   border-top:1px solid rgba(255,255,255,.15);
 ">
 
   <h3 style="
     margin-top:0;
-    margin-bottom:20px;
+    margin-bottom:25px;
     text-align:center;
-    font-size:18px;
+    font-size:19px;
   ">
-    📋 INFORMATIONS DE COMMANDE
+    📋📝 FORMULAIRE À REMPLIR
   </h3>
 
 
-  <label style="
-    display:block;
-    margin-bottom:8px;
-    font-weight:bold;
-  ">
-    ⏰ Heure souhaitée
-  </label>
-
-  <input
-    type="time"
-    id="order-time"
-    style="
-      width:100%;
-      box-sizing:border-box;
-      padding:15px;
-      margin-bottom:18px;
-      border-radius:12px;
-      border:1px solid #555;
-      background:#111;
-      color:white;
-      font-size:16px;
-    "
-  >
-
+  <!-- ADRESSE EXACTE -->
 
   <label style="
     display:block;
-    margin-bottom:8px;
+    margin-bottom:10px;
     font-weight:bold;
-  ">
-    📲 Pseudo Telegram
-  </label>
-
-  <input
-    type="text"
-    id="telegram"
-    placeholder="@tonpseudo"
-    style="
-      width:100%;
-      box-sizing:border-box;
-      padding:15px;
-      margin-bottom:18px;
-      border-radius:12px;
-      border:1px solid #555;
-      background:#111;
-      color:white;
-      font-size:16px;
-    "
-  >
-
-
-  <label style="
-    display:block;
-    margin-bottom:8px;
-    font-weight:bold;
+    font-size:16px;
   ">
     📍 Adresse exacte
   </label>
@@ -2789,7 +2741,7 @@ function renderCart() {
       min-height:100px;
       box-sizing:border-box;
       padding:15px;
-      margin-bottom:20px;
+      margin-bottom:25px;
       border-radius:12px;
       border:1px solid #555;
       background:#111;
@@ -2800,11 +2752,70 @@ function renderCart() {
   ></textarea>
 
 
+  <!-- HORAIRE SOUHAITÉ -->
+
+  <label style="
+    display:block;
+    margin-bottom:10px;
+    font-weight:bold;
+    font-size:16px;
+  ">
+    ⏰ Horaire souhaité
+  </label>
+
+  <input
+    type="time"
+    id="order-time"
+    style="
+      width:100%;
+      box-sizing:border-box;
+      padding:15px;
+      margin-bottom:25px;
+      border-radius:12px;
+      border:1px solid #555;
+      background:#111;
+      color:white;
+      font-size:16px;
+    "
+  >
+
+
+  <!-- PSEUDO TELEGRAM -->
+
+  <label style="
+    display:block;
+    margin-bottom:10px;
+    font-weight:bold;
+    font-size:16px;
+  ">
+    📲 Pseudo Telegram
+  </label>
+
+  <input
+    type="text"
+    id="telegram"
+    placeholder="@tonpseudo"
+    style="
+      width:100%;
+      box-sizing:border-box;
+      padding:15px;
+      margin-bottom:25px;
+      border-radius:12px;
+      border:1px solid #555;
+      background:#111;
+      color:white;
+      font-size:16px;
+    "
+  >
+
+
+  <!-- VALIDER -->
+
   <button
     onclick="submitOrder()"
     style="
       width:100%;
-      padding:16px;
+      padding:17px;
       border:none;
       border-radius:12px;
       background:#e10606;
@@ -2817,7 +2828,7 @@ function renderCart() {
   </button>
 
 
-  <!-- OPTION POUR VIDER LE PANIER -->
+  <!-- VIDER LE PANIER -->
 
   <button
     onclick="clearCart()"
@@ -2830,6 +2841,12 @@ function renderCart() {
       color:#aaa;
       border:1px solid #444;
       font-weight:bold;
+    "
+  >
+    🗑️ VIDER LE PANIER
+  </button>
+
+</div>
     "
   >
     🗑️ VIDER LE PANIER
