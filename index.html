@@ -2887,145 +2887,141 @@ function showSuccess() {
 
 }
 
-<!-- FORMULAIRE DE COMMANDE -->
+/* =========================
+   VALIDATION COMMANDE
+========================= */
 
-<div style="
-  margin-top:25px;
-  padding-top:20px;
-  border-top:1px solid rgba(255,255,255,.15);
-">
+function submitOrder() {
 
-  <h3 style="
-    margin-top:0;
-    text-align:center;
-    font-size:18px;
-  ">
-    📋 INFORMATIONS DE COMMANDE
-  </h3>
+  if (cart.length === 0) {
+
+    alert("Ton panier est vide.");
+
+    return;
+
+  }
 
 
-  <!-- HEURE -->
+  const orderTime =
+    document.getElementById('order-time').value;
 
-  <label style="
-    display:block;
-    margin-bottom:8px;
-    font-weight:bold;
-  ">
-    ⏰ Heure souhaitée
-  </label>
+  const telegram =
+    document.getElementById('telegram').value.trim();
 
-  <input
-    type="time"
-    id="order-time"
-    style="
-      width:100%;
-      box-sizing:border-box;
-      padding:15px;
-      margin-bottom:18px;
-      border-radius:12px;
-      border:1px solid #555;
-      background:#111;
-      color:white;
-      font-size:16px;
-    "
-  >
+  const address =
+    document.getElementById('address').value.trim();
 
 
-  <!-- TELEGRAM -->
+  if (!orderTime) {
 
-  <label style="
-    display:block;
-    margin-bottom:8px;
-    font-weight:bold;
-  ">
-    📲 Pseudo Telegram
-  </label>
+    alert("Choisis une heure souhaitée.");
 
-  <input
-    type="text"
-    id="telegram"
-    placeholder="@tonpseudo"
-    style="
-      width:100%;
-      box-sizing:border-box;
-      padding:15px;
-      margin-bottom:18px;
-      border-radius:12px;
-      border:1px solid #555;
-      background:#111;
-      color:white;
-      font-size:16px;
-    "
-  >
+    return;
+
+  }
 
 
-  <!-- ADRESSE -->
+  if (!telegram) {
 
-  <label style="
-    display:block;
-    margin-bottom:8px;
-    font-weight:bold;
-  ">
-    📍 Adresse exacte
-  </label>
+    alert("Entre ton pseudo Telegram.");
 
-  <textarea
-    id="address"
-    placeholder="Numéro, rue, bâtiment, étage, code..."
-    style="
-      width:100%;
-      min-height:100px;
-      box-sizing:border-box;
-      padding:15px;
-      margin-bottom:20px;
-      border-radius:12px;
-      border:1px solid #555;
-      background:#111;
-      color:white;
-      font-size:16px;
-      resize:none;
-    "
-  ></textarea>
+    return;
+
+  }
 
 
-  <!-- BOUTON -->
+  if (!address) {
 
-  <button
-    onclick="submitOrder()"
-    style="
-      width:100%;
-      padding:16px;
-      border:none;
-      border-radius:12px;
-      background:#e10606;
-      color:white;
-      font-size:16px;
-      font-weight:bold;
-    "
-  >
-    📩 VALIDER LA COMMANDE
-  </button>
+    alert("Entre ton adresse exacte.");
+
+    return;
+
+  }
 
 
-  <!-- VIDER -->
+  let total = 0;
 
-  <button
-    onclick="clearCart()"
-    style="
-      width:100%;
-      margin-top:15px;
-      padding:12px;
-      border-radius:12px;
-      background:transparent;
-      color:#aaa;
-      border:1px solid #444;
-      font-weight:bold;
-    "
-  >
-    🗑️ VIDER LE PANIER
-  </button>
+  let productsList = "";
 
-</div>
+
+  cart.forEach(function(item) {
+
+    const subtotal =
+      item.price * item.count;
+
+    total += subtotal;
+
+
+    productsList +=
+      "• " + item.name + "\n" +
+      "Quantité : " + item.quantity +
+      " × " + item.count + "\n" +
+      "Sous-total : " +
+      subtotal.toFixed(2) +
+      " €\n\n";
+
+  });
+
+
+  const orderSummary =
+
+    "📦 NOUVELLE COMMANDE\n\n" +
+
+    "🛒 PRODUITS :\n\n" +
+
+    productsList +
+
+    "━━━━━━━━━━━━━━\n\n" +
+
+    "💰 TOTAL : " +
+
+    total.toFixed(2) +
+
+    " €\n\n" +
+
+    "⏰ HEURE SOUHAITÉE : " +
+
+    orderTime +
+
+    "\n\n" +
+
+    "📲 TELEGRAM : " +
+
+    telegram +
+
+    "\n\n" +
+
+    "📍 ADRESSE :\n" +
+
+    address;
+
+
+  console.log(orderSummary);
+
+
+  alert(
+
+    "✅ COMMANDE VALIDÉE !\n\n" +
+
+    "💰 Total : " +
+
+    total.toFixed(2) +
+
+    " €\n\n" +
+
+    "⏰ Heure : " +
+
+    orderTime +
+
+    "\n\n" +
+
+    "📲 Telegram : " +
+
+    telegram
+
+  );
+
+}
   
 /* =========================
    DÉMARRAGE
