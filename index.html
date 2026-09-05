@@ -1580,7 +1580,7 @@
 
 
           <div class="quantity-box"
-               onclick="selectQuantity(this, '10g', '60€')">
+               onclick="selectQuantity(this, '10g', '40€')">
 
             <div class="quantity-weight">
               10g
@@ -1594,7 +1594,7 @@
 
 
           <div class="quantity-box"
-               onclick="selectQuantity(this, '20g', '110€')">
+               onclick="selectQuantity(this, '20g', '70€')">
 
             <div class="quantity-weight">
               20g
@@ -1608,7 +1608,7 @@
 
 
           <div class="quantity-box"
-               onclick="selectQuantity(this, '30g', '160€')">
+               onclick="selectQuantity(this, '30g', '100€')">
 
             <div class="quantity-weight">
               30g
@@ -1622,7 +1622,7 @@
 
 
           <div class="quantity-box"
-               onclick="selectQuantity(this, '50g', '220€')">
+               onclick="selectQuantity(this, '50g', '140€')">
 
             <div class="quantity-weight">
               50g
@@ -1636,7 +1636,7 @@
 
 
           <div class="quantity-box"
-               onclick="selectQuantity(this, '100g', '420€')">
+               onclick="selectQuantity(this, '100g', '260€')">
 
             <div class="quantity-weight">
               100g
@@ -1790,7 +1790,7 @@
     <div class="quantity-grid">
 
   <div class="quantity-box"
-       onclick="selectQuantity(this, '1g', '60€')">
+       onclick="selectQuantity(this, '10g', '60€')">
 
     <div class="quantity-weight">
       1g
@@ -1804,7 +1804,7 @@
 
 
   <div class="quantity-box"
-       onclick="selectQuantity(this, '2g', '110€')">
+       onclick="selectQuantity(this, '20g', '110€')">
 
     <div class="quantity-weight">
       2g
@@ -1818,7 +1818,7 @@
 
 
   <div class="quantity-box"
-       onclick="selectQuantity(this, '3g', '160€')">
+       onclick="selectQuantity(this, '30g', '160€')">
 
     <div class="quantity-weight">
       3g
@@ -1832,7 +1832,7 @@
 
 
   <div class="quantity-box"
-       onclick="selectQuantity(this, '5g', '220€')">
+       onclick="selectQuantity(this, '50g', '220€')">
 
     <div class="quantity-weight">
       5g
@@ -1846,7 +1846,7 @@
 
 
   <div class="quantity-box"
-       onclick="selectQuantity(this, '10g', '420€')">
+       onclick="selectQuantity(this, '100g', '420€')">
 
     <div class="quantity-weight">
       10g
@@ -1873,537 +1873,382 @@
 
 </div>
       
-<script>
+  <!-- =========================
+       PANIER
+  ========================= -->
 
-/* =========================
-   PANIER
-========================= */
+  <div id="panier" class="page">
 
-let cart = [];
+    <h1>🛒 PANIER</h1>
 
+    <div class="page-box" id="cart-content">
 
-/* =========================
-   NAVIGATION
-========================= */
+      <p>
+        Ton panier est actuellement vide.
+      </p>
 
-function showPage(pageId) {
-
-  document.querySelectorAll('.home, .page').forEach(function(page) {
-    page.classList.remove('active');
-  });
-
-  const target = document.getElementById(pageId);
-
-  if (target) {
-    target.classList.add('active');
-    window.scrollTo(0, 0);
-  }
-
-  if (pageId === 'panier') {
-    renderCart();
-  }
-
-}
-
-
-/* =========================
-   SÉLECTION D'UNE VARIANTE
-========================= */
-
-function selectQuantity(element, quantity, price) {
-
-  const detail = element.closest('.product-detail');
-
-  if (!detail) return;
-
-  detail.querySelectorAll('.quantity-box').forEach(function(box) {
-    box.classList.remove('selected');
-  });
-
-  element.classList.add('selected');
-
-  /* On stocke la sélection uniquement
-     sur cette fiche produit */
-
-  detail.dataset.selectedQuantity = quantity;
-  detail.dataset.selectedPrice = price;
-
-}
-
-
-/* =========================
-   AJOUTER AU PANIER
-========================= */
-
-function addToCart(productName) {
-
-  const activePage = document.querySelector('.page.active');
-
-  if (!activePage) {
-    return;
-  }
-
-  const detail = activePage.querySelector('.product-detail');
-
-  if (!detail) {
-    return;
-  }
-
-  const quantity = detail.dataset.selectedQuantity;
-  const priceText = detail.dataset.selectedPrice;
-
-  if (!quantity || !priceText) {
-
-    alert("Choisis d'abord une quantité.");
-
-    return;
-
-  }
-
-
-  const price = Number(
-    priceText.replace('€', '').replace(',', '.')
-  );
-
-
-  /* Vérifie si le produit existe déjà */
-
-  const existingItem = cart.find(function(item) {
-
-    return (
-      item.name === productName &&
-      item.quantity === quantity
-    );
-
-  });
-
-
-  if (existingItem) {
-
-    existingItem.count += 1;
-
-  } else {
-
-    cart.push({
-      name: productName,
-      quantity: quantity,
-      price: price,
-      count: 1
-    });
-
-  }
-
-
-  saveCart();
-
-  updateCartCount();
-
-  showSuccess();
-
-}
-
-
-/* =========================
-   AFFICHER LE PANIER
-========================= */
-
-function renderCart() {
-
-  const container =
-    document.getElementById('cart-content');
-
-  if (!container) return;
-
-
-  /* PANIER VIDE */
-
-  if (cart.length === 0) {
-
-    container.innerHTML = `
-      <div style="text-align:center;padding:30px 10px;">
-
-        <div style="font-size:55px;">
-          🛒
-        </div>
-
-        <h2 style="margin-bottom:10px;">
-          TON PANIER EST VIDE
-        </h2>
-
-        <p style="opacity:.7;">
-          Les produits ajoutés apparaîtront ici.
-        </p>
-
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  let total = 0;
-
-  let html = `
-    <h2 style="
-      text-align:center;
-      margin-top:0;
-      margin-bottom:20px;
-    ">
-      TON PANIER 🛒
-    </h2>
-  `;
-
-
-  cart.forEach(function(item, index) {
-
-    const subtotal =
-      item.price * item.count;
-
-    total += subtotal;
-
-
-    html += `
-
-      <div style="
-        padding:15px;
-        margin-bottom:12px;
-        border-radius:15px;
-        background:rgba(255,255,255,.04);
-        border:1px solid rgba(255,255,255,.15);
-      ">
-
-        <div style="
-          font-weight:bold;
-          font-size:16px;
-          margin-bottom:8px;
-        ">
-          ${item.name}
-        </div>
-
-
-        <div style="opacity:.8;">
-          Format : ${item.quantity}
-        </div>
-
-
-        <div style="
-          color:#e10606;
-          font-weight:bold;
-          margin:8px 0;
-        ">
-          ${item.price.toFixed(2)} €
-        </div>
-
-
-        <div style="
-          display:flex;
-          align-items:center;
-          justify-content:space-between;
-          margin-top:12px;
-        ">
-
-          <div>
-
-            <button
-              onclick="decreaseItem(${index})"
-              style="
-                width:35px;
-                height:35px;
-                border:none;
-                border-radius:10px;
-                font-size:20px;
-                background:#222;
-                color:white;
-              "
-            >
-              −
-            </button>
-
-
-            <strong style="
-              display:inline-block;
-              width:35px;
-              text-align:center;
-            ">
-              ${item.count}
-            </strong>
-
-
-            <button
-              onclick="increaseItem(${index})"
-              style="
-                width:35px;
-                height:35px;
-                border:none;
-                border-radius:10px;
-                font-size:20px;
-                background:#e10606;
-                color:white;
-              "
-            >
-              +
-            </button>
-
-          </div>
-
-
-          <strong style="font-size:16px;">
-            ${subtotal.toFixed(2)} €
-          </strong>
-
-        </div>
-
-
-        <button
-          onclick="removeItem(${index})"
-          style="
-            width:100%;
-            margin-top:12px;
-            padding:10px;
-            border:none;
-            border-radius:10px;
-            background:transparent;
-            color:#ff5555;
-            border:1px solid #ff5555;
-          "
-        >
-          🗑️ SUPPRIMER
-        </button>
-
-      </div>
-
-    `;
-
-  });
-
-
-  html += `
-
-    <div style="
-      margin-top:20px;
-      padding:18px;
-      border-radius:15px;
-      border:1px solid #e10606;
-    ">
-
-      <div style="
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        font-size:20px;
-        font-weight:bold;
-      ">
-
-        <span>TOTAL</span>
-
-        <span style="color:#e10606;">
-          ${total.toFixed(2)} €
-        </span>
-
-      </div>
-
-
-      <button
-        onclick="clearCart()"
-        style="
-          width:100%;
-          margin-top:18px;
-          padding:14px;
-          border-radius:12px;
-          border:1px solid #666;
-          background:transparent;
-          color:white;
-          font-weight:bold;
-        "
-      >
-        🗑️ VIDER LE PANIER
-      </button>
+      <p>
+        Les produits sélectionnés apparaîtront ici.
+      </p>
 
     </div>
 
-  `;
+  </div>
 
 
-  container.innerHTML = html;
+  <!-- =========================
+       INFO
+  ========================= -->
 
-}
+  <div id="info" class="page">
+
+    <div class="info-box">
+
+      <div class="info-title">
+
+        Bienvenue
+
+        <span class="info-red">
+          CHEZ LUFFY 33
+        </span>
+
+        ☠️
+
+      </div>
 
 
-/* =========================
-   AUGMENTER
-========================= */
+      <p>
 
-function increaseItem(index) {
+        Livraison Express sur
 
-  cart[index].count += 1;
+        <span class="info-red">
+          Bordeaux & alentours
+        </span>
 
-  saveCart();
+        -
 
-  updateCartCount();
+        <span class="info-red">
+          7J/7 de 12h à 00h
+        </span>
 
-  renderCart();
-
-}
+      </p>
 
 
-/* =========================
-   DIMINUER
-========================= */
+      <p>
 
-function decreaseItem(index) {
+        ⏱️ Prise de Commandes dès
 
-  cart[index].count -= 1;
+        <br>
 
-  if (cart[index].count <= 0) {
-    cart.splice(index, 1);
+        <span class="info-red">
+          10h du matin jusqu'à 00h
+        </span>
+
+      </p>
+
+
+      <p>
+
+        📲 Commandes & Contact
+
+        <br>
+
+        exclusivement via
+
+        <span class="info-red">
+          Telegram
+        </span>
+
+        :
+
+        <br>
+
+        <a class="info-link"
+           href="https://t.me/ChezLuffy33"
+           target="_blank"
+           rel="noopener">
+
+          @CHEZLUFFY33
+
+        </a>
+
+      </p>
+
+
+      <div class="info-separator"></div>
+
+
+      <div class="info-section-title">
+        ⚡ DÉLAIS & CONSEILS :
+      </div>
+
+
+      <p>
+
+        •
+
+        <span class="info-white">
+          Commande
+        </span>
+
+        :
+
+        remplissez le formulaire
+
+        <span class="info-red">
+          minutieusement
+        </span>
+
+        pour que le traitement de votre commande soit le plus fluide possible.
+
+      </p>
+
+
+      <p>
+
+        •
+
+        <span class="info-white">
+          Livraison
+        </span>
+
+        :
+
+        privilégiez les commandes
+
+        <span class="info-red">
+          avant 13h
+        </span>
+
+        pour être dans les premiers.
+
+      </p>
+
+
+      <div class="info-separator"></div>
+
+
+      <div class="info-section-title">
+        🔄 RETOURS & AVIS :
+      </div>
+
+
+      <p>
+
+        📸 N’hésitez pas à poster une photo de
+
+        <br>
+
+        votre commande dans le chat de retours
+
+      </p>
+
+
+      <a class="info-link"
+         href="https://t.me/+J4xj67WNkWczZjQ0"
+         target="_blank"
+         rel="noopener">
+
+        ACCÉDER AU CHAT
+
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       LIENS
+  ========================= -->
+
+  <div id="liens" class="page">
+
+    <h1>🔗 LIENS</h1>
+
+    <div class="page-box">
+
+      <p>
+        Tous les liens importants apparaîtront ici.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       MENU DU BAS
+  ========================= -->
+
+  <div class="bottom-menu">
+
+    <button onclick="showPage('home')">
+
+      <span class="icon">
+        🏠
+      </span>
+
+      Accueil
+
+    </button>
+
+
+    <button onclick="showPage('panier')">
+
+      <span class="icon">
+        🛒
+      </span>
+
+      Panier
+
+    </button>
+
+
+    <button onclick="showPage('info')">
+
+      <span class="icon">
+        ℹ️
+      </span>
+
+      Info
+
+    </button>
+
+
+    <button onclick="showPage('liens')">
+
+      <span class="icon">
+        🔗
+      </span>
+
+      Liens
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     MESSAGE VALIDATION
+========================= -->
+
+<div id="success-message" class="success-message">
+
+  <div class="success-icon">
+    ✓
+  </div>
+
+  <div class="success-text">
+    AJOUTÉ AU PANIER
+  </div>
+
+</div>
+
+
+<script>
+
+  let selectedQuantity = null;
+  let selectedPrice = null;
+
+
+  function showPage(pageId) {
+
+    document
+      .querySelectorAll('.page, .home')
+      .forEach(function(page) {
+
+        page.classList.remove('active');
+
+      });
+
+
+    document
+      .getElementById(pageId)
+      .classList.add('active');
+
+
+    window.scrollTo(0, 0);
+
   }
 
-  saveCart();
 
-  updateCartCount();
+  function selectQuantity(element, quantity, price) {
 
-  renderCart();
+    document
+      .querySelectorAll('.quantity-box')
+      .forEach(function(box) {
 
-}
+        box.classList.remove('selected');
 
-
-/* =========================
-   SUPPRIMER
-========================= */
-
-function removeItem(index) {
-
-  cart.splice(index, 1);
-
-  saveCart();
-
-  updateCartCount();
-
-  renderCart();
-
-}
+      });
 
 
-/* =========================
-   VIDER LE PANIER
-========================= */
-
-function clearCart() {
-
-  cart = [];
-
-  saveCart();
-
-  updateCartCount();
-
-  renderCart();
-
-}
+    element.classList.add('selected');
 
 
-/* =========================
-   SAUVEGARDE
-========================= */
-
-function saveCart() {
-
-  localStorage.setItem(
-    'chezLuffyCart',
-    JSON.stringify(cart)
-  );
-
-}
-
-
-/* =========================
-   CHARGEMENT
-========================= */
-
-function loadCart() {
-
-  const savedCart =
-    localStorage.getItem('chezLuffyCart');
-
-  if (!savedCart) return;
-
-
-  try {
-
-    cart = JSON.parse(savedCart);
-
-  } catch (error) {
-
-    cart = [];
+    selectedQuantity = quantity;
+    selectedPrice = price;
 
   }
 
-}
+
+  function addToCart(productName) {
+
+    if (!selectedQuantity) {
+
+      alert("Choisis d'abord une quantité.");
+
+      return;
+
+    }
 
 
-/* =========================
-   COMPTEUR PANIER
-========================= */
-
-function updateCartCount() {
-
-  const badge =
-    document.getElementById('cart-count');
-
-  if (!badge) return;
+    const cart = document.getElementById('cart-content');
 
 
-  let count = 0;
+    cart.innerHTML = `
+      <h2 style="text-align:center;">
+        TON PANIER 🛒
+      </h2>
 
-  cart.forEach(function(item) {
-    count += item.count;
-  });
+      <div style="
+        padding:15px;
+        border-radius:15px;
+        border:1px solid #e10606;
+        margin-top:15px;
+      ">
 
+        <strong>${productName}</strong>
 
-  badge.textContent = count;
+        <br><br>
 
-  badge.style.display =
-    count > 0 ? 'inline-flex' : 'none';
+        Quantité : ${selectedQuantity}
 
-}
+        <br>
 
+        Prix : ${selectedPrice}
 
-/* =========================
-   MESSAGE AJOUTÉ
-========================= */
-
-function showSuccess() {
-
-  const success =
-    document.getElementById('success-message');
-
-  if (!success) return;
-
-  success.classList.add('show');
+      </div>
+    `;
 
 
-  setTimeout(function() {
-
-    success.classList.remove('show');
-
-  }, 1800);
-
-}
+    const successMessage =
+      document.getElementById('success-message');
 
 
-/* =========================
-   DÉMARRAGE
-========================= */
+    successMessage.classList.add('show');
 
-document.addEventListener('DOMContentLoaded', function() {
 
-  loadCart();
+    setTimeout(function() {
 
-  updateCartCount();
+      successMessage.classList.remove('show');
 
-  showPage('home');
+    }, 1800);
 
-});
+  }
 
 </script>
 
