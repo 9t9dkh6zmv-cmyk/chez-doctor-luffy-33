@@ -2887,7 +2887,146 @@ function showSuccess() {
 
 }
 
+<!-- FORMULAIRE DE COMMANDE -->
 
+<div style="
+  margin-top:25px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.15);
+">
+
+  <h3 style="
+    margin-top:0;
+    text-align:center;
+    font-size:18px;
+  ">
+    📋 INFORMATIONS DE COMMANDE
+  </h3>
+
+
+  <!-- HEURE -->
+
+  <label style="
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+  ">
+    ⏰ Heure souhaitée
+  </label>
+
+  <input
+    type="time"
+    id="order-time"
+    style="
+      width:100%;
+      box-sizing:border-box;
+      padding:15px;
+      margin-bottom:18px;
+      border-radius:12px;
+      border:1px solid #555;
+      background:#111;
+      color:white;
+      font-size:16px;
+    "
+  >
+
+
+  <!-- TELEGRAM -->
+
+  <label style="
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+  ">
+    📲 Pseudo Telegram
+  </label>
+
+  <input
+    type="text"
+    id="telegram"
+    placeholder="@tonpseudo"
+    style="
+      width:100%;
+      box-sizing:border-box;
+      padding:15px;
+      margin-bottom:18px;
+      border-radius:12px;
+      border:1px solid #555;
+      background:#111;
+      color:white;
+      font-size:16px;
+    "
+  >
+
+
+  <!-- ADRESSE -->
+
+  <label style="
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+  ">
+    📍 Adresse exacte
+  </label>
+
+  <textarea
+    id="address"
+    placeholder="Numéro, rue, bâtiment, étage, code..."
+    style="
+      width:100%;
+      min-height:100px;
+      box-sizing:border-box;
+      padding:15px;
+      margin-bottom:20px;
+      border-radius:12px;
+      border:1px solid #555;
+      background:#111;
+      color:white;
+      font-size:16px;
+      resize:none;
+    "
+  ></textarea>
+
+
+  <!-- BOUTON -->
+
+  <button
+    onclick="submitOrder()"
+    style="
+      width:100%;
+      padding:16px;
+      border:none;
+      border-radius:12px;
+      background:#e10606;
+      color:white;
+      font-size:16px;
+      font-weight:bold;
+    "
+  >
+    📩 VALIDER LA COMMANDE
+  </button>
+
+
+  <!-- VIDER -->
+
+  <button
+    onclick="clearCart()"
+    style="
+      width:100%;
+      margin-top:15px;
+      padding:12px;
+      border-radius:12px;
+      background:transparent;
+      color:#aaa;
+      border:1px solid #444;
+      font-weight:bold;
+    "
+  >
+    🗑️ VIDER LE PANIER
+  </button>
+
+</div>
+  
 /* =========================
    DÉMARRAGE
 ========================= */
