@@ -1693,35 +1693,144 @@
 
     <div class="products-grid">
 
+ <!-- PREMIER PRODUIT -->
+
       <div class="product-card cake-product">
 
         <div class="product-image">
-          <span>+</span>
+          <img src="E739498C-34F5-47ED-A52D-92DC1A263E1B.jpeg" alt="ECAILLE 0.9 ❄️">
         </div>
 
         <div class="product-info">
+      
+    <div class="product-name">
+      ÉCAILLE 0.9 ❄️
+    </div>
 
-          <div class="product-name">
-            ÉCAILLE 0.9 ❄️
+    <div class="product-price">
+      À PARTIR DE 60 €
+    </div>
+
+   <button class="product-button"
+        onclick="showPage('ecaille')">
+  VOIR +
+</button>
+
+  </div>
+
+</div>
+
+      <!-- =========================
+     PAGE PRODUIT ÉCAILLE
+========================= -->
+
+<div id="ecaille" class="page">
+
+  <div class="product-detail cake-detail">
+
+    <button class="product-detail-back"
+            onclick="showPage('cake')">
+      ← RETOUR
+    </button>
+
+
+    <div class="product-detail-card">
+
+      <!-- IMAGE PRODUIT -->
+
+      <img src="TON-IMAGE.jpeg"
+           alt="ÉCAILLE 0.9 ❄️"
+           class="detail-product-photo">
+
+
+      <!-- NOM -->
+
+      <h1 class="detail-product-name">
+        ÉCAILLE 0.9 ❄️
+      </h1>
+
+
+      <!-- DESCRIPTION -->
+
+      <div class="detail-description">
+        DESCRIPTION DU PRODUIT
+      </div>
+
+
+      <!-- TEXTE -->
+
+      <div class="arrival-box">
+
+        TON TEXTE DE DESCRIPTION ICI
+
+      </div>
+
+
+      <!-- QUANTITÉS -->
+
+      <div class="quantity-title">
+        QUANTITÉS DISPONIBLES
+      </div>
+
+
+      <div class="quantity-grid">
+
+        <div class="quantity-box"
+             onclick="selectQuantity(this, '10g', '60€')">
+
+          <div class="quantity-weight">
+            10g
           </div>
 
-          <div class="product-price">
-            À PARTIR DE 60 €
+          <div class="quantity-price">
+            60€
           </div>
 
-          <button class="product-button">
-            VOIR +
-          </button>
+        </div>
+
+
+        <div class="quantity-box"
+             onclick="selectQuantity(this, '20g', '110€')">
+
+          <div class="quantity-weight">
+            20g
+          </div>
+
+          <div class="quantity-price">
+            110€
+          </div>
+
+        </div>
+
+
+        <div class="quantity-box"
+             onclick="selectQuantity(this, '30g', '160€')">
+
+          <div class="quantity-weight">
+            30g
+          </div>
+
+          <div class="quantity-price">
+            160€
+          </div>
 
         </div>
 
       </div>
 
+
+      <button class="add-cart-button"
+              onclick="addToCart('ÉCAILLE 0.9 ❄️')">
+        AJOUTER AU PANIER
+      </button>
+
+
     </div>
 
   </div>
 
-
+</div>
+      
   <!-- =========================
        PANIER
   ========================= -->
