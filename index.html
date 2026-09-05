@@ -3022,32 +3022,31 @@ function submitOrder() {
     document.getElementById('address').value.trim();
 
 
-  if (!orderTime) {
-
-    alert("Choisis une heure souhaitée.");
-
-    return;
-
-  }
-
-
-  if (!telegram) {
-
-    alert("Entre ton pseudo Telegram.");
-
-    return;
-
-  }
-
-
   if (!address) {
 
-    alert("Entre ton adresse exacte.");
+  alert("Entre ton adresse exacte.");
 
-    return;
+  return;
 
-  }
+}
 
+
+if (!orderTime) {
+
+  alert("Choisis une heure souhaitée.");
+
+  return;
+
+}
+
+
+if (!telegram) {
+
+  alert("Entre ton pseudo Telegram.");
+
+  return;
+
+}
 
   let total = 0;
 
