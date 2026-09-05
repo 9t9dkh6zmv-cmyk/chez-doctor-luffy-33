@@ -1665,62 +1665,71 @@
 
   <!-- =========================
        CAKE
-  ========================= -->
+========================= -->
 
-  <div id="cake" class="page">
+<div id="cake" class="page">
 
-    <div class="category-top">
+  <div class="category-top">
 
-      <h1 class="category-page-title cake-title">
-        C*KE
-      </h1>
+    <h1 class="category-page-title cake-title">
+      C*KE
+    </h1>
 
-      <div class="category-logo">
-        <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+    <div class="category-logo">
+      <img src="IMG_1527.jpeg" alt="CHEZ LUFFY 33">
+    </div>
+
+  </div>
+
+
+  <button class="back-button cake-back"
+          onclick="showPage('home')">
+    ← RETOUR
+  </button>
+
+
+  <div class="category-line cake-line"></div>
+
+
+  <div class="products-grid">
+
+    <!-- PREMIER PRODUIT -->
+
+    <div class="product-card cake-product">
+
+      <div class="product-image">
+        <img src="E739498C-34F5-47ED-A52D-92DC1A263E1B.jpeg"
+             alt="ÉCAILLE 0.9 ❄️">
+      </div>
+
+
+      <div class="product-info">
+
+        <div class="product-name">
+          ÉCAILLE 0.9 ❄️
+        </div>
+
+
+        <div class="product-price">
+          À PARTIR DE 60 €
+        </div>
+
+
+        <button class="product-button"
+                onclick="showPage('ecaille')">
+          VOIR +
+        </button>
+
       </div>
 
     </div>
-
-
-    <button class="back-button cake-back"
-            onclick="showPage('home')">
-      ← RETOUR
-    </button>
-
-
-    <div class="category-line cake-line"></div>
-
-
-    <div class="products-grid">
-
- <!-- PREMIER PRODUIT -->
-
-      <div class="product-card cake-product">
-
-        <div class="product-image">
-          <img src="E739498C-34F5-47ED-A52D-92DC1A263E1B.jpeg" alt="ECAILLE 0.9 ❄️">
-        </div>
-
-        <div class="product-info">
-      
-    <div class="product-name">
-      ÉCAILLE 0.9 ❄️
-    </div>
-
-    <div class="product-price">
-      À PARTIR DE 60 €
-    </div>
-
-   <button class="product-button"
-        onclick="showPage('ecaille')">
-  VOIR +
-</button>
 
   </div>
 
 </div>
 
-      <!-- =========================
+
+<!-- =========================
      PAGE PRODUIT ÉCAILLE
 ========================= -->
 
@@ -1736,9 +1745,10 @@
 
     <div class="product-detail-card">
 
+
       <!-- IMAGE PRODUIT -->
 
-      <img src="TON-IMAGE.jpeg"
+      <img src="E739498C-34F5-47ED-A52D-92DC1A263E1B.jpeg"
            alt="ÉCAILLE 0.9 ❄️"
            class="detail-product-photo">
 
@@ -1774,6 +1784,7 @@
 
 
       <div class="quantity-grid">
+
 
         <div class="quantity-box"
              onclick="selectQuantity(this, '10g', '60€')">
@@ -1815,6 +1826,7 @@
           </div>
 
         </div>
+
 
       </div>
 
