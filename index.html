@@ -3002,13 +3002,12 @@ function showSuccess() {
 function submitOrder() {
 
   if (cart.length === 0) {
-
     alert("Ton panier est vide.");
-
     return;
-
   }
 
+  const address =
+    document.getElementById('address').value.trim();
 
   const orderTime =
     document.getElementById('order-time').value;
@@ -3016,96 +3015,81 @@ function submitOrder() {
   const telegram =
     document.getElementById('telegram').value.trim();
 
-  const address =
-    document.getElementById('address').value.trim();
 
+  /* L'adresse est obligatoire en premier */
 
   if (!address) {
+    alert("Entre ton adresse exacte.");
+    return;
+  }
 
-  alert("Entre ton adresse exacte.");
-
-  return;
-
-}
-
-
-if (!orderTime) {
-
-  alert("Choisis une heure souhaitée.");
-
-  return;
-
-}
-
-
-if (!telegram) {
-
-  alert("Entre ton pseudo Telegram.");
-
-  return;
-
-}
 
   let total = 0;
 
-  let productsList = "";
+  const products = [];
 
 
   cart.forEach(function(item) {
 
-    const subtotal =
-      item.price * item.count;
+    const subtotal = item.price * item.count;
 
     total += subtotal;
 
-
-    productsList +=
-      "• " + item.name + "\n" +
-      "Quantité : " + item.quantity +
-      " × " + item.count + "\n" +
-      "Sous-total : " +
-      subtotal.toFixed(2) +
-      " €\n\n";
+    products.push({
+      nom: item.name,
+      quantite: item.quantity,
+      nombre: item.count,
+      sous_total: subtotal.toFixed(2) + " €"
+    });
 
   });
 
 
-  const orderSummary =
+  /* Envoi vers Make */
 
-    "📦 NOUVELLE COMMANDE\n\n" +
+  fetch("https://hook.eu1.make.com/7hs6r7a8qmh99tq7c4avlpq7dkg82fcx", {
 
-    "🛒 PRODUITS :\n\n" +
+    method: "POST",
 
-    productsList +
+    headers: {
+      "Content-Type": "application/json"
+    },
 
-    "━━━━━━━━━━━━━━\n\n" +
+    body: JSON.stringify({
 
-    "💰 TOTAL : " +
+      produits: products,
 
-    total.toFixed(2) +
+      total: total.toFixed(2) + " €",
 
-    " €\n\n" +
+      adresse: address,
 
-    "⏰ HEURE SOUHAITÉE : " +
+      horaire: orderTime || "Non renseigné",
 
-    orderTime +
+      telegram: telegram || "Non renseigné"
 
-    "\n\n" +
+    })
 
-    "📲 TELEGRAM : " +
+  })
 
-    telegram +
+  .then(function() {
 
-    "\n\n" +
+    alert("✅ COMMANDE ENVOYÉE !");
 
-    "📍 ADRESSE :\n" +
+    cart = [];
 
-    address;
+    saveCart();
 
- const message = encodeURIComponent(orderSummary);
+    renderCart();
 
-window.location.href =
-  "https://t.me/chezluffy33" + message;
+  })
+
+  .catch(function(error) {
+
+    console.error(error);
+
+    alert("❌ Erreur lors de l'envoi de la commande.");
+
+  });
 
 }
   
