@@ -41,14 +41,20 @@
     ========================= */
 
     .home {
-      display: none;
-      padding: 0 15px 20px;
-    }
+  display: none;
+}
 
-    .home.active {
-      display: block;
-    }
+.home.active {
+  display: block;
+}
 
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
 
     /* =========================
        BANDE DÉFILANTE
@@ -1786,7 +1792,7 @@
       <!-- DESCRIPTION -->
 
       <div class="detail-description">
-        0.97% de Pureté 🌡️
+        0.
       </div>
 
 
@@ -1794,8 +1800,7 @@
 
       <div class="arrival-box">
 
-        𝖨𝖣𝖤́𝖠𝖫 𝖯𝖮𝖴𝖱 𝖳𝖠𝖯𝖤𝖴𝖱 👃 
-        𝖨𝖣𝖤́𝖠𝖫 𝖯𝖮𝖴𝖱 𝖥𝖴𝖬𝖤𝖴𝖱 🚬
+         🚬
 
       </div>
 
@@ -2170,107 +2175,126 @@
 
 <script>
 
-  let selectedQuantity = null;
-  let selectedPrice = null;
+let selectedQuantity = null;
+let selectedPrice = null;
 
 
-  function showPage(pageId) {
+/* =========================
+   CHANGEMENT DE PAGE
+========================= */
 
-    document
-      .querySelectorAll('.page, .home')
-      .forEach(function(page) {
+function showPage(pageId) {
 
-        page.classList.remove('active');
+  // Cache toutes les pages
+  document.querySelectorAll('.page, .home').forEach(function(page) {
+    page.classList.remove('active');
+  });
 
-      });
+  // Affiche la page demandée
+  const targetPage = document.getElementById(pageId);
 
-
-    document
-      .getElementById(pageId)
-      .classList.add('active');
-
-
+  if (targetPage) {
+    targetPage.classList.add('active');
     window.scrollTo(0, 0);
+  } else {
+    console.error("Page introuvable :", pageId);
+  }
 
+}
+
+
+/* =========================
+   SÉLECTION QUANTITÉ
+========================= */
+
+function selectQuantity(element, quantity, price) {
+
+  // Trouve uniquement la fiche produit actuelle
+  const detail = element.closest('.product-detail');
+
+  // Désélectionne les autres quantités
+  if (detail) {
+    detail.querySelectorAll('.quantity-box').forEach(function(box) {
+      box.classList.remove('selected');
+    });
+  }
+
+  // Sélectionne celle cliquée
+  element.classList.add('selected');
+
+  selectedQuantity = quantity;
+  selectedPrice = price;
+
+}
+
+
+/* =========================
+   AJOUT AU PANIER
+========================= */
+
+function addToCart(productName) {
+
+  if (!selectedQuantity || !selectedPrice) {
+
+    alert("Choisis d'abord une quantité.");
+
+    return;
   }
 
 
-  function selectQuantity(element, quantity, price) {
-
-    document
-      .querySelectorAll('.quantity-box')
-      .forEach(function(box) {
-
-        box.classList.remove('selected');
-
-      });
+  const cart = document.getElementById('cart-content');
 
 
-    element.classList.add('selected');
+  cart.innerHTML = `
+
+    <h2 style="text-align:center; margin-top:0;">
+      TON PANIER 🛒
+    </h2>
+
+    <div style="
+      padding:15px;
+      border-radius:15px;
+      border:1px solid #e10606;
+      margin-top:15px;
+    ">
+
+      <strong>${productName}</strong>
+
+      <br><br>
+
+      Quantité : ${selectedQuantity}
+
+      <br><br>
+
+      Prix : ${selectedPrice}
+
+    </div>
+
+  `;
 
 
-    selectedQuantity = quantity;
-    selectedPrice = price;
-
-  }
+  const successMessage =
+    document.getElementById('success-message');
 
 
-  function addToCart(productName) {
-
-    if (!selectedQuantity) {
-
-      alert("Choisis d'abord une quantité.");
-
-      return;
-
-    }
+  successMessage.classList.add('show');
 
 
-    const cart = document.getElementById('cart-content');
+  setTimeout(function() {
+    successMessage.classList.remove('show');
+  }, 1800);
+
+}
 
 
-    cart.innerHTML = `
-      <h2 style="text-align:center;">
-        TON PANIER 🛒
-      </h2>
+/* =========================
+   DÉMARRAGE
+========================= */
 
-      <div style="
-        padding:15px;
-        border-radius:15px;
-        border:1px solid #e10606;
-        margin-top:15px;
-      ">
+document.addEventListener('DOMContentLoaded', function() {
 
-        <strong>${productName}</strong>
+  showPage('home');
 
-        <br><br>
-
-        Quantité : ${selectedQuantity}
-
-        <br>
-
-        Prix : ${selectedPrice}
-
-      </div>
-    `;
-
-
-    const successMessage =
-      document.getElementById('success-message');
-
-
-    successMessage.classList.add('show');
-
-
-    setTimeout(function() {
-
-      successMessage.classList.remove('show');
-
-    }, 1800);
-
-  }
+});
 
 </script>
-
-</body>
-</html>
