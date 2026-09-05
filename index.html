@@ -3102,31 +3102,10 @@ if (!telegram) {
 
     address;
 
+ const message = encodeURIComponent(orderSummary);
 
-  console.log(orderSummary);
-
-
-  alert(
-
-    "✅ COMMANDE VALIDÉE !\n\n" +
-
-    "💰 Total : " +
-
-    total.toFixed(2) +
-
-    " €\n\n" +
-
-    "⏰ Heure : " +
-
-    orderTime +
-
-    "\n\n" +
-
-    "📲 Telegram : " +
-
-    telegram
-
-  );
+window.location.href =
+  "https://t.me/chezluffy33" + message;
 
 }
   
