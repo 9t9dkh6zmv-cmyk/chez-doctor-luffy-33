@@ -213,7 +213,13 @@
       grid-column: span 2;
       aspect-ratio: 2 / 1;
     }
-
+.category-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+    
+.category-image span {
 
     /* =========================
        PAGES
@@ -1044,50 +1050,53 @@
     <div class="separator"></div>
 
 
-    <div class="categories">
+  <div class="categories">
 
-      <div class="category-card" onclick="showPage('hash')">
+  <!-- HASH -->
 
-        <div class="category-image">
-          <span>+</span>
-        </div>
+  <div class="category-card" onclick="showPage('hash')">
 
-        <div class="category-title">
-          HASH
-        </div>
+    <div class="category-image">
+      <img src="94069AD1-AF4E-4493-9906-DCEDD3BB52FA.jpeg" alt="HASH">
+    </div>
 
-      </div>
-
-
-      <div class="category-card" onclick="showPage('weed')">
-
-        <div class="category-image">
-          <span>+</span>
-        </div>
-
-        <div class="category-title">
-          WEED
-        </div>
-
-      </div>
-
-
-      <div class="category-card last" onclick="showPage('cake')">
-
-        <div class="category-image">
-          <span>+</span>
-        </div>
-
-        <div class="category-title">
-          C*KE
-        </div>
-
-      </div>
-
+    <div class="category-title">
+      HASH
     </div>
 
   </div>
 
+
+  <!-- WEED -->
+
+  <div class="category-card" onclick="showPage('weed')">
+
+    <div class="category-image">
+      <img src="EE17AE7F-862B-4EE4-935F-2658CE8C51F5.jpeg" alt="WEED">
+    </div>
+
+    <div class="category-title">
+      WEED
+    </div>
+
+  </div>
+
+
+  <!-- CAKE -->
+
+  <div class="category-card last" onclick="showPage('cake')">
+
+    <div class="category-image">
+      <img src="188DC943-F1B2-47D9-9BC0-C3DB6C914E98.jpeg" alt="C*KE">
+    </div>
+
+    <div class="category-title">
+      C*KE
+    </div>
+
+  </div>
+
+</div>
 
   <!-- =========================
        HASH
