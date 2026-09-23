@@ -2284,6 +2284,7 @@
 ========================= */
 
 let cart = [];
+let deliveryMode = "";
 
 
 /* =========================
@@ -2300,9 +2301,8 @@ function showPage(pageId) {
 
     });
 
-
-  const targetPage = document.getElementById(pageId);
-
+  const targetPage =
+    document.getElementById(pageId);
 
   if (targetPage) {
 
@@ -2311,7 +2311,6 @@ function showPage(pageId) {
     window.scrollTo(0, 0);
 
   }
-
 
   /* Affiche le panier quand on ouvre la page */
 
@@ -2330,17 +2329,10 @@ function showPage(pageId) {
 
 function selectQuantity(element, quantity, price) {
 
-  /* Trouve la fiche produit actuelle */
-
   const detail =
     element.closest('.product-detail');
 
-
   if (!detail) return;
-
-
-  /* Désélectionne uniquement
-     les quantités de CE produit */
 
   detail
     .querySelectorAll('.quantity-box')
@@ -2350,14 +2342,7 @@ function selectQuantity(element, quantity, price) {
 
     });
 
-
-  /* Sélectionne la quantité */
-
   element.classList.add('selected');
-
-
-  /* Sauvegarde le choix
-     directement sur la fiche */
 
   detail.dataset.quantity = quantity;
 
@@ -2372,11 +2357,8 @@ function selectQuantity(element, quantity, price) {
 
 function addToCart(productName) {
 
-  /* Trouve la page actuellement ouverte */
-
   const activePage =
     document.querySelector('.page.active');
-
 
   if (!activePage) {
 
@@ -2386,10 +2368,8 @@ function addToCart(productName) {
 
   }
 
-
   const detail =
     activePage.querySelector('.product-detail');
-
 
   if (!detail) {
 
@@ -2399,16 +2379,11 @@ function addToCart(productName) {
 
   }
 
-
   const quantity =
     detail.dataset.quantity;
 
-
   const priceText =
     detail.dataset.price;
-
-
-  /* Vérifie qu'une quantité est choisie */
 
   if (!quantity || !priceText) {
 
@@ -2418,20 +2393,11 @@ function addToCart(productName) {
 
   }
 
-
-  /* Transforme 60€ en nombre */
-
   const price = Number(
-
     priceText
       .replace('€', '')
       .replace(',', '.')
-
   );
-
-
-  /* Vérifie si le même produit
-     avec la même quantité existe */
 
   const existingItem =
     cart.find(function(item) {
@@ -2443,17 +2409,11 @@ function addToCart(productName) {
 
     });
 
-
-  /* Si déjà présent → augmente */
-
   if (existingItem) {
 
     existingItem.count += 1;
 
   }
-
-
-  /* Sinon → ajoute */
 
   else {
 
@@ -2471,13 +2431,7 @@ function addToCart(productName) {
 
   }
 
-
-  /* Sauvegarde */
-
   saveCart();
-
-
-  /* Message ajouté */
 
   showSuccess();
 
@@ -2493,7 +2447,6 @@ function renderCart() {
   const container =
     document.getElementById('cart-content');
 
-
   if (!container) return;
 
 
@@ -2507,7 +2460,7 @@ function renderCart() {
 
       <div style="
         text-align:center;
-        padding:30px 10px;
+        padding:40px 15px;
       ">
 
         <div style="
@@ -2517,17 +2470,15 @@ function renderCart() {
           🛒
         </div>
 
-
         <h2>
           TON PANIER EST VIDE
         </h2>
 
-
-        <p style="opacity:.7;">
-
-          Les produits sélectionnés
-          apparaîtront ici.
-
+        <p style="
+          opacity:.7;
+          margin-top:10px;
+        ">
+          Les produits sélectionnés apparaîtront ici.
         </p>
 
       </div>
@@ -2545,7 +2496,6 @@ function renderCart() {
 
   let total = 0;
 
-
   let html = `
 
     <h2 style="
@@ -2561,10 +2511,8 @@ function renderCart() {
 
   cart.forEach(function(item, index) {
 
-
     const subtotal =
       item.price * item.count;
-
 
     total += subtotal;
 
@@ -2608,7 +2556,10 @@ function renderCart() {
         <div style="opacity:.8;">
 
           Quantité choisie :
-          <strong>${item.quantity}</strong>
+
+          <strong>
+            ${item.quantity}
+          </strong>
 
         </div>
 
@@ -2732,7 +2683,9 @@ function renderCart() {
 
           <!-- SOUS TOTAL -->
 
-          <strong style="font-size:17px;">
+          <strong style="
+            font-size:17px;
+          ">
 
             ${subtotal.toFixed(2)} €
 
@@ -2794,12 +2747,16 @@ function renderCart() {
 
       margin-top:20px;
 
-      border-radius:15px;
+      border-radius:18px;
 
       border:1px solid #e10606;
 
+      background:rgba(0,0,0,.45);
+
     ">
 
+
+      <!-- TOTAL -->
 
       <div style="
 
@@ -2813,171 +2770,432 @@ function renderCart() {
 
         font-weight:bold;
 
+        padding:5px 0 20px;
+
       ">
 
-
         <span>
-
-          TOTAL
-
+          TOTAL :
         </span>
 
-
-        <span style="color:#e10606;">
+        <span style="
+          color:#e10606;
+        ">
 
           ${total.toFixed(2)} €
 
         </span>
 
+      </div>
+
+
+      <!-- =========================
+           MODE DE RÉCUPÉRATION
+      ========================= -->
+
+      <div style="
+
+        margin-top:5px;
+
+        padding:22px 15px;
+
+        border-radius:18px;
+
+        border:1px solid rgba(225,6,6,.65);
+
+        background:rgba(20,20,20,.75);
+
+      ">
+
+
+        <h3 style="
+
+          margin:0 0 20px;
+
+          text-align:center;
+
+          font-size:19px;
+
+        ">
+
+          Comment veux-tu récupérer ta commande ?
+
+        </h3>
+
+
+        <!-- BOUTONS -->
+
+        <div style="
+
+          display:flex;
+
+          gap:10px;
+
+        ">
+
+
+          <!-- MEET-UP -->
+
+          <button
+
+            type="button"
+
+            id="meetup-button"
+
+            onclick="selectDeliveryMode('meetup')"
+
+            style="
+
+              flex:1;
+
+              min-height:70px;
+
+              border-radius:15px;
+
+              border:2px solid #444;
+
+              background:#181818;
+
+              color:white;
+
+              font-size:17px;
+
+              font-weight:bold;
+
+            "
+
+          >
+
+            🤝 Meet-Up
+
+          </button>
+
+
+          <!-- LIVRAISON -->
+
+          <button
+
+            type="button"
+
+            id="delivery-button"
+
+            onclick="selectDeliveryMode('delivery')"
+
+            style="
+
+              flex:1;
+
+              min-height:70px;
+
+              border-radius:15px;
+
+              border:2px solid #444;
+
+              background:#181818;
+
+              color:white;
+
+              font-size:17px;
+
+              font-weight:bold;
+
+            "
+
+          >
+
+            🚚 Livraison
+
+          </button>
+
+
+        </div>
+
+
+        <!-- =========================
+             OPTIONS
+        ========================= -->
+
+        <div
+
+          id="order-options"
+
+          style="
+            display:none;
+            margin-top:22px;
+          "
+
+        >
+
+
+          <!-- ADRESSE -->
+
+          <div
+
+            id="address-container"
+
+            style="
+              display:none;
+            "
+
+          >
+
+            <label style="
+
+              display:block;
+
+              margin-bottom:9px;
+
+              font-weight:bold;
+
+              font-size:16px;
+
+            ">
+
+              🏠 Adresse de livraison
+
+            </label>
+
+
+            <textarea
+
+              id="address"
+
+              placeholder="Ex : 12 rue ..., 33000 Bordeaux"
+
+              style="
+
+                width:100%;
+
+                min-height:105px;
+
+                box-sizing:border-box;
+
+                padding:15px;
+
+                margin-bottom:20px;
+
+                border-radius:14px;
+
+                border:1px solid #555;
+
+                background:#111;
+
+                color:white;
+
+                font-size:16px;
+
+                resize:none;
+
+              "
+
+            ></textarea>
+
+
+          </div>
+
+
+          <!-- HEURE -->
+
+          <label style="
+
+            display:block;
+
+            margin-bottom:9px;
+
+            font-weight:bold;
+
+            font-size:16px;
+
+          ">
+
+            ⏰ Heure souhaitée
+
+          </label>
+
+
+          <input
+
+            type="time"
+
+            id="order-time"
+
+            style="
+
+              width:100%;
+
+              box-sizing:border-box;
+
+              padding:14px;
+
+              margin-bottom:20px;
+
+              border-radius:14px;
+
+              border:1px solid #555;
+
+              background:#111;
+
+              color:white;
+
+              font-size:16px;
+
+            "
+
+          >
+
+
+          <!-- TELEGRAM -->
+
+          <label style="
+
+            display:block;
+
+            margin-bottom:9px;
+
+            font-weight:bold;
+
+            font-size:16px;
+
+          ">
+
+            📲 Pseudo Telegram
+
+          </label>
+
+
+          <input
+
+            type="text"
+
+            id="telegram"
+
+            placeholder="@tonpseudo"
+
+            style="
+
+              width:100%;
+
+              box-sizing:border-box;
+
+              padding:14px;
+
+              margin-bottom:20px;
+
+              border-radius:14px;
+
+              border:1px solid #555;
+
+              background:#111;
+
+              color:white;
+
+              font-size:16px;
+
+            "
+
+          >
+
+
+          <!-- MESSAGE -->
+
+          <div
+
+            id="order-help"
+
+            style="
+
+              text-align:center;
+
+              color:#ff8b8b;
+
+              font-size:15px;
+
+              margin:2px 0 18px;
+
+            "
+
+          >
+
+          </div>
+
+
+          <!-- COMMANDER -->
+
+          <button
+
+            type="button"
+
+            onclick="submitOrder()"
+
+            style="
+
+              width:100%;
+
+              padding:17px;
+
+              border:none;
+
+              border-radius:14px;
+
+              background:#e10606;
+
+              color:white;
+
+              font-size:18px;
+
+              font-weight:bold;
+
+              box-shadow:0 4px 15px rgba(225,6,6,.25);
+
+            "
+
+          >
+
+            📩 COMMANDER
+
+          </button>
+
+
+        </div>
+
 
       </div>
 
 
- <!-- FORMULAIRE DE COMMANDE -->
-
-<div style="
-  margin-top:25px;
-  padding-top:25px;
-  border-top:1px solid rgba(255,255,255,.15);
-">
-
-  <h3 style="
-    margin-top:0;
-    margin-bottom:25px;
-    text-align:center;
-    font-size:19px;
-  ">
-    📋 FORMULAIRE À REMPLIR
-  </h3>
-
-
-  <!-- ADRESSE EXACTE -->
-
-  <label style="
-    display:block;
-    margin-bottom:10px;
-    font-weight:bold;
-    font-size:16px;
-  ">
-    📍 Adresse exacte
-  </label>
-
-  <textarea
-    id="address"
-    placeholder="Numéro, rue, bâtiment, étage, code..."
-    style="
-      width:100%;
-      min-height:100px;
-      box-sizing:border-box;
-      padding:15px;
-      margin-bottom:25px;
-      border-radius:12px;
-      border:1px solid #555;
-      background:#111;
-      color:white;
-      font-size:16px;
-      resize:none;
-    "
-  ></textarea>
-
-
-  <!-- HORAIRE SOUHAITÉ -->
-
-  <label style="
-    display:block;
-    margin-bottom:10px;
-    font-weight:bold;
-    font-size:16px;
-  ">
-    ⏰ Horaire souhaité
-  </label>
-
-  <input
-    type="time"
-    id="order-time"
-    style="
-      width:100%;
-      box-sizing:border-box;
-      padding:15px;
-      margin-bottom:25px;
-      border-radius:12px;
-      border:1px solid #555;
-      background:#111;
-      color:white;
-      font-size:16px;
-    "
-  >
-
-
-  <!-- PSEUDO TELEGRAM -->
-
-  <label style="
-    display:block;
-    margin-bottom:10px;
-    font-weight:bold;
-    font-size:16px;
-  ">
-    📲 Pseudo Telegram
-  </label>
-
-  <input
-    type="text"
-    id="telegram"
-    placeholder="@tonpseudo"
-    style="
-      width:100%;
-      box-sizing:border-box;
-      padding:15px;
-      margin-bottom:25px;
-      border-radius:12px;
-      border:1px solid #555;
-      background:#111;
-      color:white;
-      font-size:16px;
-    "
-  >
-
-
-  <!-- VALIDER -->
-
-  <button
-    onclick="submitOrder()"
-    style="
-      width:100%;
-      padding:17px;
-      border:none;
-      border-radius:12px;
-      background:#e10606;
-      color:white;
-      font-size:16px;
-      font-weight:bold;
-    "
-  >
-    📩 VALIDER LA COMMANDE
-  </button>
-
-
-        <!-- VIDER LE PANIER -->
+      <!-- VIDER LE PANIER -->
 
       <button
+
         onclick="clearCart()"
+
         style="
+
           width:100%;
+
           margin-top:15px;
-          padding:12px;
+
+          padding:13px;
+
           border-radius:12px;
+
           background:transparent;
+
           color:#aaa;
+
           border:1px solid #444;
+
           font-weight:bold;
+
         "
+
       >
+
         🗑️ VIDER LE PANIER
+
       </button>
 
-    </div>
 
-  </div>
+    </div>
 
   `;
 
@@ -2985,6 +3203,113 @@ function renderCart() {
   container.innerHTML = html;
 
 }
+
+
+/* =========================
+   MODE DE RÉCUPÉRATION
+========================= */
+
+function selectDeliveryMode(mode) {
+
+  deliveryMode = mode;
+
+
+  const meetupButton =
+    document.getElementById('meetup-button');
+
+  const deliveryButton =
+    document.getElementById('delivery-button');
+
+  const options =
+    document.getElementById('order-options');
+
+  const addressContainer =
+    document.getElementById('address-container');
+
+  const help =
+    document.getElementById('order-help');
+
+
+  if (
+    !meetupButton ||
+    !deliveryButton ||
+    !options
+  ) {
+
+    return;
+
+  }
+
+
+  /* STYLE NORMAL */
+
+  meetupButton.style.background =
+    "#181818";
+
+  meetupButton.style.borderColor =
+    "#444";
+
+
+  deliveryButton.style.background =
+    "#181818";
+
+  deliveryButton.style.borderColor =
+    "#444";
+
+
+  /* AFFICHAGE */
+
+  options.style.display =
+    "block";
+
+
+  /* =========================
+     MEET-UP
+  ========================= */
+
+  if (mode === "meetup") {
+
+    meetupButton.style.background =
+      "linear-gradient(135deg, #a00000, #e10606)";
+
+    meetupButton.style.borderColor =
+      "#ff5555";
+
+
+    addressContainer.style.display =
+      "none";
+
+
+    help.textContent =
+      "Choisis l'heure souhaitée pour ton Meet-Up.";
+
+  }
+
+
+  /* =========================
+     LIVRAISON
+  ========================= */
+
+  if (mode === "delivery") {
+
+    deliveryButton.style.background =
+      "linear-gradient(135deg, #a00000, #e10606)";
+
+    deliveryButton.style.borderColor =
+      "#ff5555";
+
+
+    addressContainer.style.display =
+      "block";
+
+
+    help.textContent =
+      "Renseigne ton adresse de livraison.";
+
+  }
+
+}
+
 
 /* =========================
    AUGMENTER
@@ -3049,6 +3374,8 @@ function clearCart() {
 
   cart = [];
 
+  deliveryMode = "";
+
   saveCart();
 
   renderCart();
@@ -3092,7 +3419,6 @@ function loadCart() {
 
   }
 
-
   catch (error) {
 
     cart = [];
@@ -3126,6 +3452,7 @@ function showSuccess() {
 
 }
 
+
 /* =========================
    VALIDATION COMMANDE
 ========================= */
@@ -3133,35 +3460,87 @@ function showSuccess() {
 function submitOrder() {
 
   if (cart.length === 0) {
+
     alert("Ton panier est vide.");
+
     return;
+
   }
+
+
+  /* CHOIX OBLIGATOIRE */
+
+  if (!deliveryMode) {
+
+    alert(
+      "Choisis d'abord Meet-Up ou Livraison."
+    );
+
+    return;
+
+  }
+
+
+  const addressElement =
+    document.getElementById('address');
+
+  const timeElement =
+    document.getElementById('order-time');
+
+  const telegramElement =
+    document.getElementById('telegram');
+
 
   const address =
-    document.getElementById('address').value.trim();
+    addressElement
+      ? addressElement.value.trim()
+      : "";
+
 
   const orderTime =
-    document.getElementById('order-time').value;
+    timeElement
+      ? timeElement.value
+      : "";
+
 
   const telegram =
-    document.getElementById('telegram').value.trim();
+    telegramElement
+      ? telegramElement.value.trim()
+      : "";
 
 
-  /* ADRESSE OBLIGATOIRE */
+  /* =========================
+     ADRESSE OBLIGATOIRE
+     UNIQUEMENT LIVRAISON
+  ========================= */
 
-  if (!address) {
-    alert("Entre ton adresse exacte.");
+  if (
+    deliveryMode === "delivery" &&
+    !address
+  ) {
+
+    alert(
+      "Entre ton adresse de livraison."
+    );
+
     return;
+
   }
 
 
+  /* =========================
+     PRODUITS
+  ========================= */
+
   let total = 0;
+
   let productsList = "";
 
 
   cart.forEach(function(item) {
 
-    const subtotal = item.price * item.count;
+    const subtotal =
+      item.price * item.count;
 
     total += subtotal;
 
@@ -3179,37 +3558,66 @@ function submitOrder() {
   });
 
 
-  /* ENVOI VERS MAKE */
+  /* =========================
+     ENVOI VERS MAKE
+  ========================= */
 
-  fetch("https://hook.eu1.make.com/7hs6r7a8qmh99tq7c4avlpq7dkg82fcx", {
+  fetch(
+    "https://hook.eu1.make.com/7hs6r7a8qmh99tq7c4avlpq7dkg82fcx",
+    {
 
-    method: "POST",
+      method: "POST",
 
-    headers: {
-      "Content-Type": "application/json"
-    },
+      headers: {
 
-    body: JSON.stringify({
+        "Content-Type":
+          "application/json"
 
-      produits: productsList,
+      },
 
-      total: total.toFixed(2) + " €",
+      body: JSON.stringify({
 
-      adresse: address,
+        produits:
+          productsList,
 
-      horaire: orderTime || "Non renseigné",
+        total:
+          total.toFixed(2) + " €",
 
-      telegram: telegram || "Non renseigné"
+        mode_recuperation:
+          deliveryMode === "delivery"
+            ? "Livraison"
+            : "Meet-Up",
 
-    })
+        adresse:
+          deliveryMode === "delivery"
+            ? address
+            : "Meet-Up",
 
-  })
+        horaire:
+          orderTime ||
+          "Non renseigné",
+
+        telegram:
+          telegram ||
+          "Non renseigné"
+
+      })
+
+    }
+
+  )
 
   .then(function() {
 
-    alert("✅ COMMANDE ENVOYÉE !");
+    alert(
+      "✅ COMMANDE ENVOYÉE !"
+    );
+
 
     cart = [];
+
+    deliveryMode = "";
+
 
     saveCart();
 
@@ -3217,16 +3625,21 @@ function submitOrder() {
 
   })
 
+
   .catch(function(error) {
 
     console.error(error);
 
-    alert("❌ Erreur lors de l'envoi de la commande.");
+
+    alert(
+      "❌ Erreur lors de l'envoi de la commande."
+    );
 
   });
 
 }
-  
+
+
 /* =========================
    DÉMARRAGE
 ========================= */
@@ -3242,8 +3655,3 @@ document.addEventListener(
   }
 
 );
-
-</script>
-
-</body>
-</html>
