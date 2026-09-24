@@ -2427,6 +2427,17 @@ function renderCart() {
 
 
   /* =========================
+     SUPPRESSION DU GRAND CADRE
+  ========================= */
+
+  container.style.background = "transparent";
+  container.style.border = "none";
+  container.style.boxShadow = "none";
+  container.style.padding = "0";
+  container.style.margin = "0";
+
+
+  /* =========================
      PANIER VIDE
   ========================= */
 
@@ -2437,6 +2448,9 @@ function renderCart() {
       <div style="
         text-align:center;
         padding:45px 20px;
+        background:transparent;
+        border:none;
+        box-shadow:none;
       ">
 
         <div style="
@@ -2475,16 +2489,20 @@ function renderCart() {
 
 
   /* =========================
-     BLOC PRODUITS
+     CARTE PRODUITS
   ========================= */
 
   let productsHTML = `
 
     <div style="
+      width:100%;
+      box-sizing:border-box;
       padding:18px;
+      margin:0 0 14px 0;
       border-radius:18px;
-      background:rgba(15,15,15,.82);
+      background:rgba(15,15,15,.88);
       border:1px solid rgba(255,255,255,.13);
+      box-shadow:none;
     ">
 
       <h2 style="
@@ -2571,7 +2589,6 @@ function renderCart() {
           margin-top:14px;
         ">
 
-
           <div style="
             display:flex;
             align-items:center;
@@ -2592,7 +2609,6 @@ function renderCart() {
               −
             </button>
 
-
             <strong style="
               display:inline-block;
               width:40px;
@@ -2601,7 +2617,6 @@ function renderCart() {
             ">
               ${item.count}
             </strong>
-
 
             <button
               onclick="increaseItem(${index})"
@@ -2653,17 +2668,20 @@ function renderCart() {
 
 
   /* =========================
-     BLOC TOTAL — SÉPARÉ
+     CARTE TOTAL
   ========================= */
 
   const totalHTML = `
 
     <div style="
-      margin-top:14px;
+      width:100%;
+      box-sizing:border-box;
       padding:18px;
+      margin:0 0 14px 0;
       border-radius:18px;
-      background:rgba(15,15,15,.82);
+      background:rgba(15,15,15,.88);
       border:1px solid rgba(225,6,6,.55);
+      box-shadow:none;
     ">
 
       <div style="
@@ -2696,17 +2714,20 @@ function renderCart() {
 
 
   /* =========================
-     BLOC RÉCUPÉRATION — SÉPARÉ
+     CARTE RÉCUPÉRATION
   ========================= */
 
   const recoveryHTML = `
 
     <div style="
-      margin-top:14px;
+      width:100%;
+      box-sizing:border-box;
       padding:20px 16px;
+      margin:0;
       border-radius:18px;
-      background:rgba(15,15,15,.82);
+      background:rgba(15,15,15,.88);
       border:1px solid rgba(225,6,6,.55);
+      box-shadow:none;
     ">
 
 
@@ -2719,8 +2740,6 @@ function renderCart() {
         Comment veux-tu récupérer ta commande ?
       </h3>
 
-
-      <!-- BOUTONS -->
 
       <div style="
         display:flex;
@@ -2954,32 +2973,41 @@ function renderCart() {
 
 
   /* =========================
-     ASSEMBLAGE
+     AFFICHAGE FINAL
   ========================= */
 
   container.innerHTML = `
 
-    <h2 style="
-      text-align:center;
-      margin:0 0 20px;
-      font-size:22px;
+    <div style="
+      width:100%;
+      background:transparent;
+      border:none;
+      box-shadow:none;
+      padding:0;
+      margin:0;
     ">
-      TON PANIER 🛒
-    </h2>
 
-    ${productsHTML}
+      <h2 style="
+        text-align:center;
+        margin:0 0 20px;
+        font-size:22px;
+      ">
+        TON PANIER 🛒
+      </h2>
 
-    ${totalHTML}
+      ${productsHTML}
 
-    ${recoveryHTML}
+      ${totalHTML}
 
-    ${clearButtonHTML}
+      ${recoveryHTML}
+
+      ${clearButtonHTML}
+
+    </div>
 
   `;
 
 }
-
-
 /* =========================
    CHOIX MEET-UP / LIVRAISON
 ========================= */
