@@ -2464,7 +2464,6 @@ function renderCart() {
     `;
 
     return;
-
   }
 
 
@@ -2474,22 +2473,30 @@ function renderCart() {
 
   let total = 0;
 
-  let html = `
 
-    <h2 style="
-      text-align:center;
-      margin:0 0 20px;
-      font-size:22px;
+  /* =========================
+     BLOC PRODUITS
+  ========================= */
+
+  let productsHTML = `
+
+    <div style="
+      padding:18px;
+      border-radius:18px;
+      background:rgba(15,15,15,.82);
+      border:1px solid rgba(255,255,255,.13);
     ">
-      TON PANIER 🛒
-    </h2>
+
+      <h2 style="
+        margin:0 0 18px;
+        font-size:19px;
+        text-align:left;
+      ">
+        🛒 PRODUITS DU PANIER
+      </h2>
 
   `;
 
-
-  /* =========================
-     PRODUITS
-  ========================= */
 
   cart.forEach(function(item, index) {
 
@@ -2499,58 +2506,69 @@ function renderCart() {
     total += subtotal;
 
 
-    html += `
+    productsHTML += `
 
       <div style="
-
-        padding:16px;
-
-        margin-bottom:14px;
-
-        border-radius:16px;
-
-        background:rgba(255,255,255,.045);
-
-        border:1px solid rgba(255,255,255,.13);
-
+        padding:15px 0;
+        border-bottom:1px solid rgba(255,255,255,.10);
       ">
 
-
         <div style="
-          font-size:17px;
-          font-weight:bold;
-          margin-bottom:7px;
+          display:flex;
+          justify-content:space-between;
+          align-items:flex-start;
+          gap:10px;
         ">
-          ${item.name}
-        </div>
+
+          <div style="
+            min-width:0;
+          ">
+
+            <div style="
+              font-size:17px;
+              font-weight:bold;
+              margin-bottom:6px;
+            ">
+              ${item.name}
+            </div>
+
+            <div style="
+              opacity:.65;
+              font-size:14px;
+            ">
+              Format :
+              <strong>
+                ${item.quantity}
+              </strong>
+            </div>
+
+            <div style="
+              color:#e10606;
+              font-weight:bold;
+              margin-top:6px;
+              font-size:15px;
+            ">
+              ${item.price.toFixed(2)} € / unité
+            </div>
+
+          </div>
 
 
-        <div style="
-          opacity:.7;
-          font-size:14px;
-        ">
-          Format :
-          <strong>
-            ${item.quantity}
+          <strong style="
+            font-size:17px;
+            white-space:nowrap;
+          ">
+            ${subtotal.toFixed(2)} €
           </strong>
-        </div>
 
-
-        <div style="
-          color:#e10606;
-          font-weight:bold;
-          margin-top:7px;
-          font-size:16px;
-        ">
-          ${item.price.toFixed(2)} €
         </div>
 
 
         <div style="
           display:flex;
-          align-items:center;
           justify-content:space-between;
-          margin-top:15px;
+          align-items:center;
+          margin-top:14px;
         ">
 
 
@@ -2558,7 +2576,6 @@ function renderCart() {
             display:flex;
             align-items:center;
           ">
-
 
             <button
               onclick="decreaseItem(${index})"
@@ -2601,36 +2618,25 @@ function renderCart() {
               +
             </button>
 
-
           </div>
 
 
-          <strong style="
-            font-size:17px;
-          ">
-            ${subtotal.toFixed(2)} €
-          </strong>
-
+          <button
+            onclick="removeItem(${index})"
+            style="
+              padding:8px 11px;
+              border-radius:9px;
+              background:transparent;
+              color:#ff5555;
+              border:1px solid #ff5555;
+              font-size:12px;
+              font-weight:bold;
+            "
+          >
+            🗑️ SUPPRIMER
+          </button>
 
         </div>
-
-
-        <button
-          onclick="removeItem(${index})"
-          style="
-            width:100%;
-            margin-top:14px;
-            padding:10px;
-            border-radius:10px;
-            background:transparent;
-            color:#ff5555;
-            border:1px solid #ff5555;
-            font-weight:bold;
-          "
-        >
-          🗑️ SUPPRIMER
-        </button>
-
 
       </div>
 
@@ -2639,468 +2645,337 @@ function renderCart() {
   });
 
 
-  /* =========================
-     TOTAL + FORMULAIRE
-  ========================= */
-
-  html += `
-
-    <div style="
-
-      margin-top:18px;
-
-      padding:16px;
-
-      border-radius:18px;
-
-      background:rgba(0,0,0,.48);
-
-      border:1px solid rgba(225,6,6,.55);
-
-    ">
-
-
-      <!-- TOTAL -->
-
-      <div style="
-
-        display:flex;
-
-        justify-content:space-between;
-
-        align-items:center;
-
-        padding:5px 2px 20px;
-
-        font-size:20px;
-
-        font-weight:bold;
-
-      ">
-
-        <span>
-          TOTAL
-        </span>
-
-        <span style="
-          color:#e10606;
-        ">
-          ${total.toFixed(2)} €
-        </span>
-
-      </div>
-
-
-      <!-- =========================
-           CHOIX RÉCUPÉRATION
-      ========================= -->
-
-      <div style="
-
-        margin-top:2px;
-
-        padding:20px 14px;
-
-        border-radius:18px;
-
-        background:rgba(15,15,15,.82);
-
-        border:1px solid rgba(225,6,6,.65);
-
-        box-shadow:
-          0 8px 25px rgba(0,0,0,.25);
-
-      ">
-
-
-        <h3 style="
-
-          margin:0 0 18px;
-
-          text-align:center;
-
-          font-size:20px;
-
-          line-height:1.3;
-
-        ">
-          Comment veux-tu récupérer ta commande ?
-        </h3>
-
-
-        <!-- BOUTONS -->
-
-        <div style="
-
-          display:flex;
-
-          gap:10px;
-
-        ">
-
-
-          <!-- MEET-UP -->
-
-          <button
-
-            type="button"
-
-            id="meetup-button"
-
-            onclick="selectDeliveryMode('meetup')"
-
-            style="
-
-              flex:1;
-
-              min-height:70px;
-
-              padding:10px;
-
-              border-radius:16px;
-
-              border:2px solid #3b3b3b;
-
-              background:#181818;
-
-              color:white;
-
-              font-size:17px;
-
-              font-weight:bold;
-
-              transition:.2s;
-
-            "
-
-          >
-            🤝 Meet-Up
-          </button>
-
-
-          <!-- LIVRAISON -->
-
-          <button
-
-            type="button"
-
-            id="delivery-button"
-
-            onclick="selectDeliveryMode('delivery')"
-
-            style="
-
-              flex:1;
-
-              min-height:70px;
-
-              padding:10px;
-
-              border-radius:16px;
-
-              border:2px solid #3b3b3b;
-
-              background:#181818;
-
-              color:white;
-
-              font-size:17px;
-
-              font-weight:bold;
-
-              transition:.2s;
-
-            "
-
-          >
-            🚚 Livraison
-          </button>
-
-
-        </div>
-
-
-        <!-- =========================
-             CHAMPS
-        ========================= -->
-
-        <div
-          id="order-options"
-          style="
-            display:none;
-            margin-top:22px;
-          "
-        >
-
-
-          <!-- ADRESSE -->
-
-          <div
-            id="address-container"
-            style="
-              display:none;
-              margin-bottom:20px;
-            "
-          >
-
-            <label style="
-
-              display:block;
-
-              margin-bottom:9px;
-
-              font-weight:bold;
-
-              font-size:16px;
-
-            ">
-              🏠 Adresse de livraison
-            </label>
-
-
-            <textarea
-
-              id="address"
-
-              placeholder="Ex : 12 rue ..., 33000 Bordeaux"
-
-              style="
-
-                width:100%;
-
-                min-height:105px;
-
-                box-sizing:border-box;
-
-                padding:15px;
-
-                border-radius:14px;
-
-                border:1px solid #555;
-
-                background:#111;
-
-                color:white;
-
-                font-size:16px;
-
-                resize:none;
-
-                outline:none;
-
-              "
-
-            ></textarea>
-
-          </div>
-
-
-          <!-- HEURE -->
-
-          <label style="
-
-            display:block;
-
-            margin-bottom:9px;
-
-            font-weight:bold;
-
-            font-size:16px;
-
-          ">
-            ⏰ Heure souhaitée
-          </label>
-
-
-          <input
-
-            type="time"
-
-            id="order-time"
-
-            style="
-
-              width:100%;
-
-              box-sizing:border-box;
-
-              padding:14px;
-
-              margin-bottom:20px;
-
-              border-radius:14px;
-
-              border:1px solid #555;
-
-              background:#111;
-
-              color:white;
-
-              font-size:16px;
-
-              outline:none;
-
-            "
-
-          >
-
-
-          <!-- TELEGRAM -->
-
-          <label style="
-
-            display:block;
-
-            margin-bottom:9px;
-
-            font-weight:bold;
-
-            font-size:16px;
-
-          ">
-            📲 Pseudo Telegram
-          </label>
-
-
-          <input
-
-            type="text"
-
-            id="telegram"
-
-            placeholder="@tonpseudo"
-
-            style="
-
-              width:100%;
-
-              box-sizing:border-box;
-
-              padding:14px;
-
-              margin-bottom:18px;
-
-              border-radius:14px;
-
-              border:1px solid #555;
-
-              background:#111;
-
-              color:white;
-
-              font-size:16px;
-
-              outline:none;
-
-            "
-
-          >
-
-
-          <!-- MESSAGE -->
-
-          <div
-
-            id="order-help"
-
-            style="
-
-              text-align:center;
-
-              color:#ff8b8b;
-
-              font-size:15px;
-
-              line-height:1.4;
-
-              margin:0 0 18px;
-
-            "
-
-          >
-          </div>
-
-
-          <!-- COMMANDER -->
-
-          <button
-
-            type="button"
-
-            onclick="submitOrder()"
-
-            style="
-
-              width:100%;
-
-              padding:17px;
-
-              border:none;
-
-              border-radius:14px;
-
-              background:#e10606;
-
-              color:white;
-
-              font-size:19px;
-
-              font-weight:bold;
-
-              box-shadow:
-                0 5px 18px rgba(225,6,6,.28);
-
-            "
-
-          >
-            📩 COMMANDER
-
-          </button>
-
-
-        </div>
-
-
-      </div>
-
-
-      <!-- VIDER -->
-
-      <button
-
-        onclick="clearCart()"
-
-        style="
-
-          width:100%;
-
-          margin-top:15px;
-
-          padding:13px;
-
-          border-radius:12px;
-
-          background:transparent;
-
-          color:#aaa;
-
-          border:1px solid #444;
-
-          font-weight:bold;
-
-        "
-
-      >
-        🗑️ VIDER LE PANIER
-      </button>
-
+  productsHTML += `
 
     </div>
 
   `;
 
 
-  container.innerHTML = html;
+  /* =========================
+     BLOC TOTAL — SÉPARÉ
+  ========================= */
+
+  const totalHTML = `
+
+    <div style="
+      margin-top:14px;
+      padding:18px;
+      border-radius:18px;
+      background:rgba(15,15,15,.82);
+      border:1px solid rgba(225,6,6,.55);
+    ">
+
+      <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:15px;
+      ">
+
+        <span style="
+          font-size:18px;
+          font-weight:bold;
+        ">
+          TOTAL
+        </span>
+
+        <span style="
+          color:#e10606;
+          font-size:22px;
+          font-weight:bold;
+        ">
+          ${total.toFixed(2)} €
+        </span>
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  /* =========================
+     BLOC RÉCUPÉRATION — SÉPARÉ
+  ========================= */
+
+  const recoveryHTML = `
+
+    <div style="
+      margin-top:14px;
+      padding:20px 16px;
+      border-radius:18px;
+      background:rgba(15,15,15,.82);
+      border:1px solid rgba(225,6,6,.55);
+    ">
+
+
+      <h3 style="
+        margin:0 0 18px;
+        text-align:center;
+        font-size:19px;
+        line-height:1.35;
+      ">
+        Comment veux-tu récupérer ta commande ?
+      </h3>
+
+
+      <!-- BOUTONS -->
+
+      <div style="
+        display:flex;
+        gap:10px;
+      ">
+
+
+        <!-- MEET-UP -->
+
+        <button
+          type="button"
+          id="meetup-button"
+          onclick="selectDeliveryMode('meetup')"
+          style="
+            flex:1;
+            min-height:62px;
+            padding:10px;
+            border-radius:14px;
+            border:2px solid #3b3b3b;
+            background:#181818;
+            color:white;
+            font-size:16px;
+            font-weight:bold;
+          "
+        >
+          🤝 Meet-Up
+        </button>
+
+
+        <!-- LIVRAISON -->
+
+        <button
+          type="button"
+          id="delivery-button"
+          onclick="selectDeliveryMode('delivery')"
+          style="
+            flex:1;
+            min-height:62px;
+            padding:10px;
+            border-radius:14px;
+            border:2px solid #3b3b3b;
+            background:#181818;
+            color:white;
+            font-size:16px;
+            font-weight:bold;
+          "
+        >
+          🚚 Livraison
+        </button>
+
+      </div>
+
+
+      <!-- OPTIONS -->
+
+      <div
+        id="order-options"
+        style="
+          display:none;
+          margin-top:22px;
+        "
+      >
+
+
+        <!-- ADRESSE -->
+
+        <div
+          id="address-container"
+          style="
+            display:none;
+            margin-bottom:18px;
+          "
+        >
+
+          <label style="
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+            font-size:15px;
+          ">
+            🏠 Adresse de livraison
+          </label>
+
+
+          <textarea
+            id="address"
+            placeholder="Ex : 12 rue ..., 33000 Bordeaux"
+            style="
+              width:100%;
+              min-height:100px;
+              box-sizing:border-box;
+              padding:14px;
+              border-radius:13px;
+              border:1px solid #444;
+              background:#111;
+              color:white;
+              font-size:16px;
+              resize:none;
+              outline:none;
+            "
+          ></textarea>
+
+        </div>
+
+
+        <!-- HEURE -->
+
+        <label style="
+          display:block;
+          margin-bottom:8px;
+          font-weight:bold;
+          font-size:15px;
+        ">
+          ⏰ Heure souhaitée
+        </label>
+
+
+        <input
+          type="time"
+          id="order-time"
+          style="
+            width:100%;
+            box-sizing:border-box;
+            padding:13px;
+            margin-bottom:18px;
+            border-radius:13px;
+            border:1px solid #444;
+            background:#111;
+            color:white;
+            font-size:16px;
+            outline:none;
+          "
+        >
+
+
+        <!-- TELEGRAM -->
+
+        <label style="
+          display:block;
+          margin-bottom:8px;
+          font-weight:bold;
+          font-size:15px;
+        ">
+          📲 Pseudo Telegram
+        </label>
+
+
+        <input
+          type="text"
+          id="telegram"
+          placeholder="@tonpseudo"
+          style="
+            width:100%;
+            box-sizing:border-box;
+            padding:13px;
+            margin-bottom:16px;
+            border-radius:13px;
+            border:1px solid #444;
+            background:#111;
+            color:white;
+            font-size:16px;
+            outline:none;
+          "
+        >
+
+
+        <!-- MESSAGE -->
+
+        <div
+          id="order-help"
+          style="
+            text-align:center;
+            color:#ff8b8b;
+            font-size:14px;
+            line-height:1.4;
+            margin:0 0 16px;
+          "
+        ></div>
+
+
+        <!-- COMMANDER -->
+
+        <button
+          type="button"
+          onclick="submitOrder()"
+          style="
+            width:100%;
+            padding:16px;
+            border:none;
+            border-radius:13px;
+            background:#e10606;
+            color:white;
+            font-size:18px;
+            font-weight:bold;
+            box-shadow:0 5px 18px rgba(225,6,6,.25);
+          "
+        >
+          📩 COMMANDER
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  /* =========================
+     BOUTON VIDER
+  ========================= */
+
+  const clearButtonHTML = `
+
+    <button
+      onclick="clearCart()"
+      style="
+        width:100%;
+        margin-top:14px;
+        padding:13px;
+        border-radius:12px;
+        background:transparent;
+        color:#aaa;
+        border:1px solid #444;
+        font-weight:bold;
+      "
+    >
+      🗑️ VIDER LE PANIER
+    </button>
+
+  `;
+
+
+  /* =========================
+     ASSEMBLAGE
+  ========================= */
+
+  container.innerHTML = `
+
+    <h2 style="
+      text-align:center;
+      margin:0 0 20px;
+      font-size:22px;
+    ">
+      TON PANIER 🛒
+    </h2>
+
+    ${productsHTML}
+
+    ${totalHTML}
+
+    ${recoveryHTML}
+
+    ${clearButtonHTML}
+
+  `;
 
 }
 
