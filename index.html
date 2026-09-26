@@ -3529,14 +3529,17 @@ document.addEventListener(
    SWIPE PHOTO → VIDÉO
 ========================= */
 
-const mediaTrack = document.querySelector('.detail-media-track');
-const mediaDots = document.querySelectorAll('.media-dot');
-const mediaVideo = document.querySelector('.detail-product-video');
+<script>
+document.querySelectorAll('.detail-product-media').forEach(function(media) {
 
-let startX = 0;
-let currentSlide = 0;
+  const mediaTrack = media.querySelector('.detail-media-track');
+  const mediaDots = media.querySelectorAll('.media-dot');
+  const mediaVideo = media.querySelector('.detail-product-video');
 
-if (mediaTrack) {
+  if (!mediaTrack) return;
+
+  let startX = 0;
+  let currentSlide = 0;
 
   mediaTrack.addEventListener('touchstart', function(e) {
     startX = e.touches[0].clientX;
@@ -3553,8 +3556,13 @@ if (mediaTrack) {
 
       mediaTrack.style.transform = 'translateX(-50%)';
 
-      mediaDots[0].classList.remove('active');
-      mediaDots[1].classList.add('active');
+      if (mediaDots[0]) {
+        mediaDots[0].classList.remove('active');
+      }
+
+      if (mediaDots[1]) {
+        mediaDots[1].classList.add('active');
+      }
 
     }
 
@@ -3564,8 +3572,13 @@ if (mediaTrack) {
 
       mediaTrack.style.transform = 'translateX(0)';
 
-      mediaDots[1].classList.remove('active');
-      mediaDots[0].classList.add('active');
+      if (mediaDots[1]) {
+        mediaDots[1].classList.remove('active');
+      }
+
+      if (mediaDots[0]) {
+        mediaDots[0].classList.add('active');
+      }
 
       if (mediaVideo) {
         mediaVideo.pause();
@@ -3576,6 +3589,5 @@ if (mediaTrack) {
 
   });
 
-}
-
+});
 </script>
