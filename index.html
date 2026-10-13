@@ -3003,70 +3003,100 @@
 </div>
 <style>
 .luffy-member {
-  margin: 25px 2px;
-  padding: 19px;
-  color: white;
-  background: linear-gradient(135deg, #171717, #050505);
-  border: 1px solid #e10606;
-  border-radius: 16px;
-  box-shadow: 0 5px 22px rgba(0,0,0,.45);
+  position: relative;
+  margin: 18px 2px;
+  padding: 0;
+  color: #fff;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
 }
-.luffy-member-top,
-.luffy-member-main,
-.luffy-member-bottom {
+/* En-tête façon laboratoire */
+.luffy-member-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-}
-.luffy-member-top {
-  padding-bottom: 13px;
-  border-bottom: 1px solid #383838;
+  gap: 10px;
+  padding: 12px 2px;
+  border-bottom: 1px solid rgba(225,6,6,.65);
   font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
 }
-.luffy-status { color: #e10606; font-size: 10px; }
+.luffy-status {
+  color: #e10606;
+  font-size: 10px;
+}
+/* Identité du membre */
 .luffy-member-main {
-  justify-content: flex-start;
-  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 2px;
 }
 .luffy-avatar {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 58px;
-  height: 58px;
+  width: 68px;
+  height: 68px;
   flex-shrink: 0;
   border: 1px solid #e10606;
   border-radius: 50%;
-  background: #111;
-  font-size: 28px;
+  background: rgba(0,0,0,.45);
+  box-shadow: 0 0 18px rgba(225,6,6,.15);
+  font-size: 30px;
 }
 .luffy-label {
   color: #e10606;
   font-size: 10px;
-  letter-spacing: 2px;
+  font-weight: bold;
+  letter-spacing: 2.5px;
 }
 .luffy-member-main h2 {
-  margin: 6px 0;
-  font-size: 20px;
+  margin: 7px 0;
+  font-size: 22px;
+  font-weight: 900;
   overflow-wrap: anywhere;
 }
 .luffy-member-main p {
   margin: 0;
-  color: #aaa;
+  color: #c4c4c4;
   font-size: 13px;
   overflow-wrap: anywhere;
 }
+/* Date d'adhésion */
 .luffy-member-bottom {
-  padding-top: 14px;
-  border-top: 1px solid #383838;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 2px;
+  border-top: 1px solid rgba(225,6,6,.45);
+  border-bottom: 1px solid rgba(225,6,6,.45);
   font-size: 11px;
 }
-.luffy-member-bottom span { color: #aaa; }
-.luffy-member-bottom strong { color: white; }
-</style>
+.luffy-member-bottom span {
+  color: #aaa;
+  letter-spacing: 1px;
+}
+.luffy-member-bottom strong {
+  color: #fff;
+  font-size: 13px;
+}
+/* Petit repère visuel */
+.luffy-member::after {
+  content: "ACCÈS MEMBRE • CHEZ LUFFY 33";
+  display: block;
+  margin-top: 12px;
+  color: rgba(255,255,255,.38);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-align: right;
+}
+</style></style>
 <script>
 (function () {
   function chargerProfilTelegram() {
