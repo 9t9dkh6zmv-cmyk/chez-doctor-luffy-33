@@ -2978,40 +2978,120 @@
      PAGE PROFIL
 ========================= -->
 
+<!-- PROFIL CHEZ LUFFY 33 -->
 <div id="profil" class="page">
-
-  <h1 class="profil-title">MON PROFIL</h1>
-
-  <div class="profil-card">
-
-    <div class="profil-avatar">
-      👤
+  <div class="luffy-member">
+    <div class="luffy-member-top">
+      <span>CHEZ LUFFY 33</span>
+      <span class="luffy-status">● MEMBRE</span>
     </div>
-
-    <h2>Mon espace</h2>
-
-    <p class="profil-subtitle">
-      Bienvenue sur ton profil
-    </p>
-
-    <div class="profil-info">
-      <span>Nom affiché</span>
-      <strong>Non renseigné</strong>
+    <div class="luffy-member-main">
+      <div class="luffy-avatar">👤</div>
+      <div>
+        <div class="luffy-label">CARTE D'ACCÈS</div>
+        <h2 id="luffy-name">Membre</h2>
+        <p id="luffy-username">@pseudo</p>
+      </div>
     </div>
-
-    <div class="profil-info">
-      <span>Pseudo</span>
-      <strong>Non renseigné</strong>
+    <div class="luffy-member-bottom">
+      <span>MEMBRE DEPUIS</span>
+      <strong id="luffy-date">Aujourd'hui</strong>
     </div>
-
-    <div class="profil-info">
-      <span>Date d'inscription</span>
-      <strong>Non disponible</strong>
-    </div>
-
   </div>
-
 </div>
+<style>
+.luffy-member {
+  margin: 25px 2px;
+  padding: 19px;
+  color: white;
+  background: linear-gradient(135deg, #171717, #050505);
+  border: 1px solid #e10606;
+  border-radius: 16px;
+  box-shadow: 0 5px 22px rgba(0,0,0,.45);
+}
+.luffy-member-top,
+.luffy-member-main,
+.luffy-member-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.luffy-member-top {
+  padding-bottom: 13px;
+  border-bottom: 1px solid #383838;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.luffy-status { color: #e10606; font-size: 10px; }
+.luffy-member-main {
+  justify-content: flex-start;
+  padding: 22px 0;
+}
+.luffy-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  border: 1px solid #e10606;
+  border-radius: 50%;
+  background: #111;
+  font-size: 28px;
+}
+.luffy-label {
+  color: #e10606;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+.luffy-member-main h2 {
+  margin: 6px 0;
+  font-size: 20px;
+  overflow-wrap: anywhere;
+}
+.luffy-member-main p {
+  margin: 0;
+  color: #aaa;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.luffy-member-bottom {
+  padding-top: 14px;
+  border-top: 1px solid #383838;
+  font-size: 11px;
+}
+.luffy-member-bottom span { color: #aaa; }
+.luffy-member-bottom strong { color: white; }
+</style>
+<script>
+(function () {
+  const dateKey = "chezLuffy33_firstVisit";
+  let savedDate = localStorage.getItem(dateKey);
+  if (!savedDate) {
+    savedDate = new Date().toISOString().slice(0, 10);
+    localStorage.setItem(dateKey, savedDate);
+  }
+  const dateParts = savedDate.split("-");
+  document.getElementById("luffy-date").textContent =
+    dateParts[2] + "/" + dateParts[1] + "/" + dateParts[0];
+  const user = window.Telegram &&
+    window.Telegram.WebApp &&
+    window.Telegram.WebApp.initDataUnsafe &&
+    window.Telegram.WebApp.initDataUnsafe.user;
+  if (user) {
+    document.getElementById("luffy-name").textContent =
+      [user.first_name, user.last_name].filter(Boolean).join(" ") || "Membre";
+    document.getElementById("luffy-username").textContent =
+      user.username ? "@" + user.username : "Aucun pseudo Telegram";
+  } else {
+    document.getElementById("luffy-name").textContent = "Membre";
+    document.getElementById("luffy-username").textContent =
+      "Profil Telegram indisponible";
+  }
+})();
+</script>
   
   <!-- =========================
        MENU DU BAS
