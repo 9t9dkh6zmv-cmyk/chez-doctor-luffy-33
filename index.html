@@ -2980,149 +2980,203 @@
      PAGE PROFIL
 ========================= -->
 
-<!-- PROFIL CHEZ LUFFY 33 -->
 <div id="profil" class="page">
   <div class="luffy-member">
+
     <div class="luffy-member-top">
-      <span>CHEZ LUFFY 33</span>
+      <span class="luffy-label">CARTE D'ACCÈS</span>
       <span class="luffy-status">● MEMBRE</span>
     </div>
+
     <div class="luffy-member-main">
-      <div class="luffy-avatar">👤</div>
-      <div>
-        <div class="luffy-label">CARTE D'ACCÈS</div>
+      <div class="luffy-avatar" id="luffy-avatar">U</div>
+
+      <div class="luffy-identity">
         <h2 id="luffy-name">Membre</h2>
         <p id="luffy-username">@pseudo</p>
       </div>
     </div>
+
     <div class="luffy-member-bottom">
       <span>MEMBRE DEPUIS</span>
       <strong id="luffy-date">Aujourd'hui</strong>
     </div>
+
   </div>
 </div>
+
 <style>
+/* PROFIL COMPACT */
 .luffy-member {
-  position: relative;
-  margin: 18px 2px;
+  margin: 12px 2px;
   padding: 0;
   color: #fff;
   background: transparent;
   border: none;
   border-radius: 0;
   box-shadow: none;
-  overflow: hidden;
 }
-/* En-tête façon laboratoire */
+
+/* EN-TÊTE */
 .luffy-member-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 12px 2px;
-  border-bottom: 1px solid rgba(225,6,6,.65);
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 1.5px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(225, 6, 6, .35);
 }
-.luffy-status {
-  color: #e10606;
-  font-size: 10px;
-}
-/* Identité du membre */
-.luffy-member-main {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 24px 2px;
-}
-.luffy-avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 68px;
-  height: 68px;
-  flex-shrink: 0;
-  border: 1px solid #e10606;
-  border-radius: 50%;
-  background: rgba(0,0,0,.45);
-  box-shadow: 0 0 18px rgba(225,6,6,.15);
-  font-size: 30px;
-}
+
 .luffy-label {
   color: #e10606;
   font-size: 10px;
-  font-weight: bold;
-  letter-spacing: 2.5px;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
+
+.luffy-status {
+  color: #e10606;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* AVATAR ET IDENTITÉ */
+.luffy-member-main {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 19px 0;
+}
+
+.luffy-avatar {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #e10606;
+  border-radius: 50%;
+  background: rgba(225, 6, 6, .07);
+  color: #ff3333;
+  font-size: 24px;
+  font-weight: 800;
+  box-shadow: 0 0 12px rgba(225, 6, 6, .12);
+}
+
+.luffy-identity {
+  min-width: 0;
+}
+
 .luffy-member-main h2 {
-  margin: 7px 0;
-  font-size: 22px;
-  font-weight: 900;
+  margin: 0 0 6px;
+  color: #fff;
+  font-size: 21px;
+  font-weight: 800;
   overflow-wrap: anywhere;
 }
+
 .luffy-member-main p {
   margin: 0;
-  color: #c4c4c4;
+  color: #aaa;
   font-size: 13px;
   overflow-wrap: anywhere;
 }
-/* Date d'adhésion */
+
+/* DATE */
 .luffy-member-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 15px 2px;
-  border-top: 1px solid rgba(225,6,6,.45);
-  border-bottom: 1px solid rgba(225,6,6,.45);
-  font-size: 11px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(225, 6, 6, .3);
+  border-bottom: 1px solid rgba(225, 6, 6, .3);
 }
+
 .luffy-member-bottom span {
-  color: #aaa;
-  letter-spacing: 1px;
+  color: #999;
+  font-size: 10px;
+  letter-spacing: 1.2px;
 }
+
 .luffy-member-bottom strong {
   color: #fff;
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 700;
 }
-/* Petit repère visuel */
-.luffy-member::after {
-  content: "ACCÈS MEMBRE • CHEZ LUFFY 33";
-  display: block;
-  margin-top: 12px;
-  color: rgba(255,255,255,.38);
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-align: right;
-}
-</style></style>
+</style>
+
 <script>
 (function () {
   function chargerProfilTelegram() {
     const nom = document.getElementById("luffy-name");
     const pseudo = document.getElementById("luffy-username");
-    if (!nom || !pseudo) return;
+    const avatar = document.getElementById("luffy-avatar");
+    const date = document.getElementById("luffy-date");
+
+    if (!nom || !pseudo) {
+      return;
+    }
+
     const tg = window.Telegram && window.Telegram.WebApp;
     const user = tg && tg.initDataUnsafe && tg.initDataUnsafe.user;
+
     if (user) {
-      nom.textContent =
-        [user.first_name, user.last_name].filter(Boolean).join(" ") || "Membre";
+      const nomComplet =
+        [user.first_name, user.last_name]
+          .filter(Boolean)
+          .join(" ") || "Membre";
+
+      nom.textContent = nomComplet;
+
       pseudo.textContent = user.username
         ? "@" + user.username
-        : "Aucun pseudo Telegram";
+        : "Profil Telegram";
+
+      if (avatar) {
+        avatar.textContent =
+          nomComplet.charAt(0).toUpperCase();
+      }
     } else {
       nom.textContent = "Membre";
-      pseudo.textContent = "Telegram ne transmet pas le profil";
+      pseudo.textContent = "Ouvre depuis Telegram";
+    }
+
+    /* Date de première visite sur cet appareil */
+    const cle = "luffyPremiereVisite";
+    let premiereVisite = localStorage.getItem(cle);
+
+    if (!premiereVisite) {
+      premiereVisite = new Date().toISOString();
+      localStorage.setItem(cle, premiereVisite);
+    }
+
+    if (date) {
+      date.textContent = new Date(premiereVisite)
+        .toLocaleDateString("fr-FR", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric"
+        });
     }
   }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", chargerProfilTelegram);
+    document.addEventListener(
+      "DOMContentLoaded",
+      chargerProfilTelegram
+    );
   } else {
     chargerProfilTelegram();
   }
 })();
 </script>
+  
+ </div>
+
+</div>
   
   <!-- =========================
        MENU DU BAS
