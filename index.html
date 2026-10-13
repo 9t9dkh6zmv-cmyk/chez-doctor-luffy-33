@@ -1002,7 +1002,73 @@
       font-weight: 900;
     }
 
+/* =========================
+   PAGE PROFIL
+========================= */
 
+.profil-title {
+  color: #e10606;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin: 25px 0;
+}
+
+.profil-card {
+  background: rgba(8, 8, 10, 0.95);
+  border: 1px solid #e10606;
+  border-radius: 20px;
+  padding: 24px 18px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(225, 6, 6, 0.15);
+}
+
+.profil-avatar {
+  width: 85px;
+  height: 85px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  border: 2px solid #e10606;
+  background: #171717;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+}
+
+.profil-card h2 {
+  margin: 8px 0;
+  font-size: 21px;
+}
+
+.profil-subtitle {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.profil-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  padding: 15px 0;
+  border-top: 1px solid #303030;
+  text-align: left;
+}
+
+.profil-info span {
+  color: #999;
+  font-size: 12px;
+}
+
+.profil-info strong {
+  color: white;
+  font-size: 15px;
+}
+    
     /* =========================
        MENU BAS
     ========================= */
@@ -2907,6 +2973,45 @@
   </div>
 
 </div>
+
+<!-- =========================
+     PAGE PROFIL
+========================= -->
+
+<div id="profil" class="page">
+
+  <h1 class="profil-title">MON PROFIL</h1>
+
+  <div class="profil-card">
+
+    <div class="profil-avatar">
+      👤
+    </div>
+
+    <h2>Mon espace</h2>
+
+    <p class="profil-subtitle">
+      Bienvenue sur ton profil
+    </p>
+
+    <div class="profil-info">
+      <span>Nom affiché</span>
+      <strong>Non renseigné</strong>
+    </div>
+
+    <div class="profil-info">
+      <span>Pseudo</span>
+      <strong>Non renseigné</strong>
+    </div>
+
+    <div class="profil-info">
+      <span>Date d'inscription</span>
+      <strong>Non disponible</strong>
+    </div>
+
+  </div>
+
+</div>
   
   <!-- =========================
        MENU DU BAS
@@ -2956,7 +3061,17 @@
       Liens
 
     </button>
+    
+    <button onclick="showPage('profil')">
 
+      <span class="icon">
+        👤
+      </span>
+
+      Profil
+
+    </button>
+    
   </div>
 
 </div>
