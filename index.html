@@ -7,6 +7,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  
   <title>CHEZ LUFFY 33</title>
 
   <style>
@@ -3067,28 +3069,27 @@
 </style>
 <script>
 (function () {
-  const dateKey = "chezLuffy33_firstVisit";
-  let savedDate = localStorage.getItem(dateKey);
-  if (!savedDate) {
-    savedDate = new Date().toISOString().slice(0, 10);
-    localStorage.setItem(dateKey, savedDate);
+  function chargerProfilTelegram() {
+    const nom = document.getElementById("luffy-name");
+    const pseudo = document.getElementById("luffy-username");
+    if (!nom || !pseudo) return;
+    const tg = window.Telegram && window.Telegram.WebApp;
+    const user = tg && tg.initDataUnsafe && tg.initDataUnsafe.user;
+    if (user) {
+      nom.textContent =
+        [user.first_name, user.last_name].filter(Boolean).join(" ") || "Membre";
+      pseudo.textContent = user.username
+        ? "@" + user.username
+        : "Aucun pseudo Telegram";
+    } else {
+      nom.textContent = "Membre";
+      pseudo.textContent = "Telegram ne transmet pas le profil";
+    }
   }
-  const dateParts = savedDate.split("-");
-  document.getElementById("luffy-date").textContent =
-    dateParts[2] + "/" + dateParts[1] + "/" + dateParts[0];
-  const user = window.Telegram &&
-    window.Telegram.WebApp &&
-    window.Telegram.WebApp.initDataUnsafe &&
-    window.Telegram.WebApp.initDataUnsafe.user;
-  if (user) {
-    document.getElementById("luffy-name").textContent =
-      [user.first_name, user.last_name].filter(Boolean).join(" ") || "Membre";
-    document.getElementById("luffy-username").textContent =
-      user.username ? "@" + user.username : "Aucun pseudo Telegram";
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", chargerProfilTelegram);
   } else {
-    document.getElementById("luffy-name").textContent = "Membre";
-    document.getElementById("luffy-username").textContent =
-      "Profil Telegram indisponible";
+    chargerProfilTelegram();
   }
 })();
 </script>
