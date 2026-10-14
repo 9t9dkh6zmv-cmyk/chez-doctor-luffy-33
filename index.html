@@ -3269,16 +3269,14 @@
   font-size: clamp(13px, 4vw, 26px);
   border-color: #ff263b;
 }
-/* RÉCOMPENSE : ESPACE SOUS LES 10 CASES */
+/* RÉCOMPENSE : SOUS LES 10 CASES */
+#profil .luffy-loyalty-reward {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  position: static;
+}
 
-  #profil .luffy-loyalty-reward {
-    gap: 6px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    position: static;
-    top: auto;
-  }
- 
 #profil .luffy-loyalty-reward-text {
   display: flex;
   align-items: center;
@@ -3296,16 +3294,14 @@
   color: #ff1028;
 }
 
-  }
-  #profil .luffy-loyalty-description {
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    line-height: 1.4;
-    letter-spacing: -.2px;
-    position: static;
-    top: auto;
-  }
+#profil .luffy-loyalty-description {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: -.2px;
+  position: static;
+}
 
 /* ADAPTATION MOBILE */
 @media (max-width: 380px) {
@@ -3338,25 +3334,27 @@
   #profil .luffy-loyalty-case {
     border-radius: 6px;
   }
-  #profil .luffy-loyalty-reward {
-    gap: 6px;
-    margin-top: -8px;
-    position: relative;
-    top: -9px;
-  }
+ #profil .luffy-loyalty-reward {
+
+  margin-top: 16px;
+
+  margin-bottom: 10px;
+
+  position: static;
+
+}
   #profil .luffy-loyalty-reward-text {
     gap: 4px;
     font-size: clamp(13px, 3.7vw, 16px);
   }
   #profil .luffy-loyalty-description {
-    margin: -5px 0 0;
-    padding: 0;
-    font-size: 12px;
-    line-height: 1.2;
-    letter-spacing: -.2px;
-    position: relative;
-    top: -3px;
-  }
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: -.2px;
+  position: static;
+}
 }
 </style>
  
