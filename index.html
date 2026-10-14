@@ -2981,202 +2981,240 @@
 ========================= -->
 
 <div id="profil" class="page">
-  <div class="luffy-member">
+  <section class="luffy-profile">
 
-    <div class="luffy-member-top">
-      <span class="luffy-label">CARTE D'ACCÈS</span>
-      <span class="luffy-status">● MEMBRE</span>
+    <div class="luffy-profile-eyebrow">
+      ESPACE PERSONNEL
     </div>
 
-    <div class="luffy-member-main">
-      <div class="luffy-avatar" id="luffy-avatar">U</div>
+    <div class="luffy-profile-content">
 
-      <div class="luffy-identity">
-        <h2 id="luffy-name">Membre</h2>
-        <p id="luffy-username">@pseudo</p>
+      <div class="luffy-profile-avatar">
+        <span>👤</span>
+        <i class="corner corner-tl"></i>
+        <i class="corner corner-tr"></i>
+        <i class="corner corner-bl"></i>
+        <i class="corner corner-br"></i>
       </div>
+
+      <div class="luffy-profile-info">
+        <div class="luffy-profile-label">
+          CARTE D’ACCÈS
+          <span>•</span>
+          CHEZ LUFFY 33
+        </div>
+
+        <h2 id="luffy-name">Membre</h2>
+
+        <p id="luffy-username">@pseudo</p>
+
+        <div class="luffy-profile-status">
+          <span class="luffy-status-dot"></span>
+          MEMBRE
+        </div>
+      </div>
+
     </div>
 
-    <div class="luffy-member-bottom">
+    <div class="luffy-profile-footer">
       <span>MEMBRE DEPUIS</span>
-      <strong id="luffy-date">Aujourd'hui</strong>
+      <strong id="luffy-date">2026</strong>
     </div>
 
-  </div>
+  </section>
 </div>
 
 <style>
-/* PROFIL COMPACT */
-.luffy-member {
-  margin: 12px 2px;
-  padding: 0;
+/* PAGE PROFIL */
+
+#profil .luffy-profile {
+  width: 100%;
+  margin: 18px 0;
   color: #fff;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
+  font-family: inherit;
 }
 
-/* EN-TÊTE */
-.luffy-member-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(225, 6, 6, .35);
-}
+/* Petit titre supérieur */
 
-.luffy-label {
-  color: #e10606;
+#profil .luffy-profile-eyebrow {
+  margin-bottom: 22px;
+  color: #999;
   font-size: 10px;
   font-weight: 800;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
-.luffy-status {
-  color: #e10606;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
+/* Disposition générale */
 
-/* AVATAR ET IDENTITÉ */
-.luffy-member-main {
+#profil .luffy-profile-content {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 19px 0;
+  gap: 18px;
+  padding: 8px 0 24px;
 }
 
-.luffy-avatar {
-  width: 58px;
-  height: 58px;
-  flex-shrink: 0;
+/* Avatar */
+
+#profil .luffy-profile-avatar {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid #e10606;
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  background: rgba(0, 0, 0, .35);
+  border: 1px solid rgba(225, 6, 6, .65);
   border-radius: 50%;
-  background: rgba(225, 6, 6, .07);
-  color: #ff3333;
-  font-size: 24px;
-  font-weight: 800;
-  box-shadow: 0 0 12px rgba(225, 6, 6, .12);
+  box-shadow: 0 0 20px rgba(225, 6, 6, .10);
 }
 
-.luffy-identity {
+#profil .luffy-profile-avatar span {
+  font-size: 30px;
+}
+
+/* Petits repères rouges */
+
+#profil .corner {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-color: #e10606;
+  border-style: solid;
+}
+
+#profil .corner-tl {
+  top: -3px;
+  left: -3px;
+  border-width: 1px 0 0 1px;
+}
+
+#profil .corner-tr {
+  top: -3px;
+  right: -3px;
+  border-width: 1px 1px 0 0;
+}
+
+#profil .corner-bl {
+  bottom: -3px;
+  left: -3px;
+  border-width: 0 0 1px 1px;
+}
+
+#profil .corner-br {
+  right: -3px;
+  bottom: -3px;
+  border-width: 0 1px 1px 0;
+}
+
+/* Informations du membre */
+
+#profil .luffy-profile-info {
   min-width: 0;
+  flex: 1;
 }
 
-.luffy-member-main h2 {
-  margin: 0 0 6px;
+#profil .luffy-profile-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  color: #e10606;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.1px;
+  line-height: 1.6;
+}
+
+#profil .luffy-profile-label span {
+  color: #777;
+}
+
+#profil .luffy-profile-info h2 {
+  margin: 8px 0 4px;
   color: #fff;
   font-size: 21px;
-  font-weight: 800;
+  font-weight: 900;
+  line-height: 1.2;
   overflow-wrap: anywhere;
 }
 
-.luffy-member-main p {
+#profil .luffy-profile-info p {
   margin: 0;
   color: #aaa;
-  font-size: 13px;
+  font-size: 12px;
   overflow-wrap: anywhere;
 }
 
-/* DATE */
-.luffy-member-bottom {
+/* Statut */
+
+#profil .luffy-profile-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  color: #ddd;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+#profil .luffy-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e10606;
+  box-shadow: 0 0 8px rgba(225, 6, 6, .6);
+}
+
+/* Date d'adhésion */
+
+#profil .luffy-profile-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 12px 0;
-  border-top: 1px solid rgba(225, 6, 6, .3);
-  border-bottom: 1px solid rgba(225, 6, 6, .3);
+  padding: 15px 0;
+  border-top: 1px solid rgba(225, 6, 6, .5);
+  border-bottom: 1px solid rgba(225, 6, 6, .5);
 }
 
-.luffy-member-bottom span {
+#profil .luffy-profile-footer span {
   color: #999;
   font-size: 10px;
-  letter-spacing: 1.2px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
 }
 
-.luffy-member-bottom strong {
+#profil .luffy-profile-footer strong {
   color: #fff;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+/* Adaptation iPhone */
+
+@media (max-width: 380px) {
+  #profil .luffy-profile-content {
+    gap: 13px;
+  }
+
+  #profil .luffy-profile-avatar {
+    width: 66px;
+    height: 66px;
+    flex-basis: 66px;
+  }
+
+  #profil .luffy-profile-info h2 {
+    font-size: 18px;
+  }
+
+  #profil .luffy-profile-label {
+    font-size: 8px;
+  }
 }
 </style>
-
-<script>
-(function () {
-  function chargerProfilTelegram() {
-    const nom = document.getElementById("luffy-name");
-    const pseudo = document.getElementById("luffy-username");
-    const avatar = document.getElementById("luffy-avatar");
-    const date = document.getElementById("luffy-date");
-
-    if (!nom || !pseudo) {
-      return;
-    }
-
-    const tg = window.Telegram && window.Telegram.WebApp;
-    const user = tg && tg.initDataUnsafe && tg.initDataUnsafe.user;
-
-    if (user) {
-      const nomComplet =
-        [user.first_name, user.last_name]
-          .filter(Boolean)
-          .join(" ") || "Membre";
-
-      nom.textContent = nomComplet;
-
-      pseudo.textContent = user.username
-        ? "@" + user.username
-        : "Profil Telegram";
-
-      if (avatar) {
-        avatar.textContent =
-          nomComplet.charAt(0).toUpperCase();
-      }
-    } else {
-      nom.textContent = "Membre";
-      pseudo.textContent = "Ouvre depuis Telegram";
-    }
-
-    /* Date de première visite sur cet appareil */
-    const cle = "luffyPremiereVisite";
-    let premiereVisite = localStorage.getItem(cle);
-
-    if (!premiereVisite) {
-      premiereVisite = new Date().toISOString();
-      localStorage.setItem(cle, premiereVisite);
-    }
-
-    if (date) {
-      date.textContent = new Date(premiereVisite)
-        .toLocaleDateString("fr-FR", {
-          day: "2-digit",
-          month: "long",
-          year: "numeric"
-        });
-    }
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener(
-      "DOMContentLoaded",
-      chargerProfilTelegram
-    );
-  } else {
-    chargerProfilTelegram();
-  }
-})();
-</script>
-  
- </div>
-
-</div>
   
   <!-- =========================
        MENU DU BAS
