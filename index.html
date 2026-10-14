@@ -3269,15 +3269,16 @@
   font-size: clamp(13px, 4vw, 26px);
   border-color: #ff263b;
 }
-/* RÉCOMPENSE : REMONTÉE */
+/* RÉCOMPENSE : ESPACE SOUS LES 10 CASES */
+
 #profil .luffy-loyalty-reward {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: -8px;
+  margin-top: 12px;
   margin-bottom: 0;
-  position: relative;
-  top: -9px;
+  position: static;
+  top: auto;
 }
 #profil .luffy-loyalty-gift-icon {
   flex-shrink: 0;
@@ -3297,17 +3298,18 @@
 #profil .luffy-loyalty-red {
   color: #ff1028;
 }
-/* PHRASE EXPLICATIVE AGRANDIE */
+/* PHRASE JUSTE SOUS LA RÉCOMPENSE */
+
 #profil .luffy-loyalty-description {
-  margin: -5px 0 0;
+  margin: 0;
   padding: 0;
   color: #fff;
   font-size: clamp(14px, 4vw, 19px);
   line-height: 1.2;
   white-space: normal;
   letter-spacing: 0;
-  position: relative;
-  top: -3px;
+  position: static;
+  top: auto;
 }
 /* ADAPTATION MOBILE */
 @media (max-width: 380px) {
