@@ -4458,6 +4458,45 @@ function submitOrder() {
 
 }
 
+  /* =========================
+   PROFIL TELEGRAM
+========================= */
+
+function chargerProfilTelegram() {
+  const nom = document.getElementById("luffy-name");
+  const pseudo = document.getElementById("luffy-username");
+
+  if (!nom || !pseudo) return;
+
+  const tg = window.Telegram?.WebApp;
+
+  if (!tg) {
+    pseudo.textContent = "Telegram indisponible";
+    return;
+  }
+
+  tg.ready();
+
+  const user = tg.initDataUnsafe?.user;
+
+  if (!user) {
+    pseudo.textContent = "Profil Telegram indisponible";
+    return;
+  }
+
+  nom.textContent =
+    [user.first_name, user.last_name]
+      .filter(Boolean)
+      .join(" ") || "Membre";
+
+  pseudo.textContent = user.username
+    ? "@" + user.username
+    : "Aucun @username défini";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  chargerProfilTelegram();
+});
 
 /* =========================
    DÉMARRAGE
