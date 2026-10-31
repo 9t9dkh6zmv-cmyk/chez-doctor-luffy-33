@@ -4659,10 +4659,25 @@ function submitOrder() {
       : "";
 
 
-  const telegram =
-    telegramElement
-      ? telegramElement.value.trim()
-      : "";
+  // IDENTITÉ TELEGRAM AUTOMATIQUE
+const tg = window.Telegram?.WebApp;
+const tgUser = tg?.initDataUnsafe?.user || {};
+
+const telegramId = tgUser.id
+  ? String(tgUser.id)
+  : "";
+
+const telegramName = [
+  tgUser.first_name,
+  tgUser.last_name
+].filter(Boolean).join(" ");
+
+const telegramUsername = tgUser.username
+  ? "@" + tgUser.username
+  : "";
+
+const telegram = telegramUsername ||
+  (telegramElement ? telegramElement.value.trim() : "");
 
 
   /* ADRESSE OBLIGATOIRE
@@ -4712,79 +4727,57 @@ function submitOrder() {
   });
 
 
-  /* =========================
-     ENVOI MAKE
-  ========================= */
+ /* =========================
+   ENVOI MAKE
+========================= */
 
-  fetch(
-    "https://hook.eu1.make.com/7hs6r7a8qmh99tq7c4avlpq7dkg82fcx",
-    {
+fetch(
+  "https://hook.eu1.make.com/7hs6r7a8qmh99tq7c4avlpq7dkg82fcx",
+  {
+    method: "POST",
 
-      method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
 
-      headers: {
-        "Content-Type": "application/json"
-      },
+    body: JSON.stringify({
+      produits: productsList,
+      total: total.toFixed(2) + " €",
 
-      body: JSON.stringify({
+      mode_recuperation:
+        deliveryMode === "delivery"
+          ? "Livraison"
+          : "Meet-Up",
 
-        produits:
-          productsList,
+      adresse:
+        deliveryMode === "delivery"
+          ? address
+          : "Meet-Up",
 
-        total:
-          total.toFixed(2) + " €",
+      horaire: orderTime || "Non renseigné",
+      telegram: telegram || "Non renseigné",
 
-        mode_recuperation:
-          deliveryMode === "delivery"
-            ? "Livraison"
-            : "Meet-Up",
+      telegram_user_id: telegramId,
+      telegram_prenom: tgUser.first_name || "",
+      telegram_nom: tgUser.last_name || "",
+      telegram_nom_complet: telegramName,
+      telegram_username: telegramUsername,
+      telegram_init_data: tg?.initData || ""
+    })
+  }
+)
+.then(function() {
+  alert("✅ COMMANDE ENVOYÉE !");
 
-        adresse:
-          deliveryMode === "delivery"
-            ? address
-            : "Meet-Up",
+  cart = [];
+  deliveryMode = "";
 
-        horaire:
-          orderTime ||
-          "Non renseigné",
-
-        telegram:
-          telegram ||
-          "Non renseigné"
-
-      })
-
-    }
-
-  )
-
-  .then(function() {
-
-    alert(
-      "✅ COMMANDE ENVOYÉE !"
-    );
-
-
-    cart = [];
-
-    deliveryMode = "";
-
-
-    saveCart();
-
-    renderCart();
-
-  })
-
-
-  .catch(function(error) {
-
-    console.error(error);
-
-
-    alert(
-      "❌ Erreur lors de l'envoi de la commande."
-    );
+  saveCart();
+  renderCart();
+})
+.catch(function(error) {
+  console.error(error);
+  alert("❌ Erreur lors de l'envoi de la commande."); 
 
   });
 
