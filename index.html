@@ -4299,18 +4299,18 @@ function submitOrder() {
       subtotal.toFixed(2) + "€\n";
   });
 
-  const message =
-    "📦 NOUVELLE COMMANDE - CHEZ DOCTOR LUFFY\n\n" +
-    "🛒 PRODUITS :\n" +
-    productsList + "\n" +
-    "💰 TOTAL : " + total.toFixed(2) + " €\n\n" +
-    "📍 MODE : " +
-    (deliveryMode === "delivery" ? "Livraison" : "Meet-Up") + "\n" +
-    "🏠 ADRESSE : " +
-    (deliveryMode === "delivery" ? address : "Meet-Up") + "\n" +
-    "⏰ HEURE : " + (orderTime || "Non renseigné") + "\n" +
-    "👤 CLIENT : " + (telegramName || "Non renseigné") + "\n" +
-    "📲 PSEUDO : " + (telegram || "Non renseigné");
+  
+const message =
+  "SELEM SALUT SHALOMMM 👋 COMMENT VA DOCTOR LUFFY ?\n\n" +
+  "🛒 PRODUITS :\n\n" +
+  productsList + "\n" +
+  "💰 TOTAL : " + total.toFixed(2) + " €\n\n" +
+  "📍 MODE : " +
+  (deliveryMode === "delivery" ? "Livraison" : "Meet-Up") + "\n" +
+  "🏠 ADRESSE : " +
+  (deliveryMode === "delivery" ? address : "Meet-Up") + "\n" +
+  "⏰ HEURE : " + (orderTime || "Non renseigné");
+
 
   const telegramLink =
     "https://t.me/chezluffy33?text=" +
