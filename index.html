@@ -4239,92 +4239,107 @@ function showSuccess() {
 }
 
 
+
 /* =========================
    VALIDATION COMMANDE
+   ENVOI DIRECT SUR TELEGRAM
 ========================= */
 
 function submitOrder() {
 
   if (cart.length === 0) {
-
     alert("Ton panier est vide.");
-
     return;
-
   }
-
-
-  /* CHOIX OBLIGATOIRE */
 
   if (!deliveryMode) {
-
-    alert(
-      "Choisis d'abord Meet-Up ou Livraison."
-    );
-
+    alert("Choisis d'abord Meet-Up ou Livraison.");
     return;
-
   }
 
+  const addressElement = document.getElementById('address');
+  const timeElement = document.getElementById('order-time');
+  const telegramElement = document.getElementById('telegram');
 
-  const addressElement =
-    document.getElementById('address');
+  const address = addressElement
+    ? addressElement.value.trim()
+    : "";
 
-  const timeElement =
-    document.getElementById('order-time');
+  const orderTime = timeElement
+    ? timeElement.value
+    : "";
 
-  const telegramElement =
-    document.getElementById('telegram');
+  const tg = window.Telegram?.WebApp;
+  const tgUser = tg?.initDataUnsafe?.user || {};
 
+  const telegramId = tgUser.id
+    ? String(tgUser.id)
+    : "";
 
-  const address =
-    addressElement
-      ? addressElement.value.trim()
-      : "";
+  const telegramName = [
+    tgUser.first_name,
+    tgUser.last_name
+  ].filter(Boolean).join(" ");
 
+  const telegramUsername = tgUser.username
+    ? "@" + tgUser.username
+    : "";
 
-  const orderTime =
-    timeElement
-      ? timeElement.value
-      : "";
+  const telegram = telegramUsername ||
+    (telegramElement ? telegramElement.value.trim() : "");
 
-
-  // IDENTITÉ TELEGRAM AUTOMATIQUE
-const tg = window.Telegram?.WebApp;
-const tgUser = tg?.initDataUnsafe?.user || {};
-
-const telegramId = tgUser.id
-  ? String(tgUser.id)
-  : "";
-
-const telegramName = [
-  tgUser.first_name,
-  tgUser.last_name
-].filter(Boolean).join(" ");
-
-const telegramUsername = tgUser.username
-  ? "@" + tgUser.username
-  : "";
-
-const telegram = telegramUsername ||
-  (telegramElement ? telegramElement.value.trim() : "");
-
-
-  /* ADRESSE OBLIGATOIRE
-     UNIQUEMENT LIVRAISON */
-
-  if (
-    deliveryMode === "delivery" &&
-    !address
-  ) {
-
-    alert(
-      "Entre ton adresse de livraison."
-    );
-
+  if (deliveryMode === "delivery" && !address) {
+    alert("Entre ton adresse de livraison.");
     return;
-
   }
+
+  /* PRODUITS */
+
+  let total = 0;
+  let productsList = "";
+
+  cart.forEach(function(item) {
+
+    const subtotal = item.price * item.count;
+    total += subtotal;
+
+    productsList +=
+      item.name + " " +
+      item.count + "x" +
+      item.quantity + " = " +
+      subtotal.toFixed(2) + "€\n";
+
+  });
+
+  /* MESSAGE TELEGRAM */
+
+  const message =
+    "📦 NOUVELLE COMMANDE - CHEZ DOCTOR LUFFY\n\n" +
+    "🛒 PRODUITS :\n" +
+    productsList + "\n" +
+    "💰 TOTAL : " + total.toFixed(2) + " €\n\n" +
+    "📍 MODE : " +
+    (deliveryMode === "delivery" ? "Livraison" : "Meet-Up") + "\n" +
+    "🏠 ADRESSE : " +
+    (deliveryMode === "delivery" ? address : "Meet-Up") + "\n" +
+    "⏰ HEURE : " + (orderTime || "Non renseigné") + "\n" +
+    "👤 CLIENT : " + (telegramName || "Non renseigné") + "\n" +
+    "📲 PSEUDO : " + (telegram || "Non renseigné");
+
+  /* OUVERTURE DE TON TELEGRAM */
+
+  const telegramLink =
+    "https://t.me/chezluffy33?text=" +
+    encodeURIComponent(message);
+
+  if (tg && typeof tg.openTelegramLink === "function") {
+    tg.openTelegramLink(telegramLink);
+  } else {
+    window.location.href = telegramLink;
+  }
+
+}
+
 
 
   /* =========================
