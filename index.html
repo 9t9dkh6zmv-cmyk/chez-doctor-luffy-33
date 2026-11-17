@@ -4240,6 +4240,7 @@ function showSuccess() {
 
 
 
+
 /* =========================
    VALIDATION COMMANDE
    ENVOI DIRECT SUR TELEGRAM
@@ -4261,20 +4262,11 @@ function submitOrder() {
   const timeElement = document.getElementById('order-time');
   const telegramElement = document.getElementById('telegram');
 
-  const address = addressElement
-    ? addressElement.value.trim()
-    : "";
-
-  const orderTime = timeElement
-    ? timeElement.value
-    : "";
+  const address = addressElement ? addressElement.value.trim() : "";
+  const orderTime = timeElement ? timeElement.value : "";
 
   const tg = window.Telegram?.WebApp;
   const tgUser = tg?.initDataUnsafe?.user || {};
-
-  const telegramId = tgUser.id
-    ? String(tgUser.id)
-    : "";
 
   const telegramName = [
     tgUser.first_name,
@@ -4293,13 +4285,10 @@ function submitOrder() {
     return;
   }
 
-  /* PRODUITS */
-
   let total = 0;
   let productsList = "";
 
   cart.forEach(function(item) {
-
     const subtotal = item.price * item.count;
     total += subtotal;
 
@@ -4308,10 +4297,7 @@ function submitOrder() {
       item.count + "x" +
       item.quantity + " = " +
       subtotal.toFixed(2) + "€\n";
-
   });
-
-  /* MESSAGE TELEGRAM */
 
   const message =
     "📦 NOUVELLE COMMANDE - CHEZ DOCTOR LUFFY\n\n" +
@@ -4326,8 +4312,6 @@ function submitOrder() {
     "👤 CLIENT : " + (telegramName || "Non renseigné") + "\n" +
     "📲 PSEUDO : " + (telegram || "Non renseigné");
 
-  /* OUVERTURE DE TON TELEGRAM */
-
   const telegramLink =
     "https://t.me/chezluffy33?text=" +
     encodeURIComponent(message);
@@ -4337,70 +4321,15 @@ function submitOrder() {
   } else {
     window.location.href = telegramLink;
   }
-
 }
 
- /* =========================
-   ENVOI MAKE
-========================= */
 
-fetch(
-  "https://hook.eu1.make.com/7hs6r7a8qmh99tq7c4avlpq7dkg82fcx",
-  {
-    method: "POST",
-
-    headers: {
-      "Content-Type": "application/json"
-    },
-
-    body: JSON.stringify({
-      produits: productsList,
-      total: total.toFixed(2) + " €",
-
-      mode_recuperation:
-        deliveryMode === "delivery"
-          ? "Livraison"
-          : "Meet-Up",
-
-      adresse:
-        deliveryMode === "delivery"
-          ? address
-          : "Meet-Up",
-
-      horaire: orderTime || "Non renseigné",
-      telegram: telegram || "Non renseigné",
-
-      telegram_user_id: telegramId,
-      telegram_prenom: tgUser.first_name || "",
-      telegram_nom: tgUser.last_name || "",
-      telegram_nom_complet: telegramName,
-      telegram_username: telegramUsername,
-      telegram_init_data: tg?.initData || ""
-    })
-  }
-)
-.then(function() {
-  alert("✅ COMMANDE ENVOYÉE !");
-
-  cart = [];
-  deliveryMode = "";
-
-  saveCart();
-  renderCart();
-})
-.catch(function(error) {
-  console.error(error);
-  alert("❌ Erreur lors de l'envoi de la commande."); 
-
-  });
-
-}
-
-  /* =========================
+/* =========================
    PROFIL TELEGRAM
 ========================= */
 
 function chargerProfilTelegram() {
+
   const nom = document.getElementById("luffy-name");
   const pseudo = document.getElementById("luffy-username");
 
@@ -4436,9 +4365,11 @@ document.addEventListener("DOMContentLoaded", function () {
   chargerProfilTelegram();
 });
 
+
 /* =========================
    DÉMARRAGE
 ========================= */
+
 
 document.addEventListener(
   'DOMContentLoaded',
