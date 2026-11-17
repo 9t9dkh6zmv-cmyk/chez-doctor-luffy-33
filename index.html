@@ -4340,38 +4340,6 @@ function submitOrder() {
 
 }
 
-
-
-  /* =========================
-     PRODUITS
-  ========================= */
-
-  let total = 0;
-
-  let productsList = "";
-
-
-  cart.forEach(function(item) {
-
-    const subtotal =
-      item.price * item.count;
-
-    total += subtotal;
-
-
-    productsList +=
-      item.name +
-      " " +
-      item.count +
-      "x" +
-      item.quantity +
-      " = " +
-      subtotal.toFixed(2) +
-      "€\n";
-
-  });
-
-
  /* =========================
    ENVOI MAKE
 ========================= */
